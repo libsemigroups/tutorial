@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{geometry}[a4paper, left=20mm, top=20mm]
+\usepackage{authblk}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{tikz}
+\tikzstyle{vertex}=[circle, draw=black, fill=black, inner sep=0pt,
+minimum size=4pt]
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=magenta,
+}
+
+\title{\texttt{Semigroups} --- Zero to Hero --- Worksheet}
+
+\author[1]{James Mitchell}
+\author[2]{Reinis Cirpons}
+\author[1]{Joseph Edwards}
+
+\affil[1]{University of St Andrews}
+\affil[2]{Nantes Université, École Centrale Nantes, CNRS, Inria,
+LS2N, UMR 6004, France}
+
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+This worksheet contains some exercises to be completed in \texttt{GAP} with the
+use of the \texttt{Semigroups} package as part of the GAP workshop session of
+NBSAN 40. The problems have been written in a deliberately terse way to
+encourage attendees to experiment with the package and explore its associated
+manual:
+\url{https://semigroups.github.io/Semigroups/doc/chap0_mj.html}.
+
+As well as inspecting the package manual, please also feel free to ask questions
+to James, Reinis or Joe!
+
+\begin{enumerate}
+  \item Let $J_n$ denote the Jones monoid of degree $n$, and
+    \[
+      \input{tikz/jones-element.tikz}
+    \]
+    \begin{enumerate}
+      \item How many elements does $J_{14}$ contain?
+      \item How many idempotent elements does $J_{14}$ contain?
+      \item How many idempotent elements does the Green's
+        $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
+      \item How many idempotent elements with $7$ in the domain does
+        the Green's $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
