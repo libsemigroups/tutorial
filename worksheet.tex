@@ -27,6 +27,12 @@ LS2N, UMR 6004, France}
 \begin{document}
 \maketitle
 
+If you've never used GAP before you might want to look at:
+
+\url{https://carpentries-incubator.github.io/gap-lesson/}
+
+before attempting any of the problems on this sheet.
+
 This worksheet contains some exercises to be completed in \texttt{GAP} with the
 use of the \texttt{Semigroups} package as part of the GAP workshop session of
 NBSAN 40. The problems have been written in a deliberately terse way to
@@ -36,6 +42,7 @@ manual:
 
 As well as inspecting the package manual, please also feel free to ask questions
 to James, Reinis or Joe!
+% TODO add Murray if Murray is going to be there too.
 
 \begin{enumerate}
   \item Let $J_n$ denote the Jones monoid of degree $n$, and
@@ -50,6 +57,82 @@ to James, Reinis or Joe!
       \item How many idempotent elements with $7$ in the domain does
         the Green's $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
     \end{enumerate}
-\end{enumerate}
 
+  \item
+    Recall that the commuting graph of a semigroup  $S$ is the graph with nodes
+    the elements of $S$ and an edge $(x, y)$ if $xy = yx$ holds.
+    Let $T_n$ be the full transformation monoid on $n \leq 5$ points. Show that
+    the clique numbers of the commuting graph of $T_n$ are $2 ^ {n - 1}$.
+
+  \item
+    Let $S$ be the semigroup defined by the presentation
+    \[
+      \langle a, b, c, d, e, f, g \mid abcd = aaaeaa, ef= dg\rangle.
+    \]
+    \begin{enumerate}
+      \item
+        Show that $S$ is infinite.
+      \item
+        Create a homomorphism from the free semigroup $\{a, b, c, d,
+        e, f, g\}^+$ to $S$.
+      \item
+        Partition the first $1000$ elements of $\{a, b, c, d, e, f, g\}^+$ so
+        that words belong to the same part if and only if they represent the
+        same element of $S$.
+    \end{enumerate}
+
+  \item
+    Is the semigroup defined by the presentation
+    \[
+      \langle x_2, \ldots, x_n\mid x_i^2 = (x_ix_j) ^3 =
+      (x_ix_jx_k)^4 = 1\quad i, j, k \text{ distinct}\rangle.
+    \]
+    the symmetric group?
+
+  \item
+    Determine which of the relations in the presentation are redundant and
+    which are not:
+    \begin{align*}
+      \langle a, b \mid &\
+      a^4=1,  b^2= b,
+      ba^3ba= a^2(ab)^2,  (ba^2)^2= (a^2b)^2 ,  (ba)^2a^2= aba^3b,
+      a(ab)^4= (ab)^4
+      \rangle
+    \end{align*}
+    What is the minimal set of the relations in this presentation
+    that define the same monoid?
+    % TODO add citation
+
+  \item
+    Let $S$ be the Catalan monoid of degree $3$.
+    \begin{enumerate}
+      \item
+        Draw the egg-box diagram of $S$.
+      \item
+        Draw the left and right Cayley graphs of $S$.
+      \item
+        Show that $S$ has two non-trivial non-universal non-Rees congruences.
+      \item
+        Show that the lattice of left and right congruences of $S$
+        are isomorphic.
+      \item
+        What are the maximal subsemigroups of $S$? Show that none of
+        the maximal subsemigroup is isomorphic to any of the others.
+    \end{enumerate}
+
+  \item
+    Let $S$ be the dual of the full transformation monoid on 5
+    points. Find a transformation representation of $S$ on $32$ points.
+    \begin{enumerate}
+      \item
+        Draw the egg-box diagram of $S$.
+      \item
+        Draw the left and right Cayley graphs of $S$.
+      \item
+        Show that $S$ has two non-trivial non-universal non-Rees congruences.
+      \item
+        Show that the lattice of left and right congruences of $S$
+        are isomorphic.
+    \end{enumerate}
+\end{enumerate}
 \end{document}
