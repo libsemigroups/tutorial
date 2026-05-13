@@ -14,13 +14,15 @@ GAP programming language, though we recommend the
 [GAP software carpentries lesson](https://carpentries-incubator.github.io/gap-lesson/index.html) to those interested
 in learning more about GAP.
 
-
-
 ### Installing GAP and `Semigroups`
 
 In this section we detail the installation of GAP and `Semigroups` on various platforms.
 Please follow the instructions in the section relevant to your platform to set up
 your system and then follow the [Common install steps](#common-install-steps) section.
+A newer and slightly simpler installation path is possbile via the Julia
+language, it is still experimental, but those interested can refer to the
+[EXPERIMENTAL Install using Julia](#experimental-install-using-julia)
+section instead.
 
 #### Windows
 
@@ -152,7 +154,7 @@ whatever base directory you are using.
    ```
    replacing the 8 in the `-j8` by the number of cores you want to use.
    If all goes well, make should finish with without errors and running
-   `./bin/gap.sh` gives the GAP prompt (you can quit from the GAP prompt by
+   `./gap` gives the GAP prompt (you can quit from the GAP prompt by
    typing `quit;`).
 6. We are not quite done yet, since some of the optional packages need to be
    compiled before they can be used. In order to do so run
@@ -160,19 +162,134 @@ whatever base directory you are using.
    cd pkg
    ../bin/BuildPackages.sh
    ```
-7. To test the package compilation, run `../bin/gap.sh` and within the GAP prompt write
+7. To test the package compilation, run `../gap` and within the GAP prompt write
    ```gap
    SetInfoLevel(InfoPackageLoading, 4);
    LoadPackage("Semigroups");
    ```
    If the package loads without errors, the compilation has likely been successful.
-8. Otherwise, `quit;` the GAP session and perform the following steps to
+8. Otherwise you may see an error similar to the following:
+   ```
+   #I  Semigroups: entering LoadPackage 
+   #I  Semigroups: PackageAvailabilityInfo for version 5.5.4
+   #I  Semigroups: the kernel module is not compiled, 
+   #I              the package cannot be loaded.
+   #I  Semigroups: PackageAvailabilityInfo: the AvailabilityTest function returned false
+   #I  Semigroups: PackageAvailabilityInfo: no installed version fits
+   #I  Semigroups: return from LoadPackage, package is not available
+   fail
+   ```
+   If this is the case then `quit;` the GAP session and perform the following steps to
    compile the `Semigroups` package manually
    ```bash
    cd semigroups
    ./configure
-   make -j8
+   make -j4
    ```
+   compilation of the semigroups package is quite memory intensive, and may get killed
+   if the computer runs out of memory. If so try compiling again setting a lower 
+   number of threads when running make, e.g. `make -j2` or even just `make`.
+9. To run GAP from an arbitrary folder on your computer you currently need to write
+   `~/gap-$GAP_VERSION/gap`. To avoid having to do this execute the following:
+   ```bash
+   mkdir -p ~/.local/bin
+   ln -s ~/gap-${GAP_VERSION}/gap ~/.local/bin/gap
+   ```
+   This will add the gap executable to the local executable bin. To make it available, we need to make sure
+   the `~/.local/bin` directory is in your `PATH`. On a Linux machine this can be done by
+   ```bash
+   echo 'if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]] then PATH="$HOME/.local/bin:$PATH"; fi' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+   On a Mac do this instead:
+   ```bash
+   echo 'if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]] then PATH="$HOME/.local/bin:$PATH"; fi' >> ~/.zshrc
+   source ~/.zshrc
+   ```
+   Test this works by typing `gap` in the terminal, if all went well it should open a GAP prompt.
+
+#### EXPERIMENTAL Install using Julia
+
+It has recently become possible to install GAP using the
+[Julia](https://julialang.org/) programming language. This installation path is
+currently experimental but can be much quicker than the method detailed in
+the [Common install steps](#common-install-steps) section.
+
+If you already installed GAP and `Semigroups` using the instructions from
+the section [Common install steps](#common-install-steps), then skip this
+section.
+
+For Windows users, it is still required to install `wsl` and run the following steps
+from the `ubuntu` subsystem, as detailed in the section [Windows](#windows).
+Linux and Windows users (in the `ubuntu` prompt) should then run
+```bash
+sudo apt-get update
+sudo apt-get install curl
+```
+and Mac users should run
+```bash
+brew update
+brew install curl
+```
+to install the required prerequisites.
+
+We follow the Julia install instructions from
+[the Julia website](https://julialang.org/downloads/).
+
+1. Install Julia by running
+   ```bash
+   curl -fsSL https://install.julialang.org | sh
+   ```
+   if you are on Linux or Windows (through the `ubuntu` prompt), run
+   ```bash
+   source ~/.bashrc
+   ```
+   on Mac run
+   ```bash
+   source ~/.zshrc
+   ```
+   you should now be able to run Julia by typing `julia` in the prompt.
+   Yo ucan exit the Julia prompt by typing `exit()`.
+2. Run `julia` to get a Julia prompt and run
+   ```julia
+   using Pkg; Pkg.add("GAP")
+   ```
+   this should install the [`GAP.jl`](https://github.com/oscar-system/GAP.jl)
+   Julia package.
+   If all went well, within the Julia prompt typing
+   ```julia
+   using GAP; GAP.prompt();`
+   ```
+   This should start a GAP prompt. In the GAP prompt type
+   ```gap
+   SetInfoLevel(InfoPackageLoading, 4);
+   LoadPackage("Semigroups");
+   ```
+   To check that the `Semigroups` package is available.
+   Exit the GAP prompt by typing `quit;`, which should 
+   return you to the Julia prompt.
+   Exit the Julia prompt too via `exit()`.
+3. We will now create a script which will allow us to start the gap prompt by
+   simply typing `gap` in the base shell. To do this first run
+   ```bash
+   mkdir -p ~/.local/bin
+   ```
+   Afterwards, if you are on a Linux machine, then run
+   ```bash
+   echo 'if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]] then PATH="$HOME/.local/bin:$PATH"; fi' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+   On a Mac do this instead:
+   ```bash
+   echo 'if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]] then PATH="$HOME/.local/bin:$PATH"; fi' >> ~/.zshrc
+   source ~/.zshrc
+   ```
+4. Finally, open `julia` and within the Julia prompt type
+   ```julia
+   using GAP; GAP.Setup.create_gap_sh("~/.local/bin/", "gap");
+   ```
+   Then `exit()` the Julia prompt. You should now be able to start a GAP
+   session by typing `gap` in your prompt.
 
 ### The GAP session
 
