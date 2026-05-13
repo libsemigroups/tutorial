@@ -1,0 +1,64 @@
+site_name: The Semigroups package - Zero to ε
+
+nav:
+  - Home: index.md
+  - Semigroups:
+    - gap/index.md
+    - Installation: gap/install.md
+    - 'The GAP Session': gap/session.md
+    - 'Worksheet 1: Analysis of finite semigroups': gap/worksheet1.md
+  - libsemigroups_pybind11: worksheet_libsemigroups_pybind11.md
+  - minizinc: worksheet_minizinc.md
+
+theme:
+  name:
+    material
+  palette:
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.path
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - toc.integrate
+    - content.code.copy
+    - content.code.select
+
+plugins:
+  # - optimize
+  # - privacy
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+copyright: Copyright &copy; 2026 James Mitchell, Reinis Cirpons and Joe Edwards
+
+extra:
+  social:
+    - name: The Semigroups package
+      icon: fontawesome/brands/github
+      link: https://www.github.com/semigroups/Semigroups
+    - name: The libsemigroups_pybind11 project
+      icon: fontawesome/brands/github
+      link: https://www.github.com/libsemigroups/libsemigroups_pybind11
