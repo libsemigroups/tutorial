@@ -1,4 +1,4 @@
-# Solution to problem 2
+# Solution to problem 
 
 S := FullTransformationMonoid(2);
 D := Digraph(Elements(S), {x, y} -> x * y = y * x);

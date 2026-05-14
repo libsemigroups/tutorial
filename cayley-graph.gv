@@ -1,0 +1,30 @@
+digraph WordGraph {
+
+subgraph cluster_legend {
+  label="legend"
+  node [shape=plaintext]
+
+  cluster_legend_head  [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+<tr><td align="right" port="port0">a&nbsp;</td></tr>
+<tr><td align="right" port="port1">b&nbsp;</td></tr>
+</table>>]
+  cluster_legend_tail  [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+<tr><td align="right" port="port0">&nbsp;</td></tr>
+<tr><td align="right" port="port1">&nbsp;</td></tr>
+</table>>]
+  cluster_legend_head:port0:e -> cluster_legend_tail:port0:w  [color="#00ff00", constraint="false"]
+  cluster_legend_head:port1:e -> cluster_legend_tail:port1:w  [color="#ff00ff", constraint="false"]
+}
+  0  [label="a", shape="box"]
+  1  [label="b", shape="box"]
+  2  [label="ab", shape="box"]
+  3  [label="ba", shape="box"]
+  0 -> 0  [color="#00ff00"]
+  0 -> 2  [color="#ff00ff"]
+  1 -> 3  [color="#00ff00"]
+  1 -> 1  [color="#ff00ff"]
+  2 -> 3  [color="#00ff00"]
+  2 -> 2  [color="#ff00ff"]
+  3 -> 3  [color="#00ff00"]
+  3 -> 3  [color="#ff00ff"]
+}

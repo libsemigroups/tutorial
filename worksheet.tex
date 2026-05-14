@@ -12,6 +12,7 @@ minimum size=4pt]
   colorlinks=true,
   urlcolor=magenta,
 }
+\usepackage{mathrsfs}
 
 \title{\texttt{Semigroups} --- Zero to Hero --- Worksheet}
 
@@ -60,13 +61,13 @@ to James, Reinis or Joe!
       \item How many elements does $J_{14}$ contain?
       \item How many idempotent elements does $J_{14}$ contain?
       \item How many idempotent elements does the Green's
-        $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
+        $\mathscr{D}$-class of $x$ in $J_{14}$ contain?
       \item How many idempotent elements $e$, for which $7$ is in the
-        domain of $e$, does the Green's $\mathcal{D}$-class of $x$ in
+        domain of $e$, does the Green's $\mathscr{D}$-class of $x$ in
         $J_{14}$ contain?
       \item How many irreducible idempotent elements $\hat{e}$, for
         which $7$ is in the domain of $\hat{e}$, does the Green's
-        $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
+        $\mathscr{D}$-class of $x$ in $J_{14}$ contain?
     \end{enumerate}
 
   \item
@@ -78,7 +79,7 @@ to James, Reinis or Joe!
   \item
     Let $S$ be the semigroup defined by the presentation
     \[
-      \langle a, b, c, d, e, f, g \mid abcd = aaaeaa, ef= dg\rangle.
+      \langle a, b, c, d, e, f, g \mid abcd = a^3ea^2, ef= dg\rangle.
     \]
     \begin{enumerate}
       \item
@@ -93,12 +94,12 @@ to James, Reinis or Joe!
     \end{enumerate}
 
   \item
-    Is the semigroup defined by the presentation
+    Is the monoid defined by the presentation
     \[
       \langle x_2, \ldots, x_n\mid x_i^2 = (x_ix_j) ^3 =
-      (x_ix_jx_k)^4 = 1\quad i, j, k \text{ distinct}\rangle.
+      (x_ix_jx_k)^4 = 1\quad i, j, k \text{ distinct}\rangle
     \]
-    the symmetric group?
+    the symmetric group for $n\geq 2$?
 
   \item
     Determine which of the relations in the presentation are redundant and
@@ -108,10 +109,10 @@ to James, Reinis or Joe!
       a^4=1,  b^2= b,
       ba^3ba= a^2(ab)^2,  (ba^2)^2= (a^2b)^2 ,  (ba)^2a^2= aba^3b,
       a(ab)^4= (ab)^4
-      \rangle
+      \rangle.
     \end{align*}
-    What is the minimal set of the relations in this presentation
-    that define the same monoid?
+    What is the minimal set of the relations in this presentation that
+    define the same monoid?
     % TODO add citation
 
   \item
@@ -147,3 +148,5 @@ to James, Reinis or Joe!
     \end{enumerate}
 \end{enumerate}
 \end{document}
+
+% TODO add the atlas example
