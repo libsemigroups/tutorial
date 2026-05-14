@@ -7,12 +7,16 @@ nav:
     - Installation: gap/install.md
     - 'The GAP Session': gap/session.md
     - 'Worksheet 1: Analysis of finite semigroups': gap/worksheet1.md
-  - libsemigroups_pybind11: worksheet_libsemigroups_pybind11.md
-  - minizinc: worksheet_minizinc.md
+  - libsemigroups_pybind11:
+    - libsemigroups_pybind11/index.md
+  - minizinc:
+    - minizinc/index.md
 
 theme:
   name:
     material
+  logo: images/logo.svg
+  favicon: images/favicon.png
   palette:
     - scheme: default
       primary: blue

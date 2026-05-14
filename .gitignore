@@ -315,3 +315,4 @@ TSWLatexianTemp*
 *.null-ls*
 
 .cache/
+.DS_Store
