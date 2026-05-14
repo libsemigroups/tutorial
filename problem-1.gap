@@ -2,18 +2,33 @@
 x := Bipartition([
     [1, 4], [2, 3], [5, -3], [6, 7], [8, -6], [9, -13], [10, 13], [11, 12],
     [14, -14], [-1, -2], [-4, -5], [-7, -12], [-8, -9], [-10, -11]
-]);
+]);;
 
 # a)
-J_14 := JonesMonoid(14);
-Size(J_14);  # returns 2674440
+Irreducibles := IrreducibleComponentsOfBipartition(x);;
+Size(Irreducibles);  # returns 3
 
 # b)
-Size(Idempotents(J_14));  # returns 1083028
+J_14 := JonesMonoid(14);;
+Size(J_14);  # returns 2674440
 
 # c)
-D_x := GreensDClassOfElement(J_14, x);
-Size(Idempotents(D_x));  # returns 226979
+JonesIdempotents := Idempotents(J_14);;
+Size(JonesIdempotents);  # returns 1083028
+
+# # c) much slower alternative
+# Number(J_14, IsIdempotent);  # returns 1083028
 
 # d)
-Number(Idempotents(D_x), s -> 7 in DomainOfBipartition(s));  # returns 35733
+D_x               := GreensDClassOfElement(J_14, x);;
+DClassIdempotents := Idempotents(D_x);;
+Size(DClassIdempotents);  # returns 226979
+
+# e)
+Number(DClassIdempotents, s -> 7 in DomainOfBipartition(s));  # returns 35733
+
+# f)
+Number(
+    DClassIdempotents,
+    s -> (7 in DomainOfBipartition(s)) and IsIrreducibleBipartition(s)
+);  # returns 6
