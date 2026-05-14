@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{geometry}[a4paper, left=20mm, top=20mm]
+\usepackage{microtype}
 \usepackage{authblk}
 \usepackage{enumitem}
 \usepackage{amsmath}
@@ -49,13 +50,23 @@ to James, Reinis or Joe!
     \[
       \input{tikz/jones-element.tikz}
     \]
+    be a bipartition of degree 14.
     \begin{enumerate}
+      \item Find a collection of bipartitions $\{x_1, x_2, \dots,
+        x_j\}$ such that the tensor product $x_1 \otimes x_2 \otimes
+        \dots \otimes x_j$ is equal to $x$. What is the largest
+        possible value of $j$? For the definition of the tensor product, see the
+        documentation of the function \texttt{TensorBipartition}.
       \item How many elements does $J_{14}$ contain?
       \item How many idempotent elements does $J_{14}$ contain?
       \item How many idempotent elements does the Green's
         $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
-      \item How many idempotent elements with $7$ in the domain does
-        the Green's $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
+      \item How many idempotent elements $e$, for which $7$ is in the
+        domain of $e$, does the Green's $\mathcal{D}$-class of $x$ in
+        $J_{14}$ contain?
+      \item How many irreducible idempotent elements $\hat{e}$, for
+        which $7$ is in the domain of $\hat{e}$, does the Green's
+        $\mathcal{D}$-class of $x$ in $J_{14}$ contain?
     \end{enumerate}
 
   \item

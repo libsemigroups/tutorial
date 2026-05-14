@@ -53,6 +53,4 @@
   \draw (8) to (6');
   \draw (9) to (13');
   \draw (14) to (14');
-
-  \node at (15, 0) {.};
 \end{tikzpicture}
