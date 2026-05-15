@@ -4,13 +4,15 @@ nav:
   - Home: index.md
   - Semigroups in GAP:
       - gap/index.md
-      - Installation: gap/install.md
+      - Installation GAP: gap/install.md
       - "The GAP Session": gap/session.md
       - "Worksheet 1: Analysis of finite semigroups": gap/worksheet1.md
-      - "Worksheet 2: Analysis of finitely presented semigroups": gap/worksheet2.md
-  - libsemigroups_pybind11:
-      - libsemigroups_pybind11/index.md
-      - Installation: libsemigroups_pybind11/install.md
+      - "Finitely presented semigroups GAP": gap/fp.md
+  - Semigroups in Python:
+      - py/index.md
+      - "Installation Python": py/install.md
+      - "First steps Python": py/first-steps.md
+      - "Finitely presented semigroups Python": py/fp.md
   - minizinc:
       - minizinc/index.md
 

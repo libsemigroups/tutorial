@@ -1,4 +1,4 @@
-# Installation
+# Installation in python
 
 `libsemigroups_pybind11` is compatible with Python versions TODO
 

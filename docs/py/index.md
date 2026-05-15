@@ -1,4 +1,4 @@
-# `libsemigroups_pybind11` in Python
+# Semigroups in Python
 
 <!-- TODO links-->
 
@@ -24,3 +24,4 @@ This part of this tutorial consists of:
 
 - [Installing libsemigroups_pybind11](install.md)
 - [First steps](first-steps.md)
+- [Finitely presented semigroups and monoids](fp.md)
