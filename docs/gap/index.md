@@ -1,4 +1,4 @@
-# Computational semigroup theory with the `Semigroups` package in GAP
+# GAP: Computational semigroup theory with the `Semigroups` package
 
 ## Introduction
 
