@@ -9,7 +9,7 @@ in learning more about GAP itself, see also the
 ## The GAP prompt
 
 After installing GAP and the `Semigroups` package as described in the
-[Installation](../install) section, you should be able to start GAP
+[Installation](install.md) section, you should be able to start GAP
 from your terminal simply by typing `gap`++enter++[^1]. If GAP has been installed correctly,
 you should see a the GAP banner followed by the _GAP prompt_ `gap> ` similar to
 the following:
@@ -796,7 +796,7 @@ Note that with the `#!gap break;` statements, only a single counterexample is fo
 the search is stopped early.
 
 The `Semigroups` package offers a simpler way of checking if a multiplication table
-defines a semigroup, which we will cover in [Worksheet 1](../worksheet1).
+defines a semigroup, which we will cover in [Worksheet 1](worksheet1.md).
 
 ### Defining functions
 
