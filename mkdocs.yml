@@ -3,26 +3,25 @@ site_name: The Semigroups package - Zero to ε
 nav:
   - Home: index.md
   - Semigroups:
-    - gap/index.md
-    - Installation: gap/install.md
-    - 'The GAP Session': gap/session.md
-    - 'Worksheet 1: Analysis of finite semigroups': gap/worksheet1.md
-    - 'Worksheet 2: Analysis of finitely presented semigroups': gap/worksheet2.md
+      - gap/index.md
+      - Installation: gap/install.md
+      - "The GAP Session": gap/session.md
+      - "Worksheet 1: Analysis of finite semigroups": gap/worksheet1.md
+      - "Worksheet 2: Analysis of finitely presented semigroups": gap/worksheet2.md
   - libsemigroups_pybind11:
-    - libsemigroups_pybind11/index.md
+      - libsemigroups_pybind11/index.md
   - minizinc:
-    - minizinc/index.md
+      - minizinc/index.md
 
 theme:
-  name:
-    material
+  name: material
   logo: images/logo.svg
   favicon: images/favicon.png
   palette:
     - scheme: default
       primary: blue
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: indigo
