@@ -49,6 +49,7 @@ plugins:
   - search
 
 markdown_extensions:
+  - md_in_html
   - footnotes
   - admonition
   - pymdownx.details

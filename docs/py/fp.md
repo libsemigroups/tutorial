@@ -188,6 +188,19 @@ tc.finished()  # returns True, so we know p defined a finite monoid
 tc.number_of_classes() # returns 7
 ```
 
+A picture of the right Cayley graph can be produced from `tc` in the example
+above by doing:
+
+```python
+word_graph.dot(tc.word_graph()).view()
+```
+
+which produces:
+
+<figure markdown="span">
+	![Right Cayley graph produced by Todd-Coxeter](todd-coxeter-graph.png)
+</figure>
+
 !!! tip
 
     If you know that a presentation defines a finite semigroup or monoid and it
@@ -199,10 +212,8 @@ tc.number_of_classes() # returns 7
 The algorithm in `libsemigroups_pybind11` implemented in the class
 [KnuthBendix](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/knuth-bendix/index.html)
 can (sometimes!) show that a semigroup or monoid defined by a presentation is
-finite or infinite.
-It's also a
-bad idea to try to run the algorithm until it ends, since it can sometimes be
-slow, or run forever.
+finite or infinite. It's also a bad idea to try to run the algorithm until it
+ends, since it can sometimes be slow, or run forever.
 [KnuthBendix](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/knuth-bendix/index.html) objects also represent congruences.
 
 ```python
@@ -251,4 +262,111 @@ kb.number_of_classes()  # returns +∞
 
 ## Non-isomorphism
 
-In this section we show how to demonstrate that two monoids defined by presentations are not isomorphic.
+In this section we show how to demonstrate that two monoids defined by
+presentations are not isomorphic.
+
+```python
+from libsemigroups_pybind11 import congruence_kind, ToddCoxeter
+from libsemigroups_pybind11.presentation import examples
+p = examples.symmetric_inverse_monoid_Shu60(4)
+tc = ToddCoxeter(congruence_kind.twosided, p)
+tc.number_of_classes() # returns 209
+```
+
+Let's check if the monoid defined by all but the last relation `[[0, 3, 0, 3,
+0], [0, 3, 0, 3]]` in the presentation `p` defines the symmetric inverse monoid
+on 4 points also. One way of doing this is to just remove the relation, and
+check if the presentation defines a monoid of the same size. This sometimes
+works, and it does here:
+
+```python
+from libsemigroups_pybind11 import congruence_kind, ToddCoxeter
+from libsemigroups_pybind11.presentation import examples
+p = examples.symmetric_inverse_monoid_Shu60(4)[:-2]
+tc = ToddCoxeter(congruence_kind.twosided, p)
+tc.number_of_classes() # returns 384
+```
+
+so the last relation is not redundant!
+
+Let's try again with the second to last relation `[2, 3, 2, 0],
+ [0, 2, 3, 2]`
+
+```python
+from libsemigroups_pybind11 import congruence_kind, ToddCoxeter
+from libsemigroups_pybind11.presentation import examples
+p = examples.symmetric_inverse_monoid_Shu60(4)
+p.rules = p.rules[:-4] + p.rules[-2:]
+tc = ToddCoxeter(congruence_kind.twosided, p)
+tc.number_of_classes() # returns 209
+```
+
+So the second to last relation is redundant. Let's try again with the relation
+`[3, 0, 3, 0], [0, 3, 0, 3]` which is `p.rules[18], p.rules[19]`:
+
+```python
+from libsemigroups_pybind11 import congruence_kind, ToddCoxeter
+from libsemigroups_pybind11.presentation import examples
+p = examples.symmetric_inverse_monoid_Shu60(4)
+p.rules = p.rules[:18] + p.rules[20:]
+tc = ToddCoxeter(congruence_kind.twosided, p)
+tc.number_of_classes() # returns +∞
+```
+
+So `[3, 0, 3, 0], [0, 3, 0, 3]` is also not redundant. Let's try again with the
+first rule `[0, 0], []`.
+
+```python
+from libsemigroups_pybind11 import congruence_kind, ToddCoxeter
+from libsemigroups_pybind11.presentation import examples
+from datetime import timedelta
+p = examples.symmetric_inverse_monoid_Shu60(4)
+p.rules = p.rules[2:]
+tc = ToddCoxeter(congruence_kind.twosided, p)
+tc.run_for(timedelta(seconds=4))
+tc.finished()  # False
+tc.number_of_nodes_active()  # returns 2330320 on my computer
+```
+
+So this is inconclusive. Maybe it's infinite and Todd-Coxeter can't answer this
+question for us, so let's try Knuth-Bendix:
+
+```python
+from libsemigroups_pybind11 import congruence_kind, KnuthBendix
+from libsemigroups_pybind11.presentation import examples
+from datetime import timedelta
+p = examples.symmetric_inverse_monoid_Shu60(4)
+p.rules = p.rules[2:]
+kb = KnuthBendix(congruence_kind.twosided, p)
+kb.run_for(timedelta(seconds=4))
+kb.finished()  # False
+kb.number_of_active_rules()  # returns 14699 on my computer
+```
+
+So this is inconclusive too, what do? The [low-index congruence
+algorithm](https://pubs.ams.org/journals/mcom/0000-000-00/S0025-5718-2025-04136-X)
+(similar to Sims' low index subgroup algorithm) can compute the numbers of
+left/right, and 2-sided congruences on a finitely presented semigroup,
+regardless of whether or not the semigroup is finite.
+This algorithm is implemented in the
+[Sims1](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/low-index/classes/sims1.html) class.
+The following computes
+the number of right congruences with up to 5 classes on the monoid defined by
+the presentation `p`:
+
+```python
+from libsemigroups_pybind11 import Sims1
+from libsemigroups_pybind11.presentation import examples
+from datetime import timedelta
+p = examples.symmetric_inverse_monoid_Shu60(4)
+S = Sims1(p)
+S.number_of_congruences(5) # returns 18
+p.rules = p.rules[2:]
+S.presentation(p)
+S.number_of_congruences(5) # returns 26
+```
+
+This says that the symmetric inverse monoid has 18 right congruences with up to
+5 classes, but the monoid defined by the presentation with the first relation
+removed `p.rules[2:]` has 26 such congruences. So, these monoids are not
+isomorphic.
