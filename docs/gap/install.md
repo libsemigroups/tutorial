@@ -8,9 +8,14 @@ We present two options for doing so:
 - [Option 2: Experimental install](#option-2-experimental-install-using-julia): A recent installation path using the Julia
   programming language. It is slightly quicker than Option 1, but may not work on all systems.
 
+Either installation option will make use of the terminal and Unix shell.
+You should be able to follow the steps even without much familiarity with these,
+but we recommend the [Unix shell](https://swcarpentry.github.io/shell-novice/) software carpentries
+lesson to those interested in learning more.
+
 !!! warning
     Please do not install GAP using your systems package manager
-    e.g. do **not** install it via `apt-get install gap` or `brew install gap`. The version of GAP packaged by
+    e.g. do **not** install it via `#!bash apt-get install gap` or `#!bash brew install gap`. The version of GAP packaged by
     your operating system and installed by these tools can be several years out of date and will likely
     cause issues further down the line.
 
@@ -22,7 +27,6 @@ We present two options for doing so:
     ```bash
     brew remove gap
     ```
-    
 
 ## Option 1: Standard install
 
@@ -54,49 +58,49 @@ Please select the appropriate tab for your operating system below and follow the
        ```powershell
        wsl --install
        ```
-       Note that using `Ctrl+V` to paste in the terminal might not work, instead you
+       Note that using ++ctrl+v++ to paste in the terminal might not work, instead you
        should simply right-click in the window to paste.
        This step enables the feature that will allow us to run Linux as a subsystem
        of Windows. By default it will install the Ubuntu operating system.
        You may need to restart your computer after this step.
     5. Once this is all done, open a terminal. This can be either `powershell` 
        or `windows-terminal` or `cmd` (type either one in the search bar).
-    6. Within the terminal run the command `ubuntu`.
+    6. Within the terminal run the command `#!powershell ubuntu`.
     7. If all went well, you should be prompted to create a username and password 
        for the default Linux user.
     8. Once this is done, the terminal prompt should read something like 
-       `user@computer-name:~$`.
-    9. In the `ubuntu` terminal, update the package index and install some necessary prerequisite packages:
+       `#!bash user@computer-name:~$`.
+    9. In the `#!powershell ubuntu` terminal, update the package index and install some necessary prerequisite packages:
        ```bash
        sudo apt-get update
        sudo apt-get install curl build-essential autoconf libtool pkg-config graphviz libgmp-dev libreadline-dev zlib1g-dev
        ```
 
     If all went well, you now have an Ubuntu Linux subsystem available via the
-    `ubuntu` command. To install GAP and `Semigroups`, execute the `ubuntu`
-    command in `Powershell` and then proceed as described in the
+    `#!powershell ubuntu` command. To install GAP and `Semigroups`, execute the `#!powershell ubuntu`
+    command in your terminal and then proceed as described in the
     [Common installation steps](#common-installation-steps) section, following the instructions for a Linux system.
 
     !!! failure "Troubleshooting"
-        If the `wsl --install` command has been running for a long
-        time and produces no output, kill it by pressing `CTRL+C` in the terminal.
+        If the `#!powershell wsl --install` command has been running for a long
+        time and produces no output, kill it by pressing ++ctrl+c++ in the terminal.
 
-        1. Check if `wsl` is enabled by running the
+        1. Check if `#!powershell wsl` is enabled by running the
            ```powershell
            Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
            ```
            command in `powershell`.
-        2. If the output of the above command indicates that `wsl` is disabled, then
+        2. If the output of the above command indicates that `#!powershell wsl` is disabled, then
            run 
            ```powershell
            Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
            ```
-           and re-attempt the `wsl --install` step.
+           and re-attempt the `#!powershell wsl --install` step.
 
 === "Mac"
 
     For a Mac we need to install some prerequisite packages which we do via
-    the `Homebrew` package manager. In order to do this we first install `Homebrew`
+    the Homebrew package manager. In order to do this we first install Homebrew
     following the steps outlined on their [website](https://brew.sh/).
        
     1. Open the Terminal app. It should be under Utilities. Alternatively you can
@@ -105,12 +109,12 @@ Please select the appropriate tab for your operating system below and follow the
        ```bash
        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
        ```
-       To test the installation, try running `brew -v`.
+       To test the installation, try running `#!bash brew -v`.
     3. Install the Apple developer tools via
        ```bash
        xcode-select --install
        ```
-    4. Now use `brew` to install the necessary prerequisites:
+    4. Now use `#!bash brew` to install the necessary prerequisites:
        ```bash
        brew update
        brew install curl autoconf libtool pkg-config graphviz gmp readline zlib
@@ -122,7 +126,7 @@ Please select the appropriate tab for your operating system below and follow the
 
     In this section we assume that you are using the Ubuntu Linux distribution. If
     your distribution differs then you may need to modify the package manager used
-    (e.g. on Fedora this may involve changing `apt` to `dnf` and modifying the
+    (e.g. on Fedora this may involve changing `#!bash apt` to `#!bash dnf` and modifying the
     package names).
 
     1. Update the package index and install some necessary prerequisite packages:
@@ -145,9 +149,10 @@ We will install GAP in the "home" directory. You are free to use any other
 directory, if you do so, substitute the `~` in the following commands with
 whatever base directory you are using.
 
-2. Run `cd ~`. This will ensure you are in the home directory, where the rest of the install will occur.
-3. Download the current GAP distribution, at time of writing it is 4.15.1. If this has changed, then
-   substitute the appropriate version number in the `export` command below:
+1. Type `#!bash cd ~`++enter++ in your terminal. This will ensure you are in the home
+   directory, where the rest of the install will occur.
+2. Download the current GAP distribution, at time of writing it is 4.15.1. If this has changed, then
+   substitute the appropriate version number in the `#!bash export` command below:
    ```bash
    export GAP_VERSION=4.15.1
    curl -L "https://github.com/gap-system/gap/releases/download/v${GAP_VERSION}/gap-${GAP_VERSION}.tar.gz" > gap.tar.gz
@@ -159,15 +164,16 @@ whatever base directory you are using.
      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
    100  482M  100  482M    0     0  1823k      0  0:04:31  0:04:31 --:--:-- 2105k
    ```
-   and when using the `ls` command to list files in the current directory, you should see a file called `gap.tar.gz`.
+   and when using the `#!bash ls`++enter++ command to list files in the current
+   directory, you should see a file called `gap.tar.gz`.
 
-4. Unpack the archive:
+3. Unpack the archive:
    ```bash
    tar -xvzf gap.tar.gz
    ```
-   if all went well the `ls` command should now reveal a new folder called `gap-4.15.1` (or whatever the relevant version is).
-   You can now `rm gap.tar.gz` to remove the archive. 
-5. Change into the gap directory and run the configure and make scripts:
+   if all went well the `#!bash ls` command should now reveal a new folder called `gap-4.15.1` (or whatever the relevant version is).
+   You can now type `#!bash rm gap.tar.gz`++enter++ to remove the archive. 
+4. Change into the gap directory and run the configure and make scripts:
    ```bash
    cd gap-${GAP_VERSION}
    ./configure
@@ -175,22 +181,23 @@ whatever base directory you are using.
    ```
    replacing the 8 in the `-j8` by the number of cores you want to use.
    If all goes well, make should finish with without errors and running
-   `./gap` gives the GAP prompt (you can quit from the GAP prompt by
-   typing `quit;`).
-6. We are not quite done yet, since some of the optional packages need to be
+   `#!bash ./gap`++enter++ gives the GAP prompt (you can quit from the GAP prompt by
+   typing `#!gap quit;`++enter++).
+5. We are not quite done yet, since some of the optional packages need to be
    compiled before they can be used. In order to do so run
    ```bash
    cd pkg
    ../bin/BuildPackages.sh
    ```
-7. To test the package compilation, run `../gap` and within the GAP prompt write
+6. To test the package compilation, type `#!bash ../gap`++enter++ to open a GAP
+   prompt and within the GAP prompt write
    ```gap
    SetInfoLevel(InfoPackageLoading, 4);
    LoadPackage("Semigroups");
    ```
    If the package loads without errors, the compilation has likely been successful.
-8. Otherwise you may see an error similar to the following:
-   ```
+7. Otherwise you may see an error similar to the following:
+   ```gap-repl
    #I  Semigroups: entering LoadPackage 
    #I  Semigroups: PackageAvailabilityInfo for version 5.5.4
    #I  Semigroups: the kernel module is not compiled, 
@@ -200,8 +207,8 @@ whatever base directory you are using.
    #I  Semigroups: return from LoadPackage, package is not available
    fail
    ```
-   If this is the case then `quit;` the GAP session and perform the following steps to
-   compile the `Semigroups` package manually
+   If this is the case then type `#!gap quit;`++enter++ in the GAP session and perform the following steps to
+   compile the `Semigroups` package manually:
    ```bash
    cd semigroups
    ./configure
@@ -209,9 +216,9 @@ whatever base directory you are using.
    ```
    compilation of the semigroups package is quite memory intensive, and may get killed
    if the computer runs out of memory. If so try compiling again setting a lower 
-   number of threads when running make, e.g. `make -j2` or even just `make`.
-9. To run GAP from an arbitrary folder on your computer you currently need to write
-   `~/gap-$GAP_VERSION/gap`. To avoid having to do this execute the following:
+   number of threads when running make, e.g. `#!bash make -j2` or even just `#!bash make`.
+8. To run GAP from an arbitrary folder on your computer you currently need to write
+   `#!bash ~/gap-$GAP_VERSION/gap`++enter++. To avoid having to do this execute the following:
    ```bash
    mkdir -p ~/.local/bin
    ln -s ~/gap-${GAP_VERSION}/gap ~/.local/bin/gap
@@ -227,10 +234,10 @@ whatever base directory you are using.
    echo 'if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]] then PATH="$HOME/.local/bin:$PATH"; fi' >> ~/.zshrc
    source ~/.zshrc
    ```
-   Test this works by typing `gap` in the terminal, if all went well it should open a GAP prompt.
+   Test this works by typing `#!bash gap`++enter++ in the terminal, if all went well it should open a GAP prompt.
 
-If all went well you should now be able to type `gap` in your terminal, which should give you a GAP prompt,
-and running `LoadPackage("Semigroups");` in the GAP prompt should successfully load the `semigroups` package.
+If all went well you should now be able to type `#!bash gap`++enter++ in your terminal, which should give you a GAP prompt,
+and running `#!gap LoadPackage("Semigroups");` in the GAP prompt should successfully load the `Semigroups` package.
 
 ## Option 2: Experimental install using Julia
 
@@ -247,10 +254,10 @@ If you already installed GAP and `Semigroups` using the instructions from
 the section [Option 1: Standard install](#option-1-standard-install), then skip this
 section.
 
-For Windows users, it is still required to install `wsl` and run the following steps
-from the `ubuntu` subsystem, as detailed in the [Windows](#__tabbed_1_1) tab of the
+For Windows users, it is still required to install `#!powershell wsl` and run the following steps
+from the `#!powershell ubuntu` subsystem, as detailed in the [Windows](#__tabbed_1_1) tab of the
 [System based prerequisites](#system-based-prerequisites) section.
-Linux and Windows users (in the `ubuntu` prompt) should then run
+Linux and Windows users (in the `#!powershell ubuntu` prompt) should then run
 ```bash
 sudo apt-get update
 sudo apt-get install curl
@@ -269,7 +276,7 @@ We follow the Julia install instructions from
    ```bash
    curl -fsSL https://install.julialang.org | sh
    ```
-   if you are on Linux or Windows (through the `ubuntu` prompt), run
+   if you are on Linux or Windows (through the `#!powershell ubuntu` prompt), run
    ```bash
    source ~/.bashrc
    ```
@@ -277,9 +284,9 @@ We follow the Julia install instructions from
    ```bash
    source ~/.zshrc
    ```
-   you should now be able to run Julia by typing `julia` in the prompt.
-   Yo ucan exit the Julia prompt by typing `exit()`.
-2. Run `julia` to get a Julia prompt and run
+   you should now be able to run Julia by typing `#!bash julia`++enter++ in the prompt.
+   Yo ucan exit the Julia prompt by typing `#!julia exit()`++enter++.
+2. Run `#!bash julia`++enter++ to get a Julia prompt and run
    ```julia
    using Pkg; Pkg.add("GAP")
    ```
@@ -295,11 +302,11 @@ We follow the Julia install instructions from
    LoadPackage("Semigroups");
    ```
    To check that the `Semigroups` package is available.
-   Exit the GAP prompt by typing `quit;`, which should 
+   Exit the GAP prompt by typing `#!gap quit;`++enter++, which should 
    return you to the Julia prompt.
-   Exit the Julia prompt too via `exit()`.
+   Exit the Julia prompt too via `#!julia exit()`++enter++.
 3. We will now create a script which will allow us to start the gap prompt by
-   simply typing `gap` in the base shell. To do this first run
+   simply typing `#!bash gap` in the base shell. To do this first run
    ```bash
    mkdir -p ~/.local/bin
    ```
@@ -313,9 +320,9 @@ We follow the Julia install instructions from
    echo 'if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]] then PATH="$HOME/.local/bin:$PATH"; fi' >> ~/.zshrc
    source ~/.zshrc
    ```
-4. Finally, open `julia` and within the Julia prompt type
+4. Finally, open `#!bash julia` and within the Julia prompt type
    ```julia
    using GAP; GAP.Setup.create_gap_sh("~/.local/bin/", "gap");
    ```
-   Then `exit()` the Julia prompt. You should now be able to start a GAP
-   session by typing `gap` in your prompt.
+   Then `#!julia exit()` the Julia prompt. You should now be able to start a GAP
+   session by typing `#!bahs gap`++enter++ in your terminal.

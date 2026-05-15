@@ -7,6 +7,7 @@ nav:
     - Installation: gap/install.md
     - 'The GAP Session': gap/session.md
     - 'Worksheet 1: Analysis of finite semigroups': gap/worksheet1.md
+    - 'Worksheet 2: Analysis of finitely presented semigroups': gap/worksheet2.md
   - libsemigroups_pybind11:
     - libsemigroups_pybind11/index.md
   - minizinc:
@@ -37,6 +38,7 @@ theme:
     - toc.integrate
     - content.code.copy
     - content.code.select
+    - content.footnote.tooltips
 
 plugins:
   # - optimize
@@ -44,17 +46,22 @@ plugins:
   - search
 
 markdown_extensions:
+  - footnotes
   - admonition
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
+      use_pygments: true
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
 
 copyright: Copyright &copy; 2026 James Mitchell, Reinis Cirpons and Joe Edwards
 
@@ -66,3 +73,7 @@ extra:
     - name: The libsemigroups_pybind11 project
       icon: fontawesome/brands/github
       link: https://www.github.com/libsemigroups/libsemigroups_pybind11
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
