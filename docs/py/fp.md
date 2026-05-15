@@ -347,12 +347,11 @@ So this is inconclusive too, what do? The [low-index congruence
 algorithm](https://pubs.ams.org/journals/mcom/0000-000-00/S0025-5718-2025-04136-X)
 (similar to Sims' low index subgroup algorithm) can compute the numbers of
 left/right, and 2-sided congruences on a finitely presented semigroup,
-regardless of whether or not the semigroup is finite.
-This algorithm is implemented in the
-[Sims1](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/low-index/classes/sims1.html) class.
-The following computes
-the number of right congruences with up to 5 classes on the monoid defined by
-the presentation `p`:
+regardless of whether or not the semigroup is finite. This algorithm is
+implemented in the
+[Sims1](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/low-index/classes/sims1.html)
+class. The following computes the number of right congruences with up to 5
+classes on the monoid defined by the presentation `p`:
 
 ```python
 from libsemigroups_pybind11 import Sims1
