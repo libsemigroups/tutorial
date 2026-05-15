@@ -8,7 +8,7 @@ group theory, several extensions to the system are provided by
 with gap is available online in the [GAP Packages](https://www.gap-system.org/packages/) section of the GAP system
 website.
 
-In this woksheet we will be primarily focused on using the [`Semigroups`](https://semigroups.github.io/Semigroups/)
+In this worksheet we will be primarily focused on using the [`Semigroups`](https://semigroups.github.io/Semigroups/)
 package for computational investigations of semigroups. The worksheet does not assume prior familiarity with the
 GAP programming language, though we recommend the
 [GAP software carpentries lesson](https://carpentries-incubator.github.io/gap-lesson/index.html) to those interested
