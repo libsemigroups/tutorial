@@ -1,4 +1,4 @@
-# The GAP session and GAP scripts
+# First steps with GAP
 
 In this section we describe the basics of interacting with GAP and writing GAP scripts.
 We recommend the
