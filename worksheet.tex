@@ -19,6 +19,7 @@ minimum size=4pt]
 \author[1]{James Mitchell}
 \author[2]{Reinis Cirpons}
 \author[1]{Joseph Edwards}
+\author[1]{Finn Smith}
 
 \affil[1]{University of St Andrews}
 \affil[2]{Nantes Université, École Centrale Nantes, CNRS, Inria,
@@ -146,6 +147,33 @@ to James, Reinis or Joe!
         Show that the lattice of left and right congruences of $S$
         are isomorphic.
     \end{enumerate}
+
+    \item
+      %Recall that a left translation of a semigroup $S$ is a function $\lambda \colon S \to S$ such that
+      %$\lambda(x\cdot y) = \lambda(x)\cdot y$ for all $x, y \in S$; a right translation of $S$ is a
+      %function $\rho \colon S \to S$ such that $(x\cdot y)\rho = x \cdot (y)\rho $ for all $x, y \in S$.
+      %A bitranslation of $S$ is a pair $(\lambda, \rho)$ where $\lambda$ is a left translation and
+      %$\rho$ is a right translation, such that $x\cdot \lambda(y) = (x)\rho \cdot y$ for all $x, y \in S$.
+      The translational hull $\Omega(S)$ of a semigroup $S$ is the set of all bitranslations $(\lambda, \rho)$
+      under componentwise composition. Any element $s$ of $S$ induces an inner bitranslation $(\lambda_s, \rho_s)$ of $S$, where
+      $\lambda_s(x) = sx$ and $\rho_s(x) = xs$ for all $x \in S$.
+      This gives a homomorphism $\pi_S$ from $S$ to $\Omega(S)$. If this is injective, then $S$ is \emph{weakly reductive}.
+      Restricting the bitranslations to an ideal $I$ of $S$ gives a homomorphism $\pi_{S|I}$ from $S$ to $\Omega(I)$.
+      If $I$ is weakly reductive, then $I$ is densely embedded in $S$ if and only if $\pi_{S|I}$ is an isomorphism.
+
+      \begin{enumerate}
+        \item
+          Determine the size of $\Omega(I)$ for each ideal $I$ of $J_7$ (the Jones monoid of degree 7).
+        \item
+          Which of the ideals of $J_7$ are weakly reductive?
+        \item
+          Which of the ideals of $J_7$ are densely embedded in $J_7$?
+        \item
+          One such $\Omega(I)$ is gigantic, and so is certainly not being enumerated. Using \\ \verb|KnownTruePropertiesOfObject|,
+          conjecture how the size is being calculated.
+  
+      \end{enumerate}
+    
 \end{enumerate}
 \end{document}
 
