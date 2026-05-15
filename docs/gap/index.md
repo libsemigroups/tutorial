@@ -1,6 +1,4 @@
-# GAP: Computational semigroup theory with the `Semigroups` package
-
-## Introduction
+# `Semigroups` in GAP
 
 [GAP](https://www.gap-system.org/) is a computer algebra system for discrete algebra. While the core focus of GAP is
 group theory, several extensions to the system are provided by
@@ -13,8 +11,3 @@ package for computational investigations of semigroups. The worksheet does not a
 GAP programming language, though we recommend the
 [GAP software carpentries lesson](https://carpentries-incubator.github.io/gap-lesson/index.html) to those interested
 in learning more about GAP.
-
-
-
-
-

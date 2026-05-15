@@ -10,9 +10,10 @@ nav:
       - "GAP: Finitely presented semigroups": gap/fp.md
   - Semigroups in Python:
       - py/index.md
-      - "Installation Python": py/install.md
-      - "First steps Python": py/first-steps.md
-      - "Finitely presented semigroups Python": py/fp.md
+      - "Python: Installation": py/install.md
+      - "Python: First steps": py/first-steps.md
+      - "Python: Finite and f.g. semigroups": py/finite.md
+      - "Python: Finitely presented semigroups": py/fp.md
   - minizinc:
       - minizinc/index.md
 
