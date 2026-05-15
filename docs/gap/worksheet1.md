@@ -163,36 +163,35 @@ TODO: Intro on what these are etc
 
 === "GAP REPL"
     ```gap-repl
-    gap> Splash(DotString(T));
+    gap> Splash(DotString(T, rec(maximal := true)));
     ```
 === "GAP script"
     ```gap
-    Splash(DotString(T));
+    Splash(DotString(T, rec(maximal := true)));
     ```
 
   The resulting egg-box diagram for $\mathcal{T}_3$ can be seen on the right.
-  The large boxes labelled 1, 2 and 3 in the diagram correspond to
-  Green's $\mathcal{D}$-classes of $\mathcal{T}_3$, the lines between them denote
-  inclusion
-  in the ordering on $\mathcal{D}$-classes induced by the Green's
+  The large boxes labelled 1, 2 and 3 in the diagram correspond to Green's
+  $\mathscr{D}$-classes of $\mathcal{T}_3$, the lines between them denote
+  inclusion in the ordering on $\mathscr{D}$-classes induced by the Green's
   $\mathcal{J}$-relation.
 
-  The rows of the boxes representing the $\mathcal{D}$-classes correspond to
-  Green's $\mathcal{L}$-classes, the columns to Green's $\mathcal{R}$-classes.
-  Finally, the cells of the boxes representing the $\mathcal{D}$-classes
-  are the $\mathcal{H}$-classes of $\mathcal{T}_3$. Cells shaded in gray
-  with an asterisk denote the group $\mathcal{H}$-classes.
+  The rows of the boxes representing the $\mathscr{D}$-classes correspond to
+  Green's $\mathscr{L}$-classes, the columns to Green's $\mathscr{R}$-classes.
+  Finally, the cells of the boxes representing the $\mathscr{D}$-classes
+  are the $\mathscr{H}$-classes of $\mathcal{T}_3$. Cells shaded in gray
+  denote the group $\mathscr{H}$-classes, and they contain the [`StructureDescription`](https://docs.gap-system.org/doc/ref/chap39.html#X8199B74B84446971) of these groups.
 
   So, by visual inspection we can deduce that $\mathcal{T}_3$ has
-  3 Green's $\mathcal{D}$-classes, furthermore, each $\mathcal{D}$-class
-  contains a group $\mathcal{H}$-class, and is therefore a regular
-  $\mathcal{D}$-class. Hence we can conclude that $\mathcal{T}_3$ is regular,
+  3 Green's $\mathscr{D}$-classes, furthermore, each $\mathscr{D}$-class
+  contains a group $\mathscr{H}$-class, and is therefore a regular
+  $\mathscr{D}$-class. Hence we can conclude that $\mathcal{T}_3$ is regular,
   just by visual inspection of the egg-box diagram.
   </div>
 
 ![The egg-box diagram of $\mathcal{T}_3$](../images/T3_egg_box.png){ align=right width=200rem }
 /// caption
-The egg-box diagram of $\mathcal{T}_3$
+The egg-box diagram of $\mathcal{T}_3$.
 ///
 </div>
 

@@ -7,13 +7,14 @@ If you are familiar with [Jupyter](https://jupyter.org/) notebooks and/or are
 comfortable with using the Python interpreter, then you can skim this page and
 continue with the examples in the rest of the tutorial.
 
+This guide assumes you are familiar with programming in [Python](https://www.python.org), if you are not, then take a look at [Software Carpentry Programming With Python](https://swcarpentry.github.io/python-novice-inflammation/)
+
 ## Using [IPython](https://ipython.org/) in a terminal
 
 The terminal is an application where you can type commands. The name of the
 terminal application depends on your operating system:
 
 - on macOS, open **Terminal**;
-- on Windows, open **PowerShell**, **Command Prompt**, or **Anaconda Prompt**;
 - on Linux, open the terminal application provided by your desktop environment.
 
 If you installed `libsemigroups_pybind11` in a conda or mamba environment, first

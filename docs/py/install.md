@@ -41,6 +41,8 @@ tutorial.
 Create a file named `environment.yml` and copy/paste the following into that
 file:
 
+<!-- TODO add a link to the actual yml file for download -->
+
 ```yml
 channels:
   - conda-forge

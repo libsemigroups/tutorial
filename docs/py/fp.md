@@ -198,7 +198,7 @@ word_graph.dot(tc.word_graph()).view()
 which produces:
 
 <figure markdown="span">
-	![Right Cayley graph produced by Todd-Coxeter](todd-coxeter-graph.png)
+	![Right Cayley graph produced by Todd-Coxeter](../images/todd-coxeter-graph.png)
 </figure>
 
 !!! tip

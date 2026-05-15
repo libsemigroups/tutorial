@@ -14,6 +14,7 @@ nav:
       - "Python: First steps": py/first-steps.md
       - "Python: Finite and f.g. semigroups": py/finite.md
       - "Python: Finitely presented semigroups": py/fp.md
+      - "Python: Worksheet": py/worksheet.md
   - minizinc:
       - minizinc/index.md
 
