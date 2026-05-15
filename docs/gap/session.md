@@ -20,15 +20,17 @@ the following:
  └───────┘   Architecture: aarch64-apple-darwin25-default64-kv10
  Configuration:  gmp 6.3.0, GASMAN, readline
  Loading the library and packages ...
- Packages:   AClib 1.3.3, Alnuth 3.2.1, AtlasRep 2.1.11, AutoDoc 2026.05.03, AutPGrp 1.11.1, 
-             Browse 1.8.22, CaratInterface 2.3.9, CRISP 1.4.8, Cryst 4.1.31, CrystCat 1.1.11, 
-             CTblLib 1.3.11, curlInterface 2.4.3, FactInt 1.6.3, FGA 1.5.0, Forms 1.2.14, 
-             GAPDoc 1.6.7, genss 1.6.9, IO 4.9.3, IRREDSOL 1.4.4, LAGUNA 3.9.7, orb 5.1.0, 
-             PackageManager 1.6.3, Polenta 1.3.11, Polycyclic 2.18, PrimGrp 4.0.2, 
-             RadiRoot 2.9, recog 1.4.4, ResClasses 4.7.4, SmallGrp 1.5.4, Sophus 1.27, 
-             SpinSym 1.5.2, StandardFF 1.0, TomLib 1.2.11, TransGrp 3.6.5, utils 0.94
+ Packages:   AClib 1.3.3, Alnuth 3.2.1, AtlasRep 2.1.11, AutoDoc 2026.05.03, 
+             AutPGrp 1.11.1, Browse 1.8.22, CaratInterface 2.3.9, CRISP 1.4.8, 
+             Cryst 4.1.31, CrystCat 1.1.11, CTblLib 1.3.11, curlInterface 2.4.3, 
+             FactInt 1.6.3, FGA 1.5.0, Forms 1.2.14, GAPDoc 1.6.7, genss 1.6.9, 
+             IO 4.9.3, IRREDSOL 1.4.4, LAGUNA 3.9.7, orb 5.1.0, 
+             PackageManager 1.6.3, Polenta 1.3.11, Polycyclic 2.18, 
+             PrimGrp 4.0.2, RadiRoot 2.9, recog 1.4.4, ResClasses 4.7.4, 
+             SmallGrp 1.5.4, Sophus 1.27, SpinSym 1.5.2, StandardFF 1.0, 
+             TomLib 1.2.11, TransGrp 3.6.5, utils 0.94
  Try '??help' for help. See also '?copyright', '?cite' and '?authors'
-gap> 
+gap>
 ```
 
 We can test that it is working by typing `1+1;`++enter++ in the prompt. When doing so, we are greeted with
@@ -108,24 +110,26 @@ For example, to learn more about the factorial function `Factorial` we type
 
 ```
 gap> ?Factorial
-16.1-1 Factorial
+  16.1-1 Factorial
   
-  ‣ Factorial( n ) ───────────────────────────────────────────────────────────────── function
+  ‣ Factorial( n ) ───────────────────────────────────────────────────── function
   
-  returns the factorial n! of the positive integer n, which is defined as the product 1 ⋅ 2 ⋅
-  3 ⋯ n.
+  returns  the  factorial  n!  of the positive integer n, which is defined as the
+  product 1 ⋅ 2 ⋅ 3 ⋯ n.
   
-  n!  is  the number of permutations of a set of n elements. 1 / n! is the coefficient of x^n
-  in the formal series exp(x), which is the generating function for factorial.
+  n!  is  the  number  of  permutations  of  a  set  of n elements. 1 / n! is the
+  coefficient  of  x^n  in  the  formal  series  exp(x),  which is the generating
+  function for factorial.
   
-  ────────────────────────────────────────  Example  ────────────────────────────────────────
+  ──────────────────────────────────  Example  ──────────────────────────────────
     gap> List( [0..10], Factorial );
     [ 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800 ]
     gap> Factorial( 30 );
     265252859812191058636308480000000
-  ───────────────────────────────────────────────────────────────────────────────────────────
+  ───────────────────────────────────────────────────────────────────────────────
   
   PermutationsList (16.2-12) computes the set of all permutations of a list.
+  
   -- <space> page, <n> next line, <b> back, <p> back line, <q> quit --
 ```
 
@@ -213,11 +217,14 @@ gap> 2 ^ 4;
 gap> 7 mod 4;
 3
 gap> 120 ^ 130;
-19659025508399066716721705285419704785992969025546107032058060352342654085887963277416925487\
-50814629717517691688878376859167333924540241674240000000000000000000000000000000000000000000\
-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+196590255083990667167217052854197047859929690255461070320580603523426540858879632\
+774169254875081462971751769168887837685916733392454024167424000000000000000000000\
+000000000000000000000000000000000000000000000000000000000000000000000000000000000\
+0000000000000000000000000000
 ```
 
+The `\` symbols in the output are GAP continuation symbols, they are used
+to wrap long input lines in the GAP language.
 Note that GAP can handle even very large numbers without using numerical approximation. Similarly, dividing
 whole numbers results in a rational as opposed to a floating point number. We need to use the `#!gap Float` command
 to convert such a rational to a floating point number:
@@ -241,11 +248,14 @@ compute the factorial of 5.
 gap> Factorial(5);
 120
 gap> Factorial(100);
-93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+933262154439441526816992388562667004907159682643816214685929638952175999932299156\
+08941463976156518286253697920827223758251185210916864000000000000000000000000
 gap> Factorial(200);
-7886578673647905035523632139321850622951359776871732632947425332443594499634033429203042840119846239041772121389196388302576427902426371050619266249528299311134628572707633\
-1723739698894392244562145166424025403329186413122742829485327752424240757390324032125740557956866022603190417032406235170085879617892222278962370389737472000000000000000000\
-0000000000000000000000000000000
+788657867364790503552363213932185062295135977687173263294742533244359449963403342\
+920304284011984623904177212138919638830257642790242637105061926624952829931113462\
+857270763317237396988943922445621451664240254033291864131227428294853277524242407\
+573903240321257405579568660226031904170324062351700858796178922222789623703897374\
+720000000000000000000000000000000000000000000000000
 ```
 
 Multiple arguments are separated using commas. For example the `Binomial` function takes two arguments `n` and `k`

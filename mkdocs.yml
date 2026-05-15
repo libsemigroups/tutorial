@@ -6,7 +6,7 @@ nav:
       - gap/index.md
       - "GAP: Installation": gap/install.md
       - "GAP: First steps": gap/session.md
-      - "GAP: Finite and f.g. semigroups": gap/worksheet1.md
+      - "GAP: Finite, f.g. and acting semigroups": gap/worksheet1.md
       - "GAP: Finitely presented semigroups": gap/fp.md
   - Semigroups in Python:
       - py/index.md
