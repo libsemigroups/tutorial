@@ -1,8 +1,8 @@
-site_name: The Semigroups package - Zero to ε
+site_name: Semigroups - Zero to ε
 
 nav:
   - Home: index.md
-  - Semigroups:
+  - Semigroups in GAP:
       - gap/index.md
       - Installation: gap/install.md
       - "The GAP Session": gap/session.md
@@ -10,6 +10,7 @@ nav:
       - "Worksheet 2: Analysis of finitely presented semigroups": gap/worksheet2.md
   - libsemigroups_pybind11:
       - libsemigroups_pybind11/index.md
+      - Installation: libsemigroups_pybind11/install.md
   - minizinc:
       - minizinc/index.md
 
