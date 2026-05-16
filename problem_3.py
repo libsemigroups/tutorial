@@ -12,7 +12,8 @@ p.contains_empty_word(True)
 
 # Part (a)
 
-is_obviously_infinite(p)
+c = Congruence(congruence_kind.twosided, p)
+c.number_of_classes()  # returns +∞
 
 # Part (b)
 
