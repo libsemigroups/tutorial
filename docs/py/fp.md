@@ -267,8 +267,9 @@ kb.number_of_classes()  # returns +∞
 
 If you want to run some variants of Knuth-Bendix, Todd-Coxeter, and some
 further algorithms, such as determining the small overlap class of a finitely
-presented semigroup or monoid, then you can use a [Congruence](TODO) to do
-this. This class lacks the fine-grained control available in [KnuthBendix](TODO) and [ToddCoxeter](TODO), but is sometimes more convenient.
+presented semigroup or monoid, then you can use a
+[Congruence](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/congruence/index.html) to do
+this. This class lacks the fine-grained control available in [KnuthBendix](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/knuth-bendix/index.html) and [ToddCoxeter](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/todd-coxeter/index.html), but is sometimes more convenient.
 
 ```python
 from libsemigroups_pybind11 import Congruence, congruence_kind
