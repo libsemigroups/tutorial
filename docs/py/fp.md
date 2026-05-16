@@ -1,18 +1,18 @@
 # Finitely presented semigroups and monoids
 
 This section provides information about how to compute with a finitely
-presented semigroup or monoid using [`libsemigroups_pybind11`][].
+presented semigroup or monoid using [libsemigroups_pybind11][].
 
 !!! warning
 
     Almost every question about finitely presented semigroups and monoids is
     undecidable in general. It is easy to find examples where the algorithms
-    implemented in [`libsemigroups_pybind11`][] will run forever, so some caution
+    implemented in [libsemigroups_pybind11][] will run forever, so some caution
     is required!
 
 ## Presentations
 
-The algorithms in [`libsemigroups_pybind11`][] for computing with finitely
+The algorithms in [libsemigroups_pybind11][] for computing with finitely
 presented semigroups and monoids all accept a
 [Presentation](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/presentations/index.html) object as (at
 least part of the) input.
@@ -70,11 +70,11 @@ presentation.add_rule(p, [0, 1] * 100, [])
 
 !!! note
 
-    [`libsemigroups_pybind11`][] can easily handle presentations with tens of millions of rules of total length into the hundreds of millions.
+    [libsemigroups_pybind11][] can easily handle presentations with tens of millions of rules of total length into the hundreds of millions.
 
 ### Manipulating presentations
 
-There are many functions in [`libsemigroups_pybind11`][] for manipulating
+There are many functions in [libsemigroups_pybind11][] for manipulating
 presentations. In this section we will describe a couple of these. For more
 details please consult the [Presentation helpers](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/presentations/present-helpers.html) page in the documentation.
 
@@ -130,7 +130,7 @@ p.rules   #  [bbaa', '', 'aaaa', 'b']
 ### Standard examples
 
 You don't necessarily have to input your favourite semigroup presentation by
-hand, there are 40+ standard examples already in [`libsemigroups_pybind11`][].
+hand, there are 40+ standard examples already in [libsemigroups_pybind11][].
 For example, for Iwahori and Iwahori's presentation for the full transformation
 monoid of degree 7:
 
@@ -149,7 +149,7 @@ You might want to know if a presentation defines a finite or an infinite
 monoid or semigroup.
 
 One place to start is using
-[is_obviously_infinite](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/presentations/obvinf.htm://libsemigroups.github.io/libsemigroups_pybind11/data-structures/presentations/obvinf.html).
+[is_obviously_infinite](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/presentations/obvinf.html).
 This function performs linear time (in the size of the input presentation)
 checks that can sometimes tell you if a presentation defines an infinite
 semigroup. Since it's linear time, this does not trigger any potentially
@@ -170,7 +170,7 @@ is_obviously_infinite(p)  # returns False
 
 ### Todd-Coxeter
 
-The algorithm [`libsemigroups_pybind11`][] implemented in the class
+The algorithm [libsemigroups_pybind11][] implemented in the class
 [ToddCoxeter](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/todd-coxeter/index.html)
 can (sometimes!) show that a semigroup or monoid defined by a presentation is
 finite, but it runs forever if the semigroup or monoid is infinite. So, it's a
@@ -213,7 +213,7 @@ which produces:
 
 ### Knuth-Bendix
 
-The algorithm in [`libsemigroups_pybind11`][] implemented in the class
+The algorithm in [libsemigroups_pybind11][] implemented in the class
 [KnuthBendix](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/knuth-bendix/index.html)
 can (sometimes!) show that a semigroup or monoid defined by a presentation is
 finite or infinite. It's also a bad idea to try to run the algorithm until it
@@ -391,4 +391,4 @@ This says that the symmetric inverse monoid has 18 right congruences with up to
 removed `p.rules[2:]` has 26 such congruences. So, these monoids are not
 isomorphic.
 
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html 
+[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html

@@ -2,3 +2,320 @@
 
 This section provides information about how to compute with a finitely
 presented semigroup or monoid using the `Semigroups` package for `GAP`.
+
+!!! warning
+
+    Almost every question about finitely presented semigroups and monoids is
+    undecidable in general. It is easy to find examples where the algorithms
+    implemented in [GAP][] will run forever, so some caution is required!
+
+## Defining finitely presented semigroups and monoids
+
+Let's start by defining a finitely presented semigroup in [GAP][].
+Fintely presented semigroups in [GAP][] are defined as quotients of free
+semigroups so let's start by creating one of these. 
+
+!!! note
+    The code examples in this section will consist of two tabs: one labelled
+    "GAP REPL" showcasing the output in an example GAP REPL session, and
+    another labelled "GAP script" which contains the same code without the
+    GAP REPL output, for easier copy-pasting into a GAP session.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeSemigroup("a", "b");
+    <free semigroup on the generators [ a, b ]>
+    ```
+=== "GAP script"
+    ```gap
+    F := FreeSemigroup("a", "b");
+    ```
+
+We've defined a free semigroup with generators named `a` and `b`. We can
+accessing these generators by doing:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> GeneratorsOfSemigroup(F);
+    [ a, b ]
+    ```
+=== "GAP script"
+    ```gap
+    GeneratorsOfSemigroup(F);
+    ```
+
+This is a bit cumbersome, there's a better way:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F.1; # the first generator
+    a
+    gap> F.2; # the second generator
+    b
+    ```
+=== "GAP script"
+    ```gap
+    F.1;
+    F.2;
+    ```
+
+That's better but not great, why can't we just use the original names `a` and
+`b`. We can't do this automatically because [GAP][] is rightly protecting us
+from accidentally overwriting some existing variables named `a` and `b`. We can
+do it explicitly though by doing:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> AssignGeneratorVariables(F);
+    #I  Assigned the global variables [ a, b ]
+    gap> a;
+    a
+    gap> b;
+    b
+    gap> a in F;
+    true
+    gap> a * b * a ^ 10;
+    a*b*a^10
+    ```
+=== "GAP script"
+    ```gap
+    AssignGeneratorVariables(F);
+    a;
+    b;
+    a in F;
+    a * b * a ^ 10;
+    ```
+
+You can also define a free semigroup or monoid by specifying the number of
+generators, the generators are then called `s1`, `s2`, and so on for free
+semigroups, and `m1`, `m2`, and so on for free monoids.
+
+<!-- TODO example -->
+
+Now we have (probably) the most convenient way of using the generators, to
+define some relations. These are just lists consisting of products of the
+generators of `F`:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeMonoid("b", "y", "r");;
+    gap> AssignGeneratorVariables(F);
+    #I  Global variable `b' is already defined and will be overwritten
+    #I  Assigned the global variables [ b, y, r ]
+    gap> R := [[b * y * r, b], [y * r * b, y], [r * b * y, r]];
+    [ [ b*y*r, b ], [ y*r*b, y ], [ r*b*y, r ] ]
+    gap> M := F / R;
+    <fp monoid with 3 generators and 3 relations of length 15>
+    gap> Size(M);
+    7
+    gap> Elements(M);
+    [ <identity ...>, b, b^2, y, y*b, r, r*b ]
+    ```
+=== "GAP script"
+    ```gap
+    F := FreeMonoid("b", "y", "r");;
+    AssignGeneratorVariables(F);
+    R := [[b * y * r, b], [y * r * b, y], [r * b * y, r]];
+    M := F / R;
+    Size(M);
+    Elements(M);
+    ```
+
+This works pretty well if the presentation you are trying to define is small
+and not very complicate. Here's another way using [ParseRelations][]:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeSemigroup("x", "y", "z");;
+    gap> R := ParseRelations(GeneratorsOfSemigroup(F), "x=(y^2z)^2x, y=x^3, z=y^3");
+    [ [ x, (y^2*z)^2*x ], [ y, x^3 ], [ z, y^3 ] ]
+    gap> S := F / R;
+    <fp semigroup with 3 generators and 3 relations of length 19>
+    gap> Size(S);
+    30
+    ```
+=== "GAP script"
+    ```gap
+    F := FreeSemigroup("x", "y", "z");;
+    R := ParseRelations(GeneratorsOfSemigroup(F), "x=(y^2z)^2x, y=x^3, z=y^3");
+    S := F / R;
+    Size(S);
+    ```
+
+    Here's another example of a finitely presented monoid defined using
+    [ParseRelations][] too.
+
+[ParseRelations]: https://semigroups.github.io/Semigroups/doc/chap15_mj.html#X7C2FCCA487DFC84C
+
+??? tip 
+
+    Every free semigroup created using [FreeSemigroup](TODO) is a distinct
+    entity in [GAP][], this can be a bit surprising at first:
+
+    === "GAP REPL"
+        ```gap-repl
+        gap> F1 := FreeSemigroup("x", "y", "z");;
+        gap> F2 := FreeSemigroup("x", "y", "z");;
+        gap> F1 = F2;
+        false
+        ```
+    === "GAP script"
+        ```gap
+        F1 := FreeSemigroup("x", "y", "z");;
+        F2 := FreeSemigroup("x", "y", "z");;
+        F1 = F2;
+        ```
+
+    Arguably `F1` and `F2` are equal but in [GAP][] they are not (mostly for
+    technical reasons). The same behaviour happens for [FreeMonoid](TODO) too. It's
+    a fairly common abuse (of notation?) for people to identify elements of a free
+    semigroups and monoids with elements of the finitely presented semigroup or
+    monoid they are interested in. In [GAP][] you cannot do this, the elements of a
+    finitely presented semigroup (or monoid) and the free semigroup (or monoid)
+    over which they are defined are separate:
+
+    === "GAP REPL"
+        ```gap-repl
+        gap> F := FreeSemigroup("x", "y", "z");;
+        gap> R := ParseRelations(GeneratorsOfSemigroup(F), "x=(y^2z)^2x, y=x^3, z=y^3");
+        [ [ x, (y^2*z)^2*x ], [ y, x^3 ], [ z, y^3 ] ]
+        gap> S := F / R;
+        <fp semigroup with 3 generators and 3 relations of length 19>
+        gap> F.1 in S;
+        false
+        gap> S.1 in F;
+        false
+        ```
+    === "GAP script"
+        ```gap
+        F := FreeSemigroup("x", "y", "z");;
+        R := ParseRelations(GeneratorsOfSemigroup(F), "x=(y^2z)^2x, y=x^3, z=y^3");
+        S := F / R;
+        F.1 in S;
+        S.1 in F;
+        ```
+
+## Finitely presented groups vs semigroups and monoids in [GAP][]
+
+You might be thinking that there must be lots of fancy group specific
+algorithms for computing finitely presented groups. You'd be correct, to some
+extent, at least. You might also be surprised to learn that the
+performance of the implementations in the [Semigroups][] package for [GAP][]
+(which use [libsemigroups][]) is often much much better than the performance of
+the group specific algorithms in the main [GAP][] library.  Here are some
+examples.
+
+
+The following the defines the symmetric group on 12 points using Moore's
+presentation from TODO:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeGroup(11);;
+    gap> R := [];;
+    gap> for i in [1 .. 11] do
+    >      Add(R, [F.(i) ^ 2, One(F)]);
+    >    od;
+    gap> for i in [1 .. 10] do
+    >      Add(R, [F.(i) * F.(i + 1) * F.(i), F.(i + 1) * F.(i) * F.(i + 1)]);
+    >    od;
+    gap> for i in [1 .. 9] do
+    >      for j in [i + 2 .. 11] do
+    >        Add(R, [F.(i) * F.(j), F.(j) * F.(i)]);
+    >      od;
+    >    od;
+    gap>       G := F / R;
+    <fp group on the generators [ f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11 ]>
+    gap>       Size(G);
+    ^CError, user interrupt  # runs for a long long time
+    gap> M := Range(IsomorphismFpMonoid(G));
+    <fp monoid with 22 generators and 88 relations of length 328>
+    gap> Size(M);  # takes approximately 3 milliseconds . . .
+    479001600 
+    ```
+=== "GAP script"
+    ```gap
+    F := FreeGroup(11);;
+    R := [];;
+    for i in [1 .. 11] do
+      Add(R, [F.(i) ^ 2, One(F)]);
+    od;
+    for i in [1 .. 10] do
+      Add(R, [F.(i) * F.(i + 1) * F.(i), F.(i + 1) * F.(i) * F.(i + 1)]);
+    od;
+    for i in [1 .. 9] do
+      for j in [i + 2 .. 11] do
+        Add(R, [F.(i) * F.(j), F.(j) * F.(i)]);
+      od;
+    od;
+    G := F / R;
+    Size(G);
+    M := IsomorphismFpMonoid(G);
+    Size(M);
+    ```
+<!-- TODO link to the issue -->
+
+Here's another example:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeGroup(2);; f1 := F.1;; f2 := F.2;;
+    gap> G := F / [ f2 ^ 100, f1 ^ 2, f2 * f1 * f2 ^ -99 * f1 ^ -1 ];;
+    gap> Size(G);  # takes about 1.7 seconds on my computer
+    200
+    gap> M := Range(IsomorphismFpMonoid(G));
+    <fp monoid with 4 generators and 7 relations of length 216>
+    gap> Size(M);  # takes about 1 millisecond
+    200
+    ```
+=== "GAP script"
+    ```gap
+    gap> F := FreeGroup(2);; f1 := F.1;; f2 := F.2;;
+    gap> G := F / [ f2 ^ 100, f1 ^ 2, f2 * f1 * f2 ^ -99 * f1 ^ -1 ];;
+    gap> Size(G);
+    gap> M := Range(IsomorphismFpMonoid(G));
+    gap> Size(M);
+    ```
+<!-- TODO link to the issue -->
+
+Here's another example:
+
+
+gap> F:=FreeGroup(2);;
+gap> gen:= GeneratorsOfGroup(F);;
+gap> a:=gen[1];;b:=gen[2];;
+gap> g:= F/[a^120, b^4, a*b*(b^3*a^41)^-1, a^2*b*(b*a^82)^-1];
+<fp group on the generators [ f1, f2 ]>
+gap> s:= Range(IsomorphismFpSemigroup(g));
+<fp semigroup with 5 generators and 17 relations of length 304>
+gap> IsomorphismTransformationSemigroup(s);
+<fp semigroup with 5 generators and 17 relations of length 304> ->
+<transformation monoid of size 480, degree 480 with 4 generators>
+gap> time;
+44
+gap> IsomorphismPermGroup(Range(last2));
+<transformation group of size 480, degree 480 with 4 generators> ->
+<permutation group of size 480 with 5 generators>
+gap> time;
+6
+
+!!! danger 
+
+    At this point I should admit that the examples in this section were
+    specially selected to show [Semigroups][] in its best light, and the [GAP][]
+    library in its worst. A fairer comparison would have been to include some other
+    examples where [GAP][] is better than [Semigroups][], or where other tools
+    (like [ACE](TODO) or TODO) are faster as well. The truth is that any software
+    for computing with finitely presented semigroups, monoids or groups, has its
+    limitations and given the undecidable nature of most related problems, it is
+    always possible to contrive examples where which are hard or impossible for any
+    particular implementation to handle.  
+    
+    
+
+
+## Finite or infinite?
+
+In [GAP][] 
+
+[GAP]: https://gap-system.org
