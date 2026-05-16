@@ -1,8 +1,6 @@
 from libsemigroups_pybind11 import FroidurePin, word_graph, Transf, Dot, froidure_pin
 
-# Part (a) cannot currently be done in python
-
-# Part (b)
+# Part (a)
 s = FroidurePin([Transf([0, 0, 2]), Transf([0, 1, 1])])
 
 d = word_graph.dot(s.right_cayley_graph())

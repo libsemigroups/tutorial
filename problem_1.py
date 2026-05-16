@@ -59,12 +59,14 @@ x = Bipartition(
 right = Gabow(s.right_cayley_graph())
 left = Gabow(s.left_cayley_graph())
 
-dclass = []
+dclass = set()
 for index in right.component_of(s.position(x)):
-    dclass.extend(left.component_of(index))
+    dclass |= set(left.component_of(index))
 
 sum(1 for x in dclass if s.is_idempotent(x))  # returns 226979
 
 # Part (d)
 
-sum(1 for x in dclass if s[x].is_transverse_block(s[x][7]))  # returns 196196
+sum(
+    1 for x in dclass if s.is_idempotent(x) and s[x].is_transverse_block(s[x][7])
+)  # returns 35733

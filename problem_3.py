@@ -12,12 +12,9 @@ p.contains_empty_word(True)
 
 # Part (a)
 
-c = Congruence(congruence_kind.twosided, p)
-c.number_of_classes()  # returns +∞
+is_obviously_infinite(p)
 
-# Part (b) is not really possible in python
-
-# Part (c)
+# Part (b)
 
 
 def doit():
