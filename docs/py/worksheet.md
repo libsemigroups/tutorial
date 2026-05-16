@@ -15,7 +15,7 @@ This page contains some exercises for computing some things using `libsemigroups
 
         ```python
         from libsemigroups_pybind11.presentation import examples
-        examples.full_transformation_monoid()
+        examples.full_transformation_monoid(n)
         ```
 
         You can also define the generating set and the corresponding monoid with:
@@ -37,7 +37,7 @@ This page contains some exercises for computing some things using `libsemigroups
 
     ??? hint 
         
-        You might want to use python package for graphs to compute the clique
+        You might want to use a python package for graphs to compute the clique
         numbers; see for example [igraph](https://python.igraph.org/en/stable/).
 
 3. Let $S$ be the semigroup defined by the presentation
@@ -62,8 +62,12 @@ This page contains some exercises for computing some things using `libsemigroups
     $$
     the symmetric group for $n\geq 2$?
 
-5. Determine which of the relations in the presentation are redundant and
-   which are not:
+    ??? hint
+
+        [Non-isomorphism](fp.md#non-isomorphism)
+      
+5. Determine which of the relations in the presentation are redundant and which
+  are not:
     $$
       \langle a, b \mid a^4=1,  b^2= b, ba^3ba= a^2(ab)^2,  (ba^2)^2= (a^2b)^2 ,  (ba)^2a^2= aba^3b, a(ab)^4= (ab)^4 \rangle.
     $$

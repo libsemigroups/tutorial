@@ -270,7 +270,7 @@ further algorithms, such as determining the small overlap class of a finitely
 presented semigroup or monoid, then you can use a [Congruence](TODO) to do
 this. This class lacks the fine-grained control available in [KnuthBendix](TODO) and [ToddCoxeter](TODO), but is sometimes more convenient.
 
-````python
+```python
 from libsemigroups_pybind11 import Congruence, congruence_kind
 from libsemigroups_pybind11.presentation import examples
 p = examples.symmetric_group_Moo97_a(12)
@@ -278,7 +278,7 @@ c = Congruence(congruence_kind.onesided, p)
 c.number_of_classes() # returns math.factorial(12) == 479_001_600
 ```
 
-## Non-isomorphism
+### Non-isomorphism
 
 In this section we show how to demonstrate that two monoids defined by
 presentations are not isomorphic.
@@ -289,7 +289,7 @@ from libsemigroups_pybind11.presentation import examples
 p = examples.symmetric_inverse_monoid_Shu60(4)
 tc = ToddCoxeter(congruence_kind.twosided, p)
 tc.number_of_classes() # returns 209
-````
+```
 
 Let's check if the monoid defined by all but the last relation `[[0, 3, 0, 3,
 0], [0, 3, 0, 3]]` in the presentation `p` defines the symmetric inverse monoid
