@@ -396,7 +396,7 @@ defined by presentations are not isomorphic.
 The following is Shutov's presentation for the symmetric inverse monoid of
 degree $4$ from:
 
-* TODO
+* É. G. Shutov, Defining relations in finite semigroups of partial transformations, *Sov. Math., Dokl.* 1:784–786, 1960.
 
 === "GAP REPL"
     ```gap-repl
@@ -434,6 +434,23 @@ monoid of the same size. This sometimes works, and it does here:
 
 === "GAP REPL"
     ```gap-repl
+    gap> F := FreeMonoid("a", "b", "c", "e");;
+    gap> R := ParseRelations(GeneratorsOfMonoid(F),
+    > "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1,
+    > (cacb)^2=1, aeaea=aeae");
+    [ [ a^2, <identity ...> ], [ b^2, <identity ...> ], [ c^2, <identity ...> ],
+      [ (a*b)^3, <identity ...> ], [ (b*c)^3, <identity ...> ], [ (c*a)^3,
+    <identity ...> ],
+      [ (a*b*a*c)^2, <identity ...> ], [ (b*c*b*a)^2, <identity ...> ],
+      [ (c*a*c*b)^2, <identity ...> ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],
+      [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],
+      [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]
+    gap> Remove(R, Length(R));
+    [ (a*e)^2*a, (a*e)^2 ]
+    gap> M := F / R;
+    <fp monoid with 4 generators and 15 relations of length 95>
+    gap> Size(M);
+    384
     ```
 
 === "GAP script"
@@ -442,7 +459,7 @@ monoid of the same size. This sometimes works, and it does here:
     R := ParseRelations(GeneratorsOfMonoid(F),
     "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
     ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
-    Remove(R, Length(R))
+    Remove(R, Length(R));
     M := F / R;
     Size(M);
     ```
@@ -453,6 +470,24 @@ Let's try again with the second to last relation $ceca=acec$.
 
 === "GAP REPL"
     ```gap-repl
+    gap> F := FreeMonoid("a", "b", "c", "e");;
+    gap> R := ParseRelations(GeneratorsOfMonoid(F),
+    > "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1,
+    > (cacb)^2=1, ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec,
+    > aeaea=aeae");
+    [ [ a^2, <identity ...> ], [ b^2, <identity ...> ], [ c^2, <identity ...> ],
+      [ (a*b)^3, <identity ...> ], [ (b*c)^3, <identity ...> ], [ (c*a)^3,
+    <identity ...> ],
+      [ (a*b*a*c)^2, <identity ...> ], [ (b*c*b*a)^2, <identity ...> ],
+      [ (c*a*c*b)^2, <identity ...> ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],
+      [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],
+      [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]
+    gap> Remove(R, Length(R) - 1);
+    [ c*e*c*a, a*c*e*c ]
+    gap> M := F / R;
+    <fp monoid with 4 generators and 15 relations of length 96>
+    gap> Size(M);
+    209
     ```
 
 === "GAP script"
@@ -461,7 +496,7 @@ Let's try again with the second to last relation $ceca=acec$.
     R := ParseRelations(GeneratorsOfMonoid(F),
     "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
     ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
-    Remove(R, Length(R) - 1)
+    Remove(R, Length(R) - 1);
     M := F / R;
     Size(M);
     ```
@@ -471,6 +506,22 @@ $eaea=aeae$ which is `R[11]`:
 
 === "GAP REPL"
     ```gap-repl
+    gap>     F := FreeMonoid("a", "b", "c", "e");;
+    gap>     R := ParseRelations(GeneratorsOfMonoid(F),
+    >     "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    >     ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    [ [ a^2, <identity ...> ], [ b^2, <identity ...> ], [ c^2, <identity ...> ],
+      [ (a*b)^3, <identity ...> ], [ (b*c)^3, <identity ...> ], [ (c*a)^3, <identity ...> ],
+      [ (a*b*a*c)^2, <identity ...> ], [ (b*c*b*a)^2, <identity ...> ],
+      [ (c*a*c*b)^2, <identity ...> ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],
+      [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],
+      [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]
+    gap>     Remove(R, 11);
+    [ (e*a)^2, (a*e)^2 ]
+    gap>     M := F / R;
+    <fp monoid with 4 generators and 15 relations of length 96>
+    gap>     Size(M);
+    384
     ```
 
 === "GAP script"
@@ -489,6 +540,21 @@ first rule `a^2=1`.
 
 === "GAP REPL"
     ```gap-repl
+    gap> F := FreeMonoid("a", "b", "c", "e");;
+    gap> R := ParseRelations(GeneratorsOfMonoid(F),
+    > "bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1,
+    > (cacb)^2=1, \
+    > ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec,
+    > aeaea=aeae");
+    [ [ b^2, <identity ...> ], [ c^2, <identity ...> ], [ (a*b)^3, <identity ...>
+    ],
+      [ (b*c)^3, <identity ...> ], [ (c*a)^3, <identity ...> ],
+      [ (a*b*a*c)^2, <identity ...> ], [ (b*c*b*a)^2, <identity ...> ],
+      [ (c*a*c*b)^2, <identity ...> ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],
+      [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],
+      [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]
+    gap> M := F / R;
+    <fp monoid with 4 generators and 15 relations of length 102>
     ```
 
 === "GAP script"
@@ -509,13 +575,30 @@ algorithm](https://pubs.ams.org/journals/mcom/0000-000-00/S0025-5718-2025-04136-
 (similar to Sims' low index subgroup algorithm) can compute the numbers of
 left/right congruences on a finitely presented semigroup or monoid,
 regardless of whether or not it is finite. This algorithm is
-what is behind [NumberOfRightCongruences](TODO).
+what is behind
+[NumberOfRightCongruences](https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X7AE16F237E862934).
  The following computes the number of right congruences with up to 5
 classes on the monoid defined by the presentation for the symmetric inverse
 monoid with the relation $a^2 = 1$ removed:
 
 === "GAP REPL"
     ```gap-repl
+    gap> F := FreeMonoid("a", "b", "c", "e");;
+    gap> R := ParseRelations(GeneratorsOfMonoid(F),
+    > "bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    > ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    [ [ b^2, <identity ...> ], [ c^2, <identity ...> ], [ (a*b)^3, <identity ...> ],
+      [ (b*c)^3, <identity ...> ], [ (c*a)^3, <identity ...> ],
+      [ (a*b*a*c)^2, <identity ...> ], [ (b*c*b*a)^2, <identity ...> ],
+      [ (c*a*c*b)^2, <identity ...> ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],
+      [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],
+      [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]
+    gap> M := F / R;
+    <fp monoid with 4 generators and 15 relations of length 102>
+    gap> NumberOfRightCongruences(M, 5);
+    26
+    gap> NumberOfRightCongruences(SymmetricInverseMonoid(4), 5);
+    18
     ```
 
 === "GAP script"
@@ -525,6 +608,8 @@ monoid with the relation $a^2 = 1$ removed:
     "bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
     ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
     M := F / R;
+    NumberOfRightCongruences(M, 5);
+    NumberOfRightCongruences(SymmetricInverseMonoid(4), 5);
     ```
 This says that the symmetric inverse monoid has 18 right congruences with up to
 5 classes, but the monoid defined by the presentation with the first relation
