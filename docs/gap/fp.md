@@ -12,7 +12,7 @@ presented semigroup or monoid using the [Semigroups][] package for [GAP][].
 ## Defining finitely presented semigroups and monoids
 
 Let's start by defining a finitely presented semigroup in [GAP][].
-Fintely presented semigroups in [GAP][] are defined as quotients of free
+Finitely presented semigroups in [GAP][] are defined as quotients of free
 semigroups so let's start by creating one of these. 
 
 !!! note
@@ -32,7 +32,7 @@ semigroups so let's start by creating one of these.
     ```
 
 We've defined a free semigroup with generators named `a` and `b`. We can
-accessing these generators by doing:
+access these generators by doing:
 
 === "GAP REPL"
     ```gap-repl
@@ -50,7 +50,7 @@ This is a bit cumbersome, there's a better way:
     ```gap-repl
     gap> F.1; # the first generator
     a
-    gap> F.2; # the second generator
+    gap> F.2; # the second generator
     b
     ```
 === "GAP script"
@@ -133,7 +133,7 @@ generators of `F`:
     ```
 
 This works pretty well if the presentation you are trying to define is small
-and not very complicate. Here's another way using [ParseRelations][]:
+and not very complicated. Here's another way using [ParseRelations][]:
 
 === "GAP REPL"
     ```gap-repl
@@ -152,9 +152,6 @@ and not very complicate. Here's another way using [ParseRelations][]:
     S := F / R;
     Size(S);
     ```
-
-    Here's another example of a finitely presented monoid defined using
-    [ParseRelations][] too.
 
 [ParseRelations]: https://semigroups.github.io/Semigroups/doc/chap15_mj.html#X7C2FCCA487DFC84C
 
@@ -216,7 +213,7 @@ performance of the implementations in the [Semigroups][] package for [GAP][]
 the group specific algorithms in the main [GAP][] library.  Here are some
 examples.
 
-The following the defines the symmetric group on 12 points using Moore's
+The following defines the symmetric group on 12 points using Moore's
 presentation from:
 
 * E. H. Moore. Concerning the abstract groups of order k!, k!/2, *Proc. London Math. Soc.*, **28** 357–366, 1897.
@@ -242,7 +239,7 @@ presentation from:
     ^CError, user interrupt  # runs for a long long time
     gap> M := Range(IsomorphismFpMonoid(G));
     <fp monoid with 22 generators and 88 relations of length 328>
-    gap> Size(M);  # takes approximately 3 milliseconds . . .
+    gap> Size(M);  # takes approximately 3 milliseconds . . .
     479001600 
     ```
 === "GAP script"
@@ -262,10 +259,9 @@ presentation from:
     od;
     G := F / R;
     Size(G);
-    M := IsomorphismFpMonoid(G);
+    M := Range(IsomorphismFpMonoid(G));
     Size(M);
     ```
-<!-- TODO link to the issue -->
 
 Here's another example:
 
@@ -277,18 +273,17 @@ Here's another example:
     200
     gap> M := Range(IsomorphismFpMonoid(G));
     <fp monoid with 4 generators and 7 relations of length 216>
-    gap> Size(M);  # takes about 1 millisecond
+    gap> Size(M);  # takes about 1 millisecond
     200
     ```
 === "GAP script"
     ```gap
-    gap> F := FreeGroup(2);; f1 := F.1;; f2 := F.2;;
-    gap> G := F / [ f2 ^ 100, f1 ^ 2, f2 * f1 * f2 ^ -99 * f1 ^ -1 ];;
-    gap> Size(G);
-    gap> M := Range(IsomorphismFpMonoid(G));
-    gap> Size(M);
+    F := FreeGroup(2);; f1 := F.1;; f2 := F.2;;
+    G := F / [ f2 ^ 100, f1 ^ 2, f2 * f1 * f2 ^ -99 * f1 ^ -1 ];;
+    Size(G);
+    M := Range(IsomorphismFpMonoid(G));
+    Size(M);
     ```
-<!-- TODO link to the issue -->
 
 Here's another example:
 
@@ -334,7 +329,7 @@ Here's another example:
     (like [ACE][] or [kbmag][]) are faster as well. The truth is that any software
     for computing with finitely presented semigroups, monoids or groups, has its
     limitations and given the undecidable nature of most related problems, it is
-    always possible to contrive examples where which are hard or impossible for any
+    always possible to contrive examples which are hard or impossible for any
     particular implementation to handle.  
 
 ## Finite or infinite?
@@ -577,7 +572,7 @@ left/right congruences on a finitely presented semigroup or monoid,
 regardless of whether or not it is finite. This algorithm is
 what is behind
 [NumberOfRightCongruences](https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X7AE16F237E862934).
- The following computes the number of right congruences with up to 5
+The following computes the number of right congruences with up to 5
 classes on the monoid defined by the presentation for the symmetric inverse
 monoid with the relation $a^2 = 1$ removed:
 
@@ -616,8 +611,7 @@ This says that the symmetric inverse monoid has 18 right congruences with up to
 removed has 26 such congruences. So, these monoids are not isomorphic, and so
 the relation $a^2=1$ is not redundant.
 
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html
-
+[libsemigroups]: https://libsemigroups.github.io/libsemigroups/
 [GAP]: https://gap-system.org
 [Semigroups]: https://semigroups.github.io/Semigroups/
 [ACE]: https://gap-packages.github.io/ace/
