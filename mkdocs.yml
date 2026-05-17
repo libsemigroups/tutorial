@@ -13,7 +13,7 @@ nav:
       - py/index.md
       - "Python: Installation": py/install.md
       - "Python: First steps": py/first-steps.md
-      - "Python: Semigroups defined by generators": py/semigroups-from-generators.md
+      - "Python: Semigroups defined by generators": py/generated.md
       - "Python: Finitely presented semigroups": py/fp.md
       - "Python: Worksheet": py/worksheet.md
   - minizinc:
