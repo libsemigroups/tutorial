@@ -1,6 +1,6 @@
 # `Semigroups` in GAP
 
-[GAP](https://www.gap-system.org/) is a computer algebra system for discrete algebra. While the core focus of GAP is
+[GAP][] is a computer algebra system for discrete algebra. While the core focus of GAP is
 group theory, several extensions to the system are provided by
 [_packages_](https://docs.gap-system.org/doc/ref/chap76_mj.html). An index of GAP packages that are shipped together
 with gap is available online in the [GAP Packages](https://www.gap-system.org/packages/) section of the GAP system
@@ -20,3 +20,5 @@ tutorial, or select from one of the options below:
 * [Semigroups and monoids defined by generators](generated.md)
 * [Finitely presented semigroups and monoids](fp.md)
 * [Worksheet](worksheet.md)
+
+[GAP]: (https://www.gap-system.org/) 

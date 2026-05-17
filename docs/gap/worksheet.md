@@ -6,7 +6,7 @@ use of the `Semigroups` package as part of the GAP workshop session of
 NBSAN 40. 
 
 1.  Let $J_n$ denote the Jones monoid of degree $n$, and
-    $$\input{tikz/jones-element.tikz}$$ be a bipartition of degree 14.
+    ![An element of the Jones monoid](../images/bipartition.png)
 
     1.  Find a collection of bipartitions $\{x_1, x_2, \dots,
                 x_j\}$ such that the tensor product
