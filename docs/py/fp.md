@@ -23,7 +23,7 @@ You can create a presentation using strings by doing:
 from libsemigroups_pybind11 import Presentation, presentation
 p = Presentation("ab")  # a presentation with alphabet {a, b}
 p.alphabet()            # returns "ab"
-p.rules                 # returns the empty list
+p.rules                 # returns the empty list
 ```
 
 You can add rules to the presentation `p` one by one:
@@ -31,7 +31,7 @@ You can add rules to the presentation `p` one by one:
 ```python
 presentation.add_rule(p, "aba", "bbba")     #  add aba = bbba
 presentation.add_rule(p, "babba", "a" * 10)
-p.rules # returns ['aba', 'bbba', 'babba', 'aaaaaaaaaa']
+p.rules # returns ['aba', 'bbba', 'babba', 'aaaaaaaaaa']
 ```
 
 The relations (or rules) in the presentation are stored as a list
@@ -124,7 +124,7 @@ p.rules   # returns ['aaaaaaaaaa', '']
 presentation.replace_word_with_new_generator(p, "aaaa") # returns 'b'
 p.rules   #  ['', 'bbaa', 'b', 'aaaa']
 presentation.sort_each_rule(p)
-p.rules   #  [bbaa', '', 'aaaa', 'b']
+p.rules   #  ['bbaa', '', 'aaaa', 'b']
 ```
 
 ### Standard examples
@@ -184,10 +184,10 @@ from libsemigroups_pybind11 import Presentation, congruence_kind, ToddCoxeter
 from datetime import timedelta
 p = Presentation("byr").contains_empty_word(True)
 p.rules = ["byr", "b", "yrb", "y", "rby", "r"]
-t = ToddCoxeter(congruence_kind.twosided, p)
+tc = ToddCoxeter(congruence_kind.twosided, p)
 # tc.number_of_classes() # BAD IDEA, might run forever!
 tc.run_for(timedelta(seconds=1)) # GOOD IDEA, run for 1 second
-tc.finished()  # returns True, so we know p defined a finite monoid
+tc.finished()  # returns True, so we know p defined a finite monoid
 tc.number_of_classes() # returns 7
 ```
 
@@ -228,7 +228,7 @@ p.rules = ["byr", "b", "yrb", "y", "rby", "r"]
 kb = KnuthBendix(congruence_kind.twosided, p)
 # kb.number_of_classes() # BAD IDEA, might run forever!
 kb.run_for(timedelta(seconds=1)) # GOOD IDEA, run for 1 second
-kb.finished()  # returns True, so we know p defined a finite monoid
+kb.finished()  # returns True, so we know p defined a finite monoid
 kb.number_of_classes() # returns 7
 list(kb.active_rules())
 # returns
@@ -261,7 +261,7 @@ from datetime import timedelta
 p = Presentation("BCA")
 presentation.add_rule(p, "AABC", "ACBA")
 kb = KnuthBendix(congruence_kind.twosided, p)
-kb.number_of_classes()  # returns +∞
+kb.number_of_classes()  # returns +∞
 ```
 
 ### Run everything at the same time
@@ -276,7 +276,7 @@ this. This class lacks the fine-grained control available in [KnuthBendix](https
 from libsemigroups_pybind11 import Congruence, congruence_kind
 from libsemigroups_pybind11.presentation import examples
 p = examples.symmetric_group_Moo97_a(12)
-c = Congruence(congruence_kind.onesided, p)
+c = Congruence(congruence_kind.twosided, p)
 c.number_of_classes() # returns math.factorial(12) == 479_001_600
 ```
 
