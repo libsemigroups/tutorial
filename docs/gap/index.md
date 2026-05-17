@@ -11,3 +11,12 @@ package for computational investigations of semigroups. The worksheet does not a
 GAP programming language, though we recommend the
 [GAP software carpentries lesson](https://carpentries-incubator.github.io/gap-lesson/index.html) to those interested
 in learning more about GAP.
+
+Click on the menu at the top left for links to the different parts of this
+tutorial, or select from one of the options below:
+
+* [Installing GAP and the `Semigroups` package](install.md)
+* [First steps with GAP](first-steps.md)
+* [Semigroups and monoids defined by generators](generated.md)
+* [Finitely presented semigroups and monoids](fp.md)
+* [Worksheet](worksheet.md)

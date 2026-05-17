@@ -5,9 +5,10 @@ nav:
   - Semigroups in GAP:
       - gap/index.md
       - "GAP: Installation": gap/install.md
-      - "GAP: First steps": gap/session.md
+      - "GAP: First steps": gap/first-steps.md
       - "GAP: Semigroups defined by generators": gap/generated.md
       - "GAP: Finitely presented semigroups": gap/fp.md
+      - "GAP: Worksheet": gap/worksheet.md
   - Semigroups in Python:
       - py/index.md
       - "Python: Installation": py/install.md

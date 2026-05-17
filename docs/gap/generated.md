@@ -3,7 +3,7 @@
 This section provides information about how to use the `Semigroups` package for
 GAP to compute with a semigroup or monoid defined by a collection of
 generators. We assume some basic familiarity with the GAP programming language,
-see the [GAP: First Steps](session.md) section for a basic overview if you do
+see the [GAP: First Steps](first-steps.md) section for a basic overview if you do
 not yet feel comfortable with GAP.
 
 All code examples in this section assume that the `Semigroups` package
@@ -108,7 +108,7 @@ $x \in \{1, \ldots, 4\}$ under $t$ via the power syntax `x ^ t`.
     2 ^ (b * a);
     ```
 
-As we discussed in the [Help system section](./session.md#the-help-system), to
+As we discussed in the [Help system section](./first-steps.md#the-help-system), to
 learn more about any GAP function you can use the help operator `?` in the GAP
 REPL, e.g.
 
@@ -979,7 +979,7 @@ TODO: Integrate the below with the above
 
 This section provides information about how to compute with a finite or finitely generated
 semigroup or monoid using the `Semigroups` package for GAP. We assume some basic familiarity
-with the GAP programming language, see the [GAP: First Steps](session.md) section for
+with the GAP programming language, see the [GAP: First Steps](first-steps.md) section for
 a basic overview if you do not yet feel comfortable with GAP.
 
 GAP does provide some built-in functionality related to semigroups, see the reference manual
@@ -1051,7 +1051,7 @@ the semigroup $\mathcal{T}_n$, and check some basic facts about it.
     IsCommutativeSemigroup(T); # Is T commutative?
     ```
 
-As we discussed in the [Help system section](./session.md#the-help-system), to
+As we discussed in the [Help system section](./first-steps.md#the-help-system), to
 learn more about any GAP function you can use the help operator `?` in the GAP
 REPL, e.g.
 

@@ -1,4 +1,4 @@
-# Finitely presented semigroups and monoids in [GAP][]
+# Finitely presented semigroups and monoids
 
 This section provides information about how to compute with a finitely
 presented semigroup or monoid using the [Semigroups][] package for [GAP][].

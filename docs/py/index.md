@@ -24,4 +24,6 @@ This part of this tutorial consists of:
 
 - [Installing libsemigroups_pybind11](install.md)
 - [First steps](first-steps.md)
+- [Semigroups and monoids defined by generators](generated.md)
 - [Finitely presented semigroups and monoids](fp.md)
+- [Worksheet](worksheet.md)
