@@ -355,6 +355,9 @@ function by specifying the blocks of the bipartition.
 Bipartitions can be multiplied using the `*` operator
 (see [Chapter 3](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7C18DB427C9C0917)
 of the `Semigroups` manual for a definition of bipartition multiplication).
+Furthermore, bipartitions admit an involution
+[`Star`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7CE00E0C79F62745),
+which swaps all the points $i$ with $-i$ in the partition.
 
 === "GAP REPL"
     ```gap-repl
@@ -366,6 +369,8 @@ of the `Semigroups` manual for a definition of bipartition multiplication).
     <bipartition: [ 1, -4 ], [ 2, 5 ], [ 3, 4, -1 ], [ -2 ], [ -3 ], [ -5 ]>
     gap> b * a;
     <bipartition: [ 1, 5, -3 ], [ 2 ], [ 3, -1, -2 ], [ 4 ], [ -4, -5 ]>
+    gap> Star(a);
+    <bipartition: [ 1, 2, -1 ], [ 3, -3, -4 ], [ 4, 5 ], [ -2, -5 ]>
     ```
 === "GAP script"
     ```gap
@@ -373,6 +378,7 @@ of the `Semigroups` manual for a definition of bipartition multiplication).
     b := Bipartition([[1, -4], [2], [3, -1], [4], [5, -3], [-2], [-5]]);
     a * b;
     b * a;
+    Star(a);
     ```
 
 The [`TikzString`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7F0971F678B4FC66)
@@ -514,8 +520,11 @@ manipulation of $n \times n$ matrices over the following semirings:
 In general, an $n\times n$ matrix $A$ is represented in GAP are represented as
 list of lists `A` such that `A[i]` is the $i$-th row of $A$ and `A[i][j]` is
 the entry of `A` at the $i$-th row and $j$-th column of $A$.
-Matrices can be multiplied using the `*` operatator, provided they have the
-same dimensions and same underlying semiring, and the `^ -1` operator
+Matrices can be multiplied using the `*` operator, provided they have the
+same dimensions and same underlying semiring. The `*` operator
+can also be used to multiply a matrix by a scalar from the underlying 
+semiring.
+The `^ -1` operator
 can be used to find the inverse of a matrix. If `A` is invertible over the
 semiring, then `A^-1` will return the inverse of `A`, and otherwise
 `A^-1` will return `#!gap fail`.
@@ -571,6 +580,18 @@ the list of lists representing `A` as the second argument.
     [ 1, 0, -3 ]
     [ 2, 2, 0 ]
     ]>
+    gap> Display(A * 2);
+    <3x3-matrix over Integers:
+    [[ 2, 4, 6 ]
+    [ 8, 6, -2 ]
+    [ 2, 0, -6 ]
+    ]>
+    gap> Display(3 * A);
+    <3x3-matrix over Integers:
+    [[ 3, 6, 9 ]
+    [ 12, 9, -3 ]
+    [ 3, 0, -9 ]
+    ]>
     gap> Display(TransposedMat(A));
     <immutable 3x3-matrix over Integers:
     [[ 1, 4, 1 ]
@@ -604,6 +625,8 @@ the list of lists representing `A` as the second argument.
     B * A;
     Display(A * B);
     Display(B * A);
+    Display(A * 2);
+    Display(3 * A);
     Display(TransposedMat(A));
     Display(B ^ -1);
     C^-1;
@@ -651,7 +674,6 @@ function and we can check if the order is finite using the
 function. Note that only the order of an invertible matrix can be computed,
 and the `Order` function will throw an error if a non-invertible matrix is given
 as input.
-
  
 === "GAP REPL"
     ```gap-repl
@@ -718,7 +740,7 @@ as input.
     [`X`](https://docs.gap-system.org/doc/ref/chap66_mj.html#X79D0380D7FA39F7D) and
     [`Z`](https://docs.gap-system.org/doc/ref/chap59_mj.html#X7AA52FAF7EDEDD56)
     are defined as functions in GAP, and therefore cannot
-    be modified. Hence attempting to assign to either `E` or `X`
+    be modified. Hence attempting to assign to either `E`, `X` or `Z`
     will result in an error. This is why we skip `E` in the example above.
     ```gap-repl
     gap> E := Matrix(Integers, [[1, 0], [0, 1]]);
@@ -726,7 +748,7 @@ as input.
     not in any function at *stdin*:201
     type 'quit;' to quit to outer loop
     ```
-    
+
 #### Finite fields
 
 Recall that a _field_ is a semiring which is additionally a
@@ -745,13 +767,79 @@ function returns the generator `Z(p^d)` of the multiplicative group of
 the finite field `GF(p^d)`. As such `Z(p^d)^0` is the multiplicative identity
 of `GF(p^d)`.
 
-TODO: construct
+To construct a matrix $A$ over a finite field, we use the 
+[`Matrix`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7DCA234C86ED8BD3)
+function again, specifying the appropriate finite field
+`GF(p^d)` as the first argument and
+a list of lists of elements of `GF(p^d)`
+representing `A` as the second argument.
 
-To construct a matrix over a finite field,
+=== "GAP REPL"
+    ```gap-repl
+    gap> A := Matrix(GF(3), Z(3)^0 * [[0, 1, 2], [0, 0, 1], [1, 1, 1]]);
+    [ [ 0*Z(3), Z(3)^0, Z(3) ], [ 0*Z(3), 0*Z(3), Z(3)^0 ], 
+      [ Z(3)^0, Z(3)^0, Z(3)^0 ] ]
+    gap> B := Matrix(GF(3), Z(3)^0 * [[0, 2, 2], [1, 0, 1], [2, 0, 2]]);
+    [ [ 0*Z(3), Z(3), Z(3) ], [ Z(3)^0, 0*Z(3), Z(3)^0 ], [ Z(3), 0*Z(3), Z(3) ] ]
+    gap> A^-1;
+    [ [ Z(3), Z(3)^0, Z(3)^0 ], [ Z(3)^0, Z(3)^0, 0*Z(3) ], 
+      [ 0*Z(3), Z(3)^0, 0*Z(3) ] ]
+    gap> Display(TransposedMat(A));
+    . . 1
+    1 . 1
+    2 1 1
+    gap> Display(A^-1);
+    2 1 1
+    1 1 .
+    . 1 .
+    gap> B^-1;
+    fail
+    gap> Display(A * B);
+    2 . 2
+    2 . 2
+    . 2 2
+    gap> Display(B * A);
+    2 2 1
+    1 2 .
+    2 1 .
+    gap> C := Matrix(GF(3^3), Z(3^3)^0 * [[0, Z(3^3)^2 + 2 * Z(3^3) + 2, 1], [1, 1, 1], [2, 0, 2]]);
+    [ [ 0*Z(3), Z(3^3)^7, Z(3)^0 ], [ Z(3)^0, Z(3)^0, Z(3)^0 ], 
+      [ Z(3), 0*Z(3), Z(3) ] ]
+    gap> Display(C);
+    z = Z(27)
+    .  z^7    1
+    1    .    1
+    2    .    2
+    gap> Display(C^-1);
+    z = Z(27)
+        2  z^7 z^18
+        .    1    1
+        1 z^20 z^20
+    gap> Display(C * C);
+    z = Z(27)
+    z^18  z^7 z^18
+        .  z^4    1
+        1 z^20    .
+    ```
+=== "GAP script"
+    ```gap
+    A := Matrix(GF(3), Z(3)^0 * [[0, 1, 2], [0, 0, 1], [1, 1, 1]]);
+    B := Matrix(GF(3), Z(3)^0 * [[0, 2, 2], [1, 0, 1], [2, 0, 2]]);
+    A^-1;
+    Display(TransposedMat(A));
+    Display(A^-1);
+    B^-1;
+    Display(A * B);
+    Display(B * A);
+    C := Matrix(GF(3^3), Z(3^3)^0 * [[0, Z(3^3)^2 + 2 * Z(3^3) + 2, 1], [1, 1, 1], [2, 0, 2]]);
+    Display(C);
+    Display(C^-1);
+    Display(C * C);
+    ```
 
 !!! warning
     At the moment, passing an integer matrix whose entries are not elements
-    of `GF(p^d)` as the second component will cause the conversion to a matrix
+    of `GF(p^d)` as the second argument will cause the conversion to a matrix
     over a semiring to silently fail, e.g.
     ```gap-repl
     gap> A := Matrix(GF(2), [[1, 1, 1], [0, 1, 1], [0, 0, 1]]);
@@ -761,7 +849,21 @@ To construct a matrix over a finite field,
     gap> A[1][1] in GF(2);
     false
     ```
-    
+    Instead, the second argument should be multiplied by the multiplicative
+    identity `Z(p^d)^0` to prevent this from happening, i.e.
+    ```gap-repl
+    gap> B := Matrix(GF(2), Z(2)^0 * [[1, 1, 1], [0, 1, 1], [0, 0, 1]]);
+    <a 3x3 matrix over GF2>
+    gap> Display(B^-1);
+    1 1 .
+    . 1 1
+    . . 1
+    gap> B[1][1] in GF(2);
+    true
+    ```
+    We are currently working to address this problem
+    as part of [Issue #1186](https://github.com/semigroups/Semigroups/issues/1186)
+    on the `Semigroups` issue tracker.
 
 #### Boolean matrices
 
@@ -845,6 +947,10 @@ respectively.
 #### Max-plus, min-plus and tropical semirings and the $\mathbb{N}_{t, p}$ semiring
 
 #### Some standard matrices
+
+!!! info
+    See [Chapter 5](https://semigroups.github.io/Semigroups/doc/chap5_mj.html)
+    of the `Semigroups` manual for more details about matrices over semirings.
 
 ## Constructing semigroups
 
