@@ -199,9 +199,6 @@ functions respectively.
     function in GAP, is simply the largest moved point of $t$, i.e.
     the largest value $n \in \mathbb{N}$ such that $t(n) \neq n$.
 
-See [Chapter 53](https://docs.gap-system.org/doc/ref/chap53_mj.html) of the
-GAP reference manual for more details about transformations.
-
 !!! note
     GAP does not have a distinguished type for _partial transformations_
     of degree $n$,
@@ -213,6 +210,10 @@ GAP reference manual for more details about transformations.
     [`PartialTransformationMonoid`](https://semigroups.github.io/Semigroups/doc/chap7_mj.html#X808A27F87E5AC598)
     for more details.
     
+!!! info
+    See [Chapter 53](https://docs.gap-system.org/doc/ref/chap53_mj.html) of the
+    GAP reference manual for more details about transformations.
+
 ### Partial permutations
 
 Recall that a _partial permutation_ of degree $n$ is a partial function
@@ -336,12 +337,141 @@ functions respectively.
     Similar to transformations, all partial permutation in GAP belong to
     the infinite symmetric inverse monoid $\mathcal{I}_\mathbb{N}$ of
     partial bijections
-    $f: \mathbb{N} \rightarrow \mathbb{N}$.
+    $f: \mathbb{N} \rightarrow \mathbb{N}$. Hence it is always possible
+    to multiply any pair of partial permutations.
 
-See [Chapter 54](https://docs.gap-system.org/doc/ref/chap54_mj.html#X7D6495F77B8A77BD)
-of the GAP reference manual for more details.
+!!! info
+    See [Chapter 54](https://docs.gap-system.org/doc/ref/chap54_mj.html#X7D6495F77B8A77BD)
+    of the GAP reference manual for more details about partial permutations.
 
 ### Bipartitions
+
+Recall that a _bipartition_ of degree $n$ is a
+partition of the set $\{1, \ldots, n\} \cup \{-n, \ldots, -1\}$.
+The parts of a bipartition $b$ are called _blocks_.
+Bipartitions in GAP can be specified using the
+[`Bipartition`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7E052E6378A5B758)
+function by specifying the blocks of the bipartition.
+Bipartitions can be multiplied using the `*` operator
+(see [Chapter 3](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7C18DB427C9C0917)
+of the `Semigroups` manual for a definition of bipartition multiplication).
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> a := Bipartition([[1, -1, -2], [2, 5], [3, 4, -3], [-4, -5]]);
+    <bipartition: [ 1, -1, -2 ], [ 2, 5 ], [ 3, 4, -3 ], [ -4, -5 ]>
+    gap> b := Bipartition([[1, -4], [2], [3, -1], [4], [5, -3], [-2], [-5]]);
+    <bipartition: [ 1, -4 ], [ 2 ], [ 3, -1 ], [ 4 ], [ 5, -3 ], [ -2 ], [ -5 ]>
+    gap> a * b;
+    <bipartition: [ 1, -4 ], [ 2, 5 ], [ 3, 4, -1 ], [ -2 ], [ -3 ], [ -5 ]>
+    gap> b * a;
+    <bipartition: [ 1, 5, -3 ], [ 2 ], [ 3, -1, -2 ], [ 4 ], [ -4, -5 ]>
+    ```
+=== "GAP script"
+    ```gap
+    a := Bipartition([[1, -1, -2], [2, 5], [3, 4, -3], [-4, -5]]);
+    b := Bipartition([[1, -4], [2], [3, -1], [4], [5, -3], [-2], [-5]]);
+    a * b;
+    b * a;
+    ```
+
+The [`TikzString`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7F0971F678B4FC66)
+function can be used to produce code visualizing the presentation using
+the Latex package [`tikz`](https://tikz.dev/). Provided you have a Latex
+installation on your computer, the
+[`Splash`](https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html#X83B3318784E78415)
+function can be used to display the image this code generates.
+
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> TikzString(a);
+    "%latex\n\\documentclass{minimal}\n\\usepackage{tikz}\n\n\\begin{document}\n\\be\
+    gin{tikzpicture}\n\n  %block number 1\n  %vertices and labels\n  \\fill(1, 2)cir\
+    cle(.125);\n  \\draw(0.94999999999999996, 2.2) node [above] {$1$};\n  \\fill(1, \
+    0)circle(.125);\n  \\draw(1, -0.2) node [below] {$-1$};\n  \\fill(2, 0)circle(.1\
+    25);\n  \\draw(2, -0.2) node [below] {$-2$};\n\n  %lines\n  \\draw(1, 0.125) .. \
+    controls (1, 0.59999999999999998) and (2, 0.59999999999999998) .. (2, 0.125);\n \
+    \\draw(1, 2)--(1, 0);\n\n  %block number 2\n  %vertices and labels\n  \\fill(2,\
+    2)circle(.125);\n  \\draw(1.95, 2.2) node [above] {$2$};\n  \\fill(5, 2)circle(\
+    .125);\n  \\draw(4.9500000000000002, 2.2) node [above] {$5$};\n\n  %lines\n  \\d\
+    raw(2, 1.875) .. controls (2, 1.2) and (5, 1.2) .. (5, 1.875);\n\n  %block numbe\
+    r 3\n  %vertices and labels\n  \\fill(3, 2)circle(.125);\n  \\draw(2.95000000000\
+    00002, 2.2) node [above] {$3$};\n  \\fill(4, 2)circle(.125);\n  \\draw(3.9500000\
+    000000002, 2.2) node [above] {$4$};\n  \\fill(3, 0)circle(.125);\n  \\draw(3, -0\
+    .2) node [below] {$-3$};\n\n  %lines\n  \\draw(3, 1.875) .. controls (3, 1.39999\
+    99999999999) and (4, 1.3999999999999999) .. (4, 1.875);\n  \\draw(3, 2)--(3, 0);\
+    \n\n  %block number 4\n  %vertices and labels\n  \\fill(4, 0)circle(.125);\n  \\\
+    draw(4, -0.2) node [below] {$-4$};\n  \\fill(5, 0)circle(.125);\n  \\draw(5, -0.\
+    2) node [below] {$-5$};\n\n  %lines\n  \\draw(4, 0.125) .. controls (4, 0.599999\
+    99999999998) and (5, 0.59999999999999998) .. (5, 0.125);\n\\end{tikzpicture}\n\n\
+    \\end{document}"
+    gap> Splash(TikzString(a));
+    gap> Splash(TikzString(b));
+    ```
+=== "GAP script"
+    ```gap
+    TikzString(a);
+    Splash(TikzString(a));
+    Splash(TikzString(b));
+    ```
+
+<div class="grid" markdown>
+![A visualization of the bipartition a](../images/bipartition_1.svg)
+/// caption
+A visualization of the bipartition `a`.
+Result of the `#!gap Splash(TikzString(a))` call.
+///
+
+![A visualization of the bipartition b](/images/bipartition_2.svg)
+/// caption
+A visualization of the bipartition `b`.
+Result of the `#!gap Splash(TikzString(b))` call.
+///
+</div>
+
+Properties of bipartitions such as their _degree_, _domain_, _codomain_ and
+_rank_ are implemented by the
+[`DegreeOfBipartition`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X780F5E00784FE58C),
+[`DomainOfBipartition`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X8657EE2B79E1DD02),
+[`CodomainOfBipartition`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X84569A187A211332) and
+[`RankOfBipartition`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X82074756826AD2C2)
+functions respectively.
+
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> c := Bipartition([[1, -1, -2], [2, 5], [3, 4, -3], [-4, -5], [6, -6]]);
+    <bipartition: [ 1, -1, -2 ], [ 2, 5 ], [ 3, 4, -3 ], [ 6, -6 ], [ -4, -5 ]>
+    gap> DegreeOfBipartition(c);
+    6
+    gap> DomainOfBipartition(c);
+    [ 1, 3, 4, 6 ]
+    gap> CodomainOfBipartition(c);
+    [ -1, -2, -3, -6 ]
+    gap> RankOfBipartition(c);
+    3
+    ```
+=== "GAP script"
+    ```gap
+    c := Bipartition([[1, -1, -2], [2, 5], [3, 4, -3], [-4, -5], [6, -6]]);
+    DegreeOfBipartition(c);
+    DomainOfBipartition(c);
+    CodomainOfBipartition(c);
+    RankOfBipartition(c);
+    ```
+
+!!! warning
+    Unlike transformation and partial permutations,
+    bipartitions of distinct degrees _cannot_ be multiplied
+    together, and attempting to do so at the moment will cause
+    erroneous output. We are currently working to address this problem
+    as part of [Issue #1183](https://github.com/semigroups/Semigroups/issues/1183)
+    on the `Semigroups` issue tracker.
+
+!!! info
+    See [Chapter 3](https://semigroups.github.io/Semigroups/doc/chap3_mj.html)
+    of the `Semigroups` manual for more details about bipartitions.
 
 ### Partitioned binary relations
 
