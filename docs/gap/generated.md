@@ -56,6 +56,135 @@ of the `Semigroups` package documentation for more details.
 
 ### Transformations
 
+Recall that a _transformation_ of
+degree $n$ is a function $f: \{1, \ldots, n\} \rightarrow \{1, \ldots, n\}$.
+In GAP we can construct a transformation using the
+[`Transformation`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X86ADBDE57A20E323)
+function.
+One way of constructing a transformation $t$ is to provide
+a list `A` such that the $i$-th entry `A[i]` is the image of the point $i$
+under the transformation $t$. So, for example
+`#!gap t := Transformation([1, 3, 3, 4]);` defines the transformation
+`t \in \mathcal{T}_4`
+such that $t(1) = 1, t(2) = t(3) = 3$ and $t(4) = 4$. We can
+multiply transformations using the usual multiplication operator `*`.
+Furthermore, we can obtain the image $t(x)$ of a point
+$x \in \{1, \ldots, 4\}$ under $t$ via the power syntax `x ^ t`.
+
+!!! note
+    The code examples in this section will consist of two tabs: one labelled
+    "GAP REPL" showcasing the output in an example GAP REPL session, and
+    another labelled "GAP script" which contains the same code without the
+    GAP REPL output, for easier copy-pasting into a GAP session.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> a := Transformation([1, 3, 3, 4]);
+    Transformation( [ 1, 3, 3 ] )
+    gap> b := Transformation([2, 3, 4, 1]);
+    Transformation( [ 2, 3, 4, 1 ] )
+    gap> a * b;
+    Transformation( [ 2, 4, 4, 1 ] )
+    gap> b * a;
+    Transformation( [ 3, 3, 4, 1 ] )
+    gap> 2 ^ a;
+    3
+    gap> 3 ^ b;
+    4
+    gap> 2 ^ (a * b);
+    4
+    gap> 2 ^ (b * a);
+    3
+    ```
+=== "GAP script"
+    ```gap
+    a := Transformation([1, 3, 3, 4]);
+    b := Transformation([2, 3, 4, 1]);
+    a * b;
+    b * a;
+    2 ^ a;
+    3 ^ b;
+    2 ^ (a * b);
+    2 ^ (b * a);
+    ```
+
+As we discussed in the [Help system section](./session.md#the-help-system), to
+learn more about any GAP function you can use the help operator `?` in the GAP
+REPL, e.g.
+
+```gap-repl
+gap> ?Transformation
+  53.2-1 Transformation
+  
+  ‣ Transformation( list ) ─────────────────────────────────────────── operation
+  ‣ Transformation( list, func ) ───────────────────────────────────── operation
+  ‣ TransformationList( list ) ─────────────────────────────────────── operation
+  Returns:  A transformation.
+  
+  TransformationList returns the transformation f such that i ^ f = list[i] if i
+  is  between  1  and  the  length of list and i ^ f = i if i is larger than the
+  length  of  list.  An  error  will  occur in TransformationList if list is not
+  dense, if list contains an element which is not a positive integer, or if list
+  contains an integer not in [ 1 .. Length( list ) ].
+  
+  TransformationList  is  the  analogue  in  the  context  of transformations of
+  PermList  (42.5-2). Transformation is a synonym of TransformationList when the
+  argument is a list.
+  
+  When  the  arguments are a list of positive integers list and a function func,
+  Transformation  returns  the  transformation  f  such that list[i] ^ f = func(
+  list[i]  )  if i is in the range [ 1 .. Length( list ) ] and f fixes all other
+  points.
+  
+  ─────────────────────────────────  Example  ──────────────────────────────────
+    gap> SetUserPreference( "NotationForTransformations", "input" );
+    gap> f := Transformation( [ 11, 10, 2, 11, 4, 4, 7, 6, 9, 10, 1, 11 ] );
+    Transformation( [ 11, 10, 2, 11, 4, 4, 7, 6, 9, 10, 1, 11 ] )
+    gap> f := TransformationList( [ 2, 3, 3, 1 ] );
+    Transformation( [ 2, 3, 3, 1 ] )
+    gap> SetUserPreference( "NotationForTransformations", "fr" );
+    gap> f := Transformation( [ 10, 11 ], x -> x ^ 2 );
+    <transformation: 1,2,3,4,5,6,7,8,9,100,121>
+    gap> SetUserPreference( "NotationForTransformations", "input" );
+  ──────────────────────────────────────────────────────────────────────────────
+  
+```
+
+This can be especially helpful for understanding the functions we will use
+going forward. In particular, the documentation shows us another way of
+constructing a transformation using a list and a function.
+
+!!! note
+    Mathematically, all transformations in GAP belong to
+    the infinite transformation monoid $T_\mathbb{N}$ of transformations
+    $f: \mathbb{N} \rightarrow \mathbb{N}$. GAP simply treats all points
+    after the largest moved point of a transformation $t$ as fixed.
+    This means that we can multiply two transformations acting
+    on a different number of points, so e.g.
+    `#!gap Transformation([2, 1]) * Transformation([3, 3, 4, 5]);`
+    is valid. Similarly, `#!gap 10 ^ (Transformation([2, 1]));` is
+    valid and returns `10`.
+    As such the _degree_ of a transformation $t$, as returned by
+    the [`DegreeOfTransformation`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X78A209C87CF0E32B)
+    function in GAP, is simply the largest moved point of $t$, i.e.
+    the largest value $n \in \mathbb{N}$ such that $t(n) \neq n$.
+
+!!! note
+    GAP does not have a distinguished type for _partial transformations_
+    of degree $n$,
+    i.e. partial functions with domain and codomain in $\{1, \ldots, n\}$.
+    However, for any fixed $n$, the semigroup of all partial transformations
+    of degree $n$ is isomorphic to the semigroup of all total transformations
+    of degree $n+1$, which is what the `Semigroups` package utilizes.
+    See the documentation of the
+    [`PartialTransformationMonoid`](https://semigroups.github.io/Semigroups/doc/chap7_mj.html#X808A27F87E5AC598)
+    for more details.
+    
+
+See [Chapter 53](https://docs.gap-system.org/doc/ref/chap53_mj.html) of the
+GAP reference manual for more details about transformations.
+
+
 ### Partial permutations
 
 ### Bipartitions
@@ -75,6 +204,10 @@ of the `Semigroups` package documentation for more details.
 ### Homomorphic images
 
 ## Analyzing semigroups
+
+### Green's relations
+
+### Egg-box diagrams
 
 
 TODO: Integrate the below with the above
