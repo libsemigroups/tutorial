@@ -473,10 +473,10 @@ functions respectively.
     Unlike transformation and partial permutations,
     bipartitions of distinct degrees _cannot_ be multiplied
     together, and attempting to do so at the moment will cause
-    erroneous output
-    We are currently working to address this problem
-    as part of [Issue #1183](https://github.com/semigroups/Semigroups/issues/1183)
-    on the `Semigroups` issue tracker.
+    erroneous output.
+    This issue will be resolved in a future release of the `Semigroups`
+    package, a fix was implemented in
+    [Pull request #1185](https://github.com/semigroups/Semigroups/pull/1185).
 
 !!! info
     See [Chapter 3](https://semigroups.github.io/Semigroups/doc/chap3_mj.html)
@@ -660,9 +660,9 @@ the list of lists representing `A` as the second argument.
     ```
     This is because the matrix `A` is invertible over the rationals
     but not the integers.
-    We are currently working to address this problem
-    as part of [Issue #1184](https://github.com/semigroups/Semigroups/issues/1184)
-    on the `Semigroups` issue tracker.
+    This issue will be resolved in a future version of GAP,
+    once [Pull request #6342](https://github.com/gap-system/gap/pull/6342)
+    gets merged.
 
 The _order_ of an integer matrix $A$ is
 the smallest positive positive integer $n$ such that $A^n$ is the
@@ -946,11 +946,75 @@ respectively.
 
 #### Max-plus, min-plus and tropical semirings and the $\mathbb{N}_{t, p}$ semiring
 
+To construct a matrix $A$ over a max-plus, min-plus, tropical max-plus,
+tropical min-plus or $\mathbb{N}_{t, p}$ semiring, we use the
+[`Matrix`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7DCA234C86ED8BD3)
+function and specify, respectively,
+
+* `IsMaxPlusSemiring` as the first argument and a list of lists `A`
+  representing the matrix $A$ as the second argument. The element $-\infty$
+  is expressed by the GAP variable `#!gap -infinity`.
+* `IsMinPlusSemiring` as the first argument and a list of lists `A`
+  representing the matrix $A$ as the second argument. The element $\infty$
+  is expressed by the GAP variable `#!gap infinity`.
+* `IsTropicalMaxPlusSemiring` as the first argument, a list of lists `A`
+  representing the matrix $A$ as the second argument, and the parameter $t$
+  as the third argument.
+* `IsTropicalMinPlusSemiring` as the first argument, a list of lists `A`
+  representing the matrix $A$ as the second argument, and the parameter $t$
+  as the third argument.
+* `IsNTPMatrix` as the first argument, a list of lists `A`
+  representing the matrix $A$ as the second argument, and the parameters $t$ and
+  $p$ as the third and fourth argument.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> Display(Matrix(IsMaxPlusMatrix, [[4, 0, -2], [1, -3, 0], [5, -1, -4]]));
+    4  0 -2
+    1 -3  0
+    5 -1 -4
+    gap> Display(Matrix(IsMinPlusMatrix, [[-1, infinity], [1, -1]]));
+    -1  ∞
+    1 -1
+    gap> Display(Matrix(IsTropicalMaxPlusMatrix, [[3, 2, 4], [3, 1, 1], [-infinity, 1, 1]], 9));
+    3  2  4
+    3  1  1
+    -∞  1  1
+    gap> Display(Matrix(IsTropicalMinPlusMatrix, [[1, 1, 1], [0, 3, 0], [1, 1, 3]], 9));
+    1 1 1
+    0 3 0
+    1 1 3
+    gap> Display(Matrix(IsNTPMatrix, [[0, 0, 0], [2, 0, 1], [2, 2, 2]], 2, 1));
+    0 0 0
+    2 0 1
+    2 2 2
+    ```
+=== "GAP script"
+    ```gap
+    Display(Matrix(IsMaxPlusMatrix, [[4, 0, -2], [1, -3, 0], [5, -1, -4]]));
+    Display(Matrix(IsMinPlusMatrix, [[-1, infinity], [1, -1]]));
+    Display(Matrix(IsTropicalMaxPlusMatrix, [[3, 2, 4], [3, 1, 1], [-infinity, 1, 1]], 9));
+    Display(Matrix(IsTropicalMinPlusMatrix, [[1, 1, 1], [0, 3, 0], [1, 1, 3]], 9));
+    Display(Matrix(IsNTPMatrix, [[0, 0, 0], [2, 0, 1], [2, 2, 2]], 2, 1));
+    ```
+
 #### Some standard matrices
+
+GAP provides implementations of some
+[standard matrix constructions](https://docs.gap-system.org/doc/ref/chap24_mj.html#X823FB2398697B957), such
+as the 
+* identity matrix via [`IdentityMat`](),
+* zero matrix via [`NullMat`](),
+* diagonal matrices via [`DiagonalMat`](),
+* permutation matrices via [`PermutationMat`]()
 
 !!! info
     See [Chapter 5](https://semigroups.github.io/Semigroups/doc/chap5_mj.html)
-    of the `Semigroups` manual for more details about matrices over semirings.
+    of the `Semigroups` manual for more details about matrices over semirings,
+    as well as [Chapter 24](https://docs.gap-system.org/doc/ref/chap24_mj.html#X812CCAB278643A59)
+    of the GAP reference manual for more details about general methods for
+    matrices. Note, however that not all methods may be implemented for
+    semigroups over a semiring, e.g. TODO
 
 ## Constructing semigroups
 
