@@ -1,24 +1,13 @@
-# Finite, finitely generated and acting semigroups in GAP
+# Semigroups and monoids defined by generators
 
-This section provides information about how to compute with a finite or finitely generated
-semigroup or monoid using the `Semigroups` package for GAP. We assume some basic familiarity
-with the GAP programming language, see the [GAP: First Steps](session.md) section for
-a basic overview if you do not yet feel comfortable with GAP.
+This section provides information about how to use the `Semigroups` package for
+GAP to compute with a semigroup or monoid defined by a collection of
+generators. We assume some basic familiarity with the GAP programming language,
+see the [GAP: First Steps](session.md) section for a basic overview if you do
+not yet feel comfortable with GAP.
 
-GAP does provide some built-in functionality related to semigroups, see the reference manual
-
-* [Chapter 51: Semigroups and Monoid](https://docs.gap-system.org/doc/ref/chap51_mj.html),
-* [Chapter 52: Finitely Presented Semigroups and Monoids](https://docs.gap-system.org/doc/ref/chap52_mj.html),
-* [Chapter 53: Transformations](https://docs.gap-system.org/doc/ref/chap53_mj.html) and
-* [Chapter 54: Partial permutations](https://docs.gap-system.org/doc/ref/chap54_mj.html).
-
-However, some functionality is missing and many of the algorithms
-for semigroups as implemented in base GAP can be quite slow. The `Semigroups` package
-significantly expands the available computational semigroup theory toolbox and provides
-fast `C++` implementations of standard semigroup theory algorithms, such as the
-[Froidure-Pin algorithm](https://semigroups.github.io/Semigroups/doc/chap6_mj.html#X7E2DE9767D5D82F7).
-
-In order to load the `Semigroups` package simply add
+All code examples in this section assume that the `Semigroups` package
+is loaded. To do so, simply add
 ```gap
 LoadPackage("Semigroups");
 ```
@@ -46,6 +35,78 @@ GAP session.
     This is an indication that you need to compile the kernel module.
     Please follow [Step 7 of the Standard Install instructions](install.md#common-installation-steps)
     to fix this error.
+
+## Kinds of elements
+
+Any GAP object equipped with an associative multiplication can in principle
+be used to construct a semigroup in GAP. However, there are certain kinds of
+semigroups for which there exist the algorithms that are several orders
+of magnitude faster than those applicable in the general case.
+In particular, the `Semigroups` package implements efficient algorithms for
+the so called
+[_acting semigroups_](https://semigroups.github.io/Semigroups/doc/chap6_mj.html#X7A3AC74C7FF85825)[^1]
+and has an efficient implementation of the
+[Froidure-Pin algorithm](https://semigroups.github.io/Semigroups/doc/chap6_mj.html#X7E2DE9767D5D82F7)[^2]
+which can be applied to subsemigroups of certain semigroups.
+
+In this section we give a brief description of the main types of
+elements which can be efficiently computed with via the `Semigroups` package.
+See [Chapter 6](https://semigroups.github.io/Semigroups/doc/chap6_mj.html)
+of the `Semigroups` package documentation for more details.
+
+### Transformations
+
+### Partial permutations
+
+### Bipartitions
+
+### Partitioned binary relations
+
+### Matrices over semirings
+
+## Constructing semigroups
+
+### Subsemigroups
+
+### Multiplication tables
+
+### Quotients
+
+### Homomorphic images
+
+## Analyzing semigroups
+
+
+TODO: Integrate the below with the above
+
+# Finite, finitely generated and acting semigroups in GAP
+
+This section provides information about how to compute with a finite or finitely generated
+semigroup or monoid using the `Semigroups` package for GAP. We assume some basic familiarity
+with the GAP programming language, see the [GAP: First Steps](session.md) section for
+a basic overview if you do not yet feel comfortable with GAP.
+
+GAP does provide some built-in functionality related to semigroups, see the reference manual
+
+* [Chapter 51: Semigroups and Monoid](https://docs.gap-system.org/doc/ref/chap51_mj.html),
+* [Chapter 52: Finitely Presented Semigroups and Monoids](https://docs.gap-system.org/doc/ref/chap52_mj.html),
+* [Chapter 53: Transformations](https://docs.gap-system.org/doc/ref/chap53_mj.html) and
+* [Chapter 54: Partial permutations](https://docs.gap-system.org/doc/ref/chap54_mj.html).
+
+However, some functionality is missing and many of the algorithms
+for semigroups as implemented in base GAP can be quite slow. The `Semigroups` package
+significantly expands the available computational semigroup theory toolbox and provides
+fast `C++` implementations of standard semigroup theory algorithms, such as the
+[Froidure-Pin algorithm](https://semigroups.github.io/Semigroups/doc/chap6_mj.html#X7E2DE9767D5D82F7).
+
+In order to load the `Semigroups` package simply add
+```gap
+LoadPackage("Semigroups");
+```
+at the start of your gap script, or execute this command at the start of your
+GAP session.
+
+
 
 ## Finite semigroups
 
@@ -286,6 +347,17 @@ The egg-box diagram of $\mathcal{T}_3$.
 
 ### Multiplication tables
 
+!!! warning
+    Multiplication tables are a very inefficient way of defining a
+    semigroup. Indeed, to define a semigroup $S$ using a multiplication
+    table we need to give a table of $|S|^2$ entries. However, if a
+    generating set $A$ for $S$ is known, we can construct a transformation
+    representation for $S$ by taking only those rows in the multiplication
+    table that correspond to the generators in $A$. This allows us to
+    construct a transformation semigroup $S^\prime$ that is isomorphic to
+    $S$, and we only need specify $|A|\cdot |S|$ many entries.
+    
+
 ### Cayley graphs
 
 ### Finite inverse semigroups
@@ -298,3 +370,16 @@ The egg-box diagram of $\mathcal{T}_3$.
 
 ### Semigroups of matrices over semirings
 
+
+[^1]:
+    **East, J.**, **Egri-Nagy, A.**, **Mitchell, J. D.** and **Péresse, Y.**,
+    _Computing finite semigroups_,
+    J. Symbolic Computation, _92_ (2019), 110 - 155.
+    DOI: [10.1016/j.jsc.2018.01.002](https://doi.org/10.1016/j.jsc.2018.01.002).
+
+[^2]:
+    **Froidure, V.** and **Pin, J.-E.**,
+    _Algorithms for computing finite semigroups_,
+    in _Foundations of computational mathematics (Rio de Janeiro, 1997)_,
+    Springer, Berlin (1997), 112–126. 
+    DOI: [10.1007/978-3-642-60539-0_9](https://doi.org/10.1007/978-3-642-60539-0_9)
