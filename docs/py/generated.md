@@ -1,14 +1,14 @@
 # Semigroups and monoids defined by generators
 
 If you followed the instructions on [the previous page](first-steps.md), you
-should now have a functioning version of `libsemigroups_pybind11`. On this page,
+should now have a functioning version of [libsemigroups_pybind11][]. On this page,
 you will learn about semigroups defined by a collection of generators. In
 particular, you will learn which type of objects can be used as generators of a
 semigroup, and how to compute with semigroups defined by generators.
 
 ## Elements
 
-In `libsemigroups_pybind11`, there are several types of object that can be
+In [libsemigroups_pybind11][], there are several types of object that can be
 treated as elements of a semigroup, which are broken down into four categories:
 
 1. Bipartitions,
@@ -17,7 +17,7 @@ treated as elements of a semigroup, which are broken down into four categories:
 1. Transformations.
 
 In this this section, you will learn how to construct objects of these types in
-`libsemigroups_pybind11`.
+[libsemigroups_pybind11][].
 
 !!! note
 
@@ -25,7 +25,7 @@ In this this section, you will learn how to construct objects of these types in
     element, but does not attempt to showcase every feature or function. For a
     full description of the API for the different element types, see the
     [Elements](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/index.html)
-    page in the `libsemigroups_pybind11` documentation.
+    page in the [libsemigroups_pybind11][] documentation.
 
 ### Bipartitions
 
@@ -84,12 +84,12 @@ bipartition.random(7)
 
     For more information about bipartitions, see the [Bipartition class](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/bipart/bipart.html) and
     [Bipartition helpers](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/bipart/bipart-helpers.html)
-    pages in the `libsemigroups_pybind11` documentation.
+    pages in the [libsemigroups_pybind11][] documentation.
 
 ### Matrices
 
 There are several different flavours of matrix available in
-`libsemigroups_pybind11`. For example, you can construct the $3 \times 3$ matrix
+[libsemigroups_pybind11][]. For example, you can construct the $3 \times 3$ matrix
 
 $$
     m =
@@ -130,7 +130,7 @@ m ** 3
 #                             [2, 6, 5]])
 ```
 
-In general, `Matrix` objects in `libsemigroups_pybind11` are constructed by
+In general, `Matrix` objects in [libsemigroups_pybind11][] are constructed by
 specifying a value from the `MatrixKind` enum, and a list of rows of values.
 The `MatrixKind` value determines what type of matrix is returned, and the
 possible values are summarised in the following table.
@@ -176,13 +176,13 @@ m ** 3
 
     When representing boolean matrices of dimension up to $8 \times 8$, you can
     use the class `BMat8` to take advantage of some compiler optimisations. More
-    information can be found on the [BMat8 class](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/matrix/bmat8.html) page in the `libsemigroups_pybind11` documentation.
+    information can be found on the [BMat8 class](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/matrix/bmat8.html) page in the [libsemigroups_pybind11][] documentation.
 
 !!! info
 
     For more information about matrices, see the [Matrix class](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/matrix/matrix.html) and
     [Matrix helpers](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/matrix/matrix-helpers.html)
-    pages in the `libsemigroups_pybind11` documentation.
+    pages in the [libsemigroups_pybind11][] documentation.
 
 ### Transformations
 
@@ -276,7 +276,9 @@ TODO:
     of the `run_for` function being used on the
     [Finitely presented semigroups](fp.md) page, and more information can be
     found on the [Runner class](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/core-classes/runner.html)
-    page in the `libsemigroups_pybind11` documentation; `FroidurePin` derives
+    page in the [libsemigroups_pybind11][] documentation; `FroidurePin` derives
     from the `Runner` class.
 
 ### `Konieczny`
+
+[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/
