@@ -467,7 +467,8 @@ functions respectively.
     Unlike transformation and partial permutations,
     bipartitions of distinct degrees _cannot_ be multiplied
     together, and attempting to do so at the moment will cause
-    erroneous output. We are currently working to address this problem
+    erroneous output
+    We are currently working to address this problem
     as part of [Issue #1183](https://github.com/semigroups/Semigroups/issues/1183)
     on the `Semigroups` issue tracker.
 
@@ -487,9 +488,15 @@ $(S, \cdot)$ is a monoid, and $S$ satisfies three additional axioms:
 3. For all $x, y, z\in S$, $(x + y) \cdot z = x \cdot z + y \cdot z$.
 
 The set of $n\times n$ matrices with entries in $S$ forms a semigroup under
-matrix multiplication. The semigroups package currently supports efficient
+matrix multiplication, i.e. if $A$ and $B$ are two $n\times n$ matrices,
+then $(A \cdot B)_{i, j} = \sum_{k = 1}^n A_{i, k} \cdot B_{k, j}$.
+
+The semigroups package currently supports efficient
 manipulation of $n \times n$ matrices over the following semirings:
 
+* The integers $\mathbb{Z}$ under the usual addition and multiplication.
+* The finite fields $\mathbb{F}_{p^d}$ where $p$ is a prime and $d$ is a
+  positive integer.
 * The _boolean semiring_ $\mathbb{B} = \{\texttt{true}, \texttt{false}\}$ with
   addition given by the boolean $\texttt{or}$ function and multiplication by the
   boolean $\texttt{and}$ function;
@@ -503,13 +510,345 @@ manipulation of $n \times n$ matrices over the following semirings:
   $\{0, \ldots, t, \infty\}$, respectively.
 * The semiring $\mathbb{N}_{t, p} = \{0, \ldots t+p\}$ with addition
   and multiplication modulo the relation $t = t + p$.
-* The integers $\mathbb{Z}$ under the usual addition and multiplication.
-* The finite fields $\mathbb{F}_{p^d}$ where $p$ is a prime and $d$ is a
-  positive integer.
 
-TODO: How to construct, properties
+In general, an $n\times n$ matrix $A$ is represented in GAP are represented as
+list of lists `A` such that `A[i]` is the $i$-th row of $A$ and `A[i][j]` is
+the entry of `A` at the $i$-th row and $j$-th column of $A$.
+Matrices can be multiplied using the `*` operatator, provided they have the
+same dimensions and same underlying semiring, and the `^ -1` operator
+can be used to find the inverse of a matrix. If `A` is invertible over the
+semiring, then `A^-1` will return the inverse of `A`, and otherwise
+`A^-1` will return `#!gap fail`.
+The transpose of a matrix can be found using the
+[`TransposedMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X7C52A38C79C36C35)
+function.
+Matrices can be
+pretty-printed using the [`Display`](https://docs.gap-system.org/doc/ref/chap6_mj.html#X83A5C59278E13248)
+function.
+
+In order
+to make sure a matrix over the correct semiring is constructed, we must use the
+correct constructor function. We now briefly cover each type of matrix along
+with its constructors in turn.
+
+#### The integers
+
+One can construct a boolean matrix $A$ using the
+[`Matrix`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7DCA234C86ED8BD3)
+function by specifying the semiring `Integers` as the first argument and
+the list of lists representing `A` as the second argument.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> A := Matrix(Integers, [
+    > [1, 2, 3],
+    > [4, 3, -1],
+    > [1, 0, -3]]);
+    <3x3-matrix over Integers>
+    gap> B := Matrix(Integers, [
+    > [1, -1, 0],
+    > [0, 0, 1],
+    > [1, 0, 1]]);
+    <3x3-matrix over Integers>
+    gap> C := Matrix(Integers, [
+    > [0, 0, 0],
+    > [0, 1, -1],
+    > [1, 0, 1]]);
+    <3x3-matrix over Integers>
+    gap> A * B;
+    <3x3-matrix over Integers>
+    gap> B * A;
+    <3x3-matrix over Integers>
+    gap> Display(A * B);
+    <3x3-matrix over Integers:
+    [[ 4, -1, 5 ]
+    [ 3, -4, 2 ]
+    [ -2, -1, -3 ]
+    ]>
+    gap> Display(B * A);
+    <3x3-matrix over Integers:
+    [[ -3, -1, 4 ]
+    [ 1, 0, -3 ]
+    [ 2, 2, 0 ]
+    ]>
+    gap> Display(TransposedMat(A));
+    <immutable 3x3-matrix over Integers:
+    [[ 1, 4, 1 ]
+    [ 2, 3, 0 ]
+    [ 3, -1, -3 ]
+    ]>
+    gap> Display(B ^ -1);
+    <3x3-matrix over Integers:
+    [[ 0, -1, 1 ]
+    [ -1, -1, 1 ]
+    [ 0, 1, 0 ]
+    ]>
+    gap> C^-1;
+    fail
+    ```
+=== "GAP script"
+    ```gap
+    A := Matrix(Integers, [
+    [1, 2, 3],
+    [4, 3, -1],
+    [1, 0, -3]]);
+    B := Matrix(Integers, [
+    [1, -1, 0],
+    [0, 0, 1],
+    [1, 0, 1]]);
+    C := Matrix(Integers, [
+    [0, 0, 0],
+    [0, 1, -1],
+    [1, 0, 1]]);
+    A * B;
+    B * A;
+    Display(A * B);
+    Display(B * A);
+    Display(TransposedMat(A));
+    Display(B ^ -1);
+    C^-1;
+    ```
+
+!!! warning
+    If an integer matrix is invertible over the rationals, but not the integers,
+    then the inversion operator `^ -1` will throw an error instead of
+    returning `fail` at the moment, e.g.
+    ```gap-repl
+    gap> A := Matrix(Integers, [
+    > [1, 2, 3],
+    > [4, 3, -1],
+    > [1, 0, -3]]);
+    <3x3-matrix over Integers>
+    gap> A^-1;
+    Error, the elements in <list> must lie in <basedomain>
+    *[1] Error( "the elements in <list> must lie in <basedomain>" );
+      @ /Users/rcirpons/Desktop/Source/gap/lib/matobjplist.gi:90
+    [2] MakeIsPlistVectorRep( v![1], list, true )
+      @ /Users/rcirpons/Desktop/Source/gap/lib/matobjplist.gi:319
+    [3] Vector( list[i], t )
+      @ /Users/rcirpons/Desktop/Source/gap/lib/matobjplist.gi:687
+    [4] Matrix( n, Length( n ), M )
+      @ /Users/rcirpons/Desktop/Source/gap/lib/matobjplist.gi:1215
+    <function "InverseSameMutability [ IsPlistMatrixRep ]">( <arguments> )
+    called from read-eval loop at *stdin*:160
+    you can 'quit;' to quit to outer loop, or
+    you can 'return;' to continue
+    brk> quit;
+    ```
+    This is because the matrix `A` is invertible over the rationals
+    but not the integers.
+    We are currently working to address this problem
+    as part of [Issue #1184](https://github.com/semigroups/Semigroups/issues/1184)
+    on the `Semigroups` issue tracker.
+
+The _order_ of an integer matrix $A$ is
+the smallest positive positive integer $n$ such that $A^n$ is the
+identity matrix, if such an integer exists and $\infty$ otherwise.
+We can compute the order using the
+[`Order`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X84F59A2687C62763)
+function and we can check if the order is finite using the
+[`IsTorsion`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7CA636F080777C36)
+function. Note that only the order of an invertible matrix can be computed,
+and the `Order` function will throw an error if a non-invertible matrix is given
+as input.
+
+ 
+=== "GAP REPL"
+    ```gap-repl
+    gap> D := Matrix(Integers, [
+    > [0, 0, -1, 0],
+    > [0, -1, 0, 0],
+    > [4, 4, 2, -1],
+    > [1, 1, 0, 3]]);;
+    gap> Order(D);
+    infinity
+    gap> IsTorsion(D);
+    false
+    gap> F := Matrix(Integers, [
+    > [0, 0, -1],
+    > [0, 1, 0],
+    > [1, 0, 0]]);;
+    gap> Order(F);
+    4
+    gap> IsTorsion(F);
+    true
+    gap> G := Matrix(Integers, [
+    > [0, 0, 0],
+    > [0, 1, -1],
+    > [1, 0, 1]]);
+    gap> Order(G);
+    Error, Order: <mat> must be invertible
+    *[1] Error( "Order: <mat> must be invertible" );
+      @ /Users/rcirpons/Desktop/Source/gap/lib/matrix.gi:1169
+    [2] Order( Unpack( mat ) )
+      @ /Users/rcirpons/Desktop/Source/gap/pkg/Semigroups/gap/elements/maxplusmat.g\
+    i:759
+    <function "Order for an integer matrix obj">( <arguments> )
+    called from read-eval loop at *stdin*:172
+    you can 'quit;' to quit to outer loop, or
+    you can 'return;' to continue
+    brk> quit;
+    ```
+=== "GAP script"
+    ```gap
+    D := Matrix(Integers, [
+    [0, 0, -1, 0],
+    [0, -1, 0, 0],
+    [4, 4, 2, -1],
+    [1, 1, 0, 3]]);;
+    Order(D);
+    IsTorsion(D);
+    F := Matrix(Integers, [
+    [0, 0, -1],
+    [0, 1, 0],
+    [1, 0, 0]]);;
+    Order(F);
+    IsTorsion(F);
+    G := Matrix(Integers, [
+    [0, 0, 0],
+    [0, 1, -1],
+    [1, 0, 1]]);
+    Order(G);
+    quit;
+    ```
+
+!!! warning
+    Certain single letter variables such as
+    [`E`](https://docs.gap-system.org/doc/ref/chap18_mj.html#X8631458886314588),
+    [`X`](https://docs.gap-system.org/doc/ref/chap66_mj.html#X79D0380D7FA39F7D) and
+    [`Z`](https://docs.gap-system.org/doc/ref/chap59_mj.html#X7AA52FAF7EDEDD56)
+    are defined as functions in GAP, and therefore cannot
+    be modified. Hence attempting to assign to either `E` or `X`
+    will result in an error. This is why we skip `E` in the example above.
+    ```gap-repl
+    gap> E := Matrix(Integers, [[1, 0], [0, 1]]);
+    Error, Variable: 'E' is read only
+    not in any function at *stdin*:201
+    type 'quit;' to quit to outer loop
+    ```
+    
+#### Finite fields
+
+Recall that a _field_ is a semiring which is additionally a
+commutative group under addition and whose
+non-zero elements form a commputative group under multiplication.
+A _finite field_ is a field with finitely many elements, and a
+$q$ element field exists precisely when $q = p^d$ for some prime $p$
+and positive integer $d$. Furthermore all fields with $q$ elements are
+isomorphic, and we denote the finite field of order $q$ by $\mathbb{F}_q$.
+In GAP the finite field of order $q$ can be constructed via the
+[`GF`](https://docs.gap-system.org/doc/ref/chap59_mj.html#X8592DBB086A8A9BE)
+function.
+The
+[`Z`](https://docs.gap-system.org/doc/ref/chap59_mj.html#X7AA52FAF7EDEDD56)
+function returns the generator `Z(p^d)` of the multiplicative group of
+the finite field `GF(p^d)`. As such `Z(p^d)^0` is the multiplicative identity
+of `GF(p^d)`.
+
+TODO: construct
+
+To construct a matrix over a finite field,
+
+!!! warning
+    At the moment, passing an integer matrix whose entries are not elements
+    of `GF(p^d)` as the second component will cause the conversion to a matrix
+    over a semiring to silently fail, e.g.
+    ```gap-repl
+    gap> A := Matrix(GF(2), [[1, 1, 1], [0, 1, 1], [0, 0, 1]]);
+    [ [ 1, 1, 1 ], [ 0, 1, 1 ], [ 0, 0, 1 ] ]
+    gap> A^-1;
+    [ [ 1, -1, 0 ], [ 0, 1, -1 ], [ 0, 0, 1 ] ]
+    gap> A[1][1] in GF(2);
+    false
+    ```
+    
+
+#### Boolean matrices
+
+One can construct a boolean matrix $A$ using the
+[`BooleanMat`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X84A16D4D7D015885)
+functions by providing the list of lists representing `A`.
+We allow either matrices that contain entries `false` and `true` or `0` and `1`.
+The entries `false` and `true` get mapped to `0` and `1` respectively.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> A := BooleanMat([[true, true, false], [false, false, false], [true, false, true]]);
+    Matrix(IsBooleanMat, [[1, 1, 0], [0, 0, 0], [1, 0, 1]])
+    gap> B := BooleanMat([[1, 1, 0], [0, 1, 0], [0, 0, 1]]);
+    Matrix(IsBooleanMat, [[1, 1, 0], [0, 1, 0], [0, 0, 1]])
+    gap> A * B;
+    Matrix(IsBooleanMat, [[1, 1, 0], [0, 0, 0], [1, 1, 1]])
+    gap> B * A;
+    Matrix(IsBooleanMat, [[1, 1, 0], [0, 0, 0], [1, 0, 1]])
+    gap> Display(A);
+    1 1 0
+    0 0 0
+    1 0 1
+    gap> Display(B);
+    1 1 0
+    0 1 0
+    0 0 1
+    ```
+=== "GAP script"
+    ```gap
+    A := BooleanMat([[true, true, false], [false, false, false], [true, false, true]]);
+    B := BooleanMat([[1, 1, 0], [0, 1, 0], [0, 0, 1]]);
+    A * B;
+    B * A;
+    Display(A);
+    Display(B);
+    ```
+
+A boolean matrix $A$ of dimension $n$ can equivalently be viewed as a binary
+relation $R$ of the set $\{1, \ldots, n\}$, where $(i, j) \in R$ if and only
+if $A_{i, j} = 1$. The `Semigroups` package implements
+functions for checking if a boolean matrix, when viewed as a binary relation
+in this manner, is reflexive, symmetric, antisymmetric or transitive via the
+functions
+[`IsReflexiveBooleanMat`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7C373B7D87044050),
+[`IsSymmetricBooleanMat`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7D22BA78790EFBC6),
+[`IsAntiSymmetricBooleanMat`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X8570C8A08549383D) and
+[`IsTransitiveBooleanMat`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7CDAD39B856AC3E5)
+respectively.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> C := BooleanMat([
+    > [1, 1, 1, 0],
+    > [1, 1, 1, 1],
+    > [1, 1, 1, 1],
+    > [0, 1, 1, 1]]);
+    Matrix(IsBooleanMat, [[1, 1, 1, 0], [1, 1, 1, 1], [1, 1, 1, 1], [0, 1, 1, 1]])
+    gap> IsReflexiveBooleanMat(C);
+    true
+    gap> IsSymmetricBooleanMat(C);
+    true
+    gap> IsAntiSymmetricBooleanMat(C);
+    false
+    gap> IsTransitiveBooleanMat(C);
+    false
+    ```
+=== "GAP script"
+    ```gap
+    C := BooleanMat([
+    [1, 1, 1, 0],
+    [1, 1, 1, 1],
+    [1, 1, 1, 1],
+    [0, 1, 1, 1]]);
+    IsReflexiveBooleanMat(C);
+    IsSymmetricBooleanMat(C);
+    IsAntiSymmetricBooleanMat(C);
+    IsTransitiveBooleanMat(C);
+    ```
+
+#### Max-plus, min-plus and tropical semirings and the $\mathbb{N}_{t, p}$ semiring
+
+#### Some standard matrices
 
 ## Constructing semigroups
+
+### Built-in semigroups
 
 ### Subsemigroups
 
@@ -524,6 +863,8 @@ TODO: How to construct, properties
 ### Green's relations
 
 ### Egg-box diagrams
+
+### Cayley graphs
 
 
 TODO: Integrate the below with the above

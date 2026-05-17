@@ -806,7 +806,8 @@ Note that with the `#!gap break;` statements, only a single counterexample is fo
 the search is stopped early.
 
 The `Semigroups` package offers a simpler way of checking if a multiplication table
-defines a semigroup, which we will cover in [Worksheet 1](worksheet1.md).
+defines a semigroup, which we will cover in the section
+[Semigroups defined by generators](generated.md).
 
 ### Defining functions
 
