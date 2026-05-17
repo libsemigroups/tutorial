@@ -154,9 +154,39 @@ This can be especially helpful for understanding the functions we will use
 going forward. In particular, the documentation shows us another way of
 constructing a transformation using a list and a function.
 
+Properties of transformations such as their _degree_, _image_, _kernel_ and
+_rank_ are implemented by the
+[`DegreeOfTransformation`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X78A209C87CF0E32B),
+[`ImageSetOfTransformation`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X839A6D6082A21D1F),
+[`KernelOfTransformation`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X80FCB5048789CF75),
+and [`RankOfTransformation`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X818EBB167C7EA37B)
+functions respectively.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> c := Transformation([2, 3, 4, 1, 1]);
+    Transformation( [ 2, 3, 4, 1, 1 ] )
+    gap> DegreeOfTransformation(c);
+    5
+    gap> ImageSetOfTransformation(c);
+    [ 1, 2, 3, 4 ]
+    gap> KernelOfTransformation(c);
+    [ [ 1 ], [ 2 ], [ 3 ], [ 4, 5 ] ]
+    gap> RankOfTransformation(c);
+    4
+    ```
+=== "GAP script"
+    ```gap
+    c := Transformation([2, 3, 4, 1, 1]);
+    DegreeOfTransformation(c);
+    ImageSetOfTransformation(c);
+    KernelOfTransformation(c);
+    RankOfTransformation(c);
+    ```
+
 !!! note
     Mathematically, all transformations in GAP belong to
-    the infinite transformation monoid $T_\mathbb{N}$ of transformations
+    the infinite transformation monoid $\mathcal{T}_\mathbb{N}$ of transformations
     $f: \mathbb{N} \rightarrow \mathbb{N}$. GAP simply treats all points
     after the largest moved point of a transformation $t$ as fixed.
     This means that we can multiply two transformations acting
@@ -164,10 +194,13 @@ constructing a transformation using a list and a function.
     `#!gap Transformation([2, 1]) * Transformation([3, 3, 4, 5]);`
     is valid. Similarly, `#!gap 10 ^ (Transformation([2, 1]));` is
     valid and returns `10`.
-    As such the _degree_ of a transformation $t$, as returned by
+    The degree of a transformation $t$, as returned by
     the [`DegreeOfTransformation`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X78A209C87CF0E32B)
     function in GAP, is simply the largest moved point of $t$, i.e.
     the largest value $n \in \mathbb{N}$ such that $t(n) \neq n$.
+
+See [Chapter 53](https://docs.gap-system.org/doc/ref/chap53_mj.html) of the
+GAP reference manual for more details about transformations.
 
 !!! note
     GAP does not have a distinguished type for _partial transformations_
@@ -180,12 +213,133 @@ constructing a transformation using a list and a function.
     [`PartialTransformationMonoid`](https://semigroups.github.io/Semigroups/doc/chap7_mj.html#X808A27F87E5AC598)
     for more details.
     
-
-See [Chapter 53](https://docs.gap-system.org/doc/ref/chap53_mj.html) of the
-GAP reference manual for more details about transformations.
-
-
 ### Partial permutations
+
+Recall that a _partial permutation_ of degree $n$ is a partial function
+$f: \{1, \ldots, n\} \rightarrow \{1, \ldots, n\}$ which is a bijection
+when restricted to its _domain_, i.e. the set of points on which it is defined.
+We can construct a partial permutation using the
+[`PartialPerm`](https://docs.gap-system.org/doc/ref/chap54_mj.html#X8538BAE77F2FB2F8)
+function in GAP by supplying two lists defining the domain and image of
+the partial permutation. Partial permutations can be multiplied using `*`,
+and the image of a point under a partial permutation can be obtained
+using the `^` operator. Note that points not in the domain get mapped to `0`.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> a := PartialPerm([1, 2, 5, 20], [2, 3, 5, 50]);
+    [1,2,3][20,50](5)
+    gap> b := PartialPerm([3, 4, 5, 6], [4, 3, 8, 7]);
+    [5,8][6,7](3,4)
+    gap> a * b;
+    [2,4][5,8]
+    gap> b * a;
+    <empty partial perm>
+    gap> 2 ^ a;
+    3
+    gap> 4 ^ a;
+    0
+    ```
+=== "GAP script"
+    ```gap
+    a := PartialPerm([1, 2, 5, 20], [2, 3, 5, 50]);
+    b := PartialPerm([3, 4, 5, 6], [4, 3, 8, 7]);
+    a * b;
+    b * a;
+    2 ^ a;
+    4 ^ a;
+    ```
+
+Partial permutations in GAP are displayed in _disjoint cycle and chain_
+notation. Recall that a _cycle_ of a partial permutation $p$ is a sequence
+of points $x_1, \ldots, x_k$ such that
+
+* $x_1 \in \text{dom}(p)$,
+* $p(x_i) = p(x_{i+1})$ for all $i \in \{1, \ldots, k - 1\}$ and
+* $p(x_k) = x_1$.
+
+A _chain_ of $p$
+is a sequence of points $x_1, \ldots, x_k$ such that
+
+* $x_1 \in \text{dom}(p) \setminus \text{im}(p)$,
+* $p(x_i) = p(x_{i+1})$ for all $i \in \{1, \ldots, k - 1\}$ and
+* $p(x_k) \in \text{im}(p)\setminus \text{dom}(p)$.
+
+Just as permutations can be written in disjoint cycle notation, partial
+permutations can be written in disjoint cycle and chain notation.
+Cycles are displayed using round brackets `()` and chains using square
+brackets `[]`.
+See [Section 54.6](https://docs.gap-system.org/doc/ref/chap54_mj.html#X7849595B81D063EE)
+of the reference manual for more details.
+
+!!! warning
+    A [`Set`](https://docs.gap-system.org/doc/ref/chap30_mj.html#X7E399AC97FD98217)
+    in GAP is a strictly sorted list of elements. GAP expects the
+    domain of `PartialPerm` to be a set, so in particular, this means
+    that giving the elements of the domain of a `PartialPerm` out of
+    order will result in a GAP error:
+
+    ```gap-repl
+    gap> PartialPerm([1, 2, 20, 5], [2, 3, 4, 50]); # 5 and 20 need to be swapped
+    Error, usage: the 1st argument must be a set of positive integers and the 2nd
+    argument must be a duplicate-free list of positive integers of equal length
+    to the first
+    *[1] ErrorNoReturn( "usage: the 1st argument must be a set of positive ", 
+    "integers and the 2nd argument must be a duplicate-free ", 
+    "list of positive integers of equal length to the first" );
+    @ /Users/rcirpons/Desktop/Source/gap/lib/pperm.gi:527
+    <function "PartialPerm">( <arguments> )
+    called from read-eval loop at *stdin*:44
+    type 'quit;' to quit to outer loop
+    brk> 
+    ```
+
+    The image must not contain duplicates (as otherwise the element would not
+    be a partial bijection), but otherwise there is no restriction on the
+    order of elements.
+
+Properties of transformations such as their
+_degree_, _codegree_, _domain_, _image_, and _rank_ are implemented by the
+[`DegreeOfPartialPerm`](https://docs.gap-system.org/doc/ref/chap54_mj.html#X8612A4DC864E7959),
+[`CodegreeOfPartialPerm`](https://docs.gap-system.org/doc/ref/chap54_mj.html#X8413D0EF7DEE1FFF),
+[`DomainOfPartialPerm`](https://docs.gap-system.org/doc/ref/chap54_mj.html#X784A14F787E041D7),
+[`ImageSetOfPartialPerm`](https://docs.gap-system.org/doc/ref/chap54_mj.html#X7F0724A07A14DCF7) and
+[`RankOfPartialPerm`](https://docs.gap-system.org/doc/ref/chap54_mj.html#X7C1ABD8A80E95B39)
+functions respectively.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> c := PartialPerm([1, 2, 5, 20, 22], [2, 3, 5, 50, 6]);
+    [1,2,3][20,50][22,6](5)
+    gap> DegreeOfPartialPerm(c);
+    22
+    gap> CodegreeOfPartialPerm(c);
+    50
+    gap> DomainOfPartialPerm(c);
+    [ 1, 2, 5, 20, 22 ]
+    gap> ImageSetOfPartialPerm(c);
+    [ 2, 3, 5, 6, 50 ]
+    gap> RankOfPartialPerm(c);
+    5
+    ```
+=== "GAP script"
+    ```gap
+    c := PartialPerm([1, 2, 5, 20, 22], [2, 3, 5, 50, 6]);
+    DegreeOfPartialPerm(c);
+    CodegreeOfPartialPerm(c);
+    DomainOfPartialPerm(c);
+    ImageSetOfPartialPerm(c);
+    RankOfPartialPerm(c);
+    ```
+
+!!! note
+    Similar to transformations, all partial permutation in GAP belong to
+    the infinite symmetric inverse monoid $\mathcal{I}_\mathbb{N}$ of
+    partial bijections
+    $f: \mathbb{N} \rightarrow \mathbb{N}$.
+
+See [Chapter 54](https://docs.gap-system.org/doc/ref/chap54_mj.html#X7D6495F77B8A77BD)
+of the GAP reference manual for more details.
 
 ### Bipartitions
 
