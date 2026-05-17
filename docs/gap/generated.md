@@ -417,13 +417,15 @@ function can be used to display the image this code generates.
     ```
 
 <div class="grid" markdown>
-![A visualization of the bipartition a](../images/bipartition_1.svg)
+![A visualization of the bipartition a](../images/bipartition_1.svg#only-light)
+![A visualization of the bipartition a](../images/bipartition_1_dark.svg#only-dark)
 /// caption
 A visualization of the bipartition `a`.
 Result of the `#!gap Splash(TikzString(a))` call.
 ///
 
-![A visualization of the bipartition b](/images/bipartition_2.svg)
+![A visualization of the bipartition b](../images/bipartition_2.svg#only-light)
+![A visualization of the bipartition b](../images/bipartition_2_dark.svg#only-dark)
 /// caption
 A visualization of the bipartition `b`.
 Result of the `#!gap Splash(TikzString(b))` call.
@@ -473,9 +475,39 @@ functions respectively.
     See [Chapter 3](https://semigroups.github.io/Semigroups/doc/chap3_mj.html)
     of the `Semigroups` manual for more details about bipartitions.
 
-### Partitioned binary relations
-
 ### Matrices over semirings
+
+Recall that a _semiring_ is a set $S$ equipped with two binary operations
+$+, \cdot: S\times S\rightarrow S$ such that $(S, +)$ is a commutative monoid,
+$(S, \cdot)$ is a monoid, and $S$ satisfies three additional axioms:
+
+1. For all $x \in S$, $0_S \cdot x = x \cdot 0_S = 0_S$, where $0_S$ is the
+   additive identity of $S$,
+2. For all $x, y, z\in S$, $x \cdot (y + z) = x \cdot y + x \cdot z$ and 
+3. For all $x, y, z\in S$, $(x + y) \cdot z = x \cdot z + y \cdot z$.
+
+The set of $n\times n$ matrices with entries in $S$ forms a semigroup under
+matrix multiplication. The semigroups package currently supports efficient
+manipulation of $n \times n$ matrices over the following semirings:
+
+* The _boolean semiring_ $\mathbb{B} = \{\texttt{true}, \texttt{false}\}$ with
+  addition given by the boolean $\texttt{or}$ function and multiplication by the
+  boolean $\texttt{and}$ function;
+* The _max-plus_ semiring $\mathbb{Z} \cup \{-\infty\}$ with operations
+  $\max$ and $+$;
+* The _min-plus_ semiring $\mathbb{Z} \cup \{+\infty\}$ with operations
+  $\min$ and $+$;
+* The _tropical max-plus_ and _tropical min-plus_ semirings, which
+  are analogues of the _max-plus_ and _min-plus_ semirings, where the
+  underlying set is replaced with $\{-\infty, 0, \ldots, t\}$ and
+  $\{0, \ldots, t, \infty\}$, respectively.
+* The semiring $\mathbb{N}_{t, p} = \{0, \ldots t+p\}$ with addition
+  and multiplication modulo the relation $t = t + p$.
+* The integers $\mathbb{Z}$ under the usual addition and multiplication.
+* The finite fields $\mathbb{F}_{p^d}$ where $p$ is a prime and $d$ is a
+  positive integer.
+
+TODO: How to construct, properties
 
 ## Constructing semigroups
 
