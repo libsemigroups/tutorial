@@ -184,7 +184,7 @@ from libsemigroups_pybind11 import Presentation, congruence_kind, ToddCoxeter
 from datetime import timedelta
 p = Presentation("byr").contains_empty_word(True)
 p.rules = ["byr", "b", "yrb", "y", "rby", "r"]
-tc = ToddCoxeter(congruence_kind.twosided, p)
+t = ToddCoxeter(congruence_kind.twosided, p)
 # tc.number_of_classes() # BAD IDEA, might run forever!
 tc.run_for(timedelta(seconds=1)) # GOOD IDEA, run for 1 second
 tc.finished()  # returns True, so we know p defined a finite monoid
@@ -282,8 +282,8 @@ c.number_of_classes() # returns math.factorial(12) == 479_001_600
 
 ### Non-isomorphism
 
-In this section we show how to demonstrate that two monoids defined by
-presentations are not isomorphic.
+In this section we show how to demonstrate that two semigroups or monoids
+defined by presentations are not isomorphic.
 
 ```python
 from libsemigroups_pybind11 import congruence_kind, ToddCoxeter
@@ -389,6 +389,6 @@ S.number_of_congruences(5) # returns 26
 This says that the symmetric inverse monoid has 18 right congruences with up to
 5 classes, but the monoid defined by the presentation with the first relation
 removed `p.rules[2:]` has 26 such congruences. So, these monoids are not
-isomorphic.
+isomorphic, and so the first relation in `p` is not redundant.
 
 [libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html

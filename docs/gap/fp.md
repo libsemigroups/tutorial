@@ -1,7 +1,7 @@
-# Analysis of finitely presented semigroups
+# Finitely presented semigroups and monoids in [GAP][]
 
 This section provides information about how to compute with a finitely
-presented semigroup or monoid using the `Semigroups` package for `GAP`.
+presented semigroup or monoid using the [Semigroups][] package for [GAP][].
 
 !!! warning
 
@@ -90,7 +90,18 @@ You can also define a free semigroup or monoid by specifying the number of
 generators, the generators are then called `s1`, `s2`, and so on for free
 semigroups, and `m1`, `m2`, and so on for free monoids.
 
-<!-- TODO example -->
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeSemigroup(10);
+    <free semigroup on the generators [ s1, s2, s3, s4, s5, s6, s7, s8, s9, s10 ]>
+    gap> F := FreeMonoid(10);
+    <free monoid on the generators [ m1, m2, m3, m4, m5, m6, m7, m8, m9, m10 ]>
+    ```
+=== "GAP script"
+    ```gap
+    F := FreeSemigroup(10);
+    F := FreeMonoid(10);
+    ```
 
 Now we have (probably) the most convenient way of using the generators, to
 define some relations. These are just lists consisting of products of the
@@ -149,7 +160,7 @@ and not very complicate. Here's another way using [ParseRelations][]:
 
 ??? tip 
 
-    Every free semigroup created using [FreeSemigroup](TODO) is a distinct
+    Every free semigroup created using [FreeSemigroup][] is a distinct
     entity in [GAP][], this can be a bit surprising at first:
 
     === "GAP REPL"
@@ -167,7 +178,7 @@ and not very complicate. Here's another way using [ParseRelations][]:
         ```
 
     Arguably `F1` and `F2` are equal but in [GAP][] they are not (mostly for
-    technical reasons). The same behaviour happens for [FreeMonoid](TODO) too. It's
+    technical reasons). The same behaviour happens for [FreeMonoid][] too. It's
     a fairly common abuse (of notation?) for people to identify elements of a free
     semigroups and monoids with elements of the finitely presented semigroup or
     monoid they are interested in. In [GAP][] you cannot do this, the elements of a
@@ -205,9 +216,10 @@ performance of the implementations in the [Semigroups][] package for [GAP][]
 the group specific algorithms in the main [GAP][] library.  Here are some
 examples.
 
-
 The following the defines the symmetric group on 12 points using Moore's
-presentation from TODO:
+presentation from:
+
+* E. H. Moore. Concerning the abstract groups of order k!, k!/2, *Proc. London Math. Soc.*, **28** 357–366, 1897.
 
 === "GAP REPL"
     ```gap-repl
@@ -280,24 +292,38 @@ Here's another example:
 
 Here's another example:
 
+=== "GAP REPL"
+    ```gap-repl
 
-gap> F:=FreeGroup(2);;
-gap> gen:= GeneratorsOfGroup(F);;
-gap> a:=gen[1];;b:=gen[2];;
-gap> g:= F/[a^120, b^4, a*b*(b^3*a^41)^-1, a^2*b*(b*a^82)^-1];
-<fp group on the generators [ f1, f2 ]>
-gap> s:= Range(IsomorphismFpSemigroup(g));
-<fp semigroup with 5 generators and 17 relations of length 304>
-gap> IsomorphismTransformationSemigroup(s);
-<fp semigroup with 5 generators and 17 relations of length 304> ->
-<transformation monoid of size 480, degree 480 with 4 generators>
-gap> time;
-44
-gap> IsomorphismPermGroup(Range(last2));
-<transformation group of size 480, degree 480 with 4 generators> ->
-<permutation group of size 480 with 5 generators>
-gap> time;
-6
+    gap> F := FreeGroup(2);;
+    gap> gen := GeneratorsOfGroup(F);;
+    gap> a := gen[1];; b := gen[2];;
+    gap> g := F / [a^120, b^4, a*b*(b^3*a^41)^-1, a^2*b*(b*a^82)^-1];
+    <fp group on the generators [ f1, f2 ]>
+    gap> IsomorphismPermGroup(g); # this is quite fast
+    [ f1, f2 ] -> [ (1,2,3,4,5)(6,7,9,11,8,10,12,13)(14,15,16)(18,19),
+      (6,8)(7,10)(9,12)(11,13)(15,16)(17,18,20,19) ]
+    gap> s:= Range(IsomorphismFpSemigroup(g));
+    <fp semigroup with 5 generators and 17 relations of length 304>
+    gap> IsomorphismTransformationSemigroup(s); # so is this
+    <fp semigroup with 5 generators and 17 relations of length 304> ->
+    <transformation monoid of size 480, degree 480 with 4 generators>
+    gap> IsomorphismPermGroup(Range(last));
+    <transformation group of size 480, degree 480 with 4 generators> ->
+    <permutation group of size 480 with 5 generators>
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeGroup(2);;
+    gen := GeneratorsOfGroup(F);;
+    a := gen[1];; b := gen[2];;
+    g := F / [a^120, b^4, a*b*(b^3*a^41)^-1, a^2*b*(b*a^82)^-1];
+    IsomorphismPermGroup(g); # this is quite fast
+    s:= Range(IsomorphismFpSemigroup(g));
+    IsomorphismTransformationSemigroup(s);
+    IsomorphismPermGroup(Range(last));
+    ```
 
 !!! danger 
 
@@ -305,17 +331,211 @@ gap> time;
     specially selected to show [Semigroups][] in its best light, and the [GAP][]
     library in its worst. A fairer comparison would have been to include some other
     examples where [GAP][] is better than [Semigroups][], or where other tools
-    (like [ACE](TODO) or TODO) are faster as well. The truth is that any software
+    (like [ACE][] or [kbmag][]) are faster as well. The truth is that any software
     for computing with finitely presented semigroups, monoids or groups, has its
     limitations and given the undecidable nature of most related problems, it is
     always possible to contrive examples where which are hard or impossible for any
     particular implementation to handle.  
-    
-    
-
 
 ## Finite or infinite?
 
-In [GAP][] 
+In [GAP][] there's only really a single way to check if a finitely presented
+semigroup or monoid is finite or infinite:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeSemigroup("a", "b", "c", "d");
+    <free semigroup on the generators [ a, b, c, d ]>
+    gap> R := ParseRelations(GeneratorsOfSemigroup(F),
+    >            "(ab)^4=a,b^7=b^2,c^4=c,d^5=d^2,cd=dc");
+    [ [ (a*b)^4, a ], [ b^7, b^2 ], [ c^4, c ], [ d^5, d^2 ], [ c*d, d*c ] ]
+    gap> IsFinite(F / R);
+    false
+    gap> Size(F / R);
+    infinity
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeSemigroup("a", "b", "c", "d");
+    R := ParseRelations(GeneratorsOfSemigroup(F), 
+           "(ab)^4=a,b^7=b^2,c^4=c,d^5=d^2,cd=dc");
+    IsFinite(F / R);
+    Size(F / R);
+    ```
+
+This will work when any of the conditions described [here](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/presentations/obvinf.html) are satisfied,
+if `F / R` has small overlap class at least $3$, or if it is possible to
+compute a complete rewriting system for `F / R`.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeSemigroup("a", "b", "c");
+    <free semigroup on the generators [ a, b, c ]>
+    gap> AssignGeneratorVariables(F);
+    #I  Assigned the global variables [ a, b, c ]
+    gap> R := ParseRelations([a, b, c], "aabc=acba");
+    [ [ a^2*b*c, a*c*b*a ] ]
+    gap> IsFinite(F / R);
+    false
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeSemigroup("a", "b", "c");
+    AssignGeneratorVariables(F);
+    R := ParseRelations([a, b, c], "aabc=acba");
+    IsFinite(F / R);
+    ```
+
+### Non-isomorphism
+
+In this section we show how to demonstrate that two monoids or semigroups
+defined by presentations are not isomorphic.
+
+The following is Shutov's presentation for the symmetric inverse monoid of
+degree $4$ from:
+
+* TODO
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> F := FreeMonoid("a", "b", "c", "e");
+    <free monoid on the generators [ a, b, c, e ]>
+    gap> R := ParseRelations(GeneratorsOfMonoid(F),
+    > "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    [ [ a^2, <identity ...> ], [ b^2, <identity ...> ], [ c^2, <identity ...> ],
+      [ (a*b)^3, <identity ...> ], [ (b*c)^3, <identity ...> ], [ (c*a)^3, <identity ...> ],
+      [ (a*b*a*c)^2, <identity ...> ], [ (b*c*b*a)^2, <identity ...> ],
+      [ (c*a*c*b)^2, <identity ...> ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],
+      [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],
+      [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]
+    gap> M := F / R;
+    <fp monoid with 4 generators and 16 relations of length 104>
+    gap> Size(M);
+    209
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeMonoid("a", "b", "c", "e");
+    R := ParseRelations(GeneratorsOfMonoid(F),
+    "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    M := F / R;
+    Size(M);
+    ```
+
+Let's check if the monoid defined by all but the last relation $aeaea=aeae$ in
+`R` defines the symmetric inverse monoid on 4 points also. One way of doing
+this is to just remove the relation, and check if the presentation defines a
+monoid of the same size. This sometimes works, and it does here:
+
+=== "GAP REPL"
+    ```gap-repl
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeMonoid("a", "b", "c", "e");;
+    R := ParseRelations(GeneratorsOfMonoid(F),
+    "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    Remove(R, Length(R))
+    M := F / R;
+    Size(M);
+    ```
+
+so the last relation is not redundant!
+
+Let's try again with the second to last relation $ceca=acec$.
+
+=== "GAP REPL"
+    ```gap-repl
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeMonoid("a", "b", "c", "e");;
+    R := ParseRelations(GeneratorsOfMonoid(F),
+    "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    Remove(R, Length(R) - 1)
+    M := F / R;
+    Size(M);
+    ```
+
+So the second to last relation is redundant. Let's try again with the relation
+$eaea=aeae$ which is `R[11]`:
+
+=== "GAP REPL"
+    ```gap-repl
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeMonoid("a", "b", "c", "e");;
+    R := ParseRelations(GeneratorsOfMonoid(F),
+    "aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    Remove(R, 11);
+    M := F / R;
+    Size(M);
+    ```
+
+So $eaea=aeae$ is also not redundant. Let's try again with the
+first rule `a^2=1`.
+
+=== "GAP REPL"
+    ```gap-repl
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeMonoid("a", "b", "c", "e");;
+    R := ParseRelations(GeneratorsOfMonoid(F),
+    "bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    M := F / R;
+    ```
+
+If we would try doing `Size(M)`, then it'd just run for a long time with no
+output. So this is inconclusive. Maybe it's infinite but we just can't tell
+this easily using the computer.
+
+The [low-index congruence
+algorithm](https://pubs.ams.org/journals/mcom/0000-000-00/S0025-5718-2025-04136-X)
+(similar to Sims' low index subgroup algorithm) can compute the numbers of
+left/right congruences on a finitely presented semigroup or monoid,
+regardless of whether or not it is finite. This algorithm is
+what is behind [NumberOfRightCongruences](TODO).
+ The following computes the number of right congruences with up to 5
+classes on the monoid defined by the presentation for the symmetric inverse
+monoid with the relation $a^2 = 1$ removed:
+
+=== "GAP REPL"
+    ```gap-repl
+    ```
+
+=== "GAP script"
+    ```gap
+    F := FreeMonoid("a", "b", "c", "e");;
+    R := ParseRelations(GeneratorsOfMonoid(F),
+    "bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1, (cacb)^2=1, \
+    ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae");
+    M := F / R;
+    ```
+This says that the symmetric inverse monoid has 18 right congruences with up to
+5 classes, but the monoid defined by the presentation with the first relation
+removed has 26 such congruences. So, these monoids are not isomorphic, and so
+the relation $a^2=1$ is not redundant.
+
+[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html
 
 [GAP]: https://gap-system.org
+[Semigroups]: https://semigroups.github.io/Semigroups/
+[ACE]: https://gap-packages.github.io/ace/
+[KBMAG]: https://gap-packages.github.io/kbmag/
+[FreeSemigroup]: https://docs.gap-system.org/doc/ref/chap51_mj.html#X7C72E4747BF642BB
+[FreeMonoid]: https://docs.gap-system.org/doc/ref/chap51_mj.html#X79FA3FA978CA2E43
