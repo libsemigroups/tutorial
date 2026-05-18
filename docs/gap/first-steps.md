@@ -826,7 +826,7 @@ the search is stopped early.
 
 The `Semigroups` package offers a simpler way of checking if a multiplication table
 defines a semigroup, which we will cover in the section
-[Semigroups defined by generators](generated.md).
+[the next section](generated.md#multiplication-tables).
 
 ### Defining functions
 

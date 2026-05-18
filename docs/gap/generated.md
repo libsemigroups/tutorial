@@ -1489,6 +1489,100 @@ we can use the [`Monoid`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7F
 
 ### Multiplication tables
 
+A _multiplication table_ is an $n\times n$ table $A$ whose entries are integers
+$\{1, \ldots, n\}$. The table $A$ defines a semigroup with elements
+$\{1, \ldots, n\}$ and the product of $i, j\in \{1, \ldots, n\}$ is given by
+the $(i, j)$-th entry of $A$. In GAP a multiplication table can be specified by
+a list of lists whose entries are integers. We can construct a semigroup
+from such a multiplication table using the
+[`SemigroupByMultiplicationTable`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7E67E13F7A01F8D3)
+function. If the given multiplication table does not define a semigroup, i.e. it is not
+associative, then the function returns `fail` instead.
+The
+[`MonoidByMultiplicationTable`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7BFE938E857CA27D) function
+can be used to construct a monoid from a multiplication table instead,
+it will return `fail` if the table does not define a monoid.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> SemigroupByMultiplicationTable(table1);
+    fail
+    gap> table2 := [
+    >   [1, 2, 1, 2],
+    >   [1, 2, 1, 2],
+    >   [3, 4, 3, 4],
+    >   [3, 4, 3, 4]];
+    [ [ 1, 2, 1, 2 ], [ 1, 2, 1, 2 ], [ 3, 4, 3, 4 ], [ 3, 4, 3, 4 ] ]
+    gap> SemigroupByMultiplicationTable(table2);
+    <semigroup of size 4, with 4 generators>
+    gap> table3 := [
+    >   [1, 1, 4, 4],
+    >   [1, 2, 3, 4],
+    >   [1, 3, 2, 4],
+    >   [1, 4, 1, 4]
+    > ];
+    [ [ 1, 1, 4, 4 ], [ 1, 2, 3, 4 ], [ 1, 3, 2, 4 ], [ 1, 4, 1, 4 ] ]
+    gap> SemigroupByMultiplicationTable(table3);
+    <semigroup of size 4, with 4 generators>
+    gap> MonoidByMultiplicationTable(table2);
+    fail
+    gap> MonoidByMultiplicationTable(table3);
+    <monoid of size 4, with 4 generators>
+    ```
+=== "GAP script"
+    ```gap
+    table1 := [
+    [2, 2, 4, 4],
+    [3, 2, 3, 3],
+    [3, 1, 1, 3],
+    [4, 4, 1, 3]
+    ];
+    SemigroupByMultiplicationTable(table1);
+    table2 := [
+    [1, 2, 1, 2],
+    [1, 2, 1, 2],
+    [3, 4, 3, 4],
+    [3, 4, 3, 4]];
+    SemigroupByMultiplicationTable(table2);
+    table3 := [
+    [1, 1, 4, 4],
+    [1, 2, 3, 4],
+    [1, 3, 2, 4],
+    [1, 4, 1, 4]
+    ];
+    SemigroupByMultiplicationTable(table3);
+    MonoidByMultiplicationTable(table2);
+    MonoidByMultiplicationTable(table3);
+    ```
+
+Dually, the
+[`MultiplicationTable`](https://docs.gap-system.org/doc/ref/chap35_mj.html#X849BDCC27C4C3191)
+function can be used to find the multiplication table of any given semigroup
+or monoid:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> T := FullTransformationSemigroup(2);
+    <full transformation monoid of degree 2>
+    gap> Display(MultiplicationTable(T));
+    [ [  1,  1,  4,  4 ],
+    [  1,  2,  3,  4 ],
+    [  1,  3,  2,  4 ],
+    [  1,  4,  1,  4 ] ]
+    gap> S := Monoid([Transformation([1, 1, 1]), Transformation([1, 2, 3])]);
+    <commutative transformation monoid of degree 3 with 1 generator>
+    gap> Display(MultiplicationTable(S));
+    [ [  1,  1 ],
+    [  1,  2 ] ]
+    ```
+=== "GAP script"
+    ```gap
+    T := FullTransformationSemigroup(2);
+    Display(MultiplicationTable(T));
+    S := Monoid([Transformation([1, 1, 1]), Transformation([1, 2, 3])]);
+    Display(MultiplicationTable(S));
+    ```
+
 !!! warning
     Multiplication tables are a very inefficient way of defining a
     semigroup. Indeed, to define a semigroup $S$ using a multiplication
@@ -1505,22 +1599,53 @@ we can use the [`Monoid`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7F
     with just 3 transformations of degree 1000, for a total of 3000 entries.
     Not to mention that algorithms for transformation semigroups are generally
     much faster.
-    
-### Quotients
-
-!!! info
-    See [Chapter 13](https://semigroups.github.io/Semigroups/doc/chap13_mj.html)
-    of the `Semigroups` manual for more info on semigroup congruences as well
-    as [Section 51.7](https://docs.gap-system.org/doc/ref/chap51_mj.html#X87CE9EAB7EE3A128)
-    of the GAP reference manual for more information on semigroup quotients.
-
-### Homomorphic images
-
-!!! info
-    See [Chapter 14](https://semigroups.github.io/Semigroups/doc/chap14_mj.html)
-    of the `Semigroups` manual for more info on homomorphic images.
 
 ### The small semigroups library
+
+The [`Smallsemi`](https://gap-packages.github.io/smallsemi/doc/chap0_mj.html)
+package contains a database of all semigroups of order up to $8$ up to
+isomorphism and anti-isomorphism.
+To sue the `Smallsemi` package we need to load it first, just as 
+we did with the `Semigroups` package.
+We can get the $n$-th semigrouo of order $m$ using the
+[`SmallSemigroup(m, n)`](https://gap-packages.github.io/smallsemi/doc/chap4_mj.html#X8538248D78185960)
+function.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> Display(MultiplicationTable(S1));
+    [ [  1,  1,  1,  1 ],
+    [  1,  1,  1,  1 ],
+    [  1,  1,  1,  1 ],
+    [  1,  1,  1,  1 ] ]
+    gap> S2 := SmallSemigroup(4, 2);
+    <small semigroup of size 4>
+    gap> Display(MultiplicationTable(S2));
+    [ [  1,  1,  1,  1 ],
+    [  1,  1,  1,  1 ],
+    [  1,  1,  1,  1 ],
+    [  1,  1,  2,  1 ] ]
+    gap> S3 := SmallSemigroup(8, 1000);
+    <small semigroup of size 8>
+    gap> Display(MultiplicationTable(S3));
+    [ [  1,  1,  1,  1,  1,  1,  1,  1 ],
+    [  1,  1,  1,  1,  1,  1,  1,  1 ],
+    [  1,  1,  1,  1,  1,  1,  1,  1 ],
+    [  1,  1,  1,  1,  1,  1,  1,  2 ],
+    [  1,  1,  1,  1,  1,  1,  1,  2 ],
+    [  1,  1,  1,  1,  2,  1,  1,  1 ],
+    [  1,  1,  1,  2,  3,  1,  1,  2 ],
+    [  1,  1,  2,  2,  2,  1,  6,  1 ] ]
+    ```
+=== "GAP script"
+    ```gap
+    S1 := SmallSemigroup(4, 1);
+    Display(MultiplicationTable(S1));
+    S2 := SmallSemigroup(4, 2);
+    Display(MultiplicationTable(S2));
+    S3 := SmallSemigroup(8, 1000);
+    Display(MultiplicationTable(S3));
+    ```
 
 ## Analyzing semigroups
 
