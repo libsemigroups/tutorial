@@ -11,10 +11,10 @@ semigroup, and how to compute with semigroups defined by generators.
 In [libsemigroups_pybind11][], there are several types of object that can be
 treated as elements of a semigroup, which are broken down into four categories:
 
-1. Bipartitions,
-1. Matrices,
-1. Partitioned binary relations (PBRs), and
-1. Transformations.
+1. bipartitions,
+1. matrices,
+1. partitioned binary relations (PBRs), and
+1. transformations.
 
 In this section, you will learn how to construct objects of these types in
 [libsemigroups_pybind11][].
@@ -59,17 +59,19 @@ y = Bipartition([[1, -4], [2], [3, -1], [4], [5, -3], [-2], [-5]])
 This defines the bipartitions that correspond to
 
 <figure markdown="span">
-	![bipartition x](../images/bipartition_1.svg)
+	![bipartition x](../images/bipartition-1-light.svg#only-light)
+	![bipartition x](../images/bipartition-1-dark.svg#only-dark)
 </figure>
 and
 <figure markdown="span">
-	![bipartition y](../images/bipartition_2.svg)
+	![bipartition y](../images/bipartition-2-light.svg#only-light)
+	![bipartition y](../images/bipartition-2-dark.svg#only-dark)
 </figure>
 
 You can multiply these bipartitions together using the `*` operator:
 
 ```python
-x*y # returns Bipartition([[1, -4], [2, 5], [3, 4, -1], [-2], [-3], [-5]])
+x*y  # returns Bipartition([[1, -4], [2, 5], [3, 4, -1], [-2], [-3], [-5]])
 ```
 
 If you want to construct a random bipartition of some fixed degree, you can use
@@ -108,7 +110,7 @@ m = Matrix(MatrixKind.Integer, [[0, 1, 0], [0, 1, 1], [1, 1, 1]])
 ```
 
 These matrices can be added, multiplied, and exponentiated using the `+`,
-`*` and `**` operators:
+`*` and `**` operators, respectively:
 
 ```python
 m + m
@@ -148,7 +150,7 @@ possible values are summarised in the following table.
 | `NTP`          | Matrices over the semiring of natural numbers quotiented by $t = t + p$. |
 
 Therefore, if you instead want to interpret $m$ as a boolean matrix, this can be achieved in the
-following way
+following way:
 
 ```python
 from libsemigroups_pybind11 import Matrix, MatrixKind
@@ -200,7 +202,7 @@ functions implemented in the classes `FroidurePin` and `Konieczny`.
 [^1]:
     Froidure, Véronique & Pin, Jean-Eric. (1997). Algorithms for computing
     finite semigroups. Foundations of Computational Mathematics.
-    10.1007/978-3-642-60539-0_9.
+    [https://doi.org/10.1007/978-3-642-60539-0_9](https://doi.org/10.1007/978-3-642-60539-0_9)
 
 The class `FroidurePin` implements the Froidure-Pin algorithm as described in
 the article _Algorithms for computing finite semigroups_[^1]. If
@@ -250,19 +252,12 @@ S.run()
 
 As you can see, this resulted in some output that reports the progress of the
 algorithm. In particular, looking at the third-from-last line, you can see that
-the algorithm finished having enumerated $91$ elements in 142 microseconds. This
-can be checked by calling `S.size()`:
+the algorithm finished having enumerated $91$ elements in 142 microseconds. The
+size can be checked by calling `S.size()`:
 
 ```python
-S.size() # returns 91
-
+S.size()  # returns 91
 ```
-
-TODO:
-
-1. `contains`
-2. draw a cayley graph
-3. mention partial enumeration?
 
 !!! danger
 
@@ -279,6 +274,122 @@ TODO:
     page in the [libsemigroups_pybind11][] documentation; `FroidurePin` derives
     from the `Runner` class.
 
+Now that the algorithm has finished and the elements of $S$ have been
+enumerated, you can start asking questions about $S$. For example, if you would
+like to know if $z \in S$ for some bipartition $z$, you can do this with the
+`Bipartition.contains` function:
+
+```python
+z = Bipartition([[1], [2], [3, 4, -4, -5], [5], [-1, -3], [-2]])
+S.contains(z)  # returns False
+```
+
+Instead, if you would like to construct the left Cayley graph of $S$, you can
+do this with the `Bipartition.left_cayley_graph` function. This returns a
+`WordGraph` object, which you can visualise using the `word_graph.dot` function:
+
+```python
+from libsemigroups_pybind11 import word_graph
+wg = S.left_cayley_graph()
+word_graph.dot(wg).view()
+```
+
+This results in the following graph begin produced:
+
+<figure markdown="span">
+	![The left Cayley graph of S](/images/left-cayley-graph-light.svg#only-light)
+	![The left Cayley graph of S](/images/left-cayley-graph-dark.svg#only-dark)
+</figure>
+
+!!! info
+
+    The functions presented in this section only display a small subset of
+    the capabilities of the `FroidurePin` class. For a full description of the
+    API and related functions, see the [FroidurePin class](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/froidure-pin/class.html) and
+    [FroidurePin helpers](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/froidure-pin/helpers.html)
+    pages in the `libsemigroups_pybind11` documentation.
+
 ### `Konieczny`
+
+[^2]:
+    Konieczny, J. (1994). Green's equivalences in finite semigroups of binary
+    relations. Semigroup Forum 48, 235–252.
+    [https://doi.org/10.1007/BF02573672](https://doi.org/10.1007/BF02573672)
+
+The class `Konieczny` implements Konieczny’s algorithm as described in the
+article _Green's equivalences in finite semigroups of binary relations_[^2]. As
+with `FroidurePin` instances, a `Konieczny` instance can be constructed by
+specifying a list of generators to represent a finitely generated semigroup $S$.
+The algorithm can be performed by calling `run` and, if it terminates, the size,
+partial order of $\mathscr{D}$-classes, and frames for each $\mathscr{D}$-class
+of $S$ are known.
+
+For example, if you wanted to find the number of idempotents in the
+$\mathscr{D}$-class of the transformation
+
+$$
+    \zeta = \begin{pmatrix}
+        0 & 1 & 2 & 3 & 4 \\
+        3 & 4 & 0 & 3 & 1
+    \end{pmatrix}
+$$
+
+in the full transformation monoid of degree $5$, you could do this by first
+constructing a `Konieczny` instance to represent the full transformation monoid
+of degree $5$ ...
+
+```python
+from libsemigroups_pybind11 import Transf, Konieczny
+alpha = Transf([1, 1, 2, 3, 4])
+beta = Transf([1, 2, 3, 4, 0])
+gamma = Transf([1, 0, 2, 3, 4])
+S = Konieczny([alpha, beta, gamma])
+S.run()
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#0: Konieczny: running until all D-classes are found . . .
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#0: Konieczny: there are 3 generators with degree 5
+#0: Konieczny: computing λ-action . . .
+#0: Konieczny: running until predicate returns true or finished
+#0: Action: found            2 points so far     9µs
+#0: Konieczny: found 30 λ-values in 29µs
+#0: Konieczny: λ-action finished with 31 values
+#0: Konieczny: computing ρ-action . . .
+#0: Konieczny: running until predicate returns true or finished
+#0: Action: found            2 points so far     7µs
+#0: Konieczny: found 51 ρ-values in 61µs
+#0: Konieczny: ρ-action finished with 52 values
+#0: Konieczny: 1     (D-classes) | 120         (elements) | 1       (todo) | [4,5)   (ranks) | 129µs   (total)
+#0: Konieczny: 2     (D-classes) | 1,320       (elements) | 3       (todo) | [3,4)   (ranks) | 161µs   (total)
+#0: Konieczny: 3     (D-classes) | 2,820       (elements) | 3       (todo) | [2,3)   (ranks) | 202µs   (total)
+#0: Konieczny: 4     (D-classes) | 3,120       (elements) | 1       (todo) | [1,2)   (ranks) | 229µs   (total)
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#0: Konieczny:
+#0: Konieczny: FINISHED!
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#0: Konieczny: number of regular D-classes     |           5
+#0: Konieczny: number of non-regular D-classes |           0
+#0: Konieczny: number of L-classes             |          31
+#0: Konieczny: number of R-classes             |          52
+#0: Konieczny: number of elements              |       3,125
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+```
+
+... and then use the functions `Konieczny.D_class_of_element` and
+`Konieczny.DClass.number_of_idempotents` to compute the desired number of
+idempotents:
+
+```python
+zeta = Transf([3, 4, 0, 3, 1])
+d_zeta = S.D_class_of_element(zeta)
+d_zeta.number_of_idempotents()  # returns 20
+```
+
+!!! info
+
+    As with `FroidurePin`, the functions presented in this section only scratch
+    the surface of the capabilities of the `Konieczny` class. For a full
+    description of the API the [Konieczny class](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/konieczny/konieczny.html#)
+    page in the `libsemigroups_pybind11` documentation.
 
 [libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/

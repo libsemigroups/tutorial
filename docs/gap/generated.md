@@ -423,15 +423,15 @@ function can be used to display the image this code generates.
     ```
 
 <div class="grid" markdown>
-![A visualization of the bipartition a](../images/bipartition_1.svg#only-light)
-![A visualization of the bipartition a](../images/bipartition_1_dark.svg#only-dark)
+![A visualization of the bipartition a](../images/bipartition-1-light.svg#only-light)
+![A visualization of the bipartition a](../images/bipartition-1-dark.svg#only-dark)
 /// caption
 A visualization of the bipartition `a`.
 Result of the `#!gap Splash(TikzString(a))` call.
 ///
 
-![A visualization of the bipartition b](../images/bipartition_2.svg#only-light)
-![A visualization of the bipartition b](../images/bipartition_2_dark.svg#only-dark)
+![A visualization of the bipartition b](../images/bipartition-2-light.svg#only-light)
+![A visualization of the bipartition b](../images/bipartition-2-dark.svg#only-dark)
 /// caption
 A visualization of the bipartition `b`.
 Result of the `#!gap Splash(TikzString(b))` call.
