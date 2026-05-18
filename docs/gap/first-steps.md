@@ -169,10 +169,10 @@ open the documentation for the second entry `Reference: Sum and Intersection of 
 Additionally, the [GAP reference manual](https://docs.gap-system.org/doc/ref/chap0_mj.html)
 and [Semigroups reference manual](https://semigroups.github.io/Semigroups/doc/chap0_mj.html)
 available online contain all the same information but in html form.
-Each manual also has an _index section_,
+Each manual also has an _index section_, e.g. the
 [GAP reference manual index](https://docs.gap-system.org/doc/ref/chapInd_mj.html) and
 [Semigroups reference manual index](https://semigroups.github.io/Semigroups/doc/chapInd_mj.html),
-which contains list of links to the documentation of every documented function in the standard library
+which contains a list of links to the documentation of every documented function in the standard library
 and the Semigroups package, respectively. These can be useful to find out if a
 certain function is implemented or not.
 
@@ -483,9 +483,7 @@ fi; # Prints because the condition holds
 
 Here the fist condition `#!gap 1 > 10` does not hold, so the if statement ignores the
 `Print` and nothing is printed. However the second condition holds and so the
-`Print` statement is executed and `#!gap 1 < 10` is printed. Note also the use of
-the continuation prompt `> ` to input code across multiple lines, it is often much
-more readable to input `if` statements like this.
+`Print` statement is executed and `#!gap 1 < 10` is printed.
 Every `if` statement must be closed by
 an `fi;` statement.
 It is also customary to indent the body of an if statement by 2 spaces, to provide visual
@@ -524,7 +522,7 @@ elif 11 > 10 then
   Print("11 > 10\n"); # Conditions holds so 11 > 10 printed
 elif 12 > 10 then
   Print("12 > 10\n"); # Even though the condition holds, since an
-                      # earlier condition holds, this line is not printed
+                      # earlier condition held, this line is not printed
 else
   Print("All conditions failed!\n"); # Since an earlier condition held,
                                      # this line is not printed either.
@@ -541,7 +539,7 @@ done using the `for` and `while` loops.
 
 The `#!gap for element in collection do code; od;` construct allows us to
 execute the statement `code` where the variable `element` varies over
-the elements of `collection`. For example, we the following for loop
+the elements of `collection`. For example, the following `for` loop
 prints all the elements of the list `A`:
 
 ```gap title="example.g"
@@ -821,19 +819,19 @@ fi;
 #   Table does not define a semigroup
 ```
 
-Note that with the `#!gap break;` statements, only a single counterexample is found, hence
-the search is stopped early.
+Note that with the `#!gap break;` statements, only a single counterexample is printed, hence
+the search was stopped early.
 
 The `Semigroups` package offers a simpler way of checking if a multiplication table
-defines a semigroup, which we will cover in the section
+defines a semigroup, which we will cover in
 [the next section](generated.md#multiplication-tables).
 
 ### Defining functions
 
-Finally, we can use the `#!gap function(arguments) end;` construct to define a function
+Finally, we can use the `#!gap function(arguments) code end;` construct to define a function
 in GAP. This can be useful for factoring out commonly used functionality.
 
-For example, we could take our code for the Collatz function iteration
+For example, we could turn our code for the Collatz function iteration
 from the [Loops](#loops) section into a function `Collatz` as follows:
 
 ```gap title="collatz.g"
@@ -1001,7 +999,7 @@ This concludes our basic overview of the GAP programming language.
 [^3]:
     For Windows users, you need to make sure the files are located within the `WSL`
     filesystem. According to [this stack overflow answer](https://superuser.com/a/1791389),
-    this directly can be accessed from Windows by typing
+    this directory can be accessed from Windows by typing
     `\\wsl.localhost\Ubuntu\home\{username}` in the Windows Explorer, substituting
     `{username}` for the username you chose when you first ran the `ubuntu` command.
     Files in this directory correspond to files in the `~` directory from the 

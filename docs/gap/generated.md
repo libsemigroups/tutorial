@@ -517,9 +517,9 @@ manipulation of $n \times n$ matrices over the following semirings:
 * The semiring $\mathbb{N}_{t, p} = \{0, \ldots t+p\}$ with addition
   and multiplication modulo the relation $t = t + p$.
 
-In general, an $n\times n$ matrix $A$ is represented in GAP are represented as
+In general, an $n\times n$ matrix $A$ is represented in GAP as a
 list of lists `A` such that `A[i]` is the $i$-th row of $A$ and `A[i][j]` is
-the entry of `A` at the $i$-th row and $j$-th column of $A$.
+the $i$-th row and $j$-th column entry of $A$.
 Matrices can be multiplied using the `*` operator, provided they have the
 same dimensions and same underlying semiring. The `*` operator
 can also be used to multiply a matrix by a scalar from the underlying 
@@ -542,7 +542,7 @@ with its constructors in turn.
 
 #### Integers
 
-One can construct a boolean matrix $A$ using the
+One can construct an integer matrix $A$ using the
 [`Matrix`](https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7DCA234C86ED8BD3)
 function by specifying the semiring `Integers` as the first argument and
 the list of lists representing `A` as the second argument.
@@ -753,7 +753,7 @@ as input.
 
 Recall that a _field_ is a semiring which is additionally a
 commutative group under addition and whose
-non-zero elements form a commputative group under multiplication.
+non-zero elements form a commutative group under multiplication.
 A _finite field_ is a field with finitely many elements, and a
 $q$ element field exists precisely when $q = p^d$ for some prime $p$
 and positive integer $d$. Furthermore all fields with $q$ elements are
@@ -1001,6 +1001,7 @@ function and specify, respectively,
 GAP provides implementations of some
 [standard matrix constructions](https://docs.gap-system.org/doc/ref/chap24_mj.html#X823FB2398697B957), such
 as the 
+
 * identity matrix via [`IdentityMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X7DB902CE848D1524),
 * zero matrix via [`NullMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X86D343A77D9B3D4D),
 * diagonal matrices via [`DiagonalMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X81042E7A7F247ADE),
@@ -1303,7 +1304,7 @@ We are able to enumerate a semigroup of 3 million elements in 4.5 seconds. Of
 course the runtime will depend on the machine and so on, but the point is that
 this computation takes seconds instead of days with `Semigroups`.
 Trying to run the computation without the `Semigroups` package loaded
-will cause the size computation to run significantly longer (we have not
+will cause the `Size` computation to run significantly longer (we have not
 been able to run it to completion without the `Semigroups` package loaded).
 
 In certain cases, we may even be able to determine that a semigroup is
@@ -1435,14 +1436,14 @@ we can use the [`Monoid`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7F
     So, if a semigroup
     constructed with the `Semigroup` function happens to be a monoid, it will
     not be recognized by GAP as a monoid. For example we could construct the
-    symmetric group with the `Semigroup` and check if it is a monoid
+    symmetric group with the `Semigroup` function and check if it is a monoid
     using the [`IsMonoid`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X861C523483C6248C)
     function:
 
     ```gap-repl
     gap> S := Semigroup([(1, 2), (1, 2, 3)]);
     <semigroup with 2 generators>
-    gap> Elements(S);
+    gap> Elements(M);
     [ (), (2,3), (1,2), (1,2,3), (1,3,2), (1,3) ]
     gap> IsMonoid(S);
     false
@@ -1470,7 +1471,7 @@ we can use the [`Monoid`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7F
        false
        gap> M := AsMonoid(S);
        <group with 2 generators>
-       gap> Elements(S);
+       gap> Elements(M);
        [ (), (2,3), (1,2), (1,2,3), (1,3,2), (1,3) ]
        gap> IsMonoid(M);
        true
@@ -1499,27 +1500,31 @@ function. If the given multiplication table does not define a semigroup, i.e. it
 associative, then the function returns `fail` instead.
 The
 [`MonoidByMultiplicationTable`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7BFE938E857CA27D) function
-can be used to construct a monoid from a multiplication table instead,
-it will return `fail` if the table does not define a monoid.
+can be used to construct a monoid from a multiplication table instead.
 
 === "GAP REPL"
     ```gap-repl
+    gap> table1 := [
+    > [2, 2, 4, 4],
+    > [3, 2, 3, 3],
+    > [3, 1, 1, 3],
+    > [4, 4, 1, 3]];
+    [ [ 2, 2, 4, 4 ], [ 3, 2, 3, 3 ], [ 3, 1, 1, 3 ], [ 4, 4, 1, 3 ] ]
     gap> SemigroupByMultiplicationTable(table1);
     fail
     gap> table2 := [
-    >   [1, 2, 1, 2],
-    >   [1, 2, 1, 2],
-    >   [3, 4, 3, 4],
-    >   [3, 4, 3, 4]];
+    > [1, 2, 1, 2],
+    > [1, 2, 1, 2],
+    > [3, 4, 3, 4],
+    > [3, 4, 3, 4]];
     [ [ 1, 2, 1, 2 ], [ 1, 2, 1, 2 ], [ 3, 4, 3, 4 ], [ 3, 4, 3, 4 ] ]
     gap> SemigroupByMultiplicationTable(table2);
     <semigroup of size 4, with 4 generators>
     gap> table3 := [
-    >   [1, 1, 4, 4],
-    >   [1, 2, 3, 4],
-    >   [1, 3, 2, 4],
-    >   [1, 4, 1, 4]
-    > ];
+    > [1, 1, 4, 4],
+    > [1, 2, 3, 4],
+    > [1, 3, 2, 4],
+    > [1, 4, 1, 4]];
     [ [ 1, 1, 4, 4 ], [ 1, 2, 3, 4 ], [ 1, 3, 2, 4 ], [ 1, 4, 1, 4 ] ]
     gap> SemigroupByMultiplicationTable(table3);
     <semigroup of size 4, with 4 generators>
@@ -1534,8 +1539,7 @@ it will return `fail` if the table does not define a monoid.
     [2, 2, 4, 4],
     [3, 2, 3, 3],
     [3, 1, 1, 3],
-    [4, 4, 1, 3]
-    ];
+    [4, 4, 1, 3]];
     SemigroupByMultiplicationTable(table1);
     table2 := [
     [1, 2, 1, 2],
@@ -1547,8 +1551,7 @@ it will return `fail` if the table does not define a monoid.
     [1, 1, 4, 4],
     [1, 2, 3, 4],
     [1, 3, 2, 4],
-    [1, 4, 1, 4]
-    ];
+    [1, 4, 1, 4]];
     SemigroupByMultiplicationTable(table3);
     MonoidByMultiplicationTable(table2);
     MonoidByMultiplicationTable(table3);
@@ -1596,7 +1599,7 @@ or monoid:
     specifying a multiplication table requires a 1000000 entry table,
     whereas an isomorphic transformation semigroup can be specified
     with just 3 transformations of degree 1000, for a total of 3000 entries.
-    Not to mention that algorithms for transformation semigroups are generally
+    Furthermore, algorithms for transformation semigroups are generally
     much faster.
 
 ### The small semigroups library
@@ -1604,11 +1607,11 @@ or monoid:
 The [`Smallsemi`](https://gap-packages.github.io/smallsemi/doc/chap0_mj.html)
 package contains a database of all semigroups of order up to $8$ up to
 isomorphism and anti-isomorphism.
-To sue the `Smallsemi` package we need to load it first, just as 
+To use the `Smallsemi` package we need to load it first, just as 
 we did with the `Semigroups` package.
-We can get the $n$-th semigrouo of order $m$ using the
-[`SmallSemigroup(m, n)`](https://gap-packages.github.io/smallsemi/doc/chap4_mj.html#X8538248D78185960)
-function.
+We can get the $n$-th semigroup of order $m$ using the
+[`SmallSemigroup`](https://gap-packages.github.io/smallsemi/doc/chap4_mj.html#X8538248D78185960)
+function with arguments `m` and `n`.
 
 === "GAP REPL"
     ```gap-repl
@@ -1662,27 +1665,205 @@ function.
 
 ## Analyzing semigroups
 
-Now that we have a method for costructing semigroups, we consider
+Now that we can construct semigroups in GAP, we consider
 methods of analyzing them.
 
-### Finiteness, enumeration and Cayley graphs
+### Finiteness and enumeration
 
 We already saw that the
 [`Size`](https://docs.gap-system.org/doc/ref/chap30_mj.html#X858ADA3B7A684421)
-function to determine the order of a semigroup or monoid.
+function can be used to determine the order of a semigroup or monoid.
 The [`IsFinite`](https://docs.gap-system.org/doc/ref/chap30_mj.html#X808A4061809A6E67)
 function can be used to test if a given semigroup is finite or infinite.
 The elements of a semigroup can be computed using the
 [`Elements`](https://docs.gap-system.org/doc/ref/chap30_mj.html#X79B130FC7906FB4C) function.
+The _idempotents_, i.e. elements $x$ such that $x^2 = x$, can be found using
+the [`Idempotents`](https://docs.gap-system.org/doc/ref/chap35_mj.html#X7C651C9C78398FFF)
+function.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+    <transformation semigroup of degree 5 with 3 generators>
+    gap> IsFinite(S);
+    true
+    gap> Size(S);
+    18
+    gap> Elements(S);
+    [ Transformation( [ 1, 1, 3, 4, 4 ] ), Transformation( [ 1, 1 ] ), 
+      Transformation( [ 1, 1, 3, 5, 5 ] ), Transformation( [ 1, 2, 3, 4, 4 ] ), 
+      IdentityTransformation, Transformation( [ 1, 2, 3, 5, 5 ] ), 
+      Transformation( [ 2, 2, 3, 4, 4 ] ), Transformation( [ 2, 2 ] ), 
+      Transformation( [ 2, 2, 3, 5, 5 ] ), Transformation( [ 4, 4, 3, 1, 1 ] ), 
+      Transformation( [ 4, 4, 3, 2, 1 ] ), Transformation( [ 4, 4, 3, 2, 2 ] ), 
+      Transformation( [ 5, 4, 3, 1, 1 ] ), Transformation( [ 5, 4, 3, 2, 1 ] ), 
+      Transformation( [ 5, 4, 3, 2, 2 ] ), Transformation( [ 5, 5, 3, 1, 1 ] ), 
+      Transformation( [ 5, 5, 3, 2, 1 ] ), Transformation( [ 5, 5, 3, 2, 2 ] ) ]
+    gap> Idempotents(S);
+    [ Transformation( [ 1, 1 ] ), Transformation( [ 2, 2 ] ), IdentityTransformation, 
+      Transformation( [ 1, 2, 3, 5, 5 ] ), Transformation( [ 1, 2, 3, 4, 4 ] ), 
+      Transformation( [ 1, 1, 3, 5, 5 ] ), Transformation( [ 2, 2, 3, 5, 5 ] ), 
+      Transformation( [ 1, 1, 3, 4, 4 ] ), Transformation( [ 2, 2, 3, 4, 4 ] ) ]
+    gap> T := Semigroup([Matrix(Integers, [[1, 1], [1, 0]]), Matrix(Integers, [[1, 0], [0, 0]])]);
+    <semigroup of 2x2 integer matrices with 2 generators>
+    gap> IsFinite(T);
+    false
+    ```
+=== "GAP script"
+    ```gap
+    S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+    Size(S);
+    IsFinite(S);
+    Elements(S);
+    Idempotents(S);
+    T := Semigroup([Matrix(Integers, [[1, 1], [1, 0]]), Matrix(Integers, [[1, 0], [0, 0]])]);
+    IsFinite(T);
+    ```
 
 !!! warning
     It is in general undecidable if a given finitely generated semigroup
-    is finite. Hence the functions `Size` and `IsFinite`
+    is finite. Hence the functions `Size`, `IsFinite` and `Idempotents`
     may run forever on semigroups that are infinite,
-    as we saw in the [](#). However, all of the
-    functions `Size`, `IsFinite` and `Elements` are guaranteed to terminate
-    when the underlying semigroup is finite.
+    as we saw in the
+    [Finitely generated subsemigroups and submonoids](#finitely-generated-subsemigroups-and-submonoids)
+    section. However, the
+    functions `Size`, `IsFinite`, `Elements` and `Idempotents` are guaranteed
+    to terminate when the underlying semigroup is finite.
 
+### Cayley graphs
+
+Recall that the _right Cayley graph_ of a semigroup $S$ generated
+by $A$ is the directed graph $G$ with vertex set $V(G) = S$ and
+edge set $E(G) = \{(x, a, y)\in S \times A \times S : x\cdot a = y \}$.
+The _left Cayley graph_ is defined analogously replacing the condition
+$x\cdot a = y$ with $a\cdot x = y$.
+We can think of these as directed graphs whose edges are colored by elements
+in $A$.
+The [`RightCayleyDigraph`]() and [`LeftCayleyDigraph`]() functions
+can be used to compute, respectively, the right and left Cayley graphs of
+a semigroup `S`. The output of these functions is a directed graph
+represented as a
+[`Digraph`](https://docs.gap-system.org/pkg/digraphs/doc/chap3_mj.html#X834843057CE86655)
+object.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+    <transformation semigroup of degree 5 with 3 generators>
+    gap> RightCayleyDigraph(S);
+    <immutable digraph with 18 vertices, 54 edges>
+    gap> LeftCayleyDigraph(S);
+    <immutable multidigraph with 18 vertices, 54 edges>
+    ```
+=== "GAP script"
+    ```gap
+    S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+    RightCayleyDigraph(S);
+    LeftCayleyDigraph(S);
+    ```
+
+There are two ways of visualizing these graphs using the
+`Semigroups` package:
+
+1. We can visualize these graphs without the edge coloring using the
+   [`DotRightCayleyDigraph`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7E38369D7E8BEA4C) and
+   [`DotLeftCayleyDigraph`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7E38369D7E8BEA4C) functions, which produce
+   [`graphviz`](https://graphviz.org/) code describing the right and left Cayley graphs,
+   respectively. If you have `graphviz` installed on your computer,
+   you can render the resulting graphs using the
+   [`Splash`](https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html#X83B3318784E78415) function:
+
+    === "GAP REPL"
+        ```gap-repl
+        gap> S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+        <transformation semigroup of degree 5 with 3 generators>
+        gap> DotRightCayleyDigraph(S);
+        "//dot\ndigraph hgn{\nnode [shape=circle]\n1 [label=\"a\"]\n2 [label=\"b\"]\n3 [label\
+        =\"c\"]\n4 [label=\"ac\"]\n5 [label=\"bc\"]\n6 [label=\"ca\"]\n7 [label=\"cb\"]\n8 [l\
+        abel=\"c ^ 2\"]\n9 [label=\"aca\"]\n10 [label=\"acb\"]\n11 [label=\"bca\"]\n12 [label\
+        =\"bcb\"]\n13 [label=\"cac\"]\n14 [label=\"cbc\"]\n15 [label=\"acac\"]\n16 [label=\"a\
+        cbc\"]\n17 [label=\"bcac\"]\n18 [label=\"bcbc\"]\n1 -> 1\n1 -> 2\n1 -> 4\n2 -> 1\n2 -\
+        > 2\n2 -> 5\n3 -> 6\n3 -> 7\n3 -> 8\n4 -> 9\n4 -> 10\n4 -> 1\n5 -> 11\n5 -> 12\n5 -> \
+        2\n6 -> 6\n6 -> 7\n6 -> 13\n7 -> 6\n7 -> 7\n7 -> 14\n8 -> 1\n8 -> 2\n8 -> 3\n9 -> 9\n\
+        9 -> 10\n9 -> 15\n10 -> 9\n10 -> 10\n10 -> 16\n11 -> 11\n11 -> 12\n11 -> 17\n12 -> 11\
+        \n12 -> 12\n12 -> 18\n13 -> 15\n13 -> 17\n13 -> 6\n14 -> 16\n14 -> 18\n14 -> 7\n15 ->\
+        15\n15 -> 17\n15 -> 9\n16 -> 16\n16 -> 18\n16 -> 10\n17 -> 15\n17 -> 17\n17 -> 11\n1\
+        8 -> 16\n18 -> 18\n18 -> 12\n}\n"
+        gap> Splash(DotLeftCayleyDigraph(S));
+        ```
+    === "GAP script"
+        ```gap
+        S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+        DotRightCayleyDigraph(S);
+        Splash(DotLeftCayleyDigraph(S));
+        ```
+
+    ![A visualization of the left Cayley digraph of S](../images/gap-left-cayley-graph-nocolor-light.svg#only-light)
+    ![A visualization of the left Cayley digraph of S](../images/gap-left-cayley-graph-nocolor-dark.svg#only-dark)
+    /// caption
+    A visualization of the left Cayley digraph of $S$.
+    Result of the `#!gap Splash(DotLeftDigraph(S))` call.
+    ///
+
+2. We can visualize these graphs with edge coloring using the
+   [`DotEdgeColoredDigraph`]() function, applied to
+   the right or left Cayley digraph, and a list describing the edge
+   colors. The `Splash` function can be used to render this output.
+
+    === "GAP REPL"
+        ```gap-repl
+        gap> S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+        <transformation semigroup of degree 5 with 3 generators>
+        gap> # We need to specify the edge colors at each vertex of the graph
+        gap> # The following function creates a list of lists, which indicates
+        gap> # that the outgoing edges at each vertex of the Cayley graph
+        gap> # should be colored red, green and blue, respectively.
+        gap> colors := List([1 .. Size(S)], x -> ["red", "green", "blue"]);;
+        gap> DotEdgeColoredDigraph(LeftCayleyDigraph(S), colors);
+        "//dot\ndigraph hgn{\nnode [shape=circle]\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\
+        \n14\n15\n16\n17\n18\n1 -> 1[color=red]\n1 -> 1[color=green]\n1 -> 6[color=blue]\n2 -\
+        > 2[color=red]\n2 -> 2[color=green]\n2 -> 7[color=blue]\n3 -> 4[color=red]\n3 -> 5[co\
+        lor=green]\n3 -> 8[color=blue]\n4 -> 4[color=red]\n4 -> 4[color=green]\n4 -> 13[color\
+        =blue]\n5 -> 5[color=red]\n5 -> 5[color=green]\n5 -> 14[color=blue]\n6 -> 9[color=red\
+        ]\n6 -> 11[color=green]\n6 -> 1[color=blue]\n7 -> 10[color=red]\n7 -> 12[color=green]\
+        \n7 -> 2[color=blue]\n8 -> 1[color=red]\n8 -> 2[color=green]\n8 -> 3[color=blue]\n9 -\
+        > 9[color=red]\n9 -> 9[color=green]\n9 -> 15[color=blue]\n10 -> 10[color=red]\n10 -> \
+        10[color=green]\n10 -> 17[color=blue]\n11 -> 11[color=red]\n11 -> 11[color=green]\n11\
+        -> 16[color=blue]\n12 -> 12[color=red]\n12 -> 12[color=green]\n12 -> 18[color=blue]\
+        \n13 -> 15[color=red]\n13 -> 17[color=green]\n13 -> 4[color=blue]\n14 -> 16[color=red\
+        ]\n14 -> 18[color=green]\n14 -> 5[color=blue]\n15 -> 15[color=red]\n15 -> 15[color=gr\
+        een]\n15 -> 9[color=blue]\n16 -> 16[color=red]\n16 -> 16[color=green]\n16 -> 11[color\
+        =blue]\n17 -> 17[color=red]\n17 -> 17[color=green]\n17 -> 10[color=blue]\n18 -> 18[co\
+        lor=red]\n18 -> 18[color=green]\n18 -> 12[color=blue]\n}\n"
+        gap> Splash(DotEdgeColoredDigraph(LeftCayleyDigraph(S), colors));
+        ```
+    === "GAP script"
+        ```gap
+        S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+        # We need to specify the edge colors at each vertex of the graph
+        # The following function creates a list of lists, which indicates
+        # that the outgoing edges at each vertex of the Cayley graph
+        # should be colored red, green and blue, respectively.
+        colors := List([1 .. Size(S)], x -> ["red", "green", "blue"]);;
+        DotEdgeColoredDigraph(LeftCayleyDigraph(S), colors);
+        Splash(DotEdgeColoredDigraph(LeftCayleyDigraph(S), colors));
+        ```
+
+    ![A colorful visualization of the left Cayley digraph of S](../images/gap-left-cayley-graph-color-light.svg#only-light)
+    ![A colorful visualization of the left Cayley digraph of S](../images/gap-left-cayley-graph-color-dark.svg#only-dark)
+    /// caption
+    A colorful visualization of the left Cayley digraph of $S$.
+    Result of the `#!gap Splash(DotEdgeColoredDigraph(LeftCayleyDigraph(S), colors))` call.
+    ///
+
+
+
+!!! info
+    See [Chapter 16](https://semigroups.github.io/Semigroups/doc/chap16_mj.html)
+    of the `Semigroups` manual for more information about visualizing semigroups
+    and their Cayley graphs, as well as
+    [Chapter 9](https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html)
+    of the `Digraphs` package manual.
 
 ### Properties of semigroups
 
