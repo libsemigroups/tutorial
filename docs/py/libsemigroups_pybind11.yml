@@ -6,5 +6,3 @@ dependencies:
   - ipython
   - jupyter
   - libsemigroups_pybind11
-  - pip:
-      - neovim-remote
