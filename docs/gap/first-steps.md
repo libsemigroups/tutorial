@@ -578,7 +578,7 @@ Print(x, "\n");
 #   100
 ```
 
-The `#!gap while condition do code; od;` construct will execution the `code` expresssion
+The `#!gap while condition do code; od;` construct will execution the `code` expression
 until `condition` becomes `false`. For example, the following while loop
 counts down from `10`:
 
@@ -624,7 +624,7 @@ to any starting number eventually reaches the number 1, but as of yet this remai
 open problem. We can use a `while` loop to implement our own Collats conjecture verifier:
 
 ```gap title="collatz.g"
-n := 928; # Set some intial value for n
+n := 928; # Set some initial value for n
 while n <> 1 do # Repeat the Collatz function application until the value is 1
   Print(n, "\n"); # Print n so we see how the number changes as we iterate
   if n mod 2 = 0 then # Check if n is even

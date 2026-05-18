@@ -48,7 +48,7 @@ Please select the appropriate tab for your operating system below and follow the
     Windows provides such a feature via the Windows subsystem for Linux (WSL).
 
     We will follows a the guide available on the 
-    [miscrosoft docs](https://docs.microsoft.com/en-us/windows/wsl/install)
+    [microsoft docs](https://docs.microsoft.com/en-us/windows/wsl/install)
     page to install WSL 2.
 
     1. Open `Powershell` as administrator, this can be done by typing "powershell"

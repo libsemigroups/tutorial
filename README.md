@@ -51,7 +51,7 @@ nav:
     - Installation: libsemigroups_pybind11/install.md
 ```
 
-Note: the first unlabelled element of a subsection will be used as the subsection index, i.e. it wont appear as a
+Note: the first unlabelled element of a subsection will be used as the subsection index, i.e. it won't appear as a
 separate entry in the navigation bar. So here the `libsemigroups_pybind11/index.md` file will simply be used
 for the `libsemigroups_pybind11` section, and
 `libsemigroups_pybind11/install.md` will be used as the contents for the `Installation` subsection.
