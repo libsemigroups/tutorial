@@ -16,8 +16,6 @@ nav:
       - "Python: Semigroups defined by generators": py/generated.md
       - "Python: Finitely presented semigroups": py/fp.md
       - "Python: Worksheet": py/worksheet.md
-  - minizinc:
-      - minizinc/index.md
 
 theme:
   name: material
