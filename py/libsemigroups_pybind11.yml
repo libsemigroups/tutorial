@@ -1,0 +1,8 @@
+# mamba env create -f libsemigroups_pybind11.yml --name libsemigroups_pybind11_vX.Y.Z
+channels:
+  - conda-forge
+dependencies:
+  - graphviz
+  - ipython
+  - jupyter
+  - libsemigroups_pybind11

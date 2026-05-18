@@ -1,0 +1,2080 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../install/">
+      
+      
+        <link rel="next" href="../generated/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>GAP: First steps - Semigroups - Zero to ε</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#first-steps-with-gap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Semigroups - Zero to ε" class="md-header__button md-logo" aria-label="Semigroups - Zero to ε" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Semigroups - Zero to ε
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GAP: First steps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Semigroups in GAP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../py/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Semigroups in Python
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Semigroups - Zero to ε" class="md-nav__button md-logo" aria-label="Semigroups - Zero to ε" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    Semigroups - Zero to ε
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semigroups in GAP
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semigroups in GAP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: First steps
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: First steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-gap-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The GAP prompt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The GAP prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-break-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The break loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-help-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The help system
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-overview-of-gap-part-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        An overview of GAP (part 1)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="An overview of GAP (part 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integers-and-fractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integers and fractions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-and-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions and calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-assignment-and-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables, assignment and indexing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings-and-printing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strings and printing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-operators-and-booleans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison operators and booleans
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permutations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permutations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gap-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GAP scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-overview-of-gap-part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        An overview of GAP (part 2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="An overview of GAP (part 2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditionals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-loops-and-early-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested loops and early termination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defining functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Semigroups defined by generators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Finitely presented semigroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../worksheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Worksheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../py/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semigroups in Python
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semigroups in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/first-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: First steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/generated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Semigroups defined by generators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/fp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Finitely presented semigroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/worksheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Worksheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Semigroups in GAP
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="first-steps-with-gap">First steps with GAP</h1>
+<p>In this section we describe the basics of interacting with GAP and writing GAP scripts.
+We recommend the
+<a href="https://carpentries-incubator.github.io/gap-lesson/index.html">GAP software carpentries lesson</a> to those interested
+in learning more about GAP itself, see also the 
+<a href="https://docs.gap-system.org/doc/tut/chap0_mj.html">GAP tutorial</a>. Here we give a very condensed overview.</p>
+<h2 id="the-gap-prompt">The GAP prompt</h2>
+<p>After installing GAP and the <code>Semigroups</code> package as described in the
+<a href="../install/">Installation</a> section, you should be able to start GAP
+from your terminal simply by typing <code>gap</code><span class="keys"><kbd class="key-enter">Enter</kbd></span><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. If GAP has been installed correctly,
+you should see a the GAP banner followed by the <em>GAP prompt</em> <code>gap&gt;</code> similar to
+the following:</p>
+<div class="language-gap-repl highlight"><span class="filename">GAP startup screen</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go"> ┌───────┐   GAP 4.16.0-beta1-14-g2489735-dirty built on 2026-05-08 11:09:24+0100</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go"> │  GAP  │   https://www.gap-system.org</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go"> └───────┘   Architecture: aarch64-apple-darwin25-default64-kv10</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go"> Configuration:  gmp 6.3.0, GASMAN, readline</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go"> Loading the library and packages ...</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go"> Packages:   AClib 1.3.3, Alnuth 3.2.1, AtlasRep 2.1.11, AutoDoc 2026.05.03, </span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="go">             AutPGrp 1.11.1, Browse 1.8.22, CaratInterface 2.3.9, CRISP 1.4.8, </span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="go">             Cryst 4.1.31, CrystCat 1.1.11, CTblLib 1.3.11, curlInterface 2.4.3, </span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="go">             FactInt 1.6.3, FGA 1.5.0, Forms 1.2.14, GAPDoc 1.6.7, genss 1.6.9, </span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="go">             IO 4.9.3, IRREDSOL 1.4.4, LAGUNA 3.9.7, orb 5.1.0, </span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="go">             PackageManager 1.6.3, Polenta 1.3.11, Polycyclic 2.18, </span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="go">             PrimGrp 4.0.2, RadiRoot 2.9, recog 1.4.4, ResClasses 4.7.4, </span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="go">             SmallGrp 1.5.4, Sophus 1.27, SpinSym 1.5.2, StandardFF 1.0, </span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="go">             TomLib 1.2.11, TransGrp 3.6.5, utils 0.94</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="go"> Try &#39;??help&#39; for help. See also &#39;?copyright&#39;, &#39;?cite&#39; and &#39;?authors&#39;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="go">gap&gt;</span>
+</span></code></pre></div>
+<p>We can test that it is working by typing <code>1+1;</code><span class="keys"><kbd class="key-enter">Enter</kbd></span> in the prompt. When doing so, we are greeted with
+the answer <code>2</code>:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">gap&gt; </span><span class="nv">1</span><span class="o">+</span><span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">2</span>
+</span></code></pre></div>
+<p>Note that every expression in GAP must be terminated by a semicolon <code>;</code>, otherwise GAP will assume
+that more input is coming, and drop us into a <em>continuation prompt</em> <code>&gt;</code>:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">gap&gt; </span><span class="nv">1</span><span class="o">+</span><span class="nv">1</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gp">&gt; </span>
+</span></code></pre></div>
+<p>Writing the missing semicolon <code>;</code><span class="keys"><kbd class="key-enter">Enter</kbd></span> will cause the expression to be evaluated:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">gap&gt; </span><span class="nv">1</span><span class="o">+</span><span class="nv">1</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gp">&gt; </span><span class="o">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">2</span>
+</span></code></pre></div>
+<p>The program we are interacting with is called the GAP <em>REPL</em>: <strong>R</strong>ead <strong>E</strong>valuate <strong>P</strong>rint <strong>L</strong>oop.
+As the name suggests, it first reads user input from the prompt, then it evaluates this input by performing
+computation, then it prints the results of the computation and finally it repeats this behavior in a loop,
+returning to the read step. We will later see a different interaction model via GAP scripts, but the REPL
+is a good way to experiment and may be preferable when working with the worksheets later on.</p>
+<p>You can quit the GAP REPL by typing <code class="language-gap highlight"><span class="k">quit</span><span class="o">;</span></code><span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
+<h3 id="the-break-loop">The break loop</h3>
+<p>Occasionally you may encounter an error by attempting to perform an unsupported computation, or due to
+a bug in some other method. This will drop you into the <em>break loop</em>, e.g. trying to add a number
+and a string will cause such an error:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">+</span> <span class="s">&quot;a&quot;</span><span class="o">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gr">Error, no method found! For debugging hints type ?Recovery from NoMethodFound</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gr">Error, no 1st choice method found for `+&#39; on 2 arguments</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="gr">called from read-eval loop at *stdin*:23</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gr">type &#39;quit;&#39; to quit to outer loop</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="gr">brk&gt;</span>
+</span></code></pre></div>
+<p>The error message <code>Error, no method found!</code> indicates that GAP does not have a method implemented for adding
+the number <code>1</code> and the string <code>"a"</code> (what would it even mean to add a number and a letter?), so it drops
+us into the break loop, indicated by the <code class="language-gap-repl highlight"><span class="go">brk&gt;</span></code> prompt, for debugging. To exit this loop, we can simply
+<code class="language-gap highlight"><span class="k">quit</span><span class="o">;</span></code><span class="keys"><kbd class="key-enter">Enter</kbd></span>, which will bring us back to the GAP prompt <code>gap&gt;</code>:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">+</span> <span class="s">&quot;a&quot;</span><span class="o">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="gr">Error, no method found! For debugging hints type ?Recovery from NoMethodFound</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="gr">Error, no 1st choice method found for `+&#39; on 2 arguments</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="gr">called from read-eval loop at *stdin*:23</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="gr">type &#39;quit;&#39; to quit to outer loop</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="gp">brk&gt; </span><span class="k">quit</span><span class="o">;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="gp">gap&gt; </span>
+</span></code></pre></div>
+<p>We can now proceed as normal.
+See the <a href="https://docs.gap-system.org/doc/ref/chap6_mj.html">Main loop and Break loop</a> section of the
+GAP reference manual for more details about the break loop and the main loop.</p>
+<h3 id="the-help-system">The help system</h3>
+<p>GAP and the <code>Semigroups</code> package implement many different functions. What a function does may not
+always be clear from its name, and it may be necessary to read the <em>documentation</em> describing its
+functionality. This can be done directly from the GAP REPL via the <em>help system</em>.
+To learn more about a function, simply prepend a question mark <code>?</code> to its name.
+For example, to learn more about the factorial function <code>Factorial</code> we type
+<code class="language-gap highlight">?<span class="nv">Factorial</span></code><span class="keys"><kbd class="key-enter">Enter</kbd></span> in the GAP prompt:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>gap&gt; ?Factorial
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  16.1-1 Factorial
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  ‣ Factorial( n ) ───────────────────────────────────────────────────── function
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  returns  the  factorial  n!  of the positive integer n, which is defined as the
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  product 1 ⋅ 2 ⋅ 3 ⋯ n.
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  n!  is  the  number  of  permutations  of  a  set  of n elements. 1 / n! is the
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  coefficient  of  x^n  in  the  formal  series  exp(x),  which is the generating
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  function for factorial.
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  ──────────────────────────────────  Example  ──────────────────────────────────
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    gap&gt; List( [0..10], Factorial );
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    [ 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800 ]
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    gap&gt; Factorial( 30 );
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    265252859812191058636308480000000
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>  ───────────────────────────────────────────────────────────────────────────────
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  PermutationsList (16.2-12) computes the set of all permutations of a list.
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>  -- &lt;space&gt; page, &lt;n&gt; next line, &lt;b&gt; back, &lt;p&gt; back line, &lt;q&gt; quit --
+</span></code></pre></div>
+<p>This opens the manual entry for <code>Factorial</code>, which describes the functionality of <code>Factorial</code>.
+Note the instructions at the bottom for navigation: the <span class="keys"><kbd class="key-space">Space</kbd></span> key moves to the next page,
+the <span class="keys"><kbd class="key-n">N</kbd></span> key moves to the next line, the <span class="keys"><kbd class="key-b">B</kbd></span> key moves to the previous page, the <span class="keys"><kbd class="key-p">P</kbd></span>
+key moves to the previous line and the <span class="keys"><kbd class="key-q">Q</kbd></span> key quits the help system. So press <span class="keys"><kbd class="key-q">Q</kbd></span> to
+quit, this should bring you back to a <code>gap&gt;</code> prompt.</p>
+<p>Sometimes there are multiple places in the documentation that might be relevant, for example
+typing <code>?Sum</code> yields:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>gap&gt; ?Sum
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>│   Choose an entry to view, &#39;q&#39; for none (or use ?&lt;nr&gt; later):                                   │
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>│[1]   Reference: Sum                                                                             │
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│[2]   Reference: Sum and Intersection of Pcgs                                                    │
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>│[3]   Reference: SumOp                                                                           │
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>│[4]   Reference: SumX                                                                            │
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>│[5]   Reference: SumIntersectionMat                                                              │
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>│[6]   Reference: SumFactorizationFunctionPcgs                                                    │
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│[7]   CAP (not loaded): SumOfMorphisms for IsCapCategoryObject, IsList, IsCapCategoryObject      │
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>│[8]   CAP (not loaded): SumWithKeys                                                              │
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>│[9]   HAP (not loaded): SumOfFpGModules                                                          │
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>│[10]  HAP (not loaded): SumOp
+</span></code></pre></div>
+<p>Since there are multiple different <code>Sum</code> operations implemented for different
+objects, we are presented with a choice on which <code>Sum</code> function documentation
+to view. The menu should be navigable with the <span class="keys"><kbd class="key-arrow-up">Up</kbd></span> and <span class="keys"><kbd class="key-arrow-down">Down</kbd></span> keys using
+<span class="keys"><kbd class="key-enter">Enter</kbd></span> to select the relevant entry. You can also quit this menu using the
+<span class="keys"><kbd class="key-q">Q</kbd></span> key. Finally, if you quit out of this menu (or if you installed GAP without
+the <code>readline</code> library), then you can still choose an entry using the <code>?&lt;nr&gt;</code> syntax.
+For example typing <code>?Sum</code><span class="keys"><kbd class="key-enter">Enter</kbd></span> and then typing <span class="keys"><kbd class="key-q">Q</kbd></span> followed by <code>?2</code><span class="keys"><kbd class="key-enter">Enter</kbd></span> should
+open the documentation for the second entry <code>Reference: Sum and Intersection of Pcgs</code>.</p>
+<p>Additionally, the <a href="https://docs.gap-system.org/doc/ref/chap0_mj.html">GAP reference manual</a>
+and <a href="https://semigroups.github.io/Semigroups/doc/chap0_mj.html">Semigroups reference manual</a>
+available online contain all the same information but in html form.
+Each manual also has an <em>index section</em>,
+<a href="https://docs.gap-system.org/doc/ref/chapInd_mj.html">GAP reference manual index</a> and
+<a href="https://semigroups.github.io/Semigroups/doc/chapInd_mj.html">Semigroups reference manual index</a>,
+which contains list of links to the documentation of every documented function in the standard library
+and the Semigroups package, respectively. These can be useful to find out if a
+certain function is implemented or not.</p>
+<p>See also the <a href="https://docs.gap-system.org/doc/ref/chap2_mj.html">help system section</a> of the
+GAP reference manual.</p>
+<h2 id="an-overview-of-gap-part-1">An overview of GAP (part 1)</h2>
+<p>In this section we give an overview of the base functionality of the GAP programming language</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is very brief, for a more in-depth overview of GAP see the
+<a href="https://carpentries-incubator.github.io/gap-lesson/index.html">GAP software carpentries lesson</a>, the
+<a href="https://docs.gap-system.org/doc/tut/chap0_mj.html">GAP tutorial</a> as well as the
+<a href="https://docs.gap-system.org/doc/ref/chap4_mj.html">GAP language overview</a>
+section of the reference manual for more details.</p>
+</div>
+<h3 id="integers-and-fractions">Integers and fractions</h3>
+<p>In GAP integers are written in decimal like usual, e.g. <code>120;</code> is the number 120. Numbers can be added, subtracted,
+multiplied and divided in the usual fashion, e.g.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">gap&gt; </span><span class="nv">120</span><span class="o">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gp">gap&gt; </span><span class="nv">120</span> <span class="o">+</span> <span class="nv">130</span><span class="o">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">250</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="gp">gap&gt; </span><span class="nv">120</span> <span class="o">-</span> <span class="nv">130</span><span class="o">;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">-10</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="gp">gap&gt; </span><span class="nv">120</span> <span class="o">*</span> <span class="nv">130</span><span class="o">;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="go">15600</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="gp">gap&gt; </span><span class="nv">120</span> <span class="o">/</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="go">12</span>
+</span></code></pre></div>
+<p>Note that division does not result in a floating point number, more about that later. It is also possible to compute
+powers via the exponentiation operator <code>^</code> and to get the remainder when dividing by <code>n</code> (residue mod <code>n</code>) using
+the <code>mod</code> operator:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">gap&gt; </span><span class="nv">2</span> <span class="o">^</span> <span class="nv">4</span><span class="o">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">16</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="gp">gap&gt; </span><span class="nv">7</span> <span class="ow">mod</span> <span class="nv">4</span><span class="o">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="go">3</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="gp">gap&gt; </span><span class="nv">120</span> <span class="o">^</span> <span class="nv">130</span><span class="o">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="go">196590255083990667167217052854197047859929690255461070320580603523426540858879632\</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="go">774169254875081462971751769168887837685916733392454024167424000000000000000000000\</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="go">000000000000000000000000000000000000000000000000000000000000000000000000000000000\</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="go">0000000000000000000000000000</span>
+</span></code></pre></div>
+<p>The <code>\</code> symbols in the output are GAP continuation symbols, they are used
+to wrap long input lines in the GAP language.
+Note that GAP can handle even very large numbers without using numerical approximation. Similarly, dividing
+whole numbers results in a rational as opposed to a floating point number. We need to use the <code class="language-gap highlight"><span class="nv">Float</span></code> command
+to convert such a rational to a floating point number:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">gap&gt; </span><span class="nv">100</span><span class="o">/</span><span class="nv">114</span><span class="o">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">50/57</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="gp">gap&gt; </span><span class="nv">Float</span><span class="p">(</span><span class="nv">100</span><span class="o">/</span><span class="nv">114</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="go">0.877193</span>
+</span></code></pre></div>
+<h3 id="functions-and-calls">Functions and calls</h3>
+<p>GAP implements many functions, for example the <code class="language-gap highlight"><span class="nv">Factorial</span></code> function which computes factorials. Functions are usually
+named using <a href="https://en.wikipedia.org/wiki/Camel_case">upper camel case</a>, e.g.
+<code>Factorial</code> or <code>IsomorphismSemigroups</code>. To call a function, simply provide it
+with one or more arguments in brackets, e.g. <code class="language-bash highlight">Factorial<span class="o">(</span><span class="m">5</span><span class="o">)</span><span class="p">;</span></code> will
+compute the factorial of 5.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">gap&gt; </span><span class="nv">Factorial</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">120</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="gp">gap&gt; </span><span class="nv">Factorial</span><span class="p">(</span><span class="nv">100</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="go">933262154439441526816992388562667004907159682643816214685929638952175999932299156\</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="go">08941463976156518286253697920827223758251185210916864000000000000000000000000</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="gp">gap&gt; </span><span class="nv">Factorial</span><span class="p">(</span><span class="nv">200</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="go">788657867364790503552363213932185062295135977687173263294742533244359449963403342\</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="go">920304284011984623904177212138919638830257642790242637105061926624952829931113462\</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="go">857270763317237396988943922445621451664240254033291864131227428294853277524242407\</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="go">573903240321257405579568660226031904170324062351700858796178922222789623703897374\</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="go">720000000000000000000000000000000000000000000000000</span>
+</span></code></pre></div>
+<p>Multiple arguments are separated using commas. For example the <code>Binomial</code> function takes two arguments <code>n</code> and <code>k</code>
+and computes the binomial coefficient <code>n</code> choose <code>k</code>. We can call it as <code>Binomial(n, k);</code>, e.g.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>gap&gt; Binomial(10, 5);
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>252
+</span></code></pre></div>
+<h3 id="lists">Lists</h3>
+<p>One can also create lists in GAP using the square brackets syntax. So, for example <code class="language-gap highlight"><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">9</span><span class="p">]</span><span class="o">;</span></code> would
+be a <code>gap</code> list consisting of the odd numbers less than 10. As a shorthand, to create a list of all integers between
+<code>a</code> and <code>b</code> we can use the range notation <code class="language-gap highlight"><span class="p">[</span><span class="nv">a</span> <span class="o">..</span> <span class="nv">b</span><span class="p">]</span><span class="o">;</span></code>, e.g. the range
+<code class="language-gap highlight"><span class="p">[</span><span class="nv">2</span> <span class="o">..</span> <span class="nv">10</span><span class="p">]</span><span class="o">;</span></code> contains all integers between 2 and 10 inclusive.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">gap&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">9</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">[ 1, 3, 5, 7, 9 ]</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="gp">gap&gt; </span><span class="p">[</span><span class="nv">2</span> <span class="o">..</span> <span class="nv">10</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="go">[ 2 .. 10 ]</span>
+</span></code></pre></div>
+<p>Lists can be nested and there is generally no limitation to what values they can hold.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">gap&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="p">[</span><span class="nv">7</span><span class="o">,</span> <span class="nv">8</span><span class="p">]]</span><span class="o">,</span> <span class="nv">9</span><span class="o">,</span> <span class="p">[</span><span class="nv">10</span><span class="o">,</span> <span class="nv">11</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">[ 1, [ 2, 3 ], [ 4, 5, [ 7, 8 ] ], 9, [ 10, 11 ] ]</span>
+</span></code></pre></div>
+<h3 id="variables-assignment-and-indexing">Variables, assignment and indexing</h3>
+<p>We can assign a value to a variable using the <code class="language-gap highlight"><span class="o">:=</span></code> syntax. So, for example <code>x := 3;</code> would assign the value
+3 to the variable <code>x</code>. We can then use <code>x</code> in expressions e.g. <code class="language-gap highlight"><span class="nv">x</span> <span class="o">*</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">1</span><span class="o">;</span></code>.
+Lists can also be assigned to variables, for example <code class="language-gap highlight"><span class="nv">A</span> <span class="o">:=</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">9</span><span class="p">]</span><span class="o">;</span></code> will assign the list
+<code>[1, 3, 5, 7, 9]</code> to <code>A</code>. We can access the <code>n</code>-th entry in <code>A</code> by typing
+<code class="language-gap highlight"><span class="nv">A</span><span class="p">[</span><span class="nv">n</span><span class="p">]</span><span class="o">;</span></code>. For example <code class="language-gap highlight"><span class="nv">A</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;</span></code> will return <code>1</code> and <code class="language-gap highlight"><span class="nv">A</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;</span></code> will
+return <code>3</code>. Note that unlike other programming languages, GAP is 1-indexed, meaning that the first element of
+a list is at position <code>1</code>, not <code>0</code>. Finally, we can modify a list entry by assigning to it, e.g. <code class="language-gap highlight"><span class="nv">A</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span> <span class="o">:=</span> <span class="nv">100</span><span class="o">;</span></code>
+will change the third entry of <code>A</code> to be <code>100</code>.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">gap&gt; </span><span class="nv">x</span> <span class="o">:=</span> <span class="nv">3</span><span class="o">;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">3</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="gp">gap&gt; </span><span class="nv">x</span><span class="o">;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="go">3</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="gp">gap&gt; </span><span class="nv">x</span> <span class="o">*</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="go">10</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="gp">gap&gt; </span><span class="nv">A</span> <span class="o">:=</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">9</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="go">[ 1, 3, 5, 7, 9 ]</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="gp">gap&gt; </span><span class="nv">A</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="go">1</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="gp">gap&gt; </span><span class="nv">A</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="go">3</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="gp">gap&gt; </span><span class="nv">A</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span> <span class="o">:=</span> <span class="nv">100</span><span class="o">;</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="go">100</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="gp">gap&gt; </span><span class="nv">A</span><span class="o">;</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="go">[ 1, 3, 100, 7, 9 ]</span>
+</span></code></pre></div>
+<h3 id="strings-and-printing">Strings and printing</h3>
+<p>A <em>string</em> is a way of representing a word or phrase on the computer. In GAP they are denoted by quotation marks, e.g.
+<code>"apple"</code> or <code>"Hello world!"</code>. Under the hood strings are just lists of characters, so we can index them in the samme manner
+as lists.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">gap&gt; </span><span class="s">&quot;apple&quot;</span><span class="o">;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">&quot;apple&quot;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="gp">gap&gt; </span><span class="nv">phrase</span> <span class="o">:=</span> <span class="s">&quot;Hello world!&quot;</span><span class="o">;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">&quot;Hello world!&quot;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="gp">gap&gt; </span><span class="nv">phrase</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="go">&#39;H&#39;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="gp">gap&gt; </span><span class="nv">phrase</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="go">&#39;e&#39;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="gp">gap&gt; </span><span class="nv">phrase</span><span class="p">[</span><span class="nv">6</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="go">&#39; &#39;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="gp">gap&gt; </span><span class="nv">phrase</span><span class="p">[</span><span class="nv">10</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="go">&#39;l&#39;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="gp">gap&gt; </span><span class="nv">phrase</span><span class="p">[</span><span class="nv">12</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="go">&#39;!&#39;</span>
+</span></code></pre></div>
+<p>Strings and other objects can be printed in gap using the <code class="language-gap highlight"><span class="nv">Print</span></code> function. Multiple items can be printed
+by passing them as arguments to <code class="language-gap highlight"><span class="nv">Print</span></code>. Finally, when printing we should usually end the command with the
+newline character <code>"\n"</code>, otherwise subsequent text will be printed on the same line as our text.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">gap&gt; </span><span class="nv">x</span> <span class="o">:=</span> <span class="nv">3</span><span class="o">;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">3</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="gp">gap&gt; </span><span class="nv">Print</span><span class="p">(</span><span class="s">&quot;The value of x is &quot;</span><span class="o">,</span> <span class="nv">x</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="go">The value of x is 3</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="gp">gap&gt; </span><span class="nv">name</span> <span class="o">:=</span> <span class="s">&quot;Andy&quot;</span><span class="o">;</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="go">Andy</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="gp">gap&gt; </span><span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="o">,</span> <span class="nv">name</span><span class="o">,</span> <span class="s">&quot; how are you?\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="go">Hello Andy how are you?</span>
+</span></code></pre></div>
+<h3 id="comparison-operators-and-booleans">Comparison operators and booleans</h3>
+<p>GAP supports comparison functions for objects. We can check if two values are equal using the <code>=</code> operator, e.g. 
+<code>1 = 1</code> will return <code class="language-gap highlight"><span class="no">true</span></code> while <code class="language-gap highlight"><span class="nv">1</span> <span class="o">=</span> <span class="nv">10</span></code> will return <code class="language-gap highlight"><span class="no">false</span></code>. Note that the <code>=</code> operator for
+comparisons is different than the <code>:=</code> operator for assignment. To check if two
+element differ we can use the <code>&lt;&gt;</code> operator, so that <code>1 &lt;&gt; 1</code> is <code class="language-gap highlight"><span class="no">false</span></code> and <code>1 &lt;&gt; 10</code> is <code class="language-gap highlight"><span class="no">true</span></code>.
+Note that the <code>!=</code> operation that is common in other languages is <strong>not</strong> present in GAP and so <code>&lt;&gt;</code> should be used
+instead. Finally, the <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> operators implement the inequality
+operators "less than", "less than or equal to", "greater than" and "greater
+than or equal to", respectively. The values <code>true</code> and <code>false</code> returned by these operators are called booleans.</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">=</span> <span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="go">true</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">=</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="go">false</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">&lt;&gt;</span> <span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="go">false</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">&lt;&gt;</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="go">true</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">&gt;</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="go">false</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">&lt;</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="go">true</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">&lt;</span> <span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="go">false</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">&lt;=</span> <span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="go">true</span>
+</span></code></pre></div>
+<h3 id="comments">Comments</h3>
+<p>In GAP, one can indicate a code comment using the number sign <code>#</code>. Once a <code>#</code>
+is encountered, every symbol until the end of the line is ignored. This can be
+useful to describe what the code is doing. For example</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">+</span> <span class="nv">1</span><span class="o">;</span> <span class="c1"># This is a comment and has no impact on the computation</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">2</span>
+</span></code></pre></div>
+<h3 id="permutations">Permutations</h3>
+<p>In GAP permutations can be constructed by writing them out in disjoint
+cycle notation, e.g. <code>(1, 3, 2)(5, 4)</code> is the permutation <span class="arithmatex">\(p\)</span> such that
+<span class="arithmatex">\(p(1) = 3, p(3) = 2, p(2) = 1, p(5) = 4\)</span> and <span class="arithmatex">\(p(4) = 5\)</span>. Permutations
+can be multiplied using the <code>*</code> operator and we can ask for the image
+<span class="arithmatex">\(p(x)\)</span> of a point <span class="arithmatex">\(x\)</span> via the <code>^</code> operator as <code>x ^ p</code>. For example:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">gap&gt; </span><span class="nv">p</span> <span class="o">:=</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="p">)(</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="go">(1,3,2)(4,5)</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="gp">gap&gt; </span><span class="nv">p</span> <span class="o">*</span> <span class="nv">p</span><span class="o">;</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="go">(1,2,3)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="gp">gap&gt; </span><span class="nv">1</span> <span class="o">^</span> <span class="nv">p</span><span class="o">;</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="go">3</span>
+</span></code></pre></div>
+<h2 id="gap-scripts">GAP scripts</h2>
+<p>Using the GAP REPL is very nice for quick prototyping and single line code execution.
+However, for more advanced GAP constructs such as conditionals, loops and functions,
+covered in the <a href="#an-overview-of-gap-part-2">next section</a>, using the REPL can quickly
+become cumbersome. </p>
+<p>It is therefore recommended to store more involved computations in a <em>GAP script</em> file.
+This is simply a text file with a <code>.g</code> extension that contains GAP code. For example,
+using your text editor of choice, create a text file named <code>example.g</code><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> with
+the following contents:</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">a</span> <span class="o">:=</span> <span class="nv">1</span> <span class="o">+</span> <span class="nv">4</span><span class="o">;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nv">result</span> <span class="o">:=</span> <span class="nv">Factorial</span><span class="p">(</span><span class="nv">a</span> <span class="o">*</span> <span class="nv">2</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Factorial is &quot;</span><span class="o">,</span> <span class="nv">result</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+<p>Note that we do not need to type the <code>gap&gt;</code> prompt in the GAP script file. </p>
+<p>To execute the script file in <code>gap</code>, open <code>gap</code> and execute the <code>Read</code> command to read the <code>example.g</code> file:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">gap&gt; </span><span class="nv">Read</span><span class="p">(</span><span class="s">&quot;example.g&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">Factorial is 3628800</span>
+</span></code></pre></div>
+<p>If the <code>Read</code> command fails, make sure the <code>example.g</code> file is in
+the same directory that you open <code>gap</code> in<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Note that, unlike in the REPL,
+only the output of the <code>Print</code> commands is printed.</p>
+<p>To make editing GAP script files slightly nicer, we recommend setting up a text editor for GAP file editing.
+For editor support, see the
+<a href="https://www.gap-system.org/faq/#where-is-the-gap-file-editor-how-do-i-save-gap-programs">relevant GAP system FAQ section</a>.
+The <a href="https://kate-editor.org/">Kate editor</a> is likely the simplest editor with built-in support for GAP.
+Alternatively, <a href="https://neovim.io/">neovim</a>,
+<a href="https://code.visualstudio.com/">VSCode</a> and
+<a href="https://www.vim.org/download.php">vim</a> are well supported too, though you will
+need to perform additional setup steps as per the FAQ.</p>
+<h2 id="an-overview-of-gap-part-2">An overview of GAP (part 2)</h2>
+<p>In this section we cover conditionals, loops and function definitions in GAP.
+All our code examples will now be of GAP script files, instead of the REPL, and can
+be executed as described in the <a href="#gap-scripts">GAP scripts</a> section.
+We will indicate the output of executing the script with a comment <code class="language-gap highlight"><span class="c1"># Returns: ...</span></code>
+at the end of the script.</p>
+<h3 id="conditionals">Conditionals</h3>
+<p>In programming, we may want to conditionally execute some code, depending on the
+result of a prior computation.
+GAP support conditional code execution using the <code class="language-gap highlight"><span class="k">if</span> <span class="nv">condition</span> <span class="k">then</span> <span class="nv">code</span><span class="o">;</span> <span class="k">fi</span><span class="o">;</span></code> construct,
+which executes the <code>code</code> expression if the <code>condition</code> is <code>true</code>, and does nothing otherwise, e.g.</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">if</span> <span class="nv">1</span> <span class="o">&gt;</span> <span class="nv">10</span> <span class="k">then</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;1 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="k">fi</span><span class="o">;</span> <span class="c1"># Does nothing because the condition fails</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="k">if</span> <span class="nv">1</span> <span class="o">&lt;</span> <span class="nv">10</span> <span class="k">then</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;1 &lt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="k">fi</span><span class="o">;</span> <span class="c1"># Prints because the condition holds</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="c1"># Result:</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="c1">#  1 &lt; 10</span>
+</span></code></pre></div>
+<p>Here the fist condition <code class="language-gap highlight"><span class="nv">1</span> <span class="o">&gt;</span> <span class="nv">10</span></code> does not hold, so the if statement ignores the
+<code>Print</code> and nothing is printed. However the second condition holds and so the
+<code>Print</code> statement is executed and <code class="language-gap highlight"><span class="nv">1</span> <span class="o">&lt;</span> <span class="nv">10</span></code> is printed. Note also the use of
+the continuation prompt <code>&gt;</code> to input code across multiple lines, it is often much
+more readable to input <code>if</code> statements like this.
+Every <code>if</code> statement must be closed by
+an <code>fi;</code> statement.
+It is also customary to indent the body of an if statement by 2 spaces, to provide visual
+separation.</p>
+<p>A variation, the <code class="language-gap highlight"><span class="k">if</span> <span class="nv">condition</span> <span class="k">then</span> <span class="nv">code1</span><span class="o">;</span> <span class="k">else</span> <span class="nv">code2</span><span class="o">;</span> <span class="k">fi</span><span class="o">;</span></code> construct allows us to
+conditionally execute 1 of 2 <em>branches</em> depending on whether the condition is true or not, e.g.</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">if</span> <span class="nv">1</span> <span class="o">&gt;</span> <span class="nv">10</span> <span class="k">then</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;1 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Does not print because the condition is false</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="k">else</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;1 &lt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Prints because the condition is false</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="c1"># Result:</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="c1">#  1 &lt; 10</span>
+</span></code></pre></div>
+<p>A final variation, the
+<code class="language-gap highlight"><span class="k">if</span> <span class="nv">condition1</span> <span class="k">then</span> <span class="nv">code1</span><span class="o">;</span> <span class="k">elif</span> <span class="nv">condition2</span> <span class="k">then</span> <span class="nv">code2</span><span class="o">;</span> <span class="k">else</span> <span class="nv">code3</span><span class="o">;</span> <span class="k">fi</span><span class="o">;</span></code>
+construct will execute <code>code1</code> if <code>condition1</code> holds,
+otherwise it will execute <code>code2</code> if <code>condition2</code> holds, and finally it will
+execute <code>code3</code> if neither <code>condition1</code> nor <code>condition2</code> holds.
+An arbitrary number of <code>elif</code> clauses are allowed, in which case every
+subsequent condition is tested only if all the prior ones fail, and the final
+<code>else</code> clause may be omitted, in which case the if statement does nothing if all
+conditions fail. E.g.</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">if</span> <span class="nv">1</span> <span class="o">&gt;</span> <span class="nv">10</span> <span class="k">then</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;1 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Conditions fails so nothing printed</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="k">elif</span> <span class="nv">2</span> <span class="o">&gt;</span> <span class="nv">10</span> <span class="k">then</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;2 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Condition fails no nothing printed</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="k">elif</span> <span class="nv">11</span> <span class="o">&gt;</span> <span class="nv">10</span> <span class="k">then</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;11 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Conditions holds so 11 &gt; 10 printed</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="k">elif</span> <span class="nv">12</span> <span class="o">&gt;</span> <span class="nv">10</span> <span class="k">then</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;12 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Even though the condition holds, since an</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>                      <span class="c1"># earlier condition holds, this line is not printed</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="k">else</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;All conditions failed!\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Since an earlier condition held,</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>                                     <span class="c1"># this line is not printed either.</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="c1"># Result:</span>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="c1">#  11 &gt; 10</span>
+</span></code></pre></div>
+<h3 id="loops">Loops</h3>
+<p>We may want to repeatedly execute some code in a loop. In GAP this can be
+done using the <code>for</code> and <code>while</code> loops.</p>
+<p>The <code class="language-gap highlight"><span class="k">for</span> <span class="nv">element</span> <span class="ow">in</span> <span class="nv">collection</span> <span class="k">do</span> <span class="nv">code</span><span class="o">;</span> <span class="k">od</span><span class="o">;</span></code> construct allows us to
+execute the statement <code>code</code> where the variable <code>element</code> varies over
+the elements of <code>collection</code>. For example, we the following for loop
+prints all the elements of the list <code>A</code>:</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">A</span> <span class="o">:=</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">9</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">for</span> <span class="nv">x</span> <span class="ow">in</span> <span class="nv">A</span> <span class="k">do</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="o">,</span> <span class="nv">x</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="c1"># Result:</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c1">#   x = 1</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="c1">#   x = 3</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="c1">#   x = 5</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="c1">#   x = 7</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="c1">#   x = 9</span>
+</span></code></pre></div>
+<p>Every <code>for</code> statement must be closed by a <code>od;</code> statement. As with <code>if</code> statements,
+the body of the for loop gets indented 2 spaces.</p>
+<p>The <code>for</code> loop
+can also be useful when we want to repeat a certain action a number of times
+that is previously known. For example, the following <code>for</code> loop adds
+up the first <code>n</code> odd numbers:</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nv">x</span> <span class="o">:=</span> <span class="nv">0</span><span class="o">;</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="k">for</span> <span class="nv">y</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>  <span class="nv">x</span> <span class="o">:=</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">2</span> <span class="o">*</span> <span class="nv">y</span> <span class="o">-</span> <span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="nv">Print</span><span class="p">(</span><span class="nv">x</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="c1"># Result:</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="c1">#   100</span>
+</span></code></pre></div>
+<p>The <code class="language-gap highlight"><span class="k">while</span> <span class="nv">condition</span> <span class="k">do</span> <span class="nv">code</span><span class="o">;</span> <span class="k">od</span><span class="o">;</span></code> construct will execution the <code>code</code> expresssion
+until <code>condition</code> becomes <code>false</code>. For example, the following while loop
+counts down from <code>10</code>:</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="k">while</span> <span class="nv">n</span> <span class="o">&gt;</span> <span class="nv">0</span> <span class="k">do</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>  <span class="nv">Print</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Print n</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>  <span class="nv">n</span> <span class="o">:=</span> <span class="nv">n</span> <span class="o">-</span> <span class="nv">1</span><span class="o">;</span> <span class="c1"># Decrease n by one</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="c1"># Result:</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="c1">#  10</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="c1">#  9</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="c1">#  8</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="c1">#  7</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="c1">#  6</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="c1">#  5</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="c1">#  4</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="c1">#  3</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="c1">#  2</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="c1">#  1</span>
+</span></code></pre></div>
+<p>As with the <code>for</code> statement, we must close a <code>while</code> loop with an <code>od;</code> statement.
+It is once again customary to indent the body of the <code>while</code> loop 2 spaces.</p>
+<p>The <code>while</code> loop is useful when you do not know in advance how many iterations a certain
+piece of code should be executed for. For example, the
+<a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz function</a> is a function on
+the natural which, given a number <code>n</code>, divides <code>n</code> by two if <code>n</code> is even, and otherwise
+it multiplies <code>n</code> by 3 and adds 1, i.e.</p>
+<div class="arithmatex">\[
+  f(n) =
+  \begin{cases}
+    \frac{n}{2} &amp; \text{if }n\text{ is even}\\
+    3n + 1 &amp; \text{otherwise}
+  \end{cases}
+\]</div>
+<p>It is conjectured that applying this function repeatedly
+to any starting number eventually reaches the number 1, but as of yet this remains an
+open problem. We can use a <code>while</code> loop to implement our own Collats conjecture verifier:</p>
+<div class="language-gap highlight"><span class="filename">collatz.g</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">928</span><span class="o">;</span> <span class="c1"># Set some intial value for n</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="k">while</span> <span class="nv">n</span> <span class="o">&lt;&gt;</span> <span class="nv">1</span> <span class="k">do</span> <span class="c1"># Repeat the Collatz function application until the value is 1</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  <span class="nv">Print</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Print n so we see how the number changes as we iterate</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>  <span class="k">if</span> <span class="nv">n</span> <span class="ow">mod</span> <span class="nv">2</span> <span class="o">=</span> <span class="nv">0</span> <span class="k">then</span> <span class="c1"># Check if n is even</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="nv">n</span> <span class="o">:=</span> <span class="nv">n</span> <span class="o">/</span> <span class="nv">2</span><span class="o">;</span> <span class="c1"># If so then divide by 2</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>  <span class="k">else</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    <span class="nv">n</span> <span class="o">:=</span> <span class="nv">n</span> <span class="o">*</span> <span class="nv">3</span> <span class="o">+</span> <span class="nv">1</span><span class="o">;</span> <span class="c1"># If its odd then multiply by 3 and add 1</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>  <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="nv">Print</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Print n at the end to check its equal to 1</span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="c1"># Result:</span>
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="c1">#   928</span>
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="c1">#   464</span>
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="c1">#   232</span>
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="c1">#   116</span>
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="c1">#   58</span>
+</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a><span class="c1">#   29</span>
+</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a><span class="c1">#   88</span>
+</span><span id="__span-29-20"><a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a><span class="c1">#   44</span>
+</span><span id="__span-29-21"><a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a><span class="c1">#   22</span>
+</span><span id="__span-29-22"><a id="__codelineno-29-22" name="__codelineno-29-22" href="#__codelineno-29-22"></a><span class="c1">#   11</span>
+</span><span id="__span-29-23"><a id="__codelineno-29-23" name="__codelineno-29-23" href="#__codelineno-29-23"></a><span class="c1">#   34</span>
+</span><span id="__span-29-24"><a id="__codelineno-29-24" name="__codelineno-29-24" href="#__codelineno-29-24"></a><span class="c1">#   17</span>
+</span><span id="__span-29-25"><a id="__codelineno-29-25" name="__codelineno-29-25" href="#__codelineno-29-25"></a><span class="c1">#   52</span>
+</span><span id="__span-29-26"><a id="__codelineno-29-26" name="__codelineno-29-26" href="#__codelineno-29-26"></a><span class="c1">#   26</span>
+</span><span id="__span-29-27"><a id="__codelineno-29-27" name="__codelineno-29-27" href="#__codelineno-29-27"></a><span class="c1">#   13</span>
+</span><span id="__span-29-28"><a id="__codelineno-29-28" name="__codelineno-29-28" href="#__codelineno-29-28"></a><span class="c1">#   40</span>
+</span><span id="__span-29-29"><a id="__codelineno-29-29" name="__codelineno-29-29" href="#__codelineno-29-29"></a><span class="c1">#   20</span>
+</span><span id="__span-29-30"><a id="__codelineno-29-30" name="__codelineno-29-30" href="#__codelineno-29-30"></a><span class="c1">#   10</span>
+</span><span id="__span-29-31"><a id="__codelineno-29-31" name="__codelineno-29-31" href="#__codelineno-29-31"></a><span class="c1">#   5</span>
+</span><span id="__span-29-32"><a id="__codelineno-29-32" name="__codelineno-29-32" href="#__codelineno-29-32"></a><span class="c1">#   16</span>
+</span><span id="__span-29-33"><a id="__codelineno-29-33" name="__codelineno-29-33" href="#__codelineno-29-33"></a><span class="c1">#   8</span>
+</span><span id="__span-29-34"><a id="__codelineno-29-34" name="__codelineno-29-34" href="#__codelineno-29-34"></a><span class="c1">#   4</span>
+</span><span id="__span-29-35"><a id="__codelineno-29-35" name="__codelineno-29-35" href="#__codelineno-29-35"></a><span class="c1">#   2</span>
+</span><span id="__span-29-36"><a id="__codelineno-29-36" name="__codelineno-29-36" href="#__codelineno-29-36"></a><span class="c1">#   1</span>
+</span></code></pre></div>
+<p>Note that all the previous constructs: <code>if</code>, <code>for</code> and <code>while</code> can be nested within each other,
+as we just saw in the Collatz example.</p>
+<h3 id="nested-loops-and-early-termination">Nested loops and early termination</h3>
+<p>It is often useful to iterate over multiple variables to search for examples or counterexamples, and to
+terminate the search early once an example is found. This can be done using nested loops and the
+<code class="language-gap highlight"><span class="k">break</span><span class="o">;</span></code> statement respectively.</p>
+<p>As an example, we consider the question of verifying if a given multiplication table defines
+a semigroup. In order to do this we need to verify that the associativity axiom
+<span class="arithmatex">\(\forall x, y, z \in S, x(yz) = (xy)z\)</span> holds.</p>
+<p>In GAP, the multiplication table can be represented using a list of lists.
+For example the multiplication table </p>
+<div class="arithmatex">\[
+\begin{array}{c|cccc}
+\cdot &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\
+\hline
+1 &amp; 2 &amp; 2 &amp; 4 &amp; 4 \\
+2 &amp; 3 &amp; 2 &amp; 3 &amp; 3 \\
+3 &amp; 3 &amp; 1 &amp; 1 &amp; 3 \\
+4 &amp; 4 &amp; 4 &amp; 1 &amp; 3 \\
+\end{array}
+\]</div>
+<p>could be encoded via the nested list:</p>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nv">table</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>  <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>  <span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="p">]</span><span class="o">;</span>
+</span></code></pre></div>
+<p>We can look up the value of <span class="arithmatex">\(x \cdot y\)</span> via double indexing <code class="language-gap highlight"><span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">y</span><span class="p">]</span></code>.
+To check if the table defines a semigroup, we use nested loops:</p>
+<div class="language-gap highlight"><span class="filename">associativity.g</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">table</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>  <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>  <span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">table</span><span class="p">)</span><span class="o">;</span> <span class="c1"># The Length functions gives us the number of entries</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>                    <span class="c1"># in a list, in this case the number of rows.</span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="nv">is_semigroup</span> <span class="o">:=</span> <span class="no">true</span><span class="o">;</span> <span class="c1"># Initially we assume the table defines a semigroup</span>
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="k">for</span> <span class="nv">x</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span> <span class="c1"># Iterate over x</span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>  <span class="k">for</span> <span class="nv">y</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span> <span class="c1"># Iterate over y</span>
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>    <span class="k">for</span> <span class="nv">z</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span> <span class="c1"># Iterate over z</span>
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>      <span class="k">if</span> <span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">table</span><span class="p">[</span><span class="nv">y</span><span class="p">][</span><span class="nv">z</span><span class="p">]]</span> <span class="o">&lt;&gt;</span> <span class="nv">table</span><span class="p">[</span><span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">y</span><span class="p">]][</span><span class="nv">z</span><span class="p">]</span> <span class="k">then</span> <span class="c1"># check if x * (y * z) = (x * y) * z</span>
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>        <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Failed with x = &quot;</span><span class="o">,</span> <span class="nv">x</span><span class="o">,</span> <span class="s">&quot;, y = &quot;</span><span class="o">,</span> <span class="nv">y</span><span class="o">,</span> <span class="s">&quot;, z = &quot;</span><span class="o">,</span> <span class="nv">z</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>        <span class="nv">is_semigroup</span> <span class="o">:=</span> <span class="no">false</span><span class="o">;</span> <span class="c1"># We found a counterexample to the associativity axiom so </span>
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>                               <span class="c1"># the table does not define a semigroup</span>
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>      <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>    <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>  <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a><span class="k">if</span> <span class="nv">is_semigroup</span> <span class="k">then</span>
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Table defines a semigroup\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a><span class="k">else</span>
+</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Table does not define a semigroup\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-31-26"><a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a><span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-31-27"><a id="__codelineno-31-27" name="__codelineno-31-27" href="#__codelineno-31-27"></a>
+</span><span id="__span-31-28"><a id="__codelineno-31-28" name="__codelineno-31-28" href="#__codelineno-31-28"></a><span class="c1"># Result:</span>
+</span><span id="__span-31-29"><a id="__codelineno-31-29" name="__codelineno-31-29" href="#__codelineno-31-29"></a><span class="c1">#   Failed with x = 1, y = 1, z = 1</span>
+</span><span id="__span-31-30"><a id="__codelineno-31-30" name="__codelineno-31-30" href="#__codelineno-31-30"></a><span class="c1">#   Failed with x = 1, y = 1, z = 3</span>
+</span><span id="__span-31-31"><a id="__codelineno-31-31" name="__codelineno-31-31" href="#__codelineno-31-31"></a><span class="c1">#   Failed with x = 1, y = 1, z = 4</span>
+</span><span id="__span-31-32"><a id="__codelineno-31-32" name="__codelineno-31-32" href="#__codelineno-31-32"></a><span class="c1">#   Failed with x = 1, y = 2, z = 1</span>
+</span><span id="__span-31-33"><a id="__codelineno-31-33" name="__codelineno-31-33" href="#__codelineno-31-33"></a><span class="c1">#   Failed with x = 1, y = 2, z = 3</span>
+</span><span id="__span-31-34"><a id="__codelineno-31-34" name="__codelineno-31-34" href="#__codelineno-31-34"></a><span class="c1">#   Failed with x = 1, y = 2, z = 4</span>
+</span><span id="__span-31-35"><a id="__codelineno-31-35" name="__codelineno-31-35" href="#__codelineno-31-35"></a><span class="c1">#   Failed with x = 1, y = 3, z = 2</span>
+</span><span id="__span-31-36"><a id="__codelineno-31-36" name="__codelineno-31-36" href="#__codelineno-31-36"></a><span class="c1">#   Failed with x = 1, y = 3, z = 3</span>
+</span><span id="__span-31-37"><a id="__codelineno-31-37" name="__codelineno-31-37" href="#__codelineno-31-37"></a><span class="c1">#   Failed with x = 1, y = 3, z = 4</span>
+</span><span id="__span-31-38"><a id="__codelineno-31-38" name="__codelineno-31-38" href="#__codelineno-31-38"></a><span class="c1">#   Failed with x = 1, y = 4, z = 3</span>
+</span><span id="__span-31-39"><a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a><span class="c1">#   Failed with x = 1, y = 4, z = 4</span>
+</span><span id="__span-31-40"><a id="__codelineno-31-40" name="__codelineno-31-40" href="#__codelineno-31-40"></a><span class="c1">#   Failed with x = 2, y = 1, z = 1</span>
+</span><span id="__span-31-41"><a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a><span class="c1">#   Failed with x = 2, y = 1, z = 2</span>
+</span><span id="__span-31-42"><a id="__codelineno-31-42" name="__codelineno-31-42" href="#__codelineno-31-42"></a><span class="c1">#   Failed with x = 2, y = 1, z = 3</span>
+</span><span id="__span-31-43"><a id="__codelineno-31-43" name="__codelineno-31-43" href="#__codelineno-31-43"></a><span class="c1">#   Failed with x = 2, y = 3, z = 2</span>
+</span><span id="__span-31-44"><a id="__codelineno-31-44" name="__codelineno-31-44" href="#__codelineno-31-44"></a><span class="c1">#   Failed with x = 2, y = 3, z = 3</span>
+</span><span id="__span-31-45"><a id="__codelineno-31-45" name="__codelineno-31-45" href="#__codelineno-31-45"></a><span class="c1">#   Failed with x = 2, y = 4, z = 2</span>
+</span><span id="__span-31-46"><a id="__codelineno-31-46" name="__codelineno-31-46" href="#__codelineno-31-46"></a><span class="c1">#   Failed with x = 2, y = 4, z = 3</span>
+</span><span id="__span-31-47"><a id="__codelineno-31-47" name="__codelineno-31-47" href="#__codelineno-31-47"></a><span class="c1">#   Failed with x = 3, y = 1, z = 1</span>
+</span><span id="__span-31-48"><a id="__codelineno-31-48" name="__codelineno-31-48" href="#__codelineno-31-48"></a><span class="c1">#   Failed with x = 3, y = 1, z = 3</span>
+</span><span id="__span-31-49"><a id="__codelineno-31-49" name="__codelineno-31-49" href="#__codelineno-31-49"></a><span class="c1">#   Failed with x = 3, y = 2, z = 1</span>
+</span><span id="__span-31-50"><a id="__codelineno-31-50" name="__codelineno-31-50" href="#__codelineno-31-50"></a><span class="c1">#   Failed with x = 3, y = 2, z = 2</span>
+</span><span id="__span-31-51"><a id="__codelineno-31-51" name="__codelineno-31-51" href="#__codelineno-31-51"></a><span class="c1">#   Failed with x = 3, y = 2, z = 3</span>
+</span><span id="__span-31-52"><a id="__codelineno-31-52" name="__codelineno-31-52" href="#__codelineno-31-52"></a><span class="c1">#   Failed with x = 3, y = 2, z = 4</span>
+</span><span id="__span-31-53"><a id="__codelineno-31-53" name="__codelineno-31-53" href="#__codelineno-31-53"></a><span class="c1">#   Failed with x = 3, y = 3, z = 1</span>
+</span><span id="__span-31-54"><a id="__codelineno-31-54" name="__codelineno-31-54" href="#__codelineno-31-54"></a><span class="c1">#   Failed with x = 3, y = 3, z = 2</span>
+</span><span id="__span-31-55"><a id="__codelineno-31-55" name="__codelineno-31-55" href="#__codelineno-31-55"></a><span class="c1">#   Failed with x = 3, y = 3, z = 3</span>
+</span><span id="__span-31-56"><a id="__codelineno-31-56" name="__codelineno-31-56" href="#__codelineno-31-56"></a><span class="c1">#   Failed with x = 3, y = 3, z = 4</span>
+</span><span id="__span-31-57"><a id="__codelineno-31-57" name="__codelineno-31-57" href="#__codelineno-31-57"></a><span class="c1">#   Failed with x = 3, y = 4, z = 2</span>
+</span><span id="__span-31-58"><a id="__codelineno-31-58" name="__codelineno-31-58" href="#__codelineno-31-58"></a><span class="c1">#   Failed with x = 3, y = 4, z = 3</span>
+</span><span id="__span-31-59"><a id="__codelineno-31-59" name="__codelineno-31-59" href="#__codelineno-31-59"></a><span class="c1">#   Failed with x = 3, y = 4, z = 4</span>
+</span><span id="__span-31-60"><a id="__codelineno-31-60" name="__codelineno-31-60" href="#__codelineno-31-60"></a><span class="c1">#   Failed with x = 4, y = 1, z = 3</span>
+</span><span id="__span-31-61"><a id="__codelineno-31-61" name="__codelineno-31-61" href="#__codelineno-31-61"></a><span class="c1">#   Failed with x = 4, y = 2, z = 1</span>
+</span><span id="__span-31-62"><a id="__codelineno-31-62" name="__codelineno-31-62" href="#__codelineno-31-62"></a><span class="c1">#   Failed with x = 4, y = 2, z = 4</span>
+</span><span id="__span-31-63"><a id="__codelineno-31-63" name="__codelineno-31-63" href="#__codelineno-31-63"></a><span class="c1">#   Failed with x = 4, y = 3, z = 1</span>
+</span><span id="__span-31-64"><a id="__codelineno-31-64" name="__codelineno-31-64" href="#__codelineno-31-64"></a><span class="c1">#   Failed with x = 4, y = 3, z = 2</span>
+</span><span id="__span-31-65"><a id="__codelineno-31-65" name="__codelineno-31-65" href="#__codelineno-31-65"></a><span class="c1">#   Failed with x = 4, y = 3, z = 4</span>
+</span><span id="__span-31-66"><a id="__codelineno-31-66" name="__codelineno-31-66" href="#__codelineno-31-66"></a><span class="c1">#   Failed with x = 4, y = 4, z = 2</span>
+</span><span id="__span-31-67"><a id="__codelineno-31-67" name="__codelineno-31-67" href="#__codelineno-31-67"></a><span class="c1">#   Failed with x = 4, y = 4, z = 3</span>
+</span><span id="__span-31-68"><a id="__codelineno-31-68" name="__codelineno-31-68" href="#__codelineno-31-68"></a><span class="c1">#   Failed with x = 4, y = 4, z = 4</span>
+</span><span id="__span-31-69"><a id="__codelineno-31-69" name="__codelineno-31-69" href="#__codelineno-31-69"></a><span class="c1">#   Table does not define a semigroup</span>
+</span></code></pre></div>
+<p>So the table does not define a semigroup, and there are multiple triples <span class="arithmatex">\(x, y, z\)</span> for which
+associativity fails. However, the computation is a bit wasteful, since we can conclude that
+the table does not define a semigroup as soon as we find the first failing triple.
+We want to stop the loop early somehow. This is precisely what the <code class="language-gap highlight"><span class="k">break</span><span class="o">;</span></code>
+statement does: as soon as this statement is encountered, the innermost loop is stopped.</p>
+<div class="language-gap highlight"><span class="filename">associativity.g</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nv">table</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>  <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>  <span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">table</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="nv">is_semigroup</span> <span class="o">:=</span> <span class="no">true</span><span class="o">;</span>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="k">for</span> <span class="nv">x</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>  <span class="k">for</span> <span class="nv">y</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>    <span class="k">for</span> <span class="nv">z</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>      <span class="k">if</span> <span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">table</span><span class="p">[</span><span class="nv">y</span><span class="p">][</span><span class="nv">z</span><span class="p">]]</span> <span class="o">&lt;&gt;</span> <span class="nv">table</span><span class="p">[</span><span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">y</span><span class="p">]][</span><span class="nv">z</span><span class="p">]</span> <span class="k">then</span>
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>        <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Failed with x = &quot;</span><span class="o">,</span> <span class="nv">x</span><span class="o">,</span> <span class="s">&quot;, y = &quot;</span><span class="o">,</span> <span class="nv">y</span><span class="o">,</span> <span class="s">&quot;, z = &quot;</span><span class="o">,</span> <span class="nv">z</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>        <span class="nv">is_semigroup</span> <span class="o">:=</span> <span class="no">false</span><span class="o">;</span>
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>        <span class="k">break</span><span class="o">;</span> <span class="c1"># Once we encounter this line, the z loop is stopped</span>
+</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>      <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>    <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>
+</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nv">is_semigroup</span> <span class="k">then</span> <span class="c1"># Check if the table was disproven to be a semigroup</span>
+</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>      <span class="k">break</span><span class="o">;</span> <span class="c1"># If so, stop the y loop</span>
+</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a>    <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a>  <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a>
+</span><span id="__span-32-24"><a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a>  <span class="k">if</span> <span class="ow">not</span> <span class="nv">is_semigroup</span> <span class="k">then</span> <span class="c1"># Check if the table was disproven to be a semigroup</span>
+</span><span id="__span-32-25"><a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a>    <span class="k">break</span><span class="o">;</span> <span class="c1"># If so, stop the z loop</span>
+</span><span id="__span-32-26"><a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a>  <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-32-27"><a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-32-28"><a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a>
+</span><span id="__span-32-29"><a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a><span class="k">if</span> <span class="nv">is_semigroup</span> <span class="k">then</span>
+</span><span id="__span-32-30"><a id="__codelineno-32-30" name="__codelineno-32-30" href="#__codelineno-32-30"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Table defines a semigroup\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-32-31"><a id="__codelineno-32-31" name="__codelineno-32-31" href="#__codelineno-32-31"></a><span class="k">else</span>
+</span><span id="__span-32-32"><a id="__codelineno-32-32" name="__codelineno-32-32" href="#__codelineno-32-32"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Table does not define a semigroup\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-32-33"><a id="__codelineno-32-33" name="__codelineno-32-33" href="#__codelineno-32-33"></a><span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-32-34"><a id="__codelineno-32-34" name="__codelineno-32-34" href="#__codelineno-32-34"></a>
+</span><span id="__span-32-35"><a id="__codelineno-32-35" name="__codelineno-32-35" href="#__codelineno-32-35"></a><span class="c1"># Result:</span>
+</span><span id="__span-32-36"><a id="__codelineno-32-36" name="__codelineno-32-36" href="#__codelineno-32-36"></a><span class="c1">#   Failed with x = 1, y = 1, z = 1</span>
+</span><span id="__span-32-37"><a id="__codelineno-32-37" name="__codelineno-32-37" href="#__codelineno-32-37"></a><span class="c1">#   Table does not define a semigroup</span>
+</span></code></pre></div>
+<p>Note that with the <code class="language-gap highlight"><span class="k">break</span><span class="o">;</span></code> statements, only a single counterexample is found, hence
+the search is stopped early.</p>
+<p>The <code>Semigroups</code> package offers a simpler way of checking if a multiplication table
+defines a semigroup, which we will cover in the section
+<a href="../generated/#multiplication-tables">the next section</a>.</p>
+<h3 id="defining-functions">Defining functions</h3>
+<p>Finally, we can use the <code class="language-gap highlight"><span class="k">function</span><span class="p">(</span><span class="nv">arguments</span><span class="p">)</span> <span class="k">end</span><span class="o">;</span></code> construct to define a function
+in GAP. This can be useful for factoring out commonly used functionality.</p>
+<p>For example, we could take our code for the Collatz function iteration
+from the <a href="#loops">Loops</a> section into a function <code>Collatz</code> as follows:</p>
+<div class="language-gap highlight"><span class="filename">collatz.g</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nv">Collatz</span> <span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span> <span class="c1"># We declare n as a variable to the function</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>  <span class="k">while</span> <span class="nv">n</span> <span class="o">&lt;&gt;</span> <span class="nv">1</span> <span class="k">do</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>    <span class="nv">Print</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>    <span class="k">if</span> <span class="nv">n</span> <span class="ow">mod</span> <span class="nv">2</span> <span class="o">=</span> <span class="nv">0</span> <span class="k">then</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>      <span class="nv">n</span> <span class="o">:=</span> <span class="nv">n</span> <span class="o">/</span> <span class="nv">2</span><span class="o">;</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>    <span class="k">else</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>      <span class="nv">n</span> <span class="o">:=</span> <span class="nv">n</span> <span class="o">*</span> <span class="nv">3</span> <span class="o">+</span> <span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>    <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>  <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>  <span class="k">return</span> <span class="nv">n</span><span class="o">;</span> <span class="c1"># The return statement returns n as the output value of the function</span>
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="k">end</span><span class="o">;</span>
+</span></code></pre></div>
+<p>Note that, the <code>function</code> statement needs to be ended with an <code class="language-gap highlight"><span class="k">end</span><span class="o">;</span></code> statement.
+It is once again customary to indent the body of the function with two spaces.</p>
+<p>Now in the GAP REPL, after <code>Read</code>ing the file, we can use the <code>Collatz</code> function as
+follows:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="gp">gap&gt; </span><span class="nv">Read</span><span class="p">(</span><span class="s">&quot;collatz.g&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="gp">gap&gt; </span><span class="nv">Collatz</span><span class="p">(</span><span class="nv">10</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="go">10</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="go">5</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="go">16</span>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="go">8</span>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="go">4</span>
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="go">2</span>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="go">1</span>
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="gp">gap&gt; </span><span class="nv">Collatz</span><span class="p">(</span><span class="nv">20</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="go">20</span>
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="go">10</span>
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="go">5</span>
+</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a><span class="go">16</span>
+</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a><span class="go">8</span>
+</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a><span class="go">4</span>
+</span><span id="__span-34-17"><a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a><span class="go">2</span>
+</span><span id="__span-34-18"><a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a><span class="go">1</span>
+</span></code></pre></div>
+<p>Note that we can call the <code>Collatz</code> function with different values without needing to
+rewrite the code.</p>
+<p>Similarly, we can convert the associativity checking code from the
+<a href="#nested-loops-and-early-termination">Nested loops and early termination</a> section
+into a function <code>IsAssociativeTable</code> as follows:</p>
+<div class="language-gap highlight"><span class="filename">associativity.g</span><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nv">IsAssociativeTable</span> <span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">table</span><span class="p">)</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>  <span class="nv">n</span> <span class="o">:=</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">table</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>  <span class="k">for</span> <span class="nv">x</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    <span class="k">for</span> <span class="nv">y</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>      <span class="k">for</span> <span class="nv">z</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>        <span class="k">if</span> <span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">table</span><span class="p">[</span><span class="nv">y</span><span class="p">][</span><span class="nv">z</span><span class="p">]]</span> <span class="o">&lt;&gt;</span> <span class="nv">table</span><span class="p">[</span><span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">y</span><span class="p">]][</span><span class="nv">z</span><span class="p">]</span> <span class="k">then</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>          <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Failed with x = &quot;</span><span class="o">,</span> <span class="nv">x</span><span class="o">,</span> <span class="s">&quot;, y = &quot;</span><span class="o">,</span> <span class="nv">y</span><span class="o">,</span> <span class="s">&quot;, z = &quot;</span><span class="o">,</span> <span class="nv">z</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>          <span class="c1"># As soon as a return statement is encountered, the value</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>          <span class="c1"># is returned and no further function coe is executed, so</span>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>          <span class="c1"># we do not need to use break statements here.</span>
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>          <span class="k">return</span> <span class="no">false</span><span class="o">;</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>        <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>      <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>    <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>  <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>  <span class="c1"># We can only reach this line if no counterexample is found, in which</span>
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>  <span class="c1"># case the table is associative.</span>
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>  <span class="k">return</span> <span class="no">true</span><span class="o">;</span>
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="k">end</span><span class="o">;</span>
+</span></code></pre></div>
+<p>If we try to <code>Read</code> this file, however, we are greeted with some warnings:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="gp">gap&gt; </span><span class="nv">Read</span><span class="p">(</span><span class="s">&quot;associativity.g&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="go">Syntax warning: Unbound global variable in associativity.g:2</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="go">  n := Length(table);</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="go">  ^</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="go">Syntax warning: Unbound global variable in associativity.g:3</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="go">  for x in [1 .. n] do</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="go">      ^</span>
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="go">Syntax warning: Unbound global variable in associativity.g:3</span>
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="go">  for x in [1 .. n] do</span>
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="go">                 ^</span>
+</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="go">Syntax warning: Unbound global variable in associativity.g:4</span>
+</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="go">    for y in [1 .. n] do</span>
+</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="go">        ^</span>
+</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="go">Syntax warning: Unbound global variable in associativity.g:4</span>
+</span><span id="__span-36-15"><a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a><span class="go">    for y in [1 .. n] do</span>
+</span><span id="__span-36-16"><a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a><span class="go">                   ^</span>
+</span><span id="__span-36-17"><a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a><span class="go">Syntax warning: Unbound global variable in associativity.g:5</span>
+</span><span id="__span-36-18"><a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a><span class="go">      for z in [1 .. n] do</span>
+</span><span id="__span-36-19"><a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a><span class="go">          ^</span>
+</span><span id="__span-36-20"><a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a><span class="go">Syntax warning: Unbound global variable in associativity.g:5</span>
+</span><span id="__span-36-21"><a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a><span class="go">      for z in [1 .. n] do</span>
+</span><span id="__span-36-22"><a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a><span class="go">                     ^</span>
+</span></code></pre></div>
+<p>this is because the variables, <code>x, y, z</code> and <code>n</code> that are used in the function
+have not been declared for use within the function. Essentially, every function
+definition is allowed to have its own local variables, which GAP
+only uses within the context of the function, however we need to declare these
+using the <code>local</code> statement at the start of the function declaration:</p>
+<div class="language-gap highlight"><span class="filename">associativity.g</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nv">IsAssociativeTable</span> <span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">table</span><span class="p">)</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>  <span class="c1"># Declaring local variables means they won&#39;t interfere with definitions</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>  <span class="c1"># of x, y, z and n outside the function.</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>  <span class="k">local</span> <span class="nv">x</span><span class="o">,</span> <span class="nv">y</span><span class="o">,</span> <span class="nv">z</span><span class="o">,</span> <span class="nv">n</span><span class="o">;</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>  <span class="nv">n</span> <span class="o">:=</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">table</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>  <span class="k">for</span> <span class="nv">x</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>    <span class="k">for</span> <span class="nv">y</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>      <span class="k">for</span> <span class="nv">z</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">n</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>        <span class="k">if</span> <span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">table</span><span class="p">[</span><span class="nv">y</span><span class="p">][</span><span class="nv">z</span><span class="p">]]</span> <span class="o">&lt;&gt;</span> <span class="nv">table</span><span class="p">[</span><span class="nv">table</span><span class="p">[</span><span class="nv">x</span><span class="p">][</span><span class="nv">y</span><span class="p">]][</span><span class="nv">z</span><span class="p">]</span> <span class="k">then</span>
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>          <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Failed with x = &quot;</span><span class="o">,</span> <span class="nv">x</span><span class="o">,</span> <span class="s">&quot;, y = &quot;</span><span class="o">,</span> <span class="nv">y</span><span class="o">,</span> <span class="s">&quot;, z = &quot;</span><span class="o">,</span> <span class="nv">z</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>          <span class="c1"># As soon as a return statement is encountered, the value</span>
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>          <span class="c1"># is returned and no further function coe is executed, so</span>
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>          <span class="c1"># we do not need to use break statements here.</span>
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>          <span class="k">return</span> <span class="no">false</span><span class="o">;</span>
+</span><span id="__span-37-15"><a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a>        <span class="k">fi</span><span class="o">;</span>
+</span><span id="__span-37-16"><a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a>      <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-37-17"><a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a>    <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-37-18"><a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a>  <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-37-19"><a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a>  <span class="c1"># We can only reach this line if no counterexample is found, in which</span>
+</span><span id="__span-37-20"><a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a>  <span class="c1"># case the table is associative.</span>
+</span><span id="__span-37-21"><a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a>  <span class="k">return</span> <span class="no">true</span><span class="o">;</span>
+</span><span id="__span-37-22"><a id="__codelineno-37-22" name="__codelineno-37-22" href="#__codelineno-37-22"></a><span class="k">end</span><span class="o">;</span>
+</span></code></pre></div>
+<p>In the GAP REPL we can then use the newly defined function as:</p>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="gp">gap&gt; </span><span class="nv">Read</span><span class="p">(</span><span class="s">&quot;associativity.g&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="gp">gap&gt; </span><span class="nv">IsAssociativeTable</span><span class="p">([[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]])</span><span class="o">;</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="go">true</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="gp">gap&gt; </span><span class="nv">IsAssociativeTable</span><span class="p">([[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]])</span><span class="o">;</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="go">Failed with x = 1, y = 1, z = 1</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="go">false</span>
+</span></code></pre></div>
+<p>Finally, a function with multiple arguments can be defined by separating the arguments
+with commas:</p>
+<div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nv">AddTwoNumbers</span> <span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">x</span><span class="o">,</span> <span class="nv">y</span><span class="p">)</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>  <span class="k">return</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span><span class="o">;</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="k">end</span><span class="o">;</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="c1"># Running AddTwoNumbers(2, 3) returns 5</span>
+</span></code></pre></div>
+<p>This concludes our basic overview of the GAP programming language.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>For Windows users, you should first type <code>ubuntu</code> to enter the Ubuntu Linux subsystem
+and only then type <code>gap</code>. This will be the case for all commands going forward, so
+make sure you are in the Ubuntu Linux subsystem whenever executing the commands.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Windows users may need to enable the option to
+<a href="https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01">show file extensions</a>
+in order to be able to correctly set the file extension to <code>.g</code>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>For Windows users, you need to make sure the files are located within the <code>WSL</code>
+filesystem. According to <a href="https://superuser.com/a/1791389">this stack overflow answer</a>,
+this directly can be accessed from Windows by typing
+<code>\\wsl.localhost\Ubuntu\home\{username}</code> in the Windows Explorer, substituting
+<code>{username}</code> for the username you chose when you first ran the <code>ubuntu</code> command.
+Files in this directory correspond to files in the <code>~</code> directory from the 
+WSL side.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="Previous: GAP: Installation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                GAP: Installation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../generated/" class="md-footer__link md-footer__link--next" aria-label="Next: GAP: Semigroups defined by generators">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                GAP: Semigroups defined by generators
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 James Mitchell, Reinis Cirpons and Joe Edwards
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.github.com/semigroups/Semigroups" target="_blank" rel="noopener" title="The Semigroups package" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.github.com/libsemigroups/libsemigroups_pybind11" target="_blank" rel="noopener" title="The libsemigroups_pybind11 project" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.code.select", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

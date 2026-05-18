@@ -1,0 +1,1704 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../generated/">
+      
+      
+        <link rel="next" href="../worksheet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>GAP: Finitely presented semigroups - Semigroups - Zero to ε</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#finitely-presented-semigroups-and-monoids" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Semigroups - Zero to ε" class="md-header__button md-logo" aria-label="Semigroups - Zero to ε" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Semigroups - Zero to ε
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GAP: Finitely presented semigroups
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Semigroups in GAP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../py/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Semigroups in Python
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Semigroups - Zero to ε" class="md-nav__button md-logo" aria-label="Semigroups - Zero to ε" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    Semigroups - Zero to ε
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semigroups in GAP
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semigroups in GAP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: First steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Semigroups defined by generators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Finitely presented semigroups
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Finitely presented semigroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#defining-finitely-presented-semigroups-and-monoids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defining finitely presented semigroups and monoids
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finitely-presented-groups-vs-semigroups-and-monoids-in-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finitely presented groups vs semigroups and monoids in GAP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finite-or-infinite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finite or infinite?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finite or infinite?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-isomorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-isomorphism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../worksheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GAP: Worksheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../py/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semigroups in Python
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semigroups in Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/first-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: First steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/generated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Semigroups defined by generators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/fp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Finitely presented semigroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../py/worksheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python: Worksheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Semigroups in GAP
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="finitely-presented-semigroups-and-monoids">Finitely presented semigroups and monoids</h1>
+<p>This section provides information about how to compute with a finitely
+presented semigroup or monoid using the <a href="https://semigroups.github.io/Semigroups/">Semigroups</a> package for <a href="https://gap-system.org">GAP</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Almost every question about finitely presented semigroups and monoids is
+undecidable in general. It is easy to find examples where the algorithms
+implemented in <a href="https://gap-system.org">GAP</a> will run forever, so some caution is required!</p>
+</div>
+<h2 id="defining-finitely-presented-semigroups-and-monoids">Defining finitely presented semigroups and monoids</h2>
+<p>Let's start by defining a finitely presented semigroup in <a href="https://gap-system.org">GAP</a>.
+Finitely presented semigroups in <a href="https://gap-system.org">GAP</a> are defined as quotients of free
+semigroups so let's start by creating one of these. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code examples in this section will consist of two tabs: one labelled
+"GAP REPL" showcasing the output in an example GAP REPL session, and
+another labelled "GAP script" which contains the same code without the
+GAP REPL output, for easier copy-pasting into a GAP session.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">GAP REPL</label><label for="__tabbed_1_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">&lt;free semigroup on the generators [ a, b ]&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>We've defined a free semigroup with generators named <code>a</code> and <code>b</code>. We can
+access these generators by doing:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">GAP REPL</label><label for="__tabbed_2_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">gap&gt; </span><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">[ a, b ]</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>This is a bit cumbersome, there's a better way:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">GAP REPL</label><label for="__tabbed_3_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span><span class="o">.</span><span class="nv">1</span><span class="o">;</span> <span class="c1"># the first generator</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">a</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gp">gap&gt; </span><span class="nv">F</span><span class="o">.</span><span class="nv">2</span><span class="o">;</span> <span class="c1"># the second generator</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">b</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">F</span><span class="o">.</span><span class="nv">1</span><span class="o">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">F</span><span class="o">.</span><span class="nv">2</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>That's better but not great, why can't we just use the original names <code>a</code> and
+<code>b</code>. We can't do this automatically because <a href="https://gap-system.org">GAP</a> is rightly protecting us
+from accidentally overwriting some existing variables named <code>a</code> and <code>b</code>. We can
+do it explicitly though by doing:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">GAP REPL</label><label for="__tabbed_4_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">gap&gt; </span><span class="nv">AssignGeneratorVariables</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">#I  Assigned the global variables [ a, b ]</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="gp">gap&gt; </span><span class="nv">a</span><span class="o">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="go">a</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="gp">gap&gt; </span><span class="nv">b</span><span class="o">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="go">b</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="ow">in</span> <span class="nv">F</span><span class="o">;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="go">true</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span> <span class="o">^</span> <span class="nv">10</span><span class="o">;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="go">a*b*a^10</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">AssignGeneratorVariables</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">a</span><span class="o">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">b</span><span class="o">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nv">a</span> <span class="ow">in</span> <span class="nv">F</span><span class="o">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span> <span class="o">^</span> <span class="nv">10</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>You can also define a free semigroup or monoid by specifying the number of
+generators, the generators are then called <code>s1</code>, <code>s2</code>, and so on for free
+semigroups, and <code>m1</code>, <code>m2</code>, and so on for free monoids.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">GAP REPL</label><label for="__tabbed_5_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="nv">10</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">&lt;free semigroup on the generators [ s1, s2, s3, s4, s5, s6, s7, s8, s9, s10 ]&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="nv">10</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="go">&lt;free monoid on the generators [ m1, m2, m3, m4, m5, m6, m7, m8, m9, m10 ]&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="nv">10</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="nv">10</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Now we have (probably) the most convenient way of using the generators, to
+define some relations. These are just lists consisting of products of the
+generators of <code>F</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">GAP REPL</label><label for="__tabbed_6_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="gp">gap&gt; </span><span class="nv">AssignGeneratorVariables</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">#I  Global variable `b&#39; is already defined and will be overwritten</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="go">#I  Assigned the global variables [ b, y, r ]</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="p">[[</span><span class="nv">b</span> <span class="o">*</span> <span class="nv">y</span> <span class="o">*</span> <span class="nv">r</span><span class="o">,</span> <span class="nv">b</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">y</span> <span class="o">*</span> <span class="nv">r</span> <span class="o">*</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">y</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">r</span> <span class="o">*</span> <span class="nv">b</span> <span class="o">*</span> <span class="nv">y</span><span class="o">,</span> <span class="nv">r</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="go">[ [ b*y*r, b ], [ y*r*b, y ], [ r*b*y, r ] ]</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="go">&lt;fp monoid with 3 generators and 3 relations of length 15&gt;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="go">7</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="go">[ &lt;identity ...&gt;, b, b^2, y, y*b, r, r*b ]</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">AssignGeneratorVariables</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nv">R</span> <span class="o">:=</span> <span class="p">[[</span><span class="nv">b</span> <span class="o">*</span> <span class="nv">y</span> <span class="o">*</span> <span class="nv">r</span><span class="o">,</span> <span class="nv">b</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">y</span> <span class="o">*</span> <span class="nv">r</span> <span class="o">*</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">y</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">r</span> <span class="o">*</span> <span class="nv">b</span> <span class="o">*</span> <span class="nv">y</span><span class="o">,</span> <span class="nv">r</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nv">Elements</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>This works pretty well if the presentation you are trying to define is small
+and not very complicated. Here's another way using <a href="https://semigroups.github.io/Semigroups/doc/chap15_mj.html#X7C2FCCA487DFC84C">ParseRelations</a>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">GAP REPL</label><label for="__tabbed_7_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span> <span class="s">&quot;x=(y^2z)^2x, y=x^3, z=y^3&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">[ [ x, (y^2*z)^2*x ], [ y, x^3 ], [ z, y^3 ] ]</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="go">&lt;fp semigroup with 3 generators and 3 relations of length 19&gt;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="go">30</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span> <span class="s">&quot;x=(y^2z)^2x, y=x^3, z=y^3&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<details class="tip">
+<summary>Tip</summary>
+<p>Every free semigroup created using <a href="https://docs.gap-system.org/doc/ref/chap51_mj.html#X7C72E4747BF642BB">FreeSemigroup</a> is a distinct
+entity in <a href="https://gap-system.org">GAP</a>, this can be a bit surprising at first:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">GAP REPL</label><label for="__tabbed_8_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">gap&gt; </span><span class="nv">F1</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="gp">gap&gt; </span><span class="nv">F2</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="gp">gap&gt; </span><span class="nv">F1</span> <span class="o">=</span> <span class="nv">F2</span><span class="o">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">false</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">F1</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">F2</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nv">F1</span> <span class="o">=</span> <span class="nv">F2</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Arguably <code>F1</code> and <code>F2</code> are equal but in <a href="https://gap-system.org">GAP</a> they are not (mostly for
+technical reasons). The same behaviour happens for <a href="https://docs.gap-system.org/doc/ref/chap51_mj.html#X79FA3FA978CA2E43">FreeMonoid</a> too. It's
+a fairly common abuse (of notation?) for people to identify elements of a free
+semigroups and monoids with elements of the finitely presented semigroup or
+monoid they are interested in. In <a href="https://gap-system.org">GAP</a> you cannot do this, the elements of a
+finitely presented semigroup (or monoid) and the free semigroup (or monoid)
+over which they are defined are separate:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">GAP REPL</label><label for="__tabbed_9_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span> <span class="s">&quot;x=(y^2z)^2x, y=x^3, z=y^3&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="go">[ [ x, (y^2*z)^2*x ], [ y, x^3 ], [ z, y^3 ] ]</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="go">&lt;fp semigroup with 3 generators and 3 relations of length 19&gt;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="gp">gap&gt; </span><span class="nv">F</span><span class="o">.</span><span class="nv">1</span> <span class="ow">in</span> <span class="nv">S</span><span class="o">;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="go">false</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="gp">gap&gt; </span><span class="nv">S</span><span class="o">.</span><span class="nv">1</span> <span class="ow">in</span> <span class="nv">F</span><span class="o">;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="go">false</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="o">,</span> <span class="s">&quot;y&quot;</span><span class="o">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span> <span class="s">&quot;x=(y^2z)^2x, y=x^3, z=y^3&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nv">F</span><span class="o">.</span><span class="nv">1</span> <span class="ow">in</span> <span class="nv">S</span><span class="o">;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nv">S</span><span class="o">.</span><span class="nv">1</span> <span class="ow">in</span> <span class="nv">F</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="finitely-presented-groups-vs-semigroups-and-monoids-in-gap">Finitely presented groups vs semigroups and monoids in <a href="https://gap-system.org">GAP</a></h2>
+<p>You might be thinking that there must be lots of fancy group specific
+algorithms for computing finitely presented groups. You'd be correct, to some
+extent, at least. You might also be surprised to learn that the
+performance of the implementations in the <a href="https://semigroups.github.io/Semigroups/">Semigroups</a> package for <a href="https://gap-system.org">GAP</a>
+(which use <a href="https://libsemigroups.github.io/libsemigroups/">libsemigroups</a>) is often much much better than the performance of
+the group specific algorithms in the main <a href="https://gap-system.org">GAP</a> library.  Here are some
+examples.</p>
+<p>The following defines the symmetric group on 12 points using Moore's
+presentation from:</p>
+<ul>
+<li>E. H. Moore. Concerning the abstract groups of order k!, k!/2, <em>Proc. London Math. Soc.</em>, <strong>28</strong> 357–366, 1897.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">GAP REPL</label><label for="__tabbed_10_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeGroup</span><span class="p">(</span><span class="nv">11</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">;;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="gp">gap&gt; </span><span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">11</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="gp">&gt; </span>     <span class="nv">Add</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="p">[</span><span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">^</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">One</span><span class="p">(</span><span class="nv">F</span><span class="p">)])</span><span class="o">;</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="gp">&gt; </span>   <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="gp">gap&gt; </span><span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">10</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="gp">&gt; </span>     <span class="nv">Add</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="p">[</span><span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span><span class="o">,</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)])</span><span class="o">;</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="gp">&gt; </span>   <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="gp">gap&gt; </span><span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">9</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="gp">&gt; </span>     <span class="k">for</span> <span class="nv">j</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">2</span> <span class="o">..</span> <span class="nv">11</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="gp">&gt; </span>       <span class="nv">Add</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="p">[</span><span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span><span class="o">,</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)])</span><span class="o">;</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="gp">&gt; </span>     <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="gp">&gt; </span>   <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="gp">gap&gt; </span>      <span class="nv">G</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="go">&lt;fp group on the generators [ f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11 ]&gt;</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="gp">gap&gt; </span>      <span class="nv">Size</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="go">^CError, user interrupt  # runs for a long long time</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">Range</span><span class="p">(</span><span class="nv">IsomorphismFpMonoid</span><span class="p">(</span><span class="nv">G</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="go">&lt;fp monoid with 22 generators and 88 relations of length 328&gt;</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>  <span class="c1"># takes approximately 3 milliseconds . . .</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="go">479001600 </span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeGroup</span><span class="p">(</span><span class="nv">11</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">;;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">11</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  <span class="nv">Add</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="p">[</span><span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">^</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">One</span><span class="p">(</span><span class="nv">F</span><span class="p">)])</span><span class="o">;</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">10</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>  <span class="nv">Add</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="p">[</span><span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span><span class="o">,</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">1</span><span class="p">)])</span><span class="o">;</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">9</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>  <span class="k">for</span> <span class="nv">j</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">i</span> <span class="o">+</span> <span class="nv">2</span> <span class="o">..</span> <span class="nv">11</span><span class="p">]</span> <span class="k">do</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="nv">Add</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="p">[</span><span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span><span class="o">,</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span> <span class="o">*</span> <span class="nv">F</span><span class="o">.</span><span class="p">(</span><span class="nv">i</span><span class="p">)])</span><span class="o">;</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>  <span class="k">od</span><span class="o">;</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="k">od</span><span class="o">;</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="nv">G</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">Range</span><span class="p">(</span><span class="nv">IsomorphismFpMonoid</span><span class="p">(</span><span class="nv">G</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Here's another example:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">GAP REPL</label><label for="__tabbed_11_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeGroup</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">;;</span> <span class="nv">f1</span> <span class="o">:=</span> <span class="nv">F</span><span class="o">.</span><span class="nv">1</span><span class="o">;;</span> <span class="nv">f2</span> <span class="o">:=</span> <span class="nv">F</span><span class="o">.</span><span class="nv">2</span><span class="o">;;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="gp">gap&gt; </span><span class="nv">G</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="p">[</span> <span class="nv">f2</span> <span class="o">^</span> <span class="nv">100</span><span class="o">,</span> <span class="nv">f1</span> <span class="o">^</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">f2</span> <span class="o">*</span> <span class="nv">f1</span> <span class="o">*</span> <span class="nv">f2</span> <span class="o">^</span> <span class="o">-</span><span class="nv">99</span> <span class="o">*</span> <span class="nv">f1</span> <span class="o">^</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span><span class="o">;;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span><span class="o">;</span>  <span class="c1"># takes about 1.7 seconds on my computer</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="go">200</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">Range</span><span class="p">(</span><span class="nv">IsomorphismFpMonoid</span><span class="p">(</span><span class="nv">G</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="go">&lt;fp monoid with 4 generators and 7 relations of length 216&gt;</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>  <span class="c1"># takes about 1 millisecond</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="go">200</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeGroup</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">;;</span> <span class="nv">f1</span> <span class="o">:=</span> <span class="nv">F</span><span class="o">.</span><span class="nv">1</span><span class="o">;;</span> <span class="nv">f2</span> <span class="o">:=</span> <span class="nv">F</span><span class="o">.</span><span class="nv">2</span><span class="o">;;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nv">G</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="p">[</span> <span class="nv">f2</span> <span class="o">^</span> <span class="nv">100</span><span class="o">,</span> <span class="nv">f1</span> <span class="o">^</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">f2</span> <span class="o">*</span> <span class="nv">f1</span> <span class="o">*</span> <span class="nv">f2</span> <span class="o">^</span> <span class="o">-</span><span class="nv">99</span> <span class="o">*</span> <span class="nv">f1</span> <span class="o">^</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span><span class="o">;;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">Range</span><span class="p">(</span><span class="nv">IsomorphismFpMonoid</span><span class="p">(</span><span class="nv">G</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Here's another example:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">GAP REPL</label><label for="__tabbed_12_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeGroup</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="gp">gap&gt; </span><span class="nv">gen</span> <span class="o">:=</span> <span class="nv">GeneratorsOfGroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">:=</span> <span class="nv">gen</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;;</span> <span class="nv">b</span> <span class="o">:=</span> <span class="nv">gen</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;;</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="gp">gap&gt; </span><span class="nv">g</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="p">[</span><span class="nv">a</span><span class="o">^</span><span class="nv">120</span><span class="o">,</span> <span class="nv">b</span><span class="o">^</span><span class="nv">4</span><span class="o">,</span> <span class="nv">a</span><span class="o">*</span><span class="nv">b</span><span class="o">*</span><span class="p">(</span><span class="nv">b</span><span class="o">^</span><span class="nv">3</span><span class="o">*</span><span class="nv">a</span><span class="o">^</span><span class="nv">41</span><span class="p">)</span><span class="o">^-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">a</span><span class="o">^</span><span class="nv">2</span><span class="o">*</span><span class="nv">b</span><span class="o">*</span><span class="p">(</span><span class="nv">b</span><span class="o">*</span><span class="nv">a</span><span class="o">^</span><span class="nv">82</span><span class="p">)</span><span class="o">^-</span><span class="nv">1</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="go">&lt;fp group on the generators [ f1, f2 ]&gt;</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="gp">gap&gt; </span><span class="nv">IsomorphismPermGroup</span><span class="p">(</span><span class="nv">g</span><span class="p">)</span><span class="o">;</span> <span class="c1"># this is quite fast</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="go">[ f1, f2 ] -&gt; [ (1,2,3,4,5)(6,7,9,11,8,10,12,13)(14,15,16)(18,19),</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="go">  (6,8)(7,10)(9,12)(11,13)(15,16)(17,18,20,19) ]</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="gp">gap&gt; </span><span class="nv">s</span><span class="o">:=</span> <span class="nv">Range</span><span class="p">(</span><span class="nv">IsomorphismFpSemigroup</span><span class="p">(</span><span class="nv">g</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="go">&lt;fp semigroup with 5 generators and 17 relations of length 304&gt;</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="gp">gap&gt; </span><span class="nv">IsomorphismTransformationSemigroup</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span><span class="o">;</span> <span class="c1"># so is this</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="go">&lt;fp semigroup with 5 generators and 17 relations of length 304&gt; -&gt;</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="go">&lt;transformation monoid of size 480, degree 480 with 4 generators&gt;</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="gp">gap&gt; </span><span class="nv">IsomorphismPermGroup</span><span class="p">(</span><span class="nv">Range</span><span class="p">(</span><span class="nv">last</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="go">&lt;transformation group of size 480, degree 480 with 4 generators&gt; -&gt;</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="go">&lt;permutation group of size 480 with 5 generators&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeGroup</span><span class="p">(</span><span class="nv">2</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nv">gen</span> <span class="o">:=</span> <span class="nv">GeneratorsOfGroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nv">a</span> <span class="o">:=</span> <span class="nv">gen</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;;</span> <span class="nv">b</span> <span class="o">:=</span> <span class="nv">gen</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;;</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nv">g</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="p">[</span><span class="nv">a</span><span class="o">^</span><span class="nv">120</span><span class="o">,</span> <span class="nv">b</span><span class="o">^</span><span class="nv">4</span><span class="o">,</span> <span class="nv">a</span><span class="o">*</span><span class="nv">b</span><span class="o">*</span><span class="p">(</span><span class="nv">b</span><span class="o">^</span><span class="nv">3</span><span class="o">*</span><span class="nv">a</span><span class="o">^</span><span class="nv">41</span><span class="p">)</span><span class="o">^-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">a</span><span class="o">^</span><span class="nv">2</span><span class="o">*</span><span class="nv">b</span><span class="o">*</span><span class="p">(</span><span class="nv">b</span><span class="o">*</span><span class="nv">a</span><span class="o">^</span><span class="nv">82</span><span class="p">)</span><span class="o">^-</span><span class="nv">1</span><span class="p">]</span><span class="o">;</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nv">IsomorphismPermGroup</span><span class="p">(</span><span class="nv">g</span><span class="p">)</span><span class="o">;</span> <span class="c1"># this is quite fast</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="nv">s</span><span class="o">:=</span> <span class="nv">Range</span><span class="p">(</span><span class="nv">IsomorphismFpSemigroup</span><span class="p">(</span><span class="nv">g</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="nv">IsomorphismTransformationSemigroup</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="nv">IsomorphismPermGroup</span><span class="p">(</span><span class="nv">Range</span><span class="p">(</span><span class="nv">last</span><span class="p">))</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>At this point I should admit that the examples in this section were
+specially selected to show <a href="https://semigroups.github.io/Semigroups/">Semigroups</a> in its best light, and the <a href="https://gap-system.org">GAP</a>
+library in its worst. A fairer comparison would have been to include some other
+examples where <a href="https://gap-system.org">GAP</a> is better than <a href="https://semigroups.github.io/Semigroups/">Semigroups</a>, or where other tools
+(like <a href="https://gap-packages.github.io/ace/">ACE</a> or <a href="https://gap-packages.github.io/kbmag/">kbmag</a>) are faster as well. The truth is that any software
+for computing with finitely presented semigroups, monoids or groups, has its
+limitations and given the undecidable nature of most related problems, it is
+always possible to contrive examples which are hard or impossible for any
+particular implementation to handle.  </p>
+</div>
+<h2 id="finite-or-infinite">Finite or infinite?</h2>
+<p>In <a href="https://gap-system.org">GAP</a> there's only really a single way to check if a finitely presented
+semigroup or monoid is finite or infinite:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">GAP REPL</label><label for="__tabbed_13_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;d&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="go">&lt;free semigroup on the generators [ a, b, c, d ]&gt;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="gp">&gt; </span>           <span class="s">&quot;(ab)^4=a,b^7=b^2,c^4=c,d^5=d^2,cd=dc&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="go">[ [ (a*b)^4, a ], [ b^7, b^2 ], [ c^4, c ], [ d^5, d^2 ], [ c*d, d*c ] ]</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="gp">gap&gt; </span><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="go">false</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="go">infinity</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;d&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfSemigroup</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span> 
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>       <span class="s">&quot;(ab)^4=a,b^7=b^2,c^4=c,d^5=d^2,cd=dc&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>This will work when any of the conditions described <a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/presentations/obvinf.html">here</a> are satisfied,
+if <code>F / R</code> has small overlap class at least <span class="arithmatex">\(3\)</span>, or if it is possible to
+compute a complete rewriting system for <code>F / R</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">GAP REPL</label><label for="__tabbed_14_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="go">&lt;free semigroup on the generators [ a, b, c ]&gt;</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="gp">gap&gt; </span><span class="nv">AssignGeneratorVariables</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="go">#I  Assigned the global variables [ a, b, c ]</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">([</span><span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">c</span><span class="p">]</span><span class="o">,</span> <span class="s">&quot;aabc=acba&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="go">[ [ a^2*b*c, a*c*b*a ] ]</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="gp">gap&gt; </span><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="go">false</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeSemigroup</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nv">AssignGeneratorVariables</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">([</span><span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">c</span><span class="p">]</span><span class="o">,</span> <span class="s">&quot;aabc=acba&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="non-isomorphism">Non-isomorphism</h3>
+<p>In this section we show how to demonstrate that two monoids or semigroups
+defined by presentations are not isomorphic.</p>
+<p>The following is Shutov's presentation for the symmetric inverse monoid of
+degree <span class="arithmatex">\(4\)</span> from:</p>
+<ul>
+<li>É. G. Shutov, Defining relations in finite semigroups of partial transformations, <em>Sov. Math., Dokl.</em> 1:784–786, 1960.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">GAP REPL</label><label for="__tabbed_15_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="go">&lt;free monoid on the generators [ a, b, c, e ]&gt;</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="gp">&gt; </span>&quot;<span class="nv">aa</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="go">ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec, aeaea=aeae&quot;);</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="go">[ [ a^2, &lt;identity ...&gt; ], [ b^2, &lt;identity ...&gt; ], [ c^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="go">  [ (a*b)^3, &lt;identity ...&gt; ], [ (b*c)^3, &lt;identity ...&gt; ], [ (c*a)^3, &lt;identity ...&gt; ],</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="go">  [ (a*b*a*c)^2, &lt;identity ...&gt; ], [ (b*c*b*a)^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="go">  [ (c*a*c*b)^2, &lt;identity ...&gt; ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="go">  [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="go">  [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="go">&lt;fp monoid with 4 generators and 16 relations of length 104&gt;</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="go">209</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>&quot;<span class="nv">aa</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Let's check if the monoid defined by all but the last relation <span class="arithmatex">\(aeaea=aeae\)</span> in
+<code>R</code> defines the symmetric inverse monoid on 4 points also. One way of doing
+this is to just remove the relation, and check if the presentation defines a
+monoid of the same size. This sometimes works, and it does here:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">GAP REPL</label><label for="__tabbed_16_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="gp">&gt; </span><span class="s">&quot;aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1,</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="gp">&gt; </span><span class="s">(cacb)^2=1, aeaea=aeae&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="go">[ [ a^2, &lt;identity ...&gt; ], [ b^2, &lt;identity ...&gt; ], [ c^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="go">  [ (a*b)^3, &lt;identity ...&gt; ], [ (b*c)^3, &lt;identity ...&gt; ], [ (c*a)^3,</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="go">&lt;identity ...&gt; ],</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="go">  [ (a*b*a*c)^2, &lt;identity ...&gt; ], [ (b*c*b*a)^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="go">  [ (c*a*c*b)^2, &lt;identity ...&gt; ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="go">  [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="go">  [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="gp">gap&gt; </span><span class="nv">Remove</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">R</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="go">[ (a*e)^2*a, (a*e)^2 ]</span>
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a><span class="go">&lt;fp monoid with 4 generators and 15 relations of length 95&gt;</span>
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a><span class="go">384</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>&quot;<span class="nv">aa</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="nv">Remove</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">R</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>so the last relation is not redundant!</p>
+<p>Let's try again with the second to last relation <span class="arithmatex">\(ceca=acec\)</span>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">GAP REPL</label><label for="__tabbed_17_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="gp">&gt; </span><span class="s">&quot;aa=1, bb=1, cc=1, (ab)^3=1, (bc)^3=1, (ca)^3=1, (abac)^2=1, (bcba)^2=1,</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="gp">&gt; </span><span class="s">(cacb)^2=1, ee=e, eaea=aeae, aeab=baea, beba=abeb, aeac=caea, ceca=acec,</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="gp">&gt; </span><span class="s">aeaea=aeae&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="go">[ [ a^2, &lt;identity ...&gt; ], [ b^2, &lt;identity ...&gt; ], [ c^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="go">  [ (a*b)^3, &lt;identity ...&gt; ], [ (b*c)^3, &lt;identity ...&gt; ], [ (c*a)^3,</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="go">&lt;identity ...&gt; ],</span>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="go">  [ (a*b*a*c)^2, &lt;identity ...&gt; ], [ (b*c*b*a)^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="go">  [ (c*a*c*b)^2, &lt;identity ...&gt; ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],</span>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="go">  [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],</span>
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="go">  [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]</span>
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="gp">gap&gt; </span><span class="nv">Remove</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">R</span><span class="p">)</span> <span class="o">-</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="go">[ c*e*c*a, a*c*e*c ]</span>
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a><span class="go">&lt;fp monoid with 4 generators and 15 relations of length 96&gt;</span>
+</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a><span class="go">209</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>&quot;<span class="nv">aa</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nv">Remove</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">Length</span><span class="p">(</span><span class="nv">R</span><span class="p">)</span> <span class="o">-</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>So the second to last relation is redundant. Let's try again with the relation
+<span class="arithmatex">\(eaea=aeae\)</span> which is <code>R[11]</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">GAP REPL</label><label for="__tabbed_18_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="gp">gap&gt; </span>    <span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="gp">gap&gt; </span>    <span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="gp">&gt; </span>    &quot;<span class="nv">aa</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="gp">&gt; </span>    <span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="go">[ [ a^2, &lt;identity ...&gt; ], [ b^2, &lt;identity ...&gt; ], [ c^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="go">  [ (a*b)^3, &lt;identity ...&gt; ], [ (b*c)^3, &lt;identity ...&gt; ], [ (c*a)^3, &lt;identity ...&gt; ],</span>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="go">  [ (a*b*a*c)^2, &lt;identity ...&gt; ], [ (b*c*b*a)^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="go">  [ (c*a*c*b)^2, &lt;identity ...&gt; ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],</span>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="go">  [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],</span>
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="go">  [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]</span>
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="gp">gap&gt; </span>    <span class="nv">Remove</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">11</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="go">[ (e*a)^2, (a*e)^2 ]</span>
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="gp">gap&gt; </span>    <span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a><span class="go">&lt;fp monoid with 4 generators and 15 relations of length 96&gt;</span>
+</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a><span class="gp">gap&gt; </span>    <span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a><span class="go">384</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>&quot;<span class="nv">aa</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="nv">Remove</span><span class="p">(</span><span class="nv">R</span><span class="o">,</span> <span class="nv">11</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>So <span class="arithmatex">\(eaea=aeae\)</span> is also not redundant. Let's try again with the
+first rule <code>a^2=1</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:2"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">GAP REPL</label><label for="__tabbed_19_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="gp">&gt; </span>&quot;<span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="gp">&gt; </span><span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="gp">&gt; </span><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="gp">&gt; </span><span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="go">[ [ b^2, &lt;identity ...&gt; ], [ c^2, &lt;identity ...&gt; ], [ (a*b)^3, &lt;identity ...&gt;</span>
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="go">],</span>
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="go">  [ (b*c)^3, &lt;identity ...&gt; ], [ (c*a)^3, &lt;identity ...&gt; ],</span>
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="go">  [ (a*b*a*c)^2, &lt;identity ...&gt; ], [ (b*c*b*a)^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="go">  [ (c*a*c*b)^2, &lt;identity ...&gt; ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],</span>
+</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="go">  [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],</span>
+</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="go">  [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]</span>
+</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-36-15"><a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a><span class="go">&lt;fp monoid with 4 generators and 15 relations of length 102&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>&quot;<span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>If we would try doing <code>Size(M)</code>, then it'd just run for a long time with no
+output. So this is inconclusive. Maybe it's infinite but we just can't tell
+this easily using the computer.</p>
+<p>The <a href="https://pubs.ams.org/journals/mcom/0000-000-00/S0025-5718-2025-04136-X">low-index congruence
+algorithm</a>
+(similar to Sims' low index subgroup algorithm) can compute the numbers of
+left/right congruences on a finitely presented semigroup or monoid,
+regardless of whether or not it is finite. This algorithm is
+what is behind
+<a href="https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X7AE16F237E862934">NumberOfRightCongruences</a>.
+The following computes the number of right congruences with up to 5
+classes on the monoid defined by the presentation for the symmetric inverse
+monoid with the relation <span class="arithmatex">\(a^2 = 1\)</span> removed:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">GAP REPL</label><label for="__tabbed_20_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="gp">gap&gt; </span><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="gp">gap&gt; </span><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="gp">&gt; </span>&quot;<span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="gp">&gt; </span><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="go">[ [ b^2, &lt;identity ...&gt; ], [ c^2, &lt;identity ...&gt; ], [ (a*b)^3, &lt;identity ...&gt; ],</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="go">  [ (b*c)^3, &lt;identity ...&gt; ], [ (c*a)^3, &lt;identity ...&gt; ],</span>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="go">  [ (a*b*a*c)^2, &lt;identity ...&gt; ], [ (b*c*b*a)^2, &lt;identity ...&gt; ],</span>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="go">  [ (c*a*c*b)^2, &lt;identity ...&gt; ], [ e^2, e ], [ (e*a)^2, (a*e)^2 ],</span>
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="go">  [ a*e*a*b, b*a*e*a ], [ b*e*b*a, a*b*e*b ], [ a*e*a*c, c*a*e*a ],</span>
+</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="go">  [ c*e*c*a, a*c*e*c ], [ (a*e)^2*a, (a*e)^2 ] ]</span>
+</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a><span class="go">&lt;fp monoid with 4 generators and 15 relations of length 102&gt;</span>
+</span><span id="__span-38-13"><a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a><span class="gp">gap&gt; </span><span class="nv">NumberOfRightCongruences</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">5</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-38-14"><a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a><span class="go">26</span>
+</span><span id="__span-38-15"><a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a><span class="gp">gap&gt; </span><span class="nv">NumberOfRightCongruences</span><span class="p">(</span><span class="nv">SymmetricInverseMonoid</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span><span class="o">,</span> <span class="nv">5</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-38-16"><a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a><span class="go">18</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nv">F</span> <span class="o">:=</span> <span class="nv">FreeMonoid</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span><span class="o">;;</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nv">R</span> <span class="o">:=</span> <span class="nv">ParseRelations</span><span class="p">(</span><span class="nv">GeneratorsOfMonoid</span><span class="p">(</span><span class="nv">F</span><span class="p">)</span><span class="o">,</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>&quot;<span class="nv">bb</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="nv">cc</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ab</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bc</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">ca</span><span class="p">)</span><span class="o">^</span><span class="nv">3</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">abac</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">bcba</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> <span class="p">(</span><span class="nv">cacb</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">=</span><span class="nv">1</span><span class="o">,</span> \
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="nv">ee</span><span class="o">=</span><span class="nv">e</span><span class="o">,</span> <span class="nv">eaea</span><span class="o">=</span><span class="nv">aeae</span><span class="o">,</span> <span class="nv">aeab</span><span class="o">=</span><span class="nv">baea</span><span class="o">,</span> <span class="nv">beba</span><span class="o">=</span><span class="nv">abeb</span><span class="o">,</span> <span class="nv">aeac</span><span class="o">=</span><span class="nv">caea</span><span class="o">,</span> <span class="nv">ceca</span><span class="o">=</span><span class="nv">acec</span><span class="o">,</span> <span class="nv">aeaea</span><span class="o">=</span><span class="nv">aeae</span>&quot;<span class="p">)</span><span class="o">;</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="nv">M</span> <span class="o">:=</span> <span class="nv">F</span> <span class="o">/</span> <span class="nv">R</span><span class="o">;</span>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="nv">NumberOfRightCongruences</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">5</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="nv">NumberOfRightCongruences</span><span class="p">(</span><span class="nv">SymmetricInverseMonoid</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span><span class="o">,</span> <span class="nv">5</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>This says that the symmetric inverse monoid has 18 right congruences with up to
+5 classes, but the monoid defined by the presentation with the first relation
+removed has 26 such congruences. So, these monoids are not isomorphic, and so
+the relation <span class="arithmatex">\(a^2=1\)</span> is not redundant.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../generated/" class="md-footer__link md-footer__link--prev" aria-label="Previous: GAP: Semigroups defined by generators">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                GAP: Semigroups defined by generators
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../worksheet/" class="md-footer__link md-footer__link--next" aria-label="Next: GAP: Worksheet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                GAP: Worksheet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 James Mitchell, Reinis Cirpons and Joe Edwards
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.github.com/semigroups/Semigroups" target="_blank" rel="noopener" title="The Semigroups package" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.github.com/libsemigroups/libsemigroups_pybind11" target="_blank" rel="noopener" title="The libsemigroups_pybind11 project" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.code.select", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
