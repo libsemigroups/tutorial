@@ -396,6 +396,23 @@ gap> 1 + 1; # This is a comment and has no impact on the computation
 2
 ```
 
+### Permutations
+
+In GAP permutations can be constructed by writing them out in disjoint
+cycle notation, e.g. `(1, 3, 2)(5, 4)` is the permutation $p$ such that
+$p(1) = 3, p(3) = 2, p(2) = 1, p(5) = 4$ and $p(4) = 5$. Permutations
+can be multiplied using the `*` operator and we can ask for the image
+$p(x)$ of a point $x$ via the `^` operator as `x ^ p`. For example:
+
+```gap-repl
+gap> p := (1, 3, 2)(5, 4);
+(1,3,2)(4,5)
+gap> p * p;
+(1,2,3)
+gap> 1 ^ p;
+3
+```
+
 ## GAP scripts
 
 Using the GAP REPL is very nice for quick prototyping and single line code execution.
@@ -431,8 +448,10 @@ To make editing GAP script files slightly nicer, we recommend setting up a text 
 For editor support, see the
 [relevant GAP system FAQ section](https://www.gap-system.org/faq/#where-is-the-gap-file-editor-how-do-i-save-gap-programs).
 The [Kate editor](https://kate-editor.org/) is likely the simplest editor with built-in support for GAP.
-Alternatively, [neovim](), [VSCode]() and [vim]() are well supported too, though you will need
-to perform additional setup steps as per the FAQ.
+Alternatively, [neovim](https://neovim.io/),
+[VSCode](https://code.visualstudio.com/) and
+[vim](https://www.vim.org/download.php) are well supported too, though you will
+need to perform additional setup steps as per the FAQ.
 
 ## An overview of GAP (part 2)
 
@@ -967,7 +986,7 @@ end;
 # Running AddTwoNumbers(2, 3) returns 5
 ```
 
-This concludes the basic overview of the GAP programming language.
+This concludes our basic overview of the GAP programming language.
 
 [^1]:
     For Windows users, you should first type `ubuntu` to enter the Ubuntu Linux subsystem

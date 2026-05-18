@@ -65,7 +65,7 @@ One way of constructing a transformation $t$ is to provide
 a list `A` such that the $i$-th entry `A[i]` is the image of the point $i$
 under the transformation $t$. So, for example
 `#!gap t := Transformation([1, 3, 3, 4]);` defines the transformation
-`t \in \mathcal{T}_4`
+$t$
 such that $t(1) = 1, t(2) = t(3) = 3$ and $t(4) = 4$. We can
 multiply transformations using the usual multiplication operator `*`.
 Furthermore, we can obtain the image $t(x)$ of a point
@@ -861,9 +861,7 @@ representing `A` as the second argument.
     gap> B[1][1] in GF(2);
     true
     ```
-    We are currently working to address this problem
-    as part of [Issue #1186](https://github.com/semigroups/Semigroups/issues/1186)
-    on the `Semigroups` issue tracker.
+    This issue will be fixed in a future release of GAP.
 
 #### Boolean matrices
 
@@ -998,15 +996,95 @@ function and specify, respectively,
     Display(Matrix(IsNTPMatrix, [[0, 0, 0], [2, 0, 1], [2, 2, 2]], 2, 1));
     ```
 
-#### Some standard matrices
+#### Some standard matrices and matrix properties
 
 GAP provides implementations of some
 [standard matrix constructions](https://docs.gap-system.org/doc/ref/chap24_mj.html#X823FB2398697B957), such
 as the 
-* identity matrix via [`IdentityMat`](),
-* zero matrix via [`NullMat`](),
-* diagonal matrices via [`DiagonalMat`](),
-* permutation matrices via [`PermutationMat`]()
+* identity matrix via [`IdentityMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X7DB902CE848D1524),
+* zero matrix via [`NullMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X86D343A77D9B3D4D),
+* diagonal matrices via [`DiagonalMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X81042E7A7F247ADE),
+* permutation matrices via [`PermutationMat`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X806C62A67A7D5379).
+
+We can wrap these in the appropriate constructor from above to construct respectively
+the identity, zero, a diagonal and a permutation matrix over the 
+appropriate semiring:
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> Display(Matrix(Integers, IdentityMat(5)));
+    <5x5-matrix over Integers:
+    [[ 1, 0, 0, 0, 0 ]
+    [ 0, 1, 0, 0, 0 ]
+    [ 0, 0, 1, 0, 0 ]
+    [ 0, 0, 0, 1, 0 ]
+    [ 0, 0, 0, 0, 1 ]
+    ]>
+    gap> Display(BooleanMat(NullMat(6, 6)));
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    gap> Display(Matrix(GF(16), DiagonalMat([Z(16), Z(16)^0, Z(16)^3 + Z(16), 0*Z(16)])));
+    z = Z(16)
+      z^1    .    .    .
+        .    1    .    .
+        .    .  z^9    .
+        .    .    .    .
+    gap> Display(Matrix(IsMaxPlusMatrix, PermutationMat((1, 3, 2)(5, 4), 6)));
+    0 0 1 0 0 0
+    1 0 0 0 0 0
+    0 1 0 0 0 0
+    0 0 0 0 1 0
+    0 0 0 1 0 0
+    0 0 0 0 0 1
+    ```
+=== "GAP script"
+    ```gap
+    Display(Matrix(Integers, IdentityMat(5)));
+    Display(BooleanMat(NullMat(6, 6)));
+    Display(Matrix(GF(16), DiagonalMat([Z(16), Z(16)^0, Z(16)^3 + Z(16), 0*Z(16)])));
+    Display(Matrix(IsMaxPlusMatrix, PermutationMat((1, 3, 2)(5, 4), 6)));
+    ```
+
+One can also compute properties of matrices such as the determinant, trace, rank
+and eigenvalues, to name a few,
+using the
+[`DeterminantMatrix`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X8488D69A7ADDB4E2)
+[`TraceMatrix`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X784EC2777C06AFE4),
+[`RankMatrix`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X7A995A74838950E6) and
+[`Eigenvalues`](https://docs.gap-system.org/doc/ref/chap24_mj.html#X8413C6FB7CEE9D59)
+functions, though not all semirings support all of these functions.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> A := Matrix(Integers, [[1, 2, 3], [4, 3, -1], [1, 0, -3]]);
+    <3x3-matrix over Integers>
+    gap> B := Matrix(GF(3^3), Z(3^3)^0 * [[0, Z(3^3)^2 + 2 * Z(3^3) + 2, 1], [1, 1, 1], [2, 0, 2]]);
+    [ [ 0*Z(3), Z(3^3)^7, Z(3)^0 ], [ Z(3)^0, Z(3)^0, Z(3)^0 ], 
+      [ Z(3), 0*Z(3), Z(3) ] ]
+    gap> DeterminantMatrix(A);
+    4
+    gap> TraceMatrix(A);
+    1
+    gap> RankMatrix(B);
+    3
+    gap> # We need to also specify a field over which to find eigenvalues over
+    gap> Eigenvalues(GF(3^3), B);
+    [ Z(3^3)^11 ]
+    ```
+=== "GAP script"
+    ```gap
+    A := Matrix(Integers, [[1, 2, 3], [4, 3, -1], [1, 0, -3]]);
+    B := Matrix(GF(3^3), Z(3^3)^0 * [[0, Z(3^3)^2 + 2 * Z(3^3) + 2, 1], [1, 1, 1], [2, 0, 2]]);
+    DeterminantMatrix(A);
+    TraceMatrix(A);
+    RankMatrix(B);
+    # We need to also specify a field over which to find eigenvalues over
+    Eigenvalues(GF(3^3), B);
+    ```
 
 !!! info
     See [Chapter 5](https://semigroups.github.io/Semigroups/doc/chap5_mj.html)
@@ -1014,7 +1092,7 @@ as the
     as well as [Chapter 24](https://docs.gap-system.org/doc/ref/chap24_mj.html#X812CCAB278643A59)
     of the GAP reference manual for more details about general methods for
     matrices. Note, however that not all methods may be implemented for
-    semigroups over a semiring, e.g. TODO
+    semigroups over a semiring.
 
 ## Constructing semigroups
 
