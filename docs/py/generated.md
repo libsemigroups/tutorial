@@ -47,7 +47,7 @@ of this relation. Finally, define $xy$ to be the bipartition of degree $n$ given
 by the restriction of the equivalence relation $p$ to the set
 $\mathbf{n} \cup -\mathbf{n}$.
 
-Constructing bipartitions in `libsemigroups_pybind11` can be done by specifying
+Constructing bipartitions in [libsemigroups_pybind11][] can be done by specifying
 their blocks:
 
 ```python
@@ -68,7 +68,30 @@ and
 	![bipartition y](../images/bipartition-2-dark.svg#only-dark)
 </figure>
 
-You can multiply these bipartitions together using the `*` operator:
+A number of checks are performed on the list of blocks when trying to construct
+a `Bipartition` instance. In particular, it is checked that the blocks are:
+
+- duplicate-free;
+- pairwise disjoint; and
+- partition the set $\{-n, \ldots,  -1, 1, \ldots, n\}$ for some
+  positive integer $n$.
+
+If you attempt to construct a `Bipartition` where the blocks violate any of
+these assumptions, a `LibsemigroupsError` is raised and you are shown a message
+explaining the issue:
+
+```python
+from libsemigroups_pybind11 import Bipartition
+Bipartition([[-1, 1], [-2, 2], [-3, -1]])
+# ---------------------------------------------------------------------------
+# LibsemigroupsError                        Traceback (most recent call last)
+# Cell In[1], line 2
+# ----> 1 Bipartition([[-1, 1], [-2, 2], [-3, -1]])
+#
+# LibsemigroupsError: the union of the given blocks is not {-3, ..., -1, 1, ..., 3}, only 6 values were given
+```
+
+You can multiply bipartitions together using the `*` operator:
 
 ```python
 x*y  # returns Bipartition([[1, -4], [2, 5], [3, 4, -1], [-2], [-3], [-5]])
@@ -174,6 +197,22 @@ m ** 3
 #                             [1, 1, 1]])
 ```
 
+As you can see above, the behaviour of the operators `+`, `*` and `**` have
+changed now that the type of matrix has changed.
+
+If you attempt to construct a matrix whose rows do not all have the same length,
+or contain elements that cannot be represented by the specified `MatrixKind`
+type, then a `LibsemigroupsError` will be raised.
+
+```python
+from libsemigroups_pybind11 import Matrix, MatrixKind
+m = Matrix(MatrixKind.Boolean, [[0, 1, 0], [0, 1, 1], [1, 1, 2]])
+# ---------------------------------------------------------------------------
+# LibsemigroupsError                        Traceback (most recent call last)
+# [...]
+# LibsemigroupsError: invalid entry, expected 0 or 1 but found 2 in entry (2, 2)
+```
+
 !!! note
 
     When representing boolean matrices of dimension up to $8 \times 8$, you can
@@ -186,7 +225,26 @@ m ** 3
     [Matrix helpers](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/matrix/matrix-helpers.html)
     pages in the [libsemigroups_pybind11][] documentation.
 
-### Transformations
+### Transformations, permutations and partial permutations
+
+In [libsemigroups_pybind11][], it is possible to construct semigroup elements
+that represent _transformations_, _permutations_, and _partial permutations_. In
+this context, a transformation is a function
+$f: \{0, \dots, n - 1\} \rightarrow \{0, \dots, n - 1\}$ for some non-negative
+integer $n$; a permutation is an injective transformation; and a partial
+permutation is a partial transformation that is injective on some subset of
+$\{0, \dots, n - 1\}$, and undefined on the other values. A transformation can
+be represented by a `Transf` instance, a permutation can be represented by a
+`Perm` instance, and a partial permutation can be represented by a `PPerm`
+instance.
+
+Objects of these types can be constructed by specifying a list of images of
+$0 \dots n - 1$. Various checks will then be performed to ensure that the
+specified images define an object of the correct type. If not, a
+`LibsemigroupsError` is raised.
+
+For `PPerm` objects, to indicate that the image of $i$ is
+undefined,
 
 ### Partitioned binary relations (PBRs)
 
@@ -307,7 +365,7 @@ This results in the following graph begin produced:
     the capabilities of the `FroidurePin` class. For a full description of the
     API and related functions, see the [FroidurePin class](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/froidure-pin/class.html) and
     [FroidurePin helpers](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/froidure-pin/helpers.html)
-    pages in the `libsemigroups_pybind11` documentation.
+    pages in the [libsemigroups_pybind11][] documentation.
 
 ### `Konieczny`
 
@@ -390,6 +448,6 @@ d_zeta.number_of_idempotents()  # returns 20
     As with `FroidurePin`, the functions presented in this section only scratch
     the surface of the capabilities of the `Konieczny` class. For a full
     description of the API the [Konieczny class](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/konieczny/konieczny.html#)
-    page in the `libsemigroups_pybind11` documentation.
+    page in the [libsemigroups_pybind11][] documentation.
 
 [libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/
