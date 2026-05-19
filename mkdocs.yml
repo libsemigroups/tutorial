@@ -69,7 +69,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-copyright: Copyright &copy; 2026 James Mitchell, Reinis Cirpons and Joe Edwards
+copyright: Copyright &copy; 2026 Reinis Cirpons, Joe Edwards and James Mitchell
 
 extra:
   social:
