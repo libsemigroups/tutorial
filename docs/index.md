@@ -14,5 +14,5 @@ tutorial, or select from one of the options below:
 The QR code for this page is:
 
 <figure markdown="span" width=50%>
-	![a qr code](../images/qr.png)
+	![a qr code](/images/qr.png)
 </figure>
