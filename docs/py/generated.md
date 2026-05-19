@@ -1,19 +1,19 @@
 # Semigroups and monoids defined by generators
 
-If you followed the instructions on [the previous page](first-steps.md), you
-should now have a functioning version of [libsemigroups_pybind11][]. On this page,
-you will learn about semigroups defined by a collection of generators. In
+If you followed the instructions on previous two pages, you should now have a
+functioning version of [libsemigroups_pybind11][] and a way to use it. On this
+page, you will learn about semigroups defined by a collection of generators. In
 particular, you will learn which type of objects can be used as generators of a
 semigroup, and how to compute with semigroups defined by generators.
 
 ## Elements
 
 In [libsemigroups_pybind11][], there are several types of object that can be
-treated as elements of a semigroup, which are broken down into four categories:
+treated as elements of a semigroup. In this guide, we will focus on the
+following:
 
 1. bipartitions,
-1. matrices,
-1. partitioned binary relations (PBRs), and
+1. matrices, and
 1. transformations.
 
 In this section, you will learn how to construct objects of these types in
@@ -69,10 +69,10 @@ and
 </figure>
 
 A number of checks are performed on the list of blocks when trying to construct
-a `Bipartition` instance. In particular, it is checked that the blocks are:
+a `Bipartition` instance. In particular, it is checked that the blocks:
 
-- duplicate-free;
-- pairwise disjoint; and
+- are duplicate-free;
+- are pairwise disjoint; and
 - partition the set $\{-n, \ldots,  -1, 1, \ldots, n\}$ for some
   positive integer $n$.
 
@@ -105,11 +105,19 @@ from libsemigroups_pybind11 import bipartition
 bipartition.random(7)
 ```
 
+[^1]:
+    Martin, P., & Mazorchuk, V. (2013). Partitioned binary relations.
+    Mathematica Scandinavica, 113(1), 30–52. http://www.jstor.org/stable/24493105
+
 !!! info
 
     For more information about bipartitions, see the [Bipartition class](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/bipart/bipart.html) and
     [Bipartition helpers](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/bipart/bipart-helpers.html)
-    pages in the [libsemigroups_pybind11][] documentation.
+    pages in the [libsemigroups_pybind11][] documentation. Additionally, if you
+    would like to be more general and define semigroup elements that represent
+    _partitioned binary relations_[^1], then see the
+    [PBR class](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/pbr/class.html)
+    page.
 
 ### Matrices
 
@@ -225,7 +233,7 @@ m = Matrix(MatrixKind.Boolean, [[0, 1, 0], [0, 1, 1], [1, 1, 2]])
     [Matrix helpers](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/matrix/matrix-helpers.html)
     pages in the [libsemigroups_pybind11][] documentation.
 
-### Transformations, permutations and partial permutations
+### Transformations
 
 In [libsemigroups_pybind11][], it is possible to construct semigroup elements
 that represent _transformations_, _permutations_, and _partial permutations_. In
@@ -239,14 +247,47 @@ be represented by a `Transf` instance, a permutation can be represented by a
 instance.
 
 Objects of these types can be constructed by specifying a list of images of
-$0 \dots n - 1$. Various checks will then be performed to ensure that the
+$0, \dots, n - 1$. Various checks will then be performed to ensure that the
 specified images define an object of the correct type. If not, a
-`LibsemigroupsError` is raised.
+`LibsemigroupsError` is raised. For example, you can define the permutation
+$(0 1)(2 3 4)$ can in the following way:
 
-For `PPerm` objects, to indicate that the image of $i$ is
-undefined,
+```python
+from libsemigroups_pybind11 import Perm
+p = Perm([1, 0, 3, 4, 2])
+```
 
-### Partitioned binary relations (PBRs)
+If you attempt to construct an invalid object, you are shown a helpful error
+message:
+
+```python
+p = Perm([1, 1, 3, 4, 2])
+# ---------------------------------------------------------------------------
+# LibsemigroupsError                        Traceback (most recent call last)
+# Cell In[1], line 1
+# ----> 1 p = Perm([1, 1, 3, 4, 2])
+# [...]
+# LibsemigroupsError: duplicate image value, found 1 in position 1, first occurrence in position 0
+
+```
+
+For `PPerm` objects, to indicate that the image of $i$ is undefined, set the
+$i$-th image to be `UNDEFINED`. For example, the partial permutation $\phi$ on
+$\{0, 1, 2, 3, 4\}$ given by $1 \phi = 3$, $3 \phi = 2$ and $4 \phi = 0$ can be
+construct in the following way:
+
+```python
+from libsemigroups_pybind11 import Transf, Perm, PPerm, UNDEFINED
+phi = PPerm([UNDEFINED, 3, UNDEFINED, 2, 0])
+```
+
+As with the other element types, transformations of the same type can be
+multiplied using the `*` operator.
+
+!!! info
+
+    For more information about transformations, see the [Transformations](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/transformations/index.html) page in the
+    [libsemigroups_pybind11][] documentation.
 
 ## Finitely generated semigroups
 
@@ -257,13 +298,13 @@ functions implemented in the classes `FroidurePin` and `Konieczny`.
 
 ### `FroidurePin`
 
-[^1]:
+[^2]:
     Froidure, Véronique & Pin, Jean-Eric. (1997). Algorithms for computing
     finite semigroups. Foundations of Computational Mathematics.
     [https://doi.org/10.1007/978-3-642-60539-0_9](https://doi.org/10.1007/978-3-642-60539-0_9)
 
 The class `FroidurePin` implements the Froidure-Pin algorithm as described in
-the article _Algorithms for computing finite semigroups_[^1]. If
+the article _Algorithms for computing finite semigroups_[^2]. If
 $S = \langle G \rangle$ is a finitely generated semigroup where the elements of
 $G$ can be represented as one of the element types discussed in the previous
 section, then a `FroidurePin` instance can be defined on $G$, and used to answer
@@ -369,13 +410,13 @@ This results in the following graph begin produced:
 
 ### `Konieczny`
 
-[^2]:
+[^3]:
     Konieczny, J. (1994). Green's equivalences in finite semigroups of binary
     relations. Semigroup Forum 48, 235–252.
     [https://doi.org/10.1007/BF02573672](https://doi.org/10.1007/BF02573672)
 
 The class `Konieczny` implements Konieczny’s algorithm as described in the
-article _Green's equivalences in finite semigroups of binary relations_[^2]. As
+article _Green's equivalences in finite semigroups of binary relations_[^3]. As
 with `FroidurePin` instances, a `Konieczny` instance can be constructed by
 specifying a list of generators to represent a finitely generated semigroup $S$.
 The algorithm can be performed by calling `run` and, if it terminates, the size,
@@ -447,7 +488,17 @@ d_zeta.number_of_idempotents()  # returns 20
 
     As with `FroidurePin`, the functions presented in this section only scratch
     the surface of the capabilities of the `Konieczny` class. For a full
-    description of the API the [Konieczny class](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/konieczny/konieczny.html#)
+    description of the API, see the [Konieczny class](https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/konieczny/konieczny.html#)
     page in the [libsemigroups_pybind11][] documentation.
+
+## Summary
+
+On this page, you have learnt that `Bipartition`, `Matrix`, `Transf`, `Perm` and
+`PPerm` objects can be used to represent semigroup elements, and that the
+`FroidurePin` and `Konieczny` classes can be used to answer questions about
+finitely generated semigroups.
+
+On the next page, you will learn about computing with finitely presented
+semigroups
 
 [libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/
