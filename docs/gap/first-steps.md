@@ -413,6 +413,40 @@ gap> 1 ^ p;
 3
 ```
 
+### Records
+
+A _record_ in GAP is an object with named fields that store other
+objects. To create a record, we use the `rec` function, passing
+variable assignments as arguments.
+So, for example `#!gap A := rec(foo := 3, bar := "abc");` constructs
+a record `A` with two fields `foo`, storing `3`, and `bar`, storing `"abc"`.
+To access a field of a record, we use the `.` operator, e.g.
+`#!gap A.foo;` returns `3`. A record can store arbitrary GAP objects,
+including other records, in its fields.
+
+```gap-repl
+gap> A := rec(foo := 3, bar := "abc");
+rec( bar := "abc", foo := 3 )
+gap> A.foo;
+3
+gap> A.bar;
+"abc"
+gap> A.foo := 100;
+100
+gap> A;
+rec( bar := "abc", foo := 100 )
+gap> B := rec(list := [1, 2, 3, 4], record := rec(field1 := 1, field2 := 2));
+rec( list := [ 1, 2, 3, 4 ], record := rec( field1 := 1, field2 := 2 ) )
+gap> B.list;
+[ 1, 2, 3, 4 ]
+gap> B.record;
+rec( field1 := 1, field2 := 2 )
+gap> B.record.field1;
+1
+gap> B.record.field2;
+2
+```
+
 ## GAP scripts
 
 Using the GAP REPL is very nice for quick prototyping and single line code execution.

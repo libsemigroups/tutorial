@@ -1867,295 +1867,202 @@ There are two ways of visualizing these graphs using the
 
 ### Properties of semigroups
 
+Recall that an element $x \in S$ is _regular_ if there
+exists some $y\in S$ such that $xyx = x$ and $yxy = y$.
+We say that the element $y$ is an _inverse_ of $x$ in this case.
+A semigroup is _regular_ if every element is regular.
+A semigroup is _inverse_ if every element has precisely one inverse.
+A semigroup is a _band_ if the equation $x^2 = x$ holds for
+all $x\in S$. A semigroup is _commutative_ if the equation $xy = yx$ holds
+for all $x, y \in S$.
+A semigroup is _simple_ if it does not
+contain a non-trivial two-sided ideal.
+
+We can
+
+* check if an element $x\in S$ is regular with the
+  [`IsRegularSemigroupElement`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X87532A76854347E0)
+  function;
+* find all inverses of an element with the
+  [`InversesOfSemigroupElement`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7AFDE0F17AE516C5)
+  function;
+* check if a semigroup is regular with the
+  [`IsRegularSemigroup`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7C4663827C5ACEF1)
+  function;
+* check if a semigroup is inverse with the
+  [`IsInverseSemigroup`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X83F1529479D56665)
+  function;
+* check if a semigroup is a band with the
+  [`IsBand`](https://semigroups.github.io/Semigroups/doc/chap12_mj.html#X7C8DB14587D1B55A)
+  function;
+* check if a semigroup is commutative with the
+  [`IsCommmutativeSemigroup`](https://semigroups.github.io/Semigroups/doc/chap12_mj.html#X843EFDA4807FDC31)
+  function;
+* check if a semigroup is simple with the
+  [`IsSimpleSemigroup`](https://semigroups.github.io/Semigroups/doc/chap12_mj.html#X836F4692839F4874)
+  function.
+  
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> S := Semigroup([
+    > Transformation([3, 1, 4, 2, 5, 2, 1, 6, 1]),
+    > Transformation([5, 7, 8, 8, 7, 5, 9, 1, 9]),
+    > Transformation([7, 6, 2, 8, 4, 7, 5, 8, 3])]);
+    <transformation semigroup of degree 9 with 3 generators>
+    gap> x := Transformation([3, 1, 4, 2, 5, 2, 1, 6, 1]);;
+    gap> InversesOfSemigroupElement(S, x);
+    [  ]
+    gap> IsRegularSemigroupElement(S, x);
+    false
+    gap> y := Transformation([1, 9, 7, 5, 5, 1, 9, 5, 1]);;
+    gap> InversesOfSemigroupElement(S, y);
+    [ Transformation( [ 1, 5, 1, 2, 5, 1, 3, 2, 2 ] ), 
+      Transformation( [ 1, 2, 3, 5, 5, 1, 3, 5, 2 ] ), 
+      Transformation( [ 1, 5, 1, 1, 5, 1, 3, 1, 2 ] ) ]
+    gap> IsRegularSemigroupElement(S, y);
+    true
+    gap> IsRegularSemigroup(S);
+    false
+    gap> T := Semigroup([
+    > Transformation([1, 2, 4, 5, 6, 3, 7, 8]),
+    > Transformation([3, 3, 4, 5, 6, 2, 7, 8]),
+    > Transformation([1, 2, 5, 3, 6, 8, 4, 4])]);;
+    gap> IsInverseSemigroup(T);
+    true
+    gap> U := Semigroup([
+    > Transformation([1, 1, 1, 4, 4, 4, 7, 7, 7, 1]),
+    > Transformation([2, 2, 2, 5, 5, 5, 8, 8, 8, 2]),
+    > Transformation([3, 3, 3, 6, 6, 6, 9, 9, 9, 3]),
+    > Transformation([1, 1, 1, 4, 4, 4, 7, 7, 7, 4]),
+    > Transformation([1, 1, 1, 4, 4, 4, 7, 7, 7, 7])]);;
+    gap> IsBand(U);
+    true
+    gap> V := Semigroup([
+    > Transformation([2, 4, 5, 3, 7, 8, 6, 9, 1]),
+    > Transformation([3, 5, 6, 7, 8, 1, 9, 2, 4])]);;
+    gap> IsCommutativeSemigroup(V);
+    true
+    gap> W := Semigroup([
+    > Transformation([2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 2]),
+    > Transformation([1, 1, 3, 3, 5, 5, 7, 7, 9, 9, 11, 11, 3]),
+    > Transformation([1, 7, 3, 9, 5, 11, 7, 1, 9, 3, 11, 5, 5]),
+    > Transformation([7, 7, 9, 9, 11, 11, 1, 1, 3, 3, 5, 5, 7])]);;
+    gap> IsSimpleSemigroup(W);
+    true
+    ```
+=== "GAP script"
+    ```gap
+    S := Semigroup([
+    Transformation([3, 1, 4, 2, 5, 2, 1, 6, 1]),
+    Transformation([5, 7, 8, 8, 7, 5, 9, 1, 9]),
+    Transformation([7, 6, 2, 8, 4, 7, 5, 8, 3])]);
+    x := Transformation([3, 1, 4, 2, 5, 2, 1, 6, 1]);;
+    InversesOfSemigroupElement(S, x);
+    IsRegularSemigroupElement(S, x);
+    y := Transformation([1, 9, 7, 5, 5, 1, 9, 5, 1]);;
+    InversesOfSemigroupElement(S, y);
+    IsRegularSemigroupElement(S, y);
+    IsRegularSemigroup(S);
+    T := Semigroup([
+    Transformation([1, 2, 4, 5, 6, 3, 7, 8]),
+    Transformation([3, 3, 4, 5, 6, 2, 7, 8]),
+    Transformation([1, 2, 5, 3, 6, 8, 4, 4])]);;
+    IsInverseSemigroup(T);
+    U := Semigroup([
+    Transformation([1, 1, 1, 4, 4, 4, 7, 7, 7, 1]),
+    Transformation([2, 2, 2, 5, 5, 5, 8, 8, 8, 2]),
+    Transformation([3, 3, 3, 6, 6, 6, 9, 9, 9, 3]),
+    Transformation([1, 1, 1, 4, 4, 4, 7, 7, 7, 4]),
+    Transformation([1, 1, 1, 4, 4, 4, 7, 7, 7, 7])]);;
+    IsBand(U);
+    V := Semigroup([
+    Transformation([2, 4, 5, 3, 7, 8, 6, 9, 1]),
+    Transformation([3, 5, 6, 7, 8, 1, 9, 2, 4])]);;
+    IsCommutativeSemigroup(V);
+    W := Semigroup([
+    Transformation([2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 2]),
+    Transformation([1, 1, 3, 3, 5, 5, 7, 7, 9, 9, 11, 11, 3]),
+    Transformation([1, 7, 3, 9, 5, 11, 7, 1, 9, 3, 11, 5, 5]),
+    Transformation([7, 7, 9, 9, 11, 11, 1, 1, 3, 3, 5, 5, 7])]);;
+    IsSimpleSemigroup(W);
+    ```
+
 !!! info
     See [Chapter 12](https://semigroups.github.io/Semigroups/doc/chap12_mj.html)
     of the `Semigroups` manual for a comprehensive list of semigroup
-    properties that can be checked by the `Semigroups` package.
+    properties that can be checked by the `Semigroups` package, as well as
+    [Section 51.4](https://docs.gap-system.org/doc/ref/chap51_mj.html#X78274024827F306D)
+    of the GAP reference manual. 
 
 ### Green's relations and egg-box diagrams
+
+Recall that the Green's $\mathscr{R}, \mathscr{L}$ and
+$\mathscr{J}$ relations are equivalence relations on a semigroup $S$
+defined by
+
+* $x \mathscr{R} y$ if and only if $x S = y S$,
+* $x \mathscr{L} y$ if and only if $S x = S y$,
+* $x \mathscr{J} y$ if and only if $S x S = S y S$.
+
+The Green's $\mathscr{H}$ and $\mathscr{D}$ relations are defined as
+the intersection and composition of the $\mathscr{R}$ and $\mathscr{L}$
+relations, respectively. For a finite semigroup, the $\mathscr{D}$ and
+$\mathscr{J}$ relations coincide.
+
+We can obtain the $\mathscr{R}, \mathscr{L}, \mathscr{D}$ or
+$\mathscr{H}$-equivalence class of an element of a semigroup using
+the
+[`RClass`](https://semigroups.github.io/Semigroups/doc/chap10_mj.html#X81B7AD4C7C552867),
+[`LClass`](https://semigroups.github.io/Semigroups/doc/chap10_mj.html#X81B7AD4C7C552867),
+[`DClass`](https://semigroups.github.io/Semigroups/doc/chap10_mj.html#X81B7AD4C7C552867) and
+[`HClass`](https://semigroups.github.io/Semigroups/doc/chap10_mj.html#X81B7AD4C7C552867) functions, respectively.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+    <transformation semigroup of degree 5 with 3 generators>
+    gap> RClass(S, Transformation([1, 1]));
+    <Green's R-class: Transformation( [ 1, 1 ] )>
+    gap> Elements(RClass(S, Transformation([1, 1])));
+    [ Transformation( [ 1, 1 ] ), Transformation( [ 2, 2 ] ), 
+      Transformation( [ 4, 4, 3, 2, 1 ] ), Transformation( [ 5, 5, 3, 2, 1 ] ) ]
+    gap> Elements(LClass(S, Transformation([1, 1])));
+    [ Transformation( [ 1, 1 ] ), Transformation( [ 5, 4, 3, 1, 1 ] ) ]
+    gap> Elements(DClass(S, Transformation([1, 1])));
+    [ Transformation( [ 1, 1 ] ), Transformation( [ 1, 2, 3, 4, 4 ] ), 
+      Transformation( [ 1, 2, 3, 5, 5 ] ), Transformation( [ 2, 2 ] ), 
+      Transformation( [ 4, 4, 3, 2, 1 ] ), Transformation( [ 5, 4, 3, 1, 1 ] ), 
+      Transformation( [ 5, 4, 3, 2, 2 ] ), Transformation( [ 5, 5, 3, 2, 1 ] ) ]
+    gap> Elements(HClass(S, Transformation([1, 1])));
+    [ Transformation( [ 1, 1 ] ) ]
+    ```
+=== "GAP script"
+    ```gap
+    S := Semigroup([Transformation([1, 1]), Transformation([2, 2]), Transformation([5, 4, 3, 2, 1])]);
+    RClass(S, Transformation([1, 1]));
+    Elements(RClass(S, Transformation([1, 1])));
+    Elements(LClass(S, Transformation([1, 1])));
+    Elements(DClass(S, Transformation([1, 1])));
+    Elements(HClass(S, Transformation([1, 1])));
+    ```
 
 <div class="grid" markdown>
 
   <div markdown>
   Recall that the _egg-box diagram_ of a semigroup is a visual representation
   of its Green's relations. In GAP we can display them using the `Splash` and
-  `DotString` functions:
-
-=== "GAP REPL"
-    ```gap-repl
-    gap> Splash(DotString(T, rec(maximal := true)));
-    ```
-=== "GAP script"
-    ```gap
-    Splash(DotString(T, rec(maximal := true)));
-    ```
-
-  The resulting egg-box diagram for $\mathcal{T}_3$ can be seen on the right.
-  The large boxes labelled 1, 2 and 3 in the diagram correspond to Green's
-  $\mathscr{D}$-classes of $\mathcal{T}_3$, the lines between them denote
-  inclusion in the ordering on $\mathscr{D}$-classes induced by the Green's
-  $\mathcal{J}$-relation.
-
-  The rows of the boxes representing the $\mathscr{D}$-classes correspond to
-  Green's $\mathscr{L}$-classes, the columns to Green's $\mathscr{R}$-classes.
-  Finally, the cells of the boxes representing the $\mathscr{D}$-classes
-  are the $\mathscr{H}$-classes of $\mathcal{T}_3$. Cells shaded in gray
-  denote the group $\mathscr{H}$-classes, and they contain the [`StructureDescription`](https://docs.gap-system.org/doc/ref/chap39.html#X8199B74B84446971) of these groups.
-
-  So, by visual inspection we can deduce that $\mathcal{T}_3$ has
-  3 Green's $\mathscr{D}$-classes, furthermore, each $\mathscr{D}$-class
-  contains a group $\mathscr{H}$-class, and is therefore a regular
-  $\mathscr{D}$-class. Hence we can conclude that $\mathcal{T}_3$ is regular,
-  just by visual inspection of the egg-box diagram.
-  </div>
-
-![The egg-box diagram of $\mathcal{T}_3$](../images/T3_egg_box.png){ align=right width=200rem }
-/// caption
-The egg-box diagram of $\mathcal{T}_3$.
-///
-</div>
-
-### Isomorphisms
-
-
-TODO: Integrate the below with the above
-
-# Finite, finitely generated and acting semigroups in GAP
-
-This section provides information about how to compute with a finite or finitely generated
-semigroup or monoid using the `Semigroups` package for GAP. We assume some basic familiarity
-with the GAP programming language, see the [GAP: First Steps](first-steps.md) section for
-a basic overview if you do not yet feel comfortable with GAP.
-
-GAP does provide some built-in functionality related to semigroups, see the reference manual
-
-* [Chapter 51: Semigroups and Monoid](https://docs.gap-system.org/doc/ref/chap51_mj.html),
-* [Chapter 52: Finitely Presented Semigroups and Monoids](https://docs.gap-system.org/doc/ref/chap52_mj.html),
-* [Chapter 53: Transformations](https://docs.gap-system.org/doc/ref/chap53_mj.html) and
-* [Chapter 54: Partial permutations](https://docs.gap-system.org/doc/ref/chap54_mj.html).
-
-However, some functionality is missing and many of the algorithms
-for semigroups as implemented in base GAP can be quite slow. The `Semigroups` package
-significantly expands the available computational semigroup theory toolbox and provides
-fast `C++` implementations of standard semigroup theory algorithms, such as the
-[Froidure-Pin algorithm](https://semigroups.github.io/Semigroups/doc/chap6_mj.html#X7E2DE9767D5D82F7).
-
-In order to load the `Semigroups` package simply add
-```gap
-LoadPackage("Semigroups");
-```
-at the start of your gap script, or execute this command at the start of your
-GAP session.
-
-## Finite semigroups
-
-In this section we showcase how one can construct and analyze certain kinds
-of finite semigroups.
-
-### Transformation semigroups
-
-Before we delve into functions for analyzing semigroups, we first need to
-construct some example to analyze. In this section we introduce one rich
-family of examples, the _transformation semigroups_.
-
-Recall that a _transformation_ of
-degree $n$ is a function $f: \{1, \ldots, n\} \rightarrow \{1, \ldots, n\}$ and
-the _full transformation semigroup_ of degree $n$ is semigroups
-$\mathcal{T}_n$ consisting of all degree $n$ transformations under composition.
-
-In GAP the function `#!gap FullTransformationSemigroup(n);` can be used to construct
-the semigroup $\mathcal{T}_n$, and check some basic facts about it.
-
-!!! note
-    The code examples in this section will consist of two tabs: one labelled
-    "GAP REPL" showcasing the output in an example GAP REPL session, and
-    another labelled "GAP script" which contains the same code without the
-    GAP REPL output, for easier copy-pasting into a GAP session.
+  [`DotString`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7F51F3CD7E13D199)
+  functions:
 
 === "GAP REPL"
     ```gap-repl
     gap> T := FullTransformationSemigroup(3);
-    <full transformation monoid of degree 3>
-    gap> Size(T); # The order of T
-    27
-    gap> IsMonoid(T); # Is T a monoid?
-    true
-    gap> IsRegularSemigroup(T); # Is T regular?
-    true
-    gap> IsCommutativeSemigroup(T); # Is T commutative?
-    false
-    ```
-=== "GAP script"
-    ```gap
-    T := FullTransformationSemigroup(3);
-    Size(T); # The order of T
-    IsMonoid(T); # Is T a monoid?
-    IsRegularSemigroup(T); # Is T regular?
-    IsCommutativeSemigroup(T); # Is T commutative?
-    ```
-
-As we discussed in the [Help system section](./first-steps.md#the-help-system), to
-learn more about any GAP function you can use the help operator `?` in the GAP
-REPL, e.g.
-
-```gap-repl
-gap> ?FullTransformationSemigroup
-  53.7-3 FullTransformationSemigroup
-  
-  ‣ FullTransformationSemigroup( n ) ─────────────────────────────────── function
-  ‣ FullTransformationMonoid( n ) ────────────────────────────────────── function
-  Returns:  The full transformation semigroup of degree n.
-  
-  If n is a positive integer, then FullTransformationSemigroup returns the monoid
-  consisting  of  all  transformations  with  degree  at  most n, called the full
-  transformation semigroup.
-  
-  The  full  transformation  semigroup  is  regular,  has  n ^ n elements, and is
-  generated  by  any  set  containing transformations that generate the symmetric
-  group on n points and any transformation of rank n - 1.
-  
-  FulTransformationMonoid is a synonym for FullTransformationSemigroup.
-  
-  ──────────────────────────────────  Example  ──────────────────────────────────
-    gap> FullTransformationSemigroup( 1234 );
-    <full transformation monoid of degree 1234>
-  ───────────────────────────────────────────────────────────────────────────────
-  -- <space> page, <n> next line, <b> back, <p> back line, <q> quit --
-```
-
-This can be especially helpful for understanding the functions we will use
-going forward.
-
-To display the elements of `T` we can use the GAP function `Elements`:
-
-=== "GAP REPL"
-    ```gap-repl
-    gap> Elements(T);
-    [ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 1, 2 ] ), 
-      Transformation( [ 1, 1 ] ), Transformation( [ 1, 2, 1 ] ), 
-      Transformation( [ 1, 2, 2 ] ), IdentityTransformation, 
-      Transformation( [ 1, 3, 1 ] ), Transformation( [ 1, 3, 2 ] ), 
-      Transformation( [ 1, 3, 3 ] ), Transformation( [ 2, 1, 1 ] ), 
-      Transformation( [ 2, 1, 2 ] ), Transformation( [ 2, 1 ] ), 
-      Transformation( [ 2, 2, 1 ] ), Transformation( [ 2, 2, 2 ] ), 
-      Transformation( [ 2, 2 ] ), Transformation( [ 2, 3, 1 ] ), 
-      Transformation( [ 2, 3, 2 ] ), Transformation( [ 2, 3, 3 ] ), 
-      Transformation( [ 3, 1, 1 ] ), Transformation( [ 3, 1, 2 ] ), 
-      Transformation( [ 3, 1, 3 ] ), Transformation( [ 3, 2, 1 ] ), 
-      Transformation( [ 3, 2, 2 ] ), Transformation( [ 3, 2, 3 ] ), 
-      Transformation( [ 3, 3, 1 ] ), Transformation( [ 3, 3, 2 ] ), 
-      Transformation( [ 3, 3, 3 ] ) ]
-    ```
-=== "GAP script"
-    ```gap
-    Elements(T);
-    ```
-
-Instead of representing transformations as functions, GAP uses a bespoke
-`Transformation` object. A transformation $t$ is specified by providing
-a list `A` such that the $i$-th entry `A[i]` is the image of the point $i$
-under the transformation $t$. So, for example
-`#!gap t := Transformation([1, 3, 3, 4]);` defines the transformation
-`t \in \mathcal{T}_4`
-such that $t(1) = 1, t(2) = t(3) = 3$ and $t(4) = 4$. We can
-multiply transformations using the usual multiplication operator `*`.
-Furthermore, we can obtain the image $t(x)$ of a point
-$x \in \{1, \ldots, 4\}$ under $t$ via the power syntax `x ^ t`.
-
-=== "GAP REPL"
-    ```gap-repl
-    gap> a := Transformation([1, 3, 3, 4]);
-    Transformation( [ 1, 3, 3 ] )
-    gap> b := Transformation([2, 3, 4, 1]);
-    Transformation( [ 2, 3, 4, 1 ] )
-    gap> a * b;
-    Transformation( [ 2, 4, 4, 1 ] )
-    gap> b * a;
-    Transformation( [ 3, 3, 4, 1 ] )
-    gap> 2 ^ a;
-    3
-    gap> 3 ^ b;
-    4
-    gap> 2 ^ (a * b);
-    4
-    gap> 2 ^ (b * a);
-    3
-    ```
-=== "GAP script"
-    ```gap
-    a := Transformation([1, 3, 3, 4]);
-    b := Transformation([2, 3, 4, 1]);
-    a * b;
-    b * a;
-    2 ^ a;
-    3 ^ b;
-    2 ^ (a * b);
-    2 ^ (b * a);
-    ```
-
-!!! note
-    In fact, mathematically all transformations in GAP belong to
-    the infinite transformation monoid $T_\mathbb{N}$ of transformations
-    $f: \mathbb{N} \rightarrow \mathbb{N}$. GAP simply treats all points
-    after the largest moved point of a transformation $t$ as fixed.
-    This means that we can multiply two transformations acting
-    on a different number of points, so e.g.
-    `#!gap Transformation([2, 1]) * Transformation([3, 3, 4, 5]);`
-    is valid. Similarly, `#!gap 10 ^ (Transformation([2, 1]));` is
-    valid and returns `10`.
-
-We can construct a semigroups generated by a set of transformations using the
-`Semigroup` function:
-
-=== "GAP REPL"
-    ```gap-repl
-    gap> a := Transformation([1, 3, 3, 4]);
-    Transformation( [ 1, 3, 3 ] )
-    gap> b := Transformation([2, 3, 4, 1]);
-    Transformation( [ 2, 3, 4, 1 ] )
-    gap> c := Transformation([1, 1, 2, 2]);
-    Transformation( [ 1, 1, 2, 2 ] )
-    gap> S := Semigroup([a, b, c]);
-    <transformation semigroup of degree 4 with 3 generators>
-    gap> Size(S); # All the usual semigroup functions should work
-    128
-    gap> IsRegularSemigroup(S);
-    true
-    gap> IsCommutativeSemigroup(S);
-    false
-    ```
-=== "GAP script"
-    ```gap
-    a := Transformation([1, 3, 3, 4]);
-    b := Transformation([2, 3, 4, 1]);
-    c := Transformation([1, 1, 2, 2]);
-    S := Semigroup([a, b, c]);
-    Size(S); # All the usual semigroup functions should work
-    IsRegularSemigroup(S);
-    IsCommutativeSemigroup(S);
-    ```
-
-
-
-
-
-### Green's relations
-
-TODO: Intro on what these are etc
-
-<div class="grid" markdown>
-
-  <div markdown>
-  Recall that the _egg-box diagram_ of a semigroup is a visual representation
-  of its Green's relations. In GAP we can display them using the `Splash` and
-  `DotString` functions:
-
-=== "GAP REPL"
-    ```gap-repl
     gap> Splash(DotString(T, rec(maximal := true)));
     ```
 === "GAP script"
     ```gap
+    T := FullTransformationSemigroup(3);
     Splash(DotString(T, rec(maximal := true)));
     ```
 
@@ -2169,7 +2076,9 @@ TODO: Intro on what these are etc
   Green's $\mathscr{L}$-classes, the columns to Green's $\mathscr{R}$-classes.
   Finally, the cells of the boxes representing the $\mathscr{D}$-classes
   are the $\mathscr{H}$-classes of $\mathcal{T}_3$. Cells shaded in gray
-  denote the group $\mathscr{H}$-classes, and they contain the [`StructureDescription`](https://docs.gap-system.org/doc/ref/chap39.html#X8199B74B84446971) of these groups.
+  denote the group $\mathscr{H}$-classes, and they contain the
+  [`StructureDescription`](https://docs.gap-system.org/doc/ref/chap39.html#X8199B74B84446971) of these groups,
+  this is a consequence of the `#!gap rec(maximal := true)` argument.
 
   So, by visual inspection we can deduce that $\mathcal{T}_3$ has
   3 Green's $\mathscr{D}$-classes, furthermore, each $\mathscr{D}$-class
@@ -2178,37 +2087,21 @@ TODO: Intro on what these are etc
   just by visual inspection of the egg-box diagram.
   </div>
 
-![The egg-box diagram of $\mathcal{T}_3$](../images/T3_egg_box.png){ align=right width=200rem }
+![The egg-box diagram of $\mathcal{T}_3$](../images/T3_egg_box_light.svg#only-light){ align=right }
+![The egg-box diagram of $\mathcal{T}_3$](../images/T3_egg_box_dark.svg#only-dark){ align=right }
 /// caption
 The egg-box diagram of $\mathcal{T}_3$.
 ///
 </div>
 
-### Multiplication tables
+!!! info
+    See [Chapter 10](https://semigroups.github.io/Semigroups/doc/chap10_mj.html)
+    of the `Semigroups` manual for a deeper look at Green's relation related
+    functionality.
 
-!!! warning
-    Multiplication tables are a very inefficient way of defining a
-    semigroup. Indeed, to define a semigroup $S$ using a multiplication
-    table we need to give a table of $|S|^2$ entries. However, if a
-    generating set $A$ for $S$ is known, we can construct a transformation
-    representation for $S$ by taking only those rows in the multiplication
-    table that correspond to the generators in $A$. This allows us to
-    construct a transformation semigroup $S^\prime$ that is isomorphic to
-    $S$, and we only need specify $|A|\cdot |S|$ many entries.
-    
+### Isomorphisms
 
-### Cayley graphs
-
-### Finite inverse semigroups
-
-### Semigroups of bipartitions
-
-[TODO](https://semigroups.github.io/Semigroups/doc/chap3_mj.html)
-
-## Finitely generated semigroups
-
-### Semigroups of matrices over semirings
-
+### Lattices of congruences
 
 [^1]:
     **East, J.**, **Egri-Nagy, A.**, **Mitchell, J. D.** and **Péresse, Y.**,
