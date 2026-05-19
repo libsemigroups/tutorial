@@ -396,8 +396,8 @@ word_graph.dot(wg).view()
 This results in the following graph being produced:
 
 <figure markdown="span">
-	![The left Cayley graph of S](/images/left-cayley-graph-light.svg#only-light)
-	![The left Cayley graph of S](/images/left-cayley-graph-dark.svg#only-dark)
+	![The left Cayley graph of S](../images/left-cayley-graph-light.svg#only-light)
+	![The left Cayley graph of S](../images/left-cayley-graph-dark.svg#only-dark)
 </figure>
 
 !!! info

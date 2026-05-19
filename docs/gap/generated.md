@@ -2212,7 +2212,7 @@ function to visualize a congruence lattice.
     ```
 
 ![The congruence lattice of $\mathcal{P}_2$](../images/congruence_latt_light.svg#only-light)
-![The congruence lattive of $\mathcal{P}_2$](../images/congruence_latt_dark.svg#only-dark)
+![The congruence lattice of $\mathcal{P}_2$](../images/congruence_latt_dark.svg#only-dark)
 /// caption
 The congruence lattice of $\mathcal{P}_2$.
 Result of `#!gap Splash(DotString(latt));`.

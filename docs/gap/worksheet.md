@@ -3,7 +3,7 @@
 
 This worksheet contains some exercises to be completed in [GAP][] with the use
 of the [Semigroups package for GAP][] package as part of the [GAP][] workshop
-session of [NBSAN 40](TODO). 
+session of [NBSAN 40](https://manchester-semigroups.github.io/NBSAN/next.html). 
 
 1.  Let $J_n$ denote the Jones monoid of degree $n$, and
     ![An element of the Jones monoid](../images/bipartition.png)
@@ -12,7 +12,7 @@ session of [NBSAN 40](TODO).
         the tensor product $x_1 \otimes x_2 \otimes \dots \otimes x_j$ is equal
     to $x$. What is the largest possible value of $j$? For the definition of
     the tensor product of bipartitions, see the documentation of the function
-    [TensorBipartition](TODO).
+    [`TensorBipartition`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7F7D823084F79C7D).
 
     2.  How many elements does $J_{14}$ contain?
 
@@ -30,14 +30,14 @@ session of [NBSAN 40](TODO).
 
         ??? hint
             
-            You might find the following helpful:
+            You might find the following functions helpful:
 
-            * [DClass](TODO)
-            * [DomainOfBipartition](TODO)
-            * [IsIrreducibleIdempotent](TODO)
-            * [JonesMonoid](TODO)
-            * [NrIdempotents](TODO)
-            * [Size](TODO)
+            * [`DClass`](https://semigroups.github.io/Semigroups/doc/chap10_mj.html#X81B7AD4C7C552867)
+            * [`DomainOfBipartition`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X8657EE2B79E1DD02)
+            * [`IsIrreducibleIdempotent`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X78999D6F8231AE79)
+            * [`JonesMonoid`](https://semigroups.github.io/Semigroups/doc/chap7_mj.html#X8378FC8B840B9706)
+            * [`NrIdempotents`](https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X7CFC4DB387452320)
+            * [`Size`](https://docs.gap-system.org/doc/ref/chap30_mj.html#X858ADA3B7A684421)
 
 2.  Recall that the commuting graph of a semigroup $S$ is the graph with
     nodes the elements of $S$ and an edge $(x, y)$ if $xy = yx$ holds.
@@ -48,10 +48,16 @@ session of [NBSAN 40](TODO).
     ??? hint
 
         You can defined $\mathcal{T}_n$ in [GAP][] using
-        [FullTransformationMonoid](TODO), and you can compute the clique number
-        of digraph using [CliqueNumber](TODO) from the [Digraphs package for
-        GAP](TODO). The [Digraphs package for GAP](TODO) is required by the 
-        [Semigroups package for GAP](TODO) so you don't have to install
+        [`FullTransformationMonoid`](https://docs.gap-system.org/doc/ref/chap53_mj.html#X7D2B0685815B4053),
+        and you can compute the clique number
+        of digraph using
+        [`CliqueNumber`](https://docs.gap-system.org/pkg/digraphs/doc/chap8_mj.html#X78427A8B81FEB457)
+        function from the
+        [`Digraphs` package for GAP](https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html).
+        The [`Digraphs` package for GAP](https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html)
+        is required by the 
+        [`Semigroups` package for GAP](https://semigroups.github.io/Semigroups/doc/chap0_mj.html)
+        so you don't have to install
         anything new to do this.
 
 3.  Let $S$ be the monoid defined by the presentation
@@ -70,8 +76,8 @@ session of [NBSAN 40](TODO).
       
         You might find the following helpful:
 
-        * [SemigroupHomomorphismByImages](TODO)
-        * [Enumerator](TODO)
+        * [`SemigroupHomomorphismByImages`](https://semigroups.github.io/Semigroups/doc/chap14_mj.html#X817596438369885B)
+        * [`Enumerator`](https://docs.gap-system.org/doc/ref/chap30_mj.html#X7EF8910F82B45EC7)
 
 4.  Is the monoid defined by the presentation
     $$
@@ -82,7 +88,8 @@ session of [NBSAN 40](TODO).
 
     ??? hint
 
-        You might want to use [NumberOfRightCongruences](TODO).
+        You might want to use
+        [`NumberOfRightCongruences`](https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X7AE16F237E862934).
 
 5.  Determine which of the relations in the presentation are redundant
     and which are not: 
@@ -114,14 +121,22 @@ session of [NBSAN 40](TODO).
 
         You might want to look at:
 
-        * [DotDigraph](TODO)
-        * [DotString](TODO)
-        * [LeftCayleyDigraph](TODO) and [RightCayleyDigraph](TODO)
-        * [Congruences](TODO)
-        * ... 
+        * [`DotDigraph`](https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html#X7F9B99C478EE093A)
+        * [`DotString`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X853B81B385E2CF36)
+        * [`LeftCayleyDigraph`](https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X7EA002E27B10CCE0) and
+          [`RightCayleyDigraph`](https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X7EA002E27B10CCE0)
+        * [`CongruencesOfSemigroup`](https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X7E8D5BA27CB5A4DA)
+        * [`MaximalSubsemigroups`](https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X860A10E387C19150)
 
 7.  Let $S$ be the dual of the full transformation monoid on 5 points.
     Find a transformation representation of $S$ on $32$ points.
+
+    ??? hint
+
+        You might want to look at:
+
+        * [`DualSemigroup`](https://semigroups.github.io/Semigroups/doc/chap8_mj.html#X79F2643C8642A3B0)
+        * [`SmallerDegreeTransformationRepresentation`](https://semigroups.github.io/Semigroups/doc/chap14_mj.html#X794E5DA4872989E4)
 
 8.  The translational hull $\Omega(S)$ of a semigroup $S$ is the set of
     all bitranslations $(\lambda, \rho)$ under componentwise
@@ -146,5 +161,11 @@ session of [NBSAN 40](TODO).
         `KnownTruePropertiesOfObject`, conjecture how the size is being
         calculated.
 
-[GAP]: (https://www.gap-system.org/) 
+    ??? hint
+
+        You might want to look at: 
+        [Chapter 18](https://semigroups.github.io/Semigroups/doc/chap18_mj.html)
+        of the `Semigroups` package manual.
+
+[GAP]: https://www.gap-system.org/ 
 [Semigroups package for GAP]: https://semigroups.github.io/Semigroups/

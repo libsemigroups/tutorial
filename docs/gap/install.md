@@ -285,7 +285,7 @@ We follow the Julia install instructions from
    source ~/.zshrc
    ```
    you should now be able to run Julia by typing `#!bash julia`++enter++ in the prompt.
-   Yo ucan exit the Julia prompt by typing `#!julia exit()`++enter++.
+   You can exit the Julia prompt by typing `#!julia exit()`++enter++.
 2. Run `#!bash julia`++enter++ to get a Julia prompt and run
    ```julia
    using Pkg; Pkg.add("GAP")

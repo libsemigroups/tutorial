@@ -11,7 +11,7 @@ in learning more about GAP itself, see also the
 After installing GAP and the `Semigroups` package as described in the
 [Installation](install.md) section, you should be able to start GAP
 from your terminal simply by typing `gap`++enter++[^1]. If GAP has been installed correctly,
-you should see a the GAP banner followed by the _GAP prompt_ `gap> ` similar to
+you should see the GAP banner followed by the _GAP prompt_ `gap> ` similar to
 the following:
 
 ```gap-repl title="GAP startup screen"
@@ -320,7 +320,7 @@ gap> A;
 ### Strings and printing
 
 A _string_ is a way of representing a word or phrase on the computer. In GAP they are denoted by quotation marks, e.g.
-`"apple"` or `"Hello world!"`. Under the hood strings are just lists of characters, so we can index them in the samme manner
+`"apple"` or `"Hello world!"`. Under the hood strings are just lists of characters, so we can index them in the same manner
 as lists.
 
 ```gap-repl
@@ -653,7 +653,7 @@ it multiplies `n` by 3 and adds 1, i.e.
 
 It is conjectured that applying this function repeatedly
 to any starting number eventually reaches the number 1, but as of yet this remains an
-open problem. We can use a `while` loop to implement our own Collats conjecture verifier:
+open problem. We can use a `while` loop to implement our own Collatz conjecture verifier:
 
 ```gap title="collatz.g"
 n := 928; # Set some initial value for n
@@ -925,7 +925,7 @@ IsAssociativeTable := function(table)
         if table[x][table[y][z]] <> table[table[x][y]][z] then
           Print("Failed with x = ", x, ", y = ", y, ", z = ", z, "\n");
           # As soon as a return statement is encountered, the value
-          # is returned and no further function coe is executed, so
+          # is returned and no further function code is executed, so
           # we do not need to use break statements here.
           return false;
         fi;
@@ -983,7 +983,7 @@ IsAssociativeTable := function(table)
         if table[x][table[y][z]] <> table[table[x][y]][z] then
           Print("Failed with x = ", x, ", y = ", y, ", z = ", z, "\n");
           # As soon as a return statement is encountered, the value
-          # is returned and no further function coe is executed, so
+          # is returned and no further function code is executed, so
           # we do not need to use break statements here.
           return false;
         fi;

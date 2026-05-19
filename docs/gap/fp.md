@@ -383,7 +383,7 @@ compute a complete rewriting system for `F / R`.
     IsFinite(F / R);
     ```
 
-### Non-isomorphism
+## Non-isomorphism
 
 In this section we show how to demonstrate that two monoids or semigroups
 defined by presentations are not isomorphic.
