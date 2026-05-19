@@ -1,14 +1,14 @@
 # Semigroups and monoids defined by generators
 
-If you followed the instructions on previous two pages, you should now have a
+If you followed the instructions on the previous two pages, you should now have a
 functioning version of [libsemigroups_pybind11][] and a way to use it. On this
 page, you will learn about semigroups defined by a collection of generators. In
-particular, you will learn which type of objects can be used as generators of a
+particular, you will learn which types of objects can be used as generators of a
 semigroup, and how to compute with semigroups defined by generators.
 
 ## Elements
 
-In [libsemigroups_pybind11][], there are several types of object that can be
+In [libsemigroups_pybind11][], there are several types of objects that can be
 treated as elements of a semigroup. In this guide, we will focus on the
 following:
 
@@ -22,7 +22,7 @@ In this section, you will learn how to construct objects of these types in
 !!! note
 
     This section provides examples of how to create different types of semigroup
-    element, but does not attempt to showcase every feature or function. For a
+    elements, but does not attempt to showcase every feature or function. For a
     full description of the API for the different element types, see the
     [Elements](https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/index.html)
     page in the [libsemigroups_pybind11][] documentation.
@@ -38,7 +38,7 @@ be defined over bipartitions using the following multiplication.
 Let $x$ and $y$ be bipartitions of degree $n$. Define
 $\mathbf{n}' = \{1', 2', \dots, n'\}$. From $x$, create a partition $x'$ of the
 set $\mathbf{n} \cup \mathbf{n}'$ by replacing each negative point $-i$ in a
-block of $x$ by the point $i'$, and create from y a partition $y'$ of the set
+block of $x$ by the point $i'$, and create from $y$ a partition $y'$ of the set
 $\mathbf{n}' \cup -\mathbf{n}$ by replacing each positive point $i$ in a block
 of $y$ by the point $i'$. Then define a relation on the set
 $\mathbf{n} \cup \mathbf{n}'\cup -\mathbf{n}$, where $i$ and $j$ are related if
@@ -205,7 +205,7 @@ m ** 3
 #                             [1, 1, 1]])
 ```
 
-As you can see above, the behaviour of the operators `+`, `*` and `**` have
+As you can see above, the behaviour of the operators `+`, `*` and `**` has
 changed now that the type of matrix has changed.
 
 If you attempt to construct a matrix whose rows do not all have the same length,
@@ -250,7 +250,7 @@ Objects of these types can be constructed by specifying a list of images of
 $0, \dots, n - 1$. Various checks will then be performed to ensure that the
 specified images define an object of the correct type. If not, a
 `LibsemigroupsError` is raised. For example, you can define the permutation
-$(0 1)(2 3 4)$ can in the following way:
+$(0 1)(2 3 4)$ in the following way:
 
 ```python
 from libsemigroups_pybind11 import Perm
@@ -274,7 +274,7 @@ p = Perm([1, 1, 3, 4, 2])
 For `PPerm` objects, to indicate that the image of $i$ is undefined, set the
 $i$-th image to be `UNDEFINED`. For example, the partial permutation $\phi$ on
 $\{0, 1, 2, 3, 4\}$ given by $1 \phi = 3$, $3 \phi = 2$ and $4 \phi = 0$ can be
-construct in the following way:
+constructed in the following way:
 
 ```python
 from libsemigroups_pybind11 import Transf, Perm, PPerm, UNDEFINED
@@ -393,7 +393,7 @@ wg = S.left_cayley_graph()
 word_graph.dot(wg).view()
 ```
 
-This results in the following graph begin produced:
+This results in the following graph being produced:
 
 <figure markdown="span">
 	![The left Cayley graph of S](/images/left-cayley-graph-light.svg#only-light)
@@ -499,6 +499,6 @@ On this page, you have learnt that `Bipartition`, `Matrix`, `Transf`, `Perm` and
 finitely generated semigroups.
 
 On the next page, you will learn about computing with finitely presented
-semigroups
+semigroups.
 
 [libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/
