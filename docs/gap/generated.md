@@ -2070,7 +2070,7 @@ the
   The large boxes labelled 1, 2 and 3 in the diagram correspond to Green's
   $\mathscr{D}$-classes of $\mathcal{T}_3$, the lines between them denote
   inclusion in the ordering on $\mathscr{D}$-classes induced by the Green's
-  $\mathcal{J}$-relation.
+  $\mathscr{J}$-relation.
 
   The rows of the boxes representing the $\mathscr{D}$-classes correspond to
   Green's $\mathscr{L}$-classes, the columns to Green's $\mathscr{R}$-classes.
@@ -2101,7 +2101,129 @@ The egg-box diagram of $\mathcal{T}_3$.
 
 ### Isomorphisms
 
+We can check if two semigroups $S$ and $T$ are isomorphic using the
+[`IsomorphismSemigroups`](https://semigroups.github.io/Semigroups/doc/chap14_mj.html#X8248C522825E2684)
+function. The function will return an isomorphism, if one exists,
+and return `fail` if the semigroups are not isomorphic.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> S := Semigroup([Transformation([1, 1]), Transformation([2, 2])]);
+    <transformation semigroup of degree 2 with 2 generators>
+    gap> T := Semigroup([Transformation([1, 3, 3]), Transformation([1, 2, 2])]);
+    <transformation semigroup of degree 3 with 2 generators>
+    gap> IsomorphismSemigroups(S, T); # Isomorphism found
+    CompositionMapping( MappingByFunction( <Rees matrix semigroup 1x2 over Group(())>, 
+    <simple transformation semigroup of degree 3 with 2 generators>
+    , function( object ) ... end, function( object ) ... end ), CompositionMapping( 
+    ((), GroupHomomorphismByImages( Group( [ () ] ), Group( [ () ] ), [  ], [  ] ), 
+    [ (), (), () ]), MappingByFunction( <simple transformation semigroup of degree 2 
+    with 2 generators>, <Rees matrix semigroup 1x2 over Group(())>
+    , function( object ) ... end, function( object ) ... end ) ) )
+    gap> IsomorphismSemigroups(S, FullTransformationMonoid(10)); # No isomorphism
+    fail
+    ```
+=== "GAP script"
+    ```gap
+    S := Semigroup([Transformation([1, 1]), Transformation([2, 2])]);
+    T := Semigroup([Transformation([1, 3, 3]), Transformation([1, 2, 2])]);
+    IsomorphismSemigroups(S, T); # Isomorphism found
+    IsomorphismSemigroups(S, FullTransformationMonoid(10)); # No isomorphism
+    ```
+
+!!! warning
+    If either `S` or `T` is an infinite semigroup, then
+    `IsomorphismSemigroups` may never terminate as the
+    isomorphism problem for infinite finitely generated semigroups is
+    undecidable.
+
+!!! info
+    See [Chapter 14](https://semigroups.github.io/Semigroups/doc/chap14_mj.html)
+    of the `Semigroups` manual for more information about
+    semigroup isomorphisms and homomorphisms.
+
 ### Lattices of congruences
+
+Given a semigroup $S$ one can construct the congruence lattice
+of $S$ using the [`LatticeOfCongruences`](https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X86C9C5BA7FE93F4C)
+function.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> P := PartitionMonoid(2);
+    <regular bipartition *-monoid of size 15, degree 2 with 3 generators>
+    gap> latt := LatticeOfCongruences(S);
+    <lattice of 11 two-sided congruences over <regular transformation semigroup 
+    of size 71, degree 5 with 3 generators>>
+    gap> CongruencesOfPoset(latt);
+    [ <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 0 generating pairs>, 
+      <universal semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators>>, <2-sided semigroup congruence over 
+        <regular bipartition *-monoid of size 15, degree 2 with 3 generators> with 
+        1 generating pairs>, <2-sided semigroup congruence over <regular bipartition *-
+        monoid of size 15, degree 2 with 3 generators> with 1 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 1 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 1 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 1 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 1 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 1 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 1 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 2 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 2 generating pairs>, 
+      <2-sided semigroup congruence over <regular bipartition *-monoid of size 15, 
+        degree 2 with 3 generators> with 2 generating pairs> ]
+    ```
+=== "GAP script"
+    ```gap
+    P := PartitionMonoid(2);
+    latt := LatticeOfCongruences(S);
+    CongruencesOfPoset(latt);
+    ```
+
+Analogous functions exist for computing the left and right congruence lattices
+of $S$ as well.
+
+We can use the [`DotString`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X853B81B385E2CF36)
+function to visualize a congruence lattice.
+
+=== "GAP REPL"
+    ```gap-repl
+    gap> P := PartitionMonoid(2);
+    <regular bipartition *-monoid of size 15, degree 2 with 3 generators>
+    gap> latt := LatticeOfCongruences(S);
+    <lattice of 11 two-sided congruences over <regular transformation semigroup 
+    of size 71, degree 5 with 3 generators>>
+    gap> Splash(DotString(latt));
+    ```
+=== "GAP script"
+    ```gap
+    P := PartitionMonoid(2);
+    latt := LatticeOfCongruences(S);
+    Splash(DotString(latt));
+    ```
+
+![The congruence lattice of $\mathcal{P}_2$](../images/congruence_latt_light.svg#only-light)
+![The congruence lattive of $\mathcal{P}_2$](../images/congruence_latt_dark.svg#only-dark)
+/// caption
+The congruence lattice of $\mathcal{P}_2$.
+Result of `#!gap Splash(DotString(latt));`.
+///
+</div>
+
+!!! info
+    See [Chapter 13](https://semigroups.github.io/Semigroups/doc/chap13_mj.html)
+    of the `Semigroups` manual for more information about
+    semigroup congruences.
+
 
 [^1]:
     **East, J.**, **Egri-Nagy, A.**, **Mitchell, J. D.** and **Péresse, Y.**,
