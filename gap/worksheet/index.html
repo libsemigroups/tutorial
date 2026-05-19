@@ -851,9 +851,9 @@
 
 
 <h1 id="worksheet">Worksheet</h1>
-<p>This worksheet contains some exercises to be completed in <a href="(https://www.gap-system.org/)">GAP</a> with the use
-of the <a href="https://semigroups.github.io/Semigroups/">Semigroups package for GAP</a> package as part of the <a href="(https://www.gap-system.org/)">GAP</a> workshop
-session of <a href="TODO">NBSAN 40</a>. </p>
+<p>This worksheet contains some exercises to be completed in <a href="https://www.gap-system.org/">GAP</a> with the use
+of the <a href="https://semigroups.github.io/Semigroups/">Semigroups package for GAP</a> package as part of the <a href="https://www.gap-system.org/">GAP</a> workshop
+session of <a href="https://manchester-semigroups.github.io/NBSAN/next.html">NBSAN 40</a>. </p>
 <ol>
 <li>
 <p>Let <span class="arithmatex">\(J_n\)</span> denote the Jones monoid of degree <span class="arithmatex">\(n\)</span>, and
@@ -864,7 +864,7 @@ session of <a href="TODO">NBSAN 40</a>. </p>
     the tensor product <span class="arithmatex">\(x_1 \otimes x_2 \otimes \dots \otimes x_j\)</span> is equal
 to <span class="arithmatex">\(x\)</span>. What is the largest possible value of <span class="arithmatex">\(j\)</span>? For the definition of
 the tensor product of bipartitions, see the documentation of the function
-<a href="TODO">TensorBipartition</a>.</p>
+<a href="https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7F7D823084F79C7D"><code>TensorBipartition</code></a>.</p>
 </li>
 <li>
 <p>How many elements does <span class="arithmatex">\(J_{14}\)</span> contain?</p>
@@ -886,14 +886,14 @@ the tensor product of bipartitions, see the documentation of the function
     instead.</p>
 <details class="hint">
 <summary>Hint</summary>
-<p>You might find the following helpful:</p>
+<p>You might find the following functions helpful:</p>
 <ul>
-<li><a href="TODO">DClass</a></li>
-<li><a href="TODO">DomainOfBipartition</a></li>
-<li><a href="TODO">IsIrreducibleIdempotent</a></li>
-<li><a href="TODO">JonesMonoid</a></li>
-<li><a href="TODO">NrIdempotents</a></li>
-<li><a href="TODO">Size</a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap10_mj.html#X81B7AD4C7C552867"><code>DClass</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X8657EE2B79E1DD02"><code>DomainOfBipartition</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X78999D6F8231AE79"><code>IsIrreducibleIdempotent</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap7_mj.html#X8378FC8B840B9706"><code>JonesMonoid</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X7CFC4DB387452320"><code>NrIdempotents</code></a></li>
+<li><a href="https://docs.gap-system.org/doc/ref/chap30_mj.html#X858ADA3B7A684421"><code>Size</code></a></li>
 </ul>
 </details>
 </li>
@@ -907,11 +907,17 @@ the tensor product of bipartitions, see the documentation of the function
     <span class="arithmatex">\(2 ^ {n - 1}\)</span>.</p>
 <details class="hint">
 <summary>Hint</summary>
-<p>You can defined <span class="arithmatex">\(\mathcal{T}_n\)</span> in <a href="(https://www.gap-system.org/)">GAP</a> using
-<a href="TODO">FullTransformationMonoid</a>, and you can compute the clique number
-of digraph using <a href="TODO">CliqueNumber</a> from the <a href="TODO">Digraphs package for
-GAP</a>. The <a href="TODO">Digraphs package for GAP</a> is required by the 
-<a href="TODO">Semigroups package for GAP</a> so you don't have to install
+<p>You can defined <span class="arithmatex">\(\mathcal{T}_n\)</span> in <a href="https://www.gap-system.org/">GAP</a> using
+<a href="https://docs.gap-system.org/doc/ref/chap53_mj.html#X7D2B0685815B4053"><code>FullTransformationMonoid</code></a>,
+and you can compute the clique number
+of digraph using
+<a href="https://docs.gap-system.org/pkg/digraphs/doc/chap8_mj.html#X78427A8B81FEB457"><code>CliqueNumber</code></a>
+function from the
+<a href="https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html"><code>Digraphs</code> package for GAP</a>.
+The <a href="https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html"><code>Digraphs</code> package for GAP</a>
+is required by the 
+<a href="https://semigroups.github.io/Semigroups/doc/chap0_mj.html"><code>Semigroups</code> package for GAP</a>
+so you don't have to install
 anything new to do this.</p>
 </details>
 </li>
@@ -936,8 +942,8 @@ anything new to do this.</p>
 <summary>Hint</summary>
 <p>You might find the following helpful:</p>
 <ul>
-<li><a href="TODO">SemigroupHomomorphismByImages</a></li>
-<li><a href="TODO">Enumerator</a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap14_mj.html#X817596438369885B"><code>SemigroupHomomorphismByImages</code></a></li>
+<li><a href="https://docs.gap-system.org/doc/ref/chap30_mj.html#X7EF8910F82B45EC7"><code>Enumerator</code></a></li>
 </ul>
 </details>
 </li>
@@ -950,7 +956,8 @@ anything new to do this.</p>
     the symmetric group for <span class="arithmatex">\(n\geq 2\)</span>?</p>
 <details class="hint">
 <summary>Hint</summary>
-<p>You might want to use <a href="TODO">NumberOfRightCongruences</a>.</p>
+<p>You might want to use
+<a href="https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X7AE16F237E862934"><code>NumberOfRightCongruences</code></a>.</p>
 </details>
 </li>
 <li>
@@ -991,17 +998,26 @@ anything new to do this.</p>
 <summary>Hint</summary>
 <p>You might want to look at:</p>
 <ul>
-<li><a href="TODO">DotDigraph</a></li>
-<li><a href="TODO">DotString</a></li>
-<li><a href="TODO">LeftCayleyDigraph</a> and <a href="TODO">RightCayleyDigraph</a></li>
-<li><a href="TODO">Congruences</a></li>
-<li>... </li>
+<li><a href="https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html#X7F9B99C478EE093A"><code>DotDigraph</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X853B81B385E2CF36"><code>DotString</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X7EA002E27B10CCE0"><code>LeftCayleyDigraph</code></a> and
+  <a href="https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X7EA002E27B10CCE0"><code>RightCayleyDigraph</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap13_mj.html#X7E8D5BA27CB5A4DA"><code>CongruencesOfSemigroup</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap11_mj.html#X860A10E387C19150"><code>MaximalSubsemigroups</code></a></li>
 </ul>
 </details>
 </li>
 <li>
 <p>Let <span class="arithmatex">\(S\)</span> be the dual of the full transformation monoid on 5 points.
     Find a transformation representation of <span class="arithmatex">\(S\)</span> on <span class="arithmatex">\(32\)</span> points.</p>
+<details class="hint">
+<summary>Hint</summary>
+<p>You might want to look at:</p>
+<ul>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap8_mj.html#X79F2643C8642A3B0"><code>DualSemigroup</code></a></li>
+<li><a href="https://semigroups.github.io/Semigroups/doc/chap14_mj.html#X794E5DA4872989E4"><code>SmallerDegreeTransformationRepresentation</code></a></li>
+</ul>
+</details>
 </li>
 <li>
 <p>The translational hull <span class="arithmatex">\(\Omega(S)\)</span> of a semigroup <span class="arithmatex">\(S\)</span> is the set of
@@ -1032,6 +1048,12 @@ anything new to do this.</p>
     calculated.</p>
 </li>
 </ol>
+<details class="hint">
+<summary>Hint</summary>
+<p>You might want to look at: 
+<a href="https://semigroups.github.io/Semigroups/doc/chap18_mj.html">Chapter 18</a>
+of the <code>Semigroups</code> package manual.</p>
+</details>
 </li>
 </ol>
 
