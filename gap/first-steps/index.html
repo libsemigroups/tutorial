@@ -1240,10 +1240,10 @@ open the documentation for the second entry <code>Reference: Sum and Intersectio
 <p>Additionally, the <a href="https://docs.gap-system.org/doc/ref/chap0_mj.html">GAP reference manual</a>
 and <a href="https://semigroups.github.io/Semigroups/doc/chap0_mj.html">Semigroups reference manual</a>
 available online contain all the same information but in html form.
-Each manual also has an <em>index section</em>,
+Each manual also has an <em>index section</em>, e.g. the
 <a href="https://docs.gap-system.org/doc/ref/chapInd_mj.html">GAP reference manual index</a> and
 <a href="https://semigroups.github.io/Semigroups/doc/chapInd_mj.html">Semigroups reference manual index</a>,
-which contains list of links to the documentation of every documented function in the standard library
+which contains a list of links to the documentation of every documented function in the standard library
 and the Semigroups package, respectively. These can be useful to find out if a
 certain function is implemented or not.</p>
 <p>See also the <a href="https://docs.gap-system.org/doc/ref/chap2_mj.html">help system section</a> of the
@@ -1487,9 +1487,7 @@ which executes the <code>code</code> expression if the <code>condition</code> is
 </span></code></pre></div>
 <p>Here the fist condition <code class="language-gap highlight"><span class="nv">1</span> <span class="o">&gt;</span> <span class="nv">10</span></code> does not hold, so the if statement ignores the
 <code>Print</code> and nothing is printed. However the second condition holds and so the
-<code>Print</code> statement is executed and <code class="language-gap highlight"><span class="nv">1</span> <span class="o">&lt;</span> <span class="nv">10</span></code> is printed. Note also the use of
-the continuation prompt <code>&gt;</code> to input code across multiple lines, it is often much
-more readable to input <code>if</code> statements like this.
+<code>Print</code> statement is executed and <code class="language-gap highlight"><span class="nv">1</span> <span class="o">&lt;</span> <span class="nv">10</span></code> is printed.
 Every <code>if</code> statement must be closed by
 an <code>fi;</code> statement.
 It is also customary to indent the body of an if statement by 2 spaces, to provide visual
@@ -1522,7 +1520,7 @@ conditions fail. E.g.</p>
 </span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;11 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Conditions holds so 11 &gt; 10 printed</span>
 </span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="k">elif</span> <span class="nv">12</span> <span class="o">&gt;</span> <span class="nv">10</span> <span class="k">then</span>
 </span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;12 &gt; 10\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Even though the condition holds, since an</span>
-</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>                      <span class="c1"># earlier condition holds, this line is not printed</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>                      <span class="c1"># earlier condition held, this line is not printed</span>
 </span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="k">else</span>
 </span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>  <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;All conditions failed!\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Since an earlier condition held,</span>
 </span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>                                     <span class="c1"># this line is not printed either.</span>
@@ -1536,7 +1534,7 @@ conditions fail. E.g.</p>
 done using the <code>for</code> and <code>while</code> loops.</p>
 <p>The <code class="language-gap highlight"><span class="k">for</span> <span class="nv">element</span> <span class="ow">in</span> <span class="nv">collection</span> <span class="k">do</span> <span class="nv">code</span><span class="o">;</span> <span class="k">od</span><span class="o">;</span></code> construct allows us to
 execute the statement <code>code</code> where the variable <code>element</code> varies over
-the elements of <code>collection</code>. For example, we the following for loop
+the elements of <code>collection</code>. For example, the following <code>for</code> loop
 prints all the elements of the list <code>A</code>:</p>
 <div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">A</span> <span class="o">:=</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">7</span><span class="o">,</span> <span class="nv">9</span><span class="p">]</span><span class="o">;</span>
 </span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">for</span> <span class="nv">x</span> <span class="ow">in</span> <span class="nv">A</span> <span class="k">do</span>
@@ -1566,7 +1564,7 @@ up the first <code>n</code> odd numbers:</p>
 </span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="c1"># Result:</span>
 </span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="c1">#   100</span>
 </span></code></pre></div>
-<p>The <code class="language-gap highlight"><span class="k">while</span> <span class="nv">condition</span> <span class="k">do</span> <span class="nv">code</span><span class="o">;</span> <span class="k">od</span><span class="o">;</span></code> construct will execution the <code>code</code> expresssion
+<p>The <code class="language-gap highlight"><span class="k">while</span> <span class="nv">condition</span> <span class="k">do</span> <span class="nv">code</span><span class="o">;</span> <span class="k">od</span><span class="o">;</span></code> construct will execution the <code>code</code> expression
 until <code>condition</code> becomes <code>false</code>. For example, the following while loop
 counts down from <code>10</code>:</p>
 <div class="language-gap highlight"><span class="filename">example.g</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">10</span><span class="o">;</span>
@@ -1604,7 +1602,7 @@ it multiplies <code>n</code> by 3 and adds 1, i.e.</p>
 <p>It is conjectured that applying this function repeatedly
 to any starting number eventually reaches the number 1, but as of yet this remains an
 open problem. We can use a <code>while</code> loop to implement our own Collats conjecture verifier:</p>
-<div class="language-gap highlight"><span class="filename">collatz.g</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">928</span><span class="o">;</span> <span class="c1"># Set some intial value for n</span>
+<div class="language-gap highlight"><span class="filename">collatz.g</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">n</span> <span class="o">:=</span> <span class="nv">928</span><span class="o">;</span> <span class="c1"># Set some initial value for n</span>
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="k">while</span> <span class="nv">n</span> <span class="o">&lt;&gt;</span> <span class="nv">1</span> <span class="k">do</span> <span class="c1"># Repeat the Collatz function application until the value is 1</span>
 </span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  <span class="nv">Print</span><span class="p">(</span><span class="nv">n</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Print n so we see how the number changes as we iterate</span>
 </span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>  <span class="k">if</span> <span class="nv">n</span> <span class="ow">mod</span> <span class="nv">2</span> <span class="o">=</span> <span class="nv">0</span> <span class="k">then</span> <span class="c1"># Check if n is even</span>
@@ -1785,15 +1783,15 @@ statement does: as soon as this statement is encountered, the innermost loop is 
 </span><span id="__span-32-36"><a id="__codelineno-32-36" name="__codelineno-32-36" href="#__codelineno-32-36"></a><span class="c1">#   Failed with x = 1, y = 1, z = 1</span>
 </span><span id="__span-32-37"><a id="__codelineno-32-37" name="__codelineno-32-37" href="#__codelineno-32-37"></a><span class="c1">#   Table does not define a semigroup</span>
 </span></code></pre></div>
-<p>Note that with the <code class="language-gap highlight"><span class="k">break</span><span class="o">;</span></code> statements, only a single counterexample is found, hence
-the search is stopped early.</p>
+<p>Note that with the <code class="language-gap highlight"><span class="k">break</span><span class="o">;</span></code> statements, only a single counterexample is printed, hence
+the search was stopped early.</p>
 <p>The <code>Semigroups</code> package offers a simpler way of checking if a multiplication table
-defines a semigroup, which we will cover in the section
+defines a semigroup, which we will cover in
 <a href="../generated/#multiplication-tables">the next section</a>.</p>
 <h3 id="defining-functions">Defining functions</h3>
-<p>Finally, we can use the <code class="language-gap highlight"><span class="k">function</span><span class="p">(</span><span class="nv">arguments</span><span class="p">)</span> <span class="k">end</span><span class="o">;</span></code> construct to define a function
+<p>Finally, we can use the <code class="language-gap highlight"><span class="k">function</span><span class="p">(</span><span class="nv">arguments</span><span class="p">)</span> <span class="nv">code</span> <span class="k">end</span><span class="o">;</span></code> construct to define a function
 in GAP. This can be useful for factoring out commonly used functionality.</p>
-<p>For example, we could take our code for the Collatz function iteration
+<p>For example, we could turn our code for the Collatz function iteration
 from the <a href="#loops">Loops</a> section into a function <code>Collatz</code> as follows:</p>
 <div class="language-gap highlight"><span class="filename">collatz.g</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nv">Collatz</span> <span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span> <span class="c1"># We declare n as a variable to the function</span>
 </span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>  <span class="k">while</span> <span class="nv">n</span> <span class="o">&lt;&gt;</span> <span class="nv">1</span> <span class="k">do</span>
@@ -1940,7 +1938,7 @@ in order to be able to correctly set the file extension to <code>.g</code>.&#160
 <li id="fn:3">
 <p>For Windows users, you need to make sure the files are located within the <code>WSL</code>
 filesystem. According to <a href="https://superuser.com/a/1791389">this stack overflow answer</a>,
-this directly can be accessed from Windows by typing
+this directory can be accessed from Windows by typing
 <code>\\wsl.localhost\Ubuntu\home\{username}</code> in the Windows Explorer, substituting
 <code>{username}</code> for the username you chose when you first ran the <code>ubuntu</code> command.
 Files in this directory correspond to files in the <code>~</code> directory from the 

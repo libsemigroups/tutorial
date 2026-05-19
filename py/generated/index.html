@@ -785,21 +785,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transformations-permutations-and-partial-permutations" class="md-nav__link">
+  <a href="#transformations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transformations, permutations and partial permutations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#partitioned-binary-relations-pbrs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partitioned binary relations (PBRs)
+        Transformations
       
     </span>
   </a>
@@ -847,6 +836,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
   
 </li>
       
@@ -988,18 +988,18 @@
 
 
 <h1 id="semigroups-and-monoids-defined-by-generators">Semigroups and monoids defined by generators</h1>
-<p>If you followed the instructions on <a href="../first-steps/">the previous page</a>, you
-should now have a functioning version of <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a>. On this page,
-you will learn about semigroups defined by a collection of generators. In
-particular, you will learn which type of objects can be used as generators of a
+<p>If you followed the instructions on the previous two pages, you should now have a
+functioning version of <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a> and a way to use it. On this
+page, you will learn about semigroups defined by a collection of generators. In
+particular, you will learn which types of objects can be used as generators of a
 semigroup, and how to compute with semigroups defined by generators.</p>
 <h2 id="elements">Elements</h2>
-<p>In <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a>, there are several types of object that can be
-treated as elements of a semigroup, which are broken down into four categories:</p>
+<p>In <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a>, there are several types of objects that can be
+treated as elements of a semigroup. In this guide, we will focus on the
+following:</p>
 <ol>
 <li>bipartitions,</li>
-<li>matrices,</li>
-<li>partitioned binary relations (PBRs), and</li>
+<li>matrices, and</li>
 <li>transformations.</li>
 </ol>
 <p>In this section, you will learn how to construct objects of these types in
@@ -1007,7 +1007,7 @@ treated as elements of a semigroup, which are broken down into four categories:<
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This section provides examples of how to create different types of semigroup
-element, but does not attempt to showcase every feature or function. For a
+elements, but does not attempt to showcase every feature or function. For a
 full description of the API for the different element types, see the
 <a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/index.html">Elements</a>
 page in the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a> documentation.</p>
@@ -1021,7 +1021,7 @@ be defined over bipartitions using the following multiplication.</p>
 <p>Let <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> be bipartitions of degree <span class="arithmatex">\(n\)</span>. Define
 <span class="arithmatex">\(\mathbf{n}' = \{1', 2', \dots, n'\}\)</span>. From <span class="arithmatex">\(x\)</span>, create a partition <span class="arithmatex">\(x'\)</span> of the
 set <span class="arithmatex">\(\mathbf{n} \cup \mathbf{n}'\)</span> by replacing each negative point <span class="arithmatex">\(-i\)</span> in a
-block of <span class="arithmatex">\(x\)</span> by the point <span class="arithmatex">\(i'\)</span>, and create from y a partition <span class="arithmatex">\(y'\)</span> of the set
+block of <span class="arithmatex">\(x\)</span> by the point <span class="arithmatex">\(i'\)</span>, and create from <span class="arithmatex">\(y\)</span> a partition <span class="arithmatex">\(y'\)</span> of the set
 <span class="arithmatex">\(\mathbf{n}' \cup -\mathbf{n}\)</span> by replacing each positive point <span class="arithmatex">\(i\)</span> in a block
 of <span class="arithmatex">\(y\)</span> by the point <span class="arithmatex">\(i'\)</span>. Then define a relation on the set
 <span class="arithmatex">\(\mathbf{n} \cup \mathbf{n}'\cup -\mathbf{n}\)</span>, where <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are related if
@@ -1046,10 +1046,10 @@ their blocks:</p>
     <img alt="bipartition y" src="../../images/bipartition-2-dark.svg#only-dark" />
 </figure>
 <p>A number of checks are performed on the list of blocks when trying to construct
-a <code>Bipartition</code> instance. In particular, it is checked that the blocks are:</p>
+a <code>Bipartition</code> instance. In particular, it is checked that the blocks:</p>
 <ul>
-<li>duplicate-free;</li>
-<li>pairwise disjoint; and</li>
+<li>are duplicate-free;</li>
+<li>are pairwise disjoint; and</li>
 <li>partition the set <span class="arithmatex">\(\{-n, \ldots,  -1, 1, \ldots, n\}\)</span> for some
   positive integer <span class="arithmatex">\(n\)</span>.</li>
 </ul>
@@ -1077,7 +1077,11 @@ the <code>bipartition.random</code> function:</p>
 <p class="admonition-title">Info</p>
 <p>For more information about bipartitions, see the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/bipart/bipart.html">Bipartition class</a> and
 <a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/bipart/bipart-helpers.html">Bipartition helpers</a>
-pages in the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a> documentation.</p>
+pages in the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a> documentation. Additionally, if you
+would like to be more general and define semigroup elements that represent
+<em>partitioned binary relations</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, then see the
+<a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/pbr/class.html">PBR class</a>
+page.</p>
 </div>
 <h3 id="matrices">Matrices</h3>
 <p>There are several different flavours of matrix available in
@@ -1186,7 +1190,7 @@ following way:</p>
 </span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="c1">#                             [1, 1, 1],</span>
 </span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c1">#                             [1, 1, 1]])</span>
 </span></code></pre></div>
-<p>As you can see above, the behaviour of the operators <code>+</code>, <code>*</code> and <code>**</code> have
+<p>As you can see above, the behaviour of the operators <code>+</code>, <code>*</code> and <code>**</code> has
 changed now that the type of matrix has changed.</p>
 <p>If you attempt to construct a matrix whose rows do not all have the same length,
 or contain elements that cannot be represented by the specified <code>MatrixKind</code>
@@ -1210,7 +1214,7 @@ information can be found on the <a href="https://libsemigroups.github.io/libsemi
 <a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/matrix/matrix-helpers.html">Matrix helpers</a>
 pages in the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a> documentation.</p>
 </div>
-<h3 id="transformations-permutations-and-partial-permutations">Transformations, permutations and partial permutations</h3>
+<h3 id="transformations">Transformations</h3>
 <p>In <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a>, it is possible to construct semigroup elements
 that represent <em>transformations</em>, <em>permutations</em>, and <em>partial permutations</em>. In
 this context, a transformation is a function
@@ -1222,12 +1226,37 @@ be represented by a <code>Transf</code> instance, a permutation can be represent
 <code>Perm</code> instance, and a partial permutation can be represented by a <code>PPerm</code>
 instance.</p>
 <p>Objects of these types can be constructed by specifying a list of images of
-<span class="arithmatex">\(0 \dots n - 1\)</span>. Various checks will then be performed to ensure that the
+<span class="arithmatex">\(0, \dots, n - 1\)</span>. Various checks will then be performed to ensure that the
 specified images define an object of the correct type. If not, a
-<code>LibsemigroupsError</code> is raised.</p>
-<p>For <code>PPerm</code> objects, to indicate that the image of <span class="arithmatex">\(i\)</span> is
-undefined,</p>
-<h3 id="partitioned-binary-relations-pbrs">Partitioned binary relations (PBRs)</h3>
+<code>LibsemigroupsError</code> is raised. For example, you can define the permutation
+<span class="arithmatex">\((0 1)(2 3 4)\)</span> in the following way:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Perm</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">p</span> <span class="o">=</span> <span class="n">Perm</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</span></code></pre></div>
+<p>If you attempt to construct an invalid object, you are shown a helpful error
+message:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">p</span> <span class="o">=</span> <span class="n">Perm</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># ---------------------------------------------------------------------------</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># LibsemigroupsError                        Traceback (most recent call last)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Cell In[1], line 1</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># ----&gt; 1 p = Perm([1, 1, 3, 4, 2])</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># [...]</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># LibsemigroupsError: duplicate image value, found 1 in position 1, first occurrence in position 0</span>
+</span></code></pre></div>
+<p>For <code>PPerm</code> objects, to indicate that the image of <span class="arithmatex">\(i\)</span> is undefined, set the
+<span class="arithmatex">\(i\)</span>-th image to be <code>UNDEFINED</code>. For example, the partial permutation <span class="arithmatex">\(\phi\)</span> on
+<span class="arithmatex">\(\{0, 1, 2, 3, 4\}\)</span> given by <span class="arithmatex">\(1 \phi = 3\)</span>, <span class="arithmatex">\(3 \phi = 2\)</span> and <span class="arithmatex">\(4 \phi = 0\)</span> can be
+constructed in the following way:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transf</span><span class="p">,</span> <span class="n">Perm</span><span class="p">,</span> <span class="n">PPerm</span><span class="p">,</span> <span class="n">UNDEFINED</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">phi</span> <span class="o">=</span> <span class="n">PPerm</span><span class="p">([</span><span class="n">UNDEFINED</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">UNDEFINED</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</span></code></pre></div>
+<p>As with the other element types, transformations of the same type can be
+multiplied using the <code>*</code> operator.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For more information about transformations, see the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/elements/transformations/index.html">Transformations</a> page in the
+<a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a> documentation.</p>
+</div>
 <h2 id="finitely-generated-semigroups">Finitely generated semigroups</h2>
 <p>In this section, now that you have seen which types of objects can be treated as
 semigroup elements, you will learn how to compute with semigroups constructed
@@ -1235,7 +1264,7 @@ from a collection of generators. The focus will be on the algorithms and
 functions implemented in the classes <code>FroidurePin</code> and <code>Konieczny</code>.</p>
 <h3 id="froidurepin"><code>FroidurePin</code></h3>
 <p>The class <code>FroidurePin</code> implements the Froidure-Pin algorithm as described in
-the article <em>Algorithms for computing finite semigroups</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. If
+the article <em>Algorithms for computing finite semigroups</em><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. If
 <span class="arithmatex">\(S = \langle G \rangle\)</span> is a finitely generated semigroup where the elements of
 <span class="arithmatex">\(G\)</span> can be represented as one of the element types discussed in the previous
 section, then a <code>FroidurePin</code> instance can be defined on <span class="arithmatex">\(G\)</span>, and used to answer
@@ -1250,35 +1279,35 @@ answer (provided the algorithm terminates) include:</p>
 <span class="arithmatex">\(S = \langle x, y \rangle\)</span> generated by the two bipartitions given in the
 <a href="#bipartitions">Bipartitions</a> section. This can be achieved in the following
 way:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bipartition</span><span class="p">,</span> <span class="n">FroidurePin</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Bipartition</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Bipartition</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">S</span> <span class="o">=</span> <span class="n">FroidurePin</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bipartition</span><span class="p">,</span> <span class="n">FroidurePin</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Bipartition</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Bipartition</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">S</span> <span class="o">=</span> <span class="n">FroidurePin</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
 </span></code></pre></div>
 <p>Now that you have constructed <code>S</code>, you can run the Froidure-Pin algorithm. Many
 of the member functions of <code>FroidurePin</code> will result in the algorithm being
 started, but the most explicit way of starting the algorithm is by calling the
 <code>run</code> function:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">S</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">#0: FroidurePin: enumerating until all elements are found . . .</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">#0: FroidurePin: ⌀ 1    (Cayley graph) | 2           (elements) | 0         (rules) | 488ns   (total)</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">#0: FroidurePin: ⌀ 2    (Cayley graph) | 6           (elements) | 0         (rules) | 28µs    (total)</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">#0: FroidurePin: ⌀ 3    (Cayley graph) | 13          (elements) | 1         (rules) | 43µs    (total)</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1">#0: FroidurePin: ⌀ 4    (Cayley graph) | 24          (elements) | 3         (rules) | 59µs    (total)</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1">#0: FroidurePin: ⌀ 5    (Cayley graph) | 40          (elements) | 6         (rules) | 77µs    (total)</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">#0: FroidurePin: ⌀ 6    (Cayley graph) | 57          (elements) | 14        (rules) | 95µs    (total)</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">#0: FroidurePin: ⌀ 7    (Cayley graph) | 73          (elements) | 16        (rules) | 114µs   (total)</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1">#0: FroidurePin: ⌀ 8    (Cayley graph) | 85          (elements) | 16        (rules) | 129µs   (total)</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c1">#0: FroidurePin: ⌀ 9    (Cayley graph) | 90          (elements) | 16        (rules) | 137µs   (total)</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1">#0: FroidurePin: ⌀ 10   (Cayley graph) | 91          (elements) | 16        (rules) | 142µs   (total)</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c1">#0: FroidurePin:</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="c1">#0: FroidurePin: number of products was  105 of 182 (57.692%)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">S</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1">#0: FroidurePin: enumerating until all elements are found . . .</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1">#0: FroidurePin: ⌀ 1    (Cayley graph) | 2           (elements) | 0         (rules) | 488ns   (total)</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1">#0: FroidurePin: ⌀ 2    (Cayley graph) | 6           (elements) | 0         (rules) | 28µs    (total)</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">#0: FroidurePin: ⌀ 3    (Cayley graph) | 13          (elements) | 1         (rules) | 43µs    (total)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1">#0: FroidurePin: ⌀ 4    (Cayley graph) | 24          (elements) | 3         (rules) | 59µs    (total)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1">#0: FroidurePin: ⌀ 5    (Cayley graph) | 40          (elements) | 6         (rules) | 77µs    (total)</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1">#0: FroidurePin: ⌀ 6    (Cayley graph) | 57          (elements) | 14        (rules) | 95µs    (total)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">#0: FroidurePin: ⌀ 7    (Cayley graph) | 73          (elements) | 16        (rules) | 114µs   (total)</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1">#0: FroidurePin: ⌀ 8    (Cayley graph) | 85          (elements) | 16        (rules) | 129µs   (total)</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1">#0: FroidurePin: ⌀ 9    (Cayley graph) | 90          (elements) | 16        (rules) | 137µs   (total)</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1">#0: FroidurePin: ⌀ 10   (Cayley graph) | 91          (elements) | 16        (rules) | 142µs   (total)</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1">#0: FroidurePin:</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1">#0: FroidurePin: number of products was  105 of 182 (57.692%)</span>
 </span></code></pre></div>
 <p>As you can see, this resulted in some output that reports the progress of the
 algorithm. In particular, looking at the third-from-last line, you can see that
 the algorithm finished having enumerated <span class="arithmatex">\(91\)</span> elements in 142 microseconds. The
 size can be checked by calling <code>S.size()</code>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">S</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>  <span class="c1"># returns 91</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">S</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>  <span class="c1"># returns 91</span>
 </span></code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -1299,17 +1328,17 @@ from the <code>Runner</code> class.</p>
 enumerated, you can start asking questions about <span class="arithmatex">\(S\)</span>. For example, if you would
 like to know if <span class="arithmatex">\(z \in S\)</span> for some bipartition <span class="arithmatex">\(z\)</span>, you can do this with the
 <code>Bipartition.contains</code> function:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">z</span> <span class="o">=</span> <span class="n">Bipartition</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">S</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># returns False</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">z</span> <span class="o">=</span> <span class="n">Bipartition</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">S</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># returns False</span>
 </span></code></pre></div>
 <p>Instead, if you would like to construct the left Cayley graph of <span class="arithmatex">\(S\)</span>, you can
 do this with the <code>Bipartition.left_cayley_graph</code> function. This returns a
 <code>WordGraph</code> object, which you can visualise using the <code>word_graph.dot</code> function:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_graph</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">wg</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">left_cayley_graph</span><span class="p">()</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">word_graph</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">wg</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_graph</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">wg</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">left_cayley_graph</span><span class="p">()</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">word_graph</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">wg</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
 </span></code></pre></div>
-<p>This results in the following graph begin produced:</p>
+<p>This results in the following graph being produced:</p>
 <figure>
     <img alt="The left Cayley graph of S" src="/images/left-cayley-graph-light.svg#only-light" />
     <img alt="The left Cayley graph of S" src="/images/left-cayley-graph-dark.svg#only-dark" />
@@ -1324,7 +1353,7 @@ pages in the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">l
 </div>
 <h3 id="konieczny"><code>Konieczny</code></h3>
 <p>The class <code>Konieczny</code> implements Konieczny’s algorithm as described in the
-article <em>Green's equivalences in finite semigroups of binary relations</em><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. As
+article <em>Green's equivalences in finite semigroups of binary relations</em><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. As
 with <code>FroidurePin</code> instances, a <code>Konieczny</code> instance can be constructed by
 specifying a list of generators to represent a finitely generated semigroup <span class="arithmatex">\(S\)</span>.
 The algorithm can be performed by calling <code>run</code> and, if it terminates, the size,
@@ -1341,67 +1370,78 @@ of <span class="arithmatex">\(S\)</span> are known.</p>
 <p>in the full transformation monoid of degree <span class="arithmatex">\(5\)</span>, you could do this by first
 constructing a <code>Konieczny</code> instance to represent the full transformation monoid
 of degree <span class="arithmatex">\(5\)</span> ...</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transf</span><span class="p">,</span> <span class="n">Konieczny</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">alpha</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">beta</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">gamma</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">S</span> <span class="o">=</span> <span class="n">Konieczny</span><span class="p">([</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">])</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">S</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1">#0: Konieczny: running until all D-classes are found . . .</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1">#0: Konieczny: there are 3 generators with degree 5</span>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1">#0: Konieczny: computing λ-action . . .</span>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1">#0: Konieczny: running until predicate returns true or finished</span>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1">#0: Action: found            2 points so far     9µs</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="c1">#0: Konieczny: found 30 λ-values in 29µs</span>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="c1">#0: Konieczny: λ-action finished with 31 values</span>
-</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="c1">#0: Konieczny: computing ρ-action . . .</span>
-</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="c1">#0: Konieczny: running until predicate returns true or finished</span>
-</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="c1">#0: Action: found            2 points so far     7µs</span>
-</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="c1">#0: Konieczny: found 51 ρ-values in 61µs</span>
-</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="c1">#0: Konieczny: ρ-action finished with 52 values</span>
-</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="c1">#0: Konieczny: 1     (D-classes) | 120         (elements) | 1       (todo) | [4,5)   (ranks) | 129µs   (total)</span>
-</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="c1">#0: Konieczny: 2     (D-classes) | 1,320       (elements) | 3       (todo) | [3,4)   (ranks) | 161µs   (total)</span>
-</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="c1">#0: Konieczny: 3     (D-classes) | 2,820       (elements) | 3       (todo) | [2,3)   (ranks) | 202µs   (total)</span>
-</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="c1">#0: Konieczny: 4     (D-classes) | 3,120       (elements) | 1       (todo) | [1,2)   (ranks) | 229µs   (total)</span>
-</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
-</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="c1">#0: Konieczny:</span>
-</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="c1">#0: Konieczny: FINISHED!</span>
-</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
-</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="c1">#0: Konieczny: number of regular D-classes     |           5</span>
-</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="c1">#0: Konieczny: number of non-regular D-classes |           0</span>
-</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="c1">#0: Konieczny: number of L-classes             |          31</span>
-</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="c1">#0: Konieczny: number of R-classes             |          52</span>
-</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="c1">#0: Konieczny: number of elements              |       3,125</span>
-</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transf</span><span class="p">,</span> <span class="n">Konieczny</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">alpha</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">beta</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">gamma</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">S</span> <span class="o">=</span> <span class="n">Konieczny</span><span class="p">([</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">])</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="n">S</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="c1">#0: Konieczny: running until all D-classes are found . . .</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="c1">#0: Konieczny: there are 3 generators with degree 5</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">#0: Konieczny: computing λ-action . . .</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="c1">#0: Konieczny: running until predicate returns true or finished</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="c1">#0: Action: found            2 points so far     9µs</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="c1">#0: Konieczny: found 30 λ-values in 29µs</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1">#0: Konieczny: λ-action finished with 31 values</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="c1">#0: Konieczny: computing ρ-action . . .</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="c1">#0: Konieczny: running until predicate returns true or finished</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="c1">#0: Action: found            2 points so far     7µs</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1">#0: Konieczny: found 51 ρ-values in 61µs</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="c1">#0: Konieczny: ρ-action finished with 52 values</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="c1">#0: Konieczny: 1     (D-classes) | 120         (elements) | 1       (todo) | [4,5)   (ranks) | 129µs   (total)</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="c1">#0: Konieczny: 2     (D-classes) | 1,320       (elements) | 3       (todo) | [3,4)   (ranks) | 161µs   (total)</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="c1">#0: Konieczny: 3     (D-classes) | 2,820       (elements) | 3       (todo) | [2,3)   (ranks) | 202µs   (total)</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="c1">#0: Konieczny: 4     (D-classes) | 3,120       (elements) | 1       (todo) | [1,2)   (ranks) | 229µs   (total)</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="c1">#0: Konieczny:</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="c1">#0: Konieczny: FINISHED!</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="c1">#0: Konieczny: number of regular D-classes     |           5</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="c1">#0: Konieczny: number of non-regular D-classes |           0</span>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="c1">#0: Konieczny: number of L-classes             |          31</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a><span class="c1">#0: Konieczny: number of R-classes             |          52</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="c1">#0: Konieczny: number of elements              |       3,125</span>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a><span class="c1">#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
 </span></code></pre></div>
 <p>... and then use the functions <code>Konieczny.D_class_of_element</code> and
 <code>Konieczny.DClass.number_of_idempotents</code> to compute the desired number of
 idempotents:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">zeta</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">d_zeta</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">D_class_of_element</span><span class="p">(</span><span class="n">zeta</span><span class="p">)</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">d_zeta</span><span class="o">.</span><span class="n">number_of_idempotents</span><span class="p">()</span>  <span class="c1"># returns 20</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">zeta</span> <span class="o">=</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">d_zeta</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">D_class_of_element</span><span class="p">(</span><span class="n">zeta</span><span class="p">)</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">d_zeta</span><span class="o">.</span><span class="n">number_of_idempotents</span><span class="p">()</span>  <span class="c1"># returns 20</span>
 </span></code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>As with <code>FroidurePin</code>, the functions presented in this section only scratch
 the surface of the capabilities of the <code>Konieczny</code> class. For a full
-description of the API the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/konieczny/konieczny.html#">Konieczny class</a>
+description of the API, see the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/konieczny/konieczny.html#">Konieczny class</a>
 page in the <a href="https://libsemigroups.github.io/libsemigroups_pybind11/">libsemigroups_pybind11</a> documentation.</p>
 </div>
+<h2 id="summary">Summary</h2>
+<p>On this page, you have learnt that <code>Bipartition</code>, <code>Matrix</code>, <code>Transf</code>, <code>Perm</code> and
+<code>PPerm</code> objects can be used to represent semigroup elements, and that the
+<code>FroidurePin</code> and <code>Konieczny</code> classes can be used to answer questions about
+finitely generated semigroups.</p>
+<p>On the next page, you will learn about computing with finitely presented
+semigroups.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Froidure, Véronique &amp; Pin, Jean-Eric. (1997). Algorithms for computing
-finite semigroups. Foundations of Computational Mathematics.
-<a href="https://doi.org/10.1007/978-3-642-60539-0_9">https://doi.org/10.1007/978-3-642-60539-0_9</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Martin, P., &amp; Mazorchuk, V. (2013). Partitioned binary relations.
+Mathematica Scandinavica, 113(1), 30–52. http://www.jstor.org/stable/24493105&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
+<p>Froidure, Véronique &amp; Pin, Jean-Eric. (1997). Algorithms for computing
+finite semigroups. Foundations of Computational Mathematics.
+<a href="https://doi.org/10.1007/978-3-642-60539-0_9">https://doi.org/10.1007/978-3-642-60539-0_9</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
 <p>Konieczny, J. (1994). Green's equivalences in finite semigroups of binary
 relations. Semigroup Forum 48, 235–252.
-<a href="https://doi.org/10.1007/BF02573672">https://doi.org/10.1007/BF02573672</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<a href="https://doi.org/10.1007/BF02573672">https://doi.org/10.1007/BF02573672</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

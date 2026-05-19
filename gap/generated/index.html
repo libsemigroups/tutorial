@@ -677,7 +677,7 @@
   <a href="#finitely-generated-subsemigroups-and-submonoids" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Finitely generated subsemigroups and submonoids.
+        Finitely generated subsemigroups and submonoids
       
     </span>
   </a>
@@ -724,10 +724,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#finiteness-enumeration-and-cayley-graphs" class="md-nav__link">
+  <a href="#finiteness-and-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Finiteness, enumeration and Cayley graphs
+        Finiteness and enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cayley-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cayley graphs
       
     </span>
   </a>
@@ -1652,9 +1663,9 @@ manipulation of <span class="arithmatex">\(n \times n\)</span> matrices over the
 <li>The semiring <span class="arithmatex">\(\mathbb{N}_{t, p} = \{0, \ldots t+p\}\)</span> with addition
   and multiplication modulo the relation <span class="arithmatex">\(t = t + p\)</span>.</li>
 </ul>
-<p>In general, an <span class="arithmatex">\(n\times n\)</span> matrix <span class="arithmatex">\(A\)</span> is represented in GAP are represented as
+<p>In general, an <span class="arithmatex">\(n\times n\)</span> matrix <span class="arithmatex">\(A\)</span> is represented in GAP as a
 list of lists <code>A</code> such that <code>A[i]</code> is the <span class="arithmatex">\(i\)</span>-th row of <span class="arithmatex">\(A\)</span> and <code>A[i][j]</code> is
-the entry of <code>A</code> at the <span class="arithmatex">\(i\)</span>-th row and <span class="arithmatex">\(j\)</span>-th column of <span class="arithmatex">\(A\)</span>.
+the <span class="arithmatex">\(i\)</span>-th row and <span class="arithmatex">\(j\)</span>-th column entry of <span class="arithmatex">\(A\)</span>.
 Matrices can be multiplied using the <code>*</code> operator, provided they have the
 same dimensions and same underlying semiring. The <code>*</code> operator
 can also be used to multiply a matrix by a scalar from the underlying 
@@ -1674,7 +1685,7 @@ to make sure a matrix over the correct semiring is constructed, we must use the
 correct constructor function. We now briefly cover each type of matrix along
 with its constructors in turn.</p>
 <h4 id="integers">Integers</h4>
-<p>One can construct a boolean matrix <span class="arithmatex">\(A\)</span> using the
+<p>One can construct an integer matrix <span class="arithmatex">\(A\)</span> using the
 <a href="https://semigroups.github.io/Semigroups/doc/chap5_mj.html#X7DCA234C86ED8BD3"><code>Matrix</code></a>
 function by specifying the semiring <code>Integers</code> as the first argument and
 the list of lists representing <code>A</code> as the second argument.</p>
@@ -1888,7 +1899,7 @@ will result in an error. This is why we skip <code>E</code> in the example above
 <h4 id="finite-fields">Finite fields</h4>
 <p>Recall that a <em>field</em> is a semiring which is additionally a
 commutative group under addition and whose
-non-zero elements form a commputative group under multiplication.
+non-zero elements form a commutative group under multiplication.
 A <em>finite field</em> is a field with finitely many elements, and a
 <span class="arithmatex">\(q\)</span> element field exists precisely when <span class="arithmatex">\(q = p^d\)</span> for some prime <span class="arithmatex">\(p\)</span>
 and positive integer <span class="arithmatex">\(d\)</span>. Furthermore all fields with <span class="arithmatex">\(q\)</span> elements are
@@ -2139,11 +2150,13 @@ function and specify, respectively,</p>
 <h4 id="some-standard-matrices-and-matrix-properties">Some standard matrices and matrix properties</h4>
 <p>GAP provides implementations of some
 <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X823FB2398697B957">standard matrix constructions</a>, such
-as the 
-* identity matrix via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X7DB902CE848D1524"><code>IdentityMat</code></a>,
-* zero matrix via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X86D343A77D9B3D4D"><code>NullMat</code></a>,
-* diagonal matrices via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X81042E7A7F247ADE"><code>DiagonalMat</code></a>,
-* permutation matrices via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X806C62A67A7D5379"><code>PermutationMat</code></a>.</p>
+as the </p>
+<ul>
+<li>identity matrix via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X7DB902CE848D1524"><code>IdentityMat</code></a>,</li>
+<li>zero matrix via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X86D343A77D9B3D4D"><code>NullMat</code></a>,</li>
+<li>diagonal matrices via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X81042E7A7F247ADE"><code>DiagonalMat</code></a>,</li>
+<li>permutation matrices via <a href="https://docs.gap-system.org/doc/ref/chap24_mj.html#X806C62A67A7D5379"><code>PermutationMat</code></a>.</li>
+</ul>
 <p>We can wrap these in the appropriate constructor from above to construct respectively
 the identity, zero, a diagonal and a permutation matrix over the 
 appropriate semiring:</p>
@@ -2333,7 +2346,7 @@ whether or not the semigroup is regular:</p>
 of the <code>Semigroups</code> manual for a list of <strong>many</strong> more standard semigroups
 and monoids implemented by the <code>Semigroups</code> package.</p>
 </div>
-<h3 id="finitely-generated-subsemigroups-and-submonoids">Finitely generated subsemigroups and submonoids.</h3>
+<h3 id="finitely-generated-subsemigroups-and-submonoids">Finitely generated subsemigroups and submonoids</h3>
 <p>If <code>A</code> is a list of semigroup generators then we can construct the semigroup
 generated by <code>A</code> using the <a href="https://docs.gap-system.org/doc/ref/chap51_mj.html#X7F55D28F819B2817"><code>Semigroup</code></a>
 function:</p>
@@ -2449,7 +2462,7 @@ consider:</p>
 course the runtime will depend on the machine and so on, but the point is that
 this computation takes seconds instead of days with <code>Semigroups</code>.
 Trying to run the computation without the <code>Semigroups</code> package loaded
-will cause the size computation to run significantly longer (we have not
+will cause the <code>Size</code> computation to run significantly longer (we have not
 been able to run it to completion without the <code>Semigroups</code> package loaded).</p>
 <p>In certain cases, we may even be able to determine that a semigroup is
 infinite using the <code>Semigroups</code> package:</p>
@@ -2585,12 +2598,12 @@ is a <code>Monoid</code> in the GAP sense.</p>
 <p>So, if a semigroup
 constructed with the <code>Semigroup</code> function happens to be a monoid, it will
 not be recognized by GAP as a monoid. For example we could construct the
-symmetric group with the <code>Semigroup</code> and check if it is a monoid
+symmetric group with the <code>Semigroup</code> function and check if it is a monoid
 using the <a href="https://docs.gap-system.org/doc/ref/chap51_mj.html#X861C523483C6248C"><code>IsMonoid</code></a>
 function:</p>
 <div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([(</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="p">)])</span><span class="o">;</span>
 </span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="go">&lt;semigroup with 2 generators&gt;</span>
-</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
 </span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="go">[ (), (2,3), (1,2), (1,2,3), (1,3,2), (1,3) ]</span>
 </span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="gp">gap&gt; </span><span class="nv">IsMonoid</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
 </span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="go">false</span>
@@ -2615,7 +2628,7 @@ function:</p>
 </span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="go">false</span>
 </span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="gp">gap&gt; </span><span class="nv">M</span> <span class="o">:=</span> <span class="nv">AsMonoid</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
 </span><span id="__span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="go">&lt;group with 2 generators&gt;</span>
-</span><span id="__span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
 </span><span id="__span-52-8"><a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a><span class="go">[ (), (2,3), (1,2), (1,2,3), (1,3,2), (1,3) ]</span>
 </span><span id="__span-52-9"><a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a><span class="gp">gap&gt; </span><span class="nv">IsMonoid</span><span class="p">(</span><span class="nv">M</span><span class="p">)</span><span class="o">;</span>
 </span><span id="__span-52-10"><a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a><span class="go">true</span>
@@ -2645,34 +2658,38 @@ function. If the given multiplication table does not define a semigroup, i.e. it
 associative, then the function returns <code>fail</code> instead.
 The
 <a href="https://docs.gap-system.org/doc/ref/chap51_mj.html#X7BFE938E857CA27D"><code>MonoidByMultiplicationTable</code></a> function
-can be used to construct a monoid from a multiplication table instead,
-it will return <code>fail</code> if the table does not define a monoid.</p>
+can be used to construct a monoid from a multiplication table instead.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">GAP REPL</label><label for="__tabbed_22_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="gp">gap&gt; </span><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table1</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="go">fail</span>
-</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="gp">gap&gt; </span><span class="nv">table2</span> <span class="o">:=</span> <span class="p">[</span>
-</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]]</span><span class="o">;</span>
-</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="go">[ [ 1, 2, 1, 2 ], [ 1, 2, 1, 2 ], [ 3, 4, 3, 4 ], [ 3, 4, 3, 4 ] ]</span>
-</span><span id="__span-53-9"><a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="gp">gap&gt; </span><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-53-10"><a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="go">&lt;semigroup of size 4, with 4 generators&gt;</span>
-</span><span id="__span-53-11"><a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a><span class="gp">gap&gt; </span><span class="nv">table3</span> <span class="o">:=</span> <span class="p">[</span>
-</span><span id="__span-53-12"><a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-53-13"><a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-53-14"><a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-53-15"><a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a><span class="gp">&gt; </span>  <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span>
-</span><span id="__span-53-16"><a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a><span class="gp">&gt; </span><span class="p">]</span><span class="o">;</span>
-</span><span id="__span-53-17"><a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a><span class="go">[ [ 1, 1, 4, 4 ], [ 1, 2, 3, 4 ], [ 1, 3, 2, 4 ], [ 1, 4, 1, 4 ] ]</span>
-</span><span id="__span-53-18"><a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a><span class="gp">gap&gt; </span><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-53-19"><a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a><span class="go">&lt;semigroup of size 4, with 4 generators&gt;</span>
-</span><span id="__span-53-20"><a id="__codelineno-53-20" name="__codelineno-53-20" href="#__codelineno-53-20"></a><span class="gp">gap&gt; </span><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-53-21"><a id="__codelineno-53-21" name="__codelineno-53-21" href="#__codelineno-53-21"></a><span class="go">fail</span>
-</span><span id="__span-53-22"><a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a><span class="gp">gap&gt; </span><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-53-23"><a id="__codelineno-53-23" name="__codelineno-53-23" href="#__codelineno-53-23"></a><span class="go">&lt;monoid of size 4, with 4 generators&gt;</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="gp">gap&gt; </span><span class="nv">table1</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="go">[ [ 2, 2, 4, 4 ], [ 3, 2, 3, 3 ], [ 3, 1, 1, 3 ], [ 4, 4, 1, 3 ] ]</span>
+</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="gp">gap&gt; </span><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table1</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="go">fail</span>
+</span><span id="__span-53-9"><a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="gp">gap&gt; </span><span class="nv">table2</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-53-10"><a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-11"><a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-12"><a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-13"><a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-53-14"><a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a><span class="go">[ [ 1, 2, 1, 2 ], [ 1, 2, 1, 2 ], [ 3, 4, 3, 4 ], [ 3, 4, 3, 4 ] ]</span>
+</span><span id="__span-53-15"><a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a><span class="gp">gap&gt; </span><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-53-16"><a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a><span class="go">&lt;semigroup of size 4, with 4 generators&gt;</span>
+</span><span id="__span-53-17"><a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a><span class="gp">gap&gt; </span><span class="nv">table3</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-53-18"><a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-19"><a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-20"><a id="__codelineno-53-20" name="__codelineno-53-20" href="#__codelineno-53-20"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-53-21"><a id="__codelineno-53-21" name="__codelineno-53-21" href="#__codelineno-53-21"></a><span class="gp">&gt; </span><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-53-22"><a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a><span class="go">[ [ 1, 1, 4, 4 ], [ 1, 2, 3, 4 ], [ 1, 3, 2, 4 ], [ 1, 4, 1, 4 ] ]</span>
+</span><span id="__span-53-23"><a id="__codelineno-53-23" name="__codelineno-53-23" href="#__codelineno-53-23"></a><span class="gp">gap&gt; </span><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-53-24"><a id="__codelineno-53-24" name="__codelineno-53-24" href="#__codelineno-53-24"></a><span class="go">&lt;semigroup of size 4, with 4 generators&gt;</span>
+</span><span id="__span-53-25"><a id="__codelineno-53-25" name="__codelineno-53-25" href="#__codelineno-53-25"></a><span class="gp">gap&gt; </span><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-53-26"><a id="__codelineno-53-26" name="__codelineno-53-26" href="#__codelineno-53-26"></a><span class="go">fail</span>
+</span><span id="__span-53-27"><a id="__codelineno-53-27" name="__codelineno-53-27" href="#__codelineno-53-27"></a><span class="gp">gap&gt; </span><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-53-28"><a id="__codelineno-53-28" name="__codelineno-53-28" href="#__codelineno-53-28"></a><span class="go">&lt;monoid of size 4, with 4 generators&gt;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2680,24 +2697,22 @@ it will return <code>fail</code> if the table does not define a monoid.</p>
 </span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
 </span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
 </span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]</span>
-</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="p">]</span><span class="o">;</span>
-</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table1</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="nv">table2</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="p">[</span><span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table1</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="nv">table2</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">,</span>
 </span><span id="__span-54-9"><a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-54-10"><a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-54-11"><a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-54-12"><a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]]</span><span class="o">;</span>
-</span><span id="__span-54-13"><a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-54-14"><a id="__codelineno-54-14" name="__codelineno-54-14" href="#__codelineno-54-14"></a><span class="nv">table3</span> <span class="o">:=</span> <span class="p">[</span>
-</span><span id="__span-54-15"><a id="__codelineno-54-15" name="__codelineno-54-15" href="#__codelineno-54-15"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-54-16"><a id="__codelineno-54-16" name="__codelineno-54-16" href="#__codelineno-54-16"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-54-17"><a id="__codelineno-54-17" name="__codelineno-54-17" href="#__codelineno-54-17"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
-</span><span id="__span-54-18"><a id="__codelineno-54-18" name="__codelineno-54-18" href="#__codelineno-54-18"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span>
-</span><span id="__span-54-19"><a id="__codelineno-54-19" name="__codelineno-54-19" href="#__codelineno-54-19"></a><span class="p">]</span><span class="o">;</span>
-</span><span id="__span-54-20"><a id="__codelineno-54-20" name="__codelineno-54-20" href="#__codelineno-54-20"></a><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-54-21"><a id="__codelineno-54-21" name="__codelineno-54-21" href="#__codelineno-54-21"></a><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-54-22"><a id="__codelineno-54-22" name="__codelineno-54-22" href="#__codelineno-54-22"></a><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-54-10"><a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-54-11"><a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="p">[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-54-12"><a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-54-13"><a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="nv">table3</span> <span class="o">:=</span> <span class="p">[</span>
+</span><span id="__span-54-14"><a id="__codelineno-54-14" name="__codelineno-54-14" href="#__codelineno-54-14"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-54-15"><a id="__codelineno-54-15" name="__codelineno-54-15" href="#__codelineno-54-15"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-54-16"><a id="__codelineno-54-16" name="__codelineno-54-16" href="#__codelineno-54-16"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">4</span><span class="p">]</span><span class="o">,</span>
+</span><span id="__span-54-17"><a id="__codelineno-54-17" name="__codelineno-54-17" href="#__codelineno-54-17"></a><span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">4</span><span class="p">]]</span><span class="o">;</span>
+</span><span id="__span-54-18"><a id="__codelineno-54-18" name="__codelineno-54-18" href="#__codelineno-54-18"></a><span class="nv">SemigroupByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-54-19"><a id="__codelineno-54-19" name="__codelineno-54-19" href="#__codelineno-54-19"></a><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table2</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-54-20"><a id="__codelineno-54-20" name="__codelineno-54-20" href="#__codelineno-54-20"></a><span class="nv">MonoidByMultiplicationTable</span><span class="p">(</span><span class="nv">table3</span><span class="p">)</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2746,59 +2761,285 @@ construct a transformation semigroup <span class="arithmatex">\(S^\prime\)</span
 specifying a multiplication table requires a 1000000 entry table,
 whereas an isomorphic transformation semigroup can be specified
 with just 3 transformations of degree 1000, for a total of 3000 entries.
-Not to mention that algorithms for transformation semigroups are generally
+Furthermore, algorithms for transformation semigroups are generally
 much faster.</p>
 </div>
 <h3 id="the-small-semigroups-library">The small semigroups library</h3>
 <p>The <a href="https://gap-packages.github.io/smallsemi/doc/chap0_mj.html"><code>Smallsemi</code></a>
 package contains a database of all semigroups of order up to <span class="arithmatex">\(8\)</span> up to
 isomorphism and anti-isomorphism.
-To sue the <code>Smallsemi</code> package we need to load it first, just as 
+To use the <code>Smallsemi</code> package we need to load it first, just as 
 we did with the <code>Semigroups</code> package.
-We can get the <span class="arithmatex">\(n\)</span>-th semigrouo of order <span class="arithmatex">\(m\)</span> using the
-<a href="https://gap-packages.github.io/smallsemi/doc/chap4_mj.html#X8538248D78185960"><code>SmallSemigroup(m, n)</code></a>
-function.</p>
+We can get the <span class="arithmatex">\(n\)</span>-th semigroup of order <span class="arithmatex">\(m\)</span> using the
+<a href="https://gap-packages.github.io/smallsemi/doc/chap4_mj.html#X8538248D78185960"><code>SmallSemigroup</code></a>
+function with arguments <code>m</code> and <code>n</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="24:2"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">GAP REPL</label><label for="__tabbed_24_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="gp">gap&gt; </span><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S1</span><span class="p">))</span><span class="o">;</span>
-</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="go">[ [  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="go">[  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="go">[  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="go">[  1,  1,  1,  1 ] ]</span>
-</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="gp">gap&gt; </span><span class="nv">S2</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">4</span><span class="o">,</span> <span class="nv">2</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="go">&lt;small semigroup of size 4&gt;</span>
-</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="gp">gap&gt; </span><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S2</span><span class="p">))</span><span class="o">;</span>
-</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="go">[ [  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="go">[  1,  1,  1,  1 ],</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="gp">gap&gt; </span><span class="nv">LoadPackage</span><span class="p">(</span><span class="s">&quot;Smallsemi&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="go">------------------------------------------------------------------------------------</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="go">Smallsemi -   A library of small semigroups</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="go">by Andreas Distler &amp; James Mitchell</span>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="go">For contents, type: ?Smallsemi:</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="go">Loading Smallsemi 0.7.2 ...</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="go">------------------------------------------------------------------------------------</span>
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="go">true</span>
+</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="gp">gap&gt; </span><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S1</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="go">[ [  1,  1,  1,  1 ],</span>
 </span><span id="__span-57-11"><a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a><span class="go">[  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-12"><a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a><span class="go">[  1,  1,  2,  1 ] ]</span>
-</span><span id="__span-57-13"><a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a><span class="gp">gap&gt; </span><span class="nv">S3</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">8</span><span class="o">,</span> <span class="nv">1000</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-57-14"><a id="__codelineno-57-14" name="__codelineno-57-14" href="#__codelineno-57-14"></a><span class="go">&lt;small semigroup of size 8&gt;</span>
-</span><span id="__span-57-15"><a id="__codelineno-57-15" name="__codelineno-57-15" href="#__codelineno-57-15"></a><span class="gp">gap&gt; </span><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S3</span><span class="p">))</span><span class="o">;</span>
-</span><span id="__span-57-16"><a id="__codelineno-57-16" name="__codelineno-57-16" href="#__codelineno-57-16"></a><span class="go">[ [  1,  1,  1,  1,  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-17"><a id="__codelineno-57-17" name="__codelineno-57-17" href="#__codelineno-57-17"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-18"><a id="__codelineno-57-18" name="__codelineno-57-18" href="#__codelineno-57-18"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  1 ],</span>
-</span><span id="__span-57-19"><a id="__codelineno-57-19" name="__codelineno-57-19" href="#__codelineno-57-19"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  2 ],</span>
-</span><span id="__span-57-20"><a id="__codelineno-57-20" name="__codelineno-57-20" href="#__codelineno-57-20"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  2 ],</span>
-</span><span id="__span-57-21"><a id="__codelineno-57-21" name="__codelineno-57-21" href="#__codelineno-57-21"></a><span class="go">[  1,  1,  1,  1,  2,  1,  1,  1 ],</span>
-</span><span id="__span-57-22"><a id="__codelineno-57-22" name="__codelineno-57-22" href="#__codelineno-57-22"></a><span class="go">[  1,  1,  1,  2,  3,  1,  1,  2 ],</span>
-</span><span id="__span-57-23"><a id="__codelineno-57-23" name="__codelineno-57-23" href="#__codelineno-57-23"></a><span class="go">[  1,  1,  2,  2,  2,  1,  6,  1 ] ]</span>
+</span><span id="__span-57-12"><a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a><span class="go">[  1,  1,  1,  1 ],</span>
+</span><span id="__span-57-13"><a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a><span class="go">[  1,  1,  1,  1 ] ]</span>
+</span><span id="__span-57-14"><a id="__codelineno-57-14" name="__codelineno-57-14" href="#__codelineno-57-14"></a><span class="gp">gap&gt; </span><span class="nv">S2</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">4</span><span class="o">,</span> <span class="nv">2</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-57-15"><a id="__codelineno-57-15" name="__codelineno-57-15" href="#__codelineno-57-15"></a><span class="go">&lt;small semigroup of size 4&gt;</span>
+</span><span id="__span-57-16"><a id="__codelineno-57-16" name="__codelineno-57-16" href="#__codelineno-57-16"></a><span class="gp">gap&gt; </span><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S2</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-57-17"><a id="__codelineno-57-17" name="__codelineno-57-17" href="#__codelineno-57-17"></a><span class="go">[ [  1,  1,  1,  1 ],</span>
+</span><span id="__span-57-18"><a id="__codelineno-57-18" name="__codelineno-57-18" href="#__codelineno-57-18"></a><span class="go">[  1,  1,  1,  1 ],</span>
+</span><span id="__span-57-19"><a id="__codelineno-57-19" name="__codelineno-57-19" href="#__codelineno-57-19"></a><span class="go">[  1,  1,  1,  1 ],</span>
+</span><span id="__span-57-20"><a id="__codelineno-57-20" name="__codelineno-57-20" href="#__codelineno-57-20"></a><span class="go">[  1,  1,  2,  1 ] ]</span>
+</span><span id="__span-57-21"><a id="__codelineno-57-21" name="__codelineno-57-21" href="#__codelineno-57-21"></a><span class="gp">gap&gt; </span><span class="nv">S3</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">8</span><span class="o">,</span> <span class="nv">1000</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-57-22"><a id="__codelineno-57-22" name="__codelineno-57-22" href="#__codelineno-57-22"></a><span class="go">&lt;small semigroup of size 8&gt;</span>
+</span><span id="__span-57-23"><a id="__codelineno-57-23" name="__codelineno-57-23" href="#__codelineno-57-23"></a><span class="gp">gap&gt; </span><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S3</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-57-24"><a id="__codelineno-57-24" name="__codelineno-57-24" href="#__codelineno-57-24"></a><span class="go">[ [  1,  1,  1,  1,  1,  1,  1,  1 ],</span>
+</span><span id="__span-57-25"><a id="__codelineno-57-25" name="__codelineno-57-25" href="#__codelineno-57-25"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  1 ],</span>
+</span><span id="__span-57-26"><a id="__codelineno-57-26" name="__codelineno-57-26" href="#__codelineno-57-26"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  1 ],</span>
+</span><span id="__span-57-27"><a id="__codelineno-57-27" name="__codelineno-57-27" href="#__codelineno-57-27"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  2 ],</span>
+</span><span id="__span-57-28"><a id="__codelineno-57-28" name="__codelineno-57-28" href="#__codelineno-57-28"></a><span class="go">[  1,  1,  1,  1,  1,  1,  1,  2 ],</span>
+</span><span id="__span-57-29"><a id="__codelineno-57-29" name="__codelineno-57-29" href="#__codelineno-57-29"></a><span class="go">[  1,  1,  1,  1,  2,  1,  1,  1 ],</span>
+</span><span id="__span-57-30"><a id="__codelineno-57-30" name="__codelineno-57-30" href="#__codelineno-57-30"></a><span class="go">[  1,  1,  1,  2,  3,  1,  1,  2 ],</span>
+</span><span id="__span-57-31"><a id="__codelineno-57-31" name="__codelineno-57-31" href="#__codelineno-57-31"></a><span class="go">[  1,  1,  2,  2,  2,  1,  6,  1 ] ]</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="nv">S1</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S1</span><span class="p">))</span><span class="o">;</span>
-</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="nv">S2</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">4</span><span class="o">,</span> <span class="nv">2</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S2</span><span class="p">))</span><span class="o">;</span>
-</span><span id="__span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="nv">S3</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">8</span><span class="o">,</span> <span class="nv">1000</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-58-6"><a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S3</span><span class="p">))</span><span class="o">;</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="nv">LoadPackage</span><span class="p">(</span><span class="s">&quot;Smallsemi&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="nv">S1</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S1</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="nv">S2</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">4</span><span class="o">,</span> <span class="nv">2</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S2</span><span class="p">))</span><span class="o">;</span>
+</span><span id="__span-58-6"><a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a><span class="nv">S3</span> <span class="o">:=</span> <span class="nv">SmallSemigroup</span><span class="p">(</span><span class="nv">8</span><span class="o">,</span> <span class="nv">1000</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-58-7"><a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a><span class="nv">Display</span><span class="p">(</span><span class="nv">MultiplicationTable</span><span class="p">(</span><span class="nv">S3</span><span class="p">))</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>See the <a href="https://gap-packages.github.io/smallsemi/doc/chap0_mj.html"><code>Smallsemi</code></a>
+package documentation for more information about the small semigroups
+library.</p>
+</div>
 <h2 id="analyzing-semigroups">Analyzing semigroups</h2>
-<h3 id="finiteness-enumeration-and-cayley-graphs">Finiteness, enumeration and Cayley graphs</h3>
+<p>Now that we can construct semigroups in GAP, we consider
+methods of analyzing them.</p>
+<h3 id="finiteness-and-enumeration">Finiteness and enumeration</h3>
+<p>We already saw that the
+<a href="https://docs.gap-system.org/doc/ref/chap30_mj.html#X858ADA3B7A684421"><code>Size</code></a>
+function can be used to determine the order of a semigroup or monoid.
+The <a href="https://docs.gap-system.org/doc/ref/chap30_mj.html#X808A4061809A6E67"><code>IsFinite</code></a>
+function can be used to test if a given semigroup is finite or infinite.
+The elements of a semigroup can be computed using the
+<a href="https://docs.gap-system.org/doc/ref/chap30_mj.html#X79B130FC7906FB4C"><code>Elements</code></a> function.
+The <em>idempotents</em>, i.e. elements <span class="arithmatex">\(x\)</span> such that <span class="arithmatex">\(x^2 = x\)</span>, can be found using
+the <a href="https://docs.gap-system.org/doc/ref/chap35_mj.html#X7C651C9C78398FFF"><code>Idempotents</code></a>
+function.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:2"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">GAP REPL</label><label for="__tabbed_25_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="go">&lt;transformation semigroup of degree 5 with 3 generators&gt;</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="gp">gap&gt; </span><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="go">true</span>
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="go">18</span>
+</span><span id="__span-59-7"><a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-59-8"><a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a><span class="go">[ Transformation( [ 1, 1, 3, 4, 4 ] ), Transformation( [ 1, 1 ] ), </span>
+</span><span id="__span-59-9"><a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a><span class="go">  Transformation( [ 1, 1, 3, 5, 5 ] ), Transformation( [ 1, 2, 3, 4, 4 ] ), </span>
+</span><span id="__span-59-10"><a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a><span class="go">  IdentityTransformation, Transformation( [ 1, 2, 3, 5, 5 ] ), </span>
+</span><span id="__span-59-11"><a id="__codelineno-59-11" name="__codelineno-59-11" href="#__codelineno-59-11"></a><span class="go">  Transformation( [ 2, 2, 3, 4, 4 ] ), Transformation( [ 2, 2 ] ), </span>
+</span><span id="__span-59-12"><a id="__codelineno-59-12" name="__codelineno-59-12" href="#__codelineno-59-12"></a><span class="go">  Transformation( [ 2, 2, 3, 5, 5 ] ), Transformation( [ 4, 4, 3, 1, 1 ] ), </span>
+</span><span id="__span-59-13"><a id="__codelineno-59-13" name="__codelineno-59-13" href="#__codelineno-59-13"></a><span class="go">  Transformation( [ 4, 4, 3, 2, 1 ] ), Transformation( [ 4, 4, 3, 2, 2 ] ), </span>
+</span><span id="__span-59-14"><a id="__codelineno-59-14" name="__codelineno-59-14" href="#__codelineno-59-14"></a><span class="go">  Transformation( [ 5, 4, 3, 1, 1 ] ), Transformation( [ 5, 4, 3, 2, 1 ] ), </span>
+</span><span id="__span-59-15"><a id="__codelineno-59-15" name="__codelineno-59-15" href="#__codelineno-59-15"></a><span class="go">  Transformation( [ 5, 4, 3, 2, 2 ] ), Transformation( [ 5, 5, 3, 1, 1 ] ), </span>
+</span><span id="__span-59-16"><a id="__codelineno-59-16" name="__codelineno-59-16" href="#__codelineno-59-16"></a><span class="go">  Transformation( [ 5, 5, 3, 2, 1 ] ), Transformation( [ 5, 5, 3, 2, 2 ] ) ]</span>
+</span><span id="__span-59-17"><a id="__codelineno-59-17" name="__codelineno-59-17" href="#__codelineno-59-17"></a><span class="gp">gap&gt; </span><span class="nv">Idempotents</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-59-18"><a id="__codelineno-59-18" name="__codelineno-59-18" href="#__codelineno-59-18"></a><span class="go">[ Transformation( [ 1, 1 ] ), Transformation( [ 2, 2 ] ), IdentityTransformation, </span>
+</span><span id="__span-59-19"><a id="__codelineno-59-19" name="__codelineno-59-19" href="#__codelineno-59-19"></a><span class="go">  Transformation( [ 1, 2, 3, 5, 5 ] ), Transformation( [ 1, 2, 3, 4, 4 ] ), </span>
+</span><span id="__span-59-20"><a id="__codelineno-59-20" name="__codelineno-59-20" href="#__codelineno-59-20"></a><span class="go">  Transformation( [ 1, 1, 3, 5, 5 ] ), Transformation( [ 2, 2, 3, 5, 5 ] ), </span>
+</span><span id="__span-59-21"><a id="__codelineno-59-21" name="__codelineno-59-21" href="#__codelineno-59-21"></a><span class="go">  Transformation( [ 1, 1, 3, 4, 4 ] ), Transformation( [ 2, 2, 3, 4, 4 ] ) ]</span>
+</span><span id="__span-59-22"><a id="__codelineno-59-22" name="__codelineno-59-22" href="#__codelineno-59-22"></a><span class="gp">gap&gt; </span><span class="nv">T</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Matrix</span><span class="p">(</span><span class="nv">Integers</span><span class="o">,</span> <span class="p">[[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="p">]])</span><span class="o">,</span> <span class="nv">Matrix</span><span class="p">(</span><span class="nv">Integers</span><span class="o">,</span> <span class="p">[[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="p">]])])</span><span class="o">;</span>
+</span><span id="__span-59-23"><a id="__codelineno-59-23" name="__codelineno-59-23" href="#__codelineno-59-23"></a><span class="go">&lt;semigroup of 2x2 integer matrices with 2 generators&gt;</span>
+</span><span id="__span-59-24"><a id="__codelineno-59-24" name="__codelineno-59-24" href="#__codelineno-59-24"></a><span class="gp">gap&gt; </span><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-59-25"><a id="__codelineno-59-25" name="__codelineno-59-25" href="#__codelineno-59-25"></a><span class="go">false</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-60-4"><a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="nv">Elements</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-60-5"><a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="nv">Idempotents</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-60-6"><a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a><span class="nv">T</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Matrix</span><span class="p">(</span><span class="nv">Integers</span><span class="o">,</span> <span class="p">[[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="p">]])</span><span class="o">,</span> <span class="nv">Matrix</span><span class="p">(</span><span class="nv">Integers</span><span class="o">,</span> <span class="p">[[</span><span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="p">]])])</span><span class="o">;</span>
+</span><span id="__span-60-7"><a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a><span class="nv">IsFinite</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is in general undecidable if a given finitely generated semigroup
+is finite. Hence the functions <code>Size</code>, <code>IsFinite</code> and <code>Idempotents</code>
+may run forever on semigroups that are infinite,
+as we saw in the
+<a href="#finitely-generated-subsemigroups-and-submonoids">Finitely generated subsemigroups and submonoids</a>
+section. However, the
+functions <code>Size</code>, <code>IsFinite</code>, <code>Elements</code> and <code>Idempotents</code> are guaranteed
+to terminate when the underlying semigroup is finite.</p>
+</div>
+<h3 id="cayley-graphs">Cayley graphs</h3>
+<p>Recall that the <em>right Cayley graph</em> of a semigroup <span class="arithmatex">\(S\)</span> generated
+by <span class="arithmatex">\(A\)</span> is the directed graph <span class="arithmatex">\(G\)</span> with vertex set <span class="arithmatex">\(V(G) = S\)</span> and
+edge set <span class="arithmatex">\(E(G) = \{(x, a, y)\in S \times A \times S : x\cdot a = y \}\)</span>.
+The <em>left Cayley graph</em> is defined analogously replacing the condition
+<span class="arithmatex">\(x\cdot a = y\)</span> with <span class="arithmatex">\(a\cdot x = y\)</span>.
+We can think of these as directed graphs whose edges are colored by elements
+in <span class="arithmatex">\(A\)</span>.
+The <a href=""><code>RightCayleyDigraph</code></a> and <a href=""><code>LeftCayleyDigraph</code></a> functions
+can be used to compute, respectively, the right and left Cayley graphs of
+a semigroup <code>S</code>. The output of these functions is a directed graph
+represented as a
+<a href="https://docs.gap-system.org/pkg/digraphs/doc/chap3_mj.html#X834843057CE86655"><code>Digraph</code></a>
+object.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="26:2"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><input id="__tabbed_26_2" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">GAP REPL</label><label for="__tabbed_26_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="go">&lt;transformation semigroup of degree 5 with 3 generators&gt;</span>
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="gp">gap&gt; </span><span class="nv">RightCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-61-4"><a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="go">&lt;immutable digraph with 18 vertices, 54 edges&gt;</span>
+</span><span id="__span-61-5"><a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a><span class="gp">gap&gt; </span><span class="nv">LeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-61-6"><a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="go">&lt;immutable multidigraph with 18 vertices, 54 edges&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="nv">RightCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="nv">LeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>There are two ways of visualizing these graphs using the
+<code>Semigroups</code> package:</p>
+<ol>
+<li>
+<p>We can visualize these graphs without the edge coloring using the
+   <a href="https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7E38369D7E8BEA4C"><code>DotRightCayleyDigraph</code></a> and
+   <a href="https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7E38369D7E8BEA4C"><code>DotLeftCayleyDigraph</code></a> functions, which produce
+   <a href="https://graphviz.org/"><code>graphviz</code></a> code describing the right and left Cayley graphs,
+   respectively. If you have <code>graphviz</code> installed on your computer,
+   you can render the resulting graphs using the
+   <a href="https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html#X83B3318784E78415"><code>Splash</code></a> function:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="27:2"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio" /><input id="__tabbed_27_2" name="__tabbed_27" type="radio" /><div class="tabbed-labels"><label for="__tabbed_27_1">GAP REPL</label><label for="__tabbed_27_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="go">&lt;transformation semigroup of degree 5 with 3 generators&gt;</span>
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="gp">gap&gt; </span><span class="nv">DotRightCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="go">&quot;//dot\ndigraph hgn{\nnode [shape=circle]\n1 [label=\&quot;a\&quot;]\n2 [label=\&quot;b\&quot;]\n3 [label\</span>
+</span><span id="__span-63-5"><a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a><span class="go">=\&quot;c\&quot;]\n4 [label=\&quot;ac\&quot;]\n5 [label=\&quot;bc\&quot;]\n6 [label=\&quot;ca\&quot;]\n7 [label=\&quot;cb\&quot;]\n8 [l\</span>
+</span><span id="__span-63-6"><a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a><span class="go">abel=\&quot;c ^ 2\&quot;]\n9 [label=\&quot;aca\&quot;]\n10 [label=\&quot;acb\&quot;]\n11 [label=\&quot;bca\&quot;]\n12 [label\</span>
+</span><span id="__span-63-7"><a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a><span class="go">=\&quot;bcb\&quot;]\n13 [label=\&quot;cac\&quot;]\n14 [label=\&quot;cbc\&quot;]\n15 [label=\&quot;acac\&quot;]\n16 [label=\&quot;a\</span>
+</span><span id="__span-63-8"><a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a><span class="go">cbc\&quot;]\n17 [label=\&quot;bcac\&quot;]\n18 [label=\&quot;bcbc\&quot;]\n1 -&gt; 1\n1 -&gt; 2\n1 -&gt; 4\n2 -&gt; 1\n2 -\</span>
+</span><span id="__span-63-9"><a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a><span class="go">&gt; 2\n2 -&gt; 5\n3 -&gt; 6\n3 -&gt; 7\n3 -&gt; 8\n4 -&gt; 9\n4 -&gt; 10\n4 -&gt; 1\n5 -&gt; 11\n5 -&gt; 12\n5 -&gt; \</span>
+</span><span id="__span-63-10"><a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a><span class="go">2\n6 -&gt; 6\n6 -&gt; 7\n6 -&gt; 13\n7 -&gt; 6\n7 -&gt; 7\n7 -&gt; 14\n8 -&gt; 1\n8 -&gt; 2\n8 -&gt; 3\n9 -&gt; 9\n\</span>
+</span><span id="__span-63-11"><a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a><span class="go">9 -&gt; 10\n9 -&gt; 15\n10 -&gt; 9\n10 -&gt; 10\n10 -&gt; 16\n11 -&gt; 11\n11 -&gt; 12\n11 -&gt; 17\n12 -&gt; 11\</span>
+</span><span id="__span-63-12"><a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a><span class="go">\n12 -&gt; 12\n12 -&gt; 18\n13 -&gt; 15\n13 -&gt; 17\n13 -&gt; 6\n14 -&gt; 16\n14 -&gt; 18\n14 -&gt; 7\n15 -&gt;\</span>
+</span><span id="__span-63-13"><a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a><span class="go">15\n15 -&gt; 17\n15 -&gt; 9\n16 -&gt; 16\n16 -&gt; 18\n16 -&gt; 10\n17 -&gt; 15\n17 -&gt; 17\n17 -&gt; 11\n1\</span>
+</span><span id="__span-63-14"><a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a><span class="go">8 -&gt; 16\n18 -&gt; 18\n18 -&gt; 12\n}\n&quot;</span>
+</span><span id="__span-63-15"><a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a><span class="gp">gap&gt; </span><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotLeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">))</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="nv">DotRightCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotLeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">))</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<figure>
+<p><img alt="A visualization of the left Cayley digraph of S" src="../../images/gap-left-cayley-graph-nocolor-light.svg#only-light" />
+<img alt="A visualization of the left Cayley digraph of S" src="../../images/gap-left-cayley-graph-nocolor-dark.svg#only-dark" /></p>
+<figcaption>
+<p>A visualization of the left Cayley digraph of <span class="arithmatex">\(S\)</span>.
+Result of the <code class="language-gap highlight"><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotLeftDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">))</span></code> call.</p>
+</figcaption>
+</figure>
+</li>
+<li>
+<p>We can visualize these graphs with edge coloring using the
+   <a href=""><code>DotEdgeColoredDigraph</code></a> function, applied to
+   the right or left Cayley digraph, and a list describing the edge
+   colors. The <code>Splash</code> function can be used to render this output.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="28:2"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio" /><input id="__tabbed_28_2" name="__tabbed_28" type="radio" /><div class="tabbed-labels"><label for="__tabbed_28_1">GAP REPL</label><label for="__tabbed_28_2">GAP script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="go">&lt;transformation semigroup of degree 5 with 3 generators&gt;</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="gp">gap&gt; </span><span class="c1"># We need to specify the edge colors at each vertex of the graph</span>
+</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="gp">gap&gt; </span><span class="c1"># The following function creates a list of lists, which indicates</span>
+</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a><span class="gp">gap&gt; </span><span class="c1"># that the outgoing edges at each vertex of the Cayley graph</span>
+</span><span id="__span-65-6"><a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a><span class="gp">gap&gt; </span><span class="c1"># should be colored red, green and blue, respectively.</span>
+</span><span id="__span-65-7"><a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a><span class="gp">gap&gt; </span><span class="nv">colors</span> <span class="o">:=</span> <span class="nv">List</span><span class="p">([</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)]</span><span class="o">,</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="s">&quot;red&quot;</span><span class="o">,</span> <span class="s">&quot;green&quot;</span><span class="o">,</span> <span class="s">&quot;blue&quot;</span><span class="p">])</span><span class="o">;;</span>
+</span><span id="__span-65-8"><a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a><span class="gp">gap&gt; </span><span class="nv">DotEdgeColoredDigraph</span><span class="p">(</span><span class="nv">LeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">,</span> <span class="nv">colors</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-65-9"><a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a><span class="go">&quot;//dot\ndigraph hgn{\nnode [shape=circle]\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\</span>
+</span><span id="__span-65-10"><a id="__codelineno-65-10" name="__codelineno-65-10" href="#__codelineno-65-10"></a><span class="go">\n14\n15\n16\n17\n18\n1 -&gt; 1[color=red]\n1 -&gt; 1[color=green]\n1 -&gt; 6[color=blue]\n2 -\</span>
+</span><span id="__span-65-11"><a id="__codelineno-65-11" name="__codelineno-65-11" href="#__codelineno-65-11"></a><span class="go">&gt; 2[color=red]\n2 -&gt; 2[color=green]\n2 -&gt; 7[color=blue]\n3 -&gt; 4[color=red]\n3 -&gt; 5[co\</span>
+</span><span id="__span-65-12"><a id="__codelineno-65-12" name="__codelineno-65-12" href="#__codelineno-65-12"></a><span class="go">lor=green]\n3 -&gt; 8[color=blue]\n4 -&gt; 4[color=red]\n4 -&gt; 4[color=green]\n4 -&gt; 13[color\</span>
+</span><span id="__span-65-13"><a id="__codelineno-65-13" name="__codelineno-65-13" href="#__codelineno-65-13"></a><span class="go">=blue]\n5 -&gt; 5[color=red]\n5 -&gt; 5[color=green]\n5 -&gt; 14[color=blue]\n6 -&gt; 9[color=red\</span>
+</span><span id="__span-65-14"><a id="__codelineno-65-14" name="__codelineno-65-14" href="#__codelineno-65-14"></a><span class="go">]\n6 -&gt; 11[color=green]\n6 -&gt; 1[color=blue]\n7 -&gt; 10[color=red]\n7 -&gt; 12[color=green]\</span>
+</span><span id="__span-65-15"><a id="__codelineno-65-15" name="__codelineno-65-15" href="#__codelineno-65-15"></a><span class="go">\n7 -&gt; 2[color=blue]\n8 -&gt; 1[color=red]\n8 -&gt; 2[color=green]\n8 -&gt; 3[color=blue]\n9 -\</span>
+</span><span id="__span-65-16"><a id="__codelineno-65-16" name="__codelineno-65-16" href="#__codelineno-65-16"></a><span class="go">&gt; 9[color=red]\n9 -&gt; 9[color=green]\n9 -&gt; 15[color=blue]\n10 -&gt; 10[color=red]\n10 -&gt; \</span>
+</span><span id="__span-65-17"><a id="__codelineno-65-17" name="__codelineno-65-17" href="#__codelineno-65-17"></a><span class="go">10[color=green]\n10 -&gt; 17[color=blue]\n11 -&gt; 11[color=red]\n11 -&gt; 11[color=green]\n11\</span>
+</span><span id="__span-65-18"><a id="__codelineno-65-18" name="__codelineno-65-18" href="#__codelineno-65-18"></a><span class="go">-&gt; 16[color=blue]\n12 -&gt; 12[color=red]\n12 -&gt; 12[color=green]\n12 -&gt; 18[color=blue]\</span>
+</span><span id="__span-65-19"><a id="__codelineno-65-19" name="__codelineno-65-19" href="#__codelineno-65-19"></a><span class="go">\n13 -&gt; 15[color=red]\n13 -&gt; 17[color=green]\n13 -&gt; 4[color=blue]\n14 -&gt; 16[color=red\</span>
+</span><span id="__span-65-20"><a id="__codelineno-65-20" name="__codelineno-65-20" href="#__codelineno-65-20"></a><span class="go">]\n14 -&gt; 18[color=green]\n14 -&gt; 5[color=blue]\n15 -&gt; 15[color=red]\n15 -&gt; 15[color=gr\</span>
+</span><span id="__span-65-21"><a id="__codelineno-65-21" name="__codelineno-65-21" href="#__codelineno-65-21"></a><span class="go">een]\n15 -&gt; 9[color=blue]\n16 -&gt; 16[color=red]\n16 -&gt; 16[color=green]\n16 -&gt; 11[color\</span>
+</span><span id="__span-65-22"><a id="__codelineno-65-22" name="__codelineno-65-22" href="#__codelineno-65-22"></a><span class="go">=blue]\n17 -&gt; 17[color=red]\n17 -&gt; 17[color=green]\n17 -&gt; 10[color=blue]\n18 -&gt; 18[co\</span>
+</span><span id="__span-65-23"><a id="__codelineno-65-23" name="__codelineno-65-23" href="#__codelineno-65-23"></a><span class="go">lor=red]\n18 -&gt; 18[color=green]\n18 -&gt; 12[color=blue]\n}\n&quot;</span>
+</span><span id="__span-65-24"><a id="__codelineno-65-24" name="__codelineno-65-24" href="#__codelineno-65-24"></a><span class="gp">gap&gt; </span><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotEdgeColoredDigraph</span><span class="p">(</span><span class="nv">LeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">,</span> <span class="nv">colors</span><span class="p">))</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">,</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">5</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">1</span><span class="p">])])</span><span class="o">;</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="c1"># We need to specify the edge colors at each vertex of the graph</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="c1"># The following function creates a list of lists, which indicates</span>
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="c1"># that the outgoing edges at each vertex of the Cayley graph</span>
+</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a><span class="c1"># should be colored red, green and blue, respectively.</span>
+</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a><span class="nv">colors</span> <span class="o">:=</span> <span class="nv">List</span><span class="p">([</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)]</span><span class="o">,</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="s">&quot;red&quot;</span><span class="o">,</span> <span class="s">&quot;green&quot;</span><span class="o">,</span> <span class="s">&quot;blue&quot;</span><span class="p">])</span><span class="o">;;</span>
+</span><span id="__span-66-7"><a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a><span class="nv">DotEdgeColoredDigraph</span><span class="p">(</span><span class="nv">LeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">,</span> <span class="nv">colors</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-66-8"><a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotEdgeColoredDigraph</span><span class="p">(</span><span class="nv">LeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">,</span> <span class="nv">colors</span><span class="p">))</span><span class="o">;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<figure>
+<p><img alt="A colorful visualization of the left Cayley digraph of S" src="../../images/gap-left-cayley-graph-color-light.svg#only-light" />
+<img alt="A colorful visualization of the left Cayley digraph of S" src="../../images/gap-left-cayley-graph-color-dark.svg#only-dark" /></p>
+<figcaption>
+<p>A colorful visualization of the left Cayley digraph of <span class="arithmatex">\(S\)</span>.
+Result of the <code class="language-gap highlight"><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotEdgeColoredDigraph</span><span class="p">(</span><span class="nv">LeftCayleyDigraph</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">,</span> <span class="nv">colors</span><span class="p">))</span></code> call.</p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>See <a href="https://semigroups.github.io/Semigroups/doc/chap16_mj.html">Chapter 16</a>
+of the <code>Semigroups</code> manual for more information about visualizing semigroups
+and their Cayley graphs, as well as
+<a href="https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html">Chapter 9</a>
+of the <code>Digraphs</code> package manual.</p>
+</div>
 <h3 id="properties-of-semigroups">Properties of semigroups</h3>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2812,14 +3053,14 @@ properties that can be checked by the <code>Semigroups</code> package.</p>
 <p>Recall that the <em>egg-box diagram</em> of a semigroup is a visual representation
   of its Green's relations. In GAP we can display them using the <code>Splash</code> and
   <code>DotString</code> functions:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="25:2"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">GAP REPL</label><label for="__tabbed_25_2">GAP script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="29:2"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio" /><input id="__tabbed_29_2" name="__tabbed_29" type="radio" /><div class="tabbed-labels"><label for="__tabbed_29_1">GAP REPL</label><label for="__tabbed_29_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="gp">gap&gt; </span><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="gp">gap&gt; </span><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2868,7 +3109,7 @@ significantly expands the available computational semigroup theory toolbox and p
 fast <code>C++</code> implementations of standard semigroup theory algorithms, such as the
 <a href="https://semigroups.github.io/Semigroups/doc/chap6_mj.html#X7E2DE9767D5D82F7">Froidure-Pin algorithm</a>.</p>
 <p>In order to load the <code>Semigroups</code> package simply add
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="nv">LoadPackage</span><span class="p">(</span><span class="s">&quot;Semigroups&quot;</span><span class="p">)</span><span class="o">;</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="nv">LoadPackage</span><span class="p">(</span><span class="s">&quot;Semigroups&quot;</span><span class="p">)</span><span class="o">;</span>
 </span></code></pre></div>
 at the start of your gap script, or execute this command at the start of your
 GAP session.</p>
@@ -2892,27 +3133,27 @@ the semigroup <span class="arithmatex">\(\mathcal{T}_n\)</span>, and check some 
 another labelled "GAP script" which contains the same code without the
 GAP REPL output, for easier copy-pasting into a GAP session.</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="26:2"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><input id="__tabbed_26_2" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">GAP REPL</label><label for="__tabbed_26_2">GAP script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="30:2"><input checked="checked" id="__tabbed_30_1" name="__tabbed_30" type="radio" /><input id="__tabbed_30_2" name="__tabbed_30" type="radio" /><div class="tabbed-labels"><label for="__tabbed_30_1">GAP REPL</label><label for="__tabbed_30_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="gp">gap&gt; </span><span class="nv">T</span> <span class="o">:=</span> <span class="nv">FullTransformationSemigroup</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="go">&lt;full transformation monoid of degree 3&gt;</span>
-</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># The order of T</span>
-</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="go">27</span>
-</span><span id="__span-62-5"><a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a><span class="gp">gap&gt; </span><span class="nv">IsMonoid</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T a monoid?</span>
-</span><span id="__span-62-6"><a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a><span class="go">true</span>
-</span><span id="__span-62-7"><a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a><span class="gp">gap&gt; </span><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T regular?</span>
-</span><span id="__span-62-8"><a id="__codelineno-62-8" name="__codelineno-62-8" href="#__codelineno-62-8"></a><span class="go">true</span>
-</span><span id="__span-62-9"><a id="__codelineno-62-9" name="__codelineno-62-9" href="#__codelineno-62-9"></a><span class="gp">gap&gt; </span><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T commutative?</span>
-</span><span id="__span-62-10"><a id="__codelineno-62-10" name="__codelineno-62-10" href="#__codelineno-62-10"></a><span class="go">false</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="gp">gap&gt; </span><span class="nv">T</span> <span class="o">:=</span> <span class="nv">FullTransformationSemigroup</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-70-2"><a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="go">&lt;full transformation monoid of degree 3&gt;</span>
+</span><span id="__span-70-3"><a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># The order of T</span>
+</span><span id="__span-70-4"><a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a><span class="go">27</span>
+</span><span id="__span-70-5"><a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a><span class="gp">gap&gt; </span><span class="nv">IsMonoid</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T a monoid?</span>
+</span><span id="__span-70-6"><a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a><span class="go">true</span>
+</span><span id="__span-70-7"><a id="__codelineno-70-7" name="__codelineno-70-7" href="#__codelineno-70-7"></a><span class="gp">gap&gt; </span><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T regular?</span>
+</span><span id="__span-70-8"><a id="__codelineno-70-8" name="__codelineno-70-8" href="#__codelineno-70-8"></a><span class="go">true</span>
+</span><span id="__span-70-9"><a id="__codelineno-70-9" name="__codelineno-70-9" href="#__codelineno-70-9"></a><span class="gp">gap&gt; </span><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T commutative?</span>
+</span><span id="__span-70-10"><a id="__codelineno-70-10" name="__codelineno-70-10" href="#__codelineno-70-10"></a><span class="go">false</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="nv">T</span> <span class="o">:=</span> <span class="nv">FullTransformationSemigroup</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># The order of T</span>
-</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="nv">IsMonoid</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T a monoid?</span>
-</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T regular?</span>
-</span><span id="__span-63-5"><a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T commutative?</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="nv">T</span> <span class="o">:=</span> <span class="nv">FullTransformationSemigroup</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># The order of T</span>
+</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="nv">IsMonoid</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T a monoid?</span>
+</span><span id="__span-71-4"><a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T regular?</span>
+</span><span id="__span-71-5"><a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span> <span class="c1"># Is T commutative?</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2920,54 +3161,54 @@ GAP REPL output, for easier copy-pasting into a GAP session.</p>
 <p>As we discussed in the <a href="../first-steps/#the-help-system">Help system section</a>, to
 learn more about any GAP function you can use the help operator <code>?</code> in the GAP
 REPL, e.g.</p>
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="gp">gap&gt; </span>?<span class="nv">FullTransformationSemigroup</span>
-</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="go">  53.7-3 FullTransformationSemigroup</span>
-</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>
-</span><span id="__span-64-4"><a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a><span class="go">  ‣ FullTransformationSemigroup( n ) ─────────────────────────────────── function</span>
-</span><span id="__span-64-5"><a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a><span class="go">  ‣ FullTransformationMonoid( n ) ────────────────────────────────────── function</span>
-</span><span id="__span-64-6"><a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a><span class="go">  Returns:  The full transformation semigroup of degree n.</span>
-</span><span id="__span-64-7"><a id="__codelineno-64-7" name="__codelineno-64-7" href="#__codelineno-64-7"></a>
-</span><span id="__span-64-8"><a id="__codelineno-64-8" name="__codelineno-64-8" href="#__codelineno-64-8"></a><span class="go">  If n is a positive integer, then FullTransformationSemigroup returns the monoid</span>
-</span><span id="__span-64-9"><a id="__codelineno-64-9" name="__codelineno-64-9" href="#__codelineno-64-9"></a><span class="go">  consisting  of  all  transformations  with  degree  at  most n, called the full</span>
-</span><span id="__span-64-10"><a id="__codelineno-64-10" name="__codelineno-64-10" href="#__codelineno-64-10"></a><span class="go">  transformation semigroup.</span>
-</span><span id="__span-64-11"><a id="__codelineno-64-11" name="__codelineno-64-11" href="#__codelineno-64-11"></a>
-</span><span id="__span-64-12"><a id="__codelineno-64-12" name="__codelineno-64-12" href="#__codelineno-64-12"></a><span class="go">  The  full  transformation  semigroup  is  regular,  has  n ^ n elements, and is</span>
-</span><span id="__span-64-13"><a id="__codelineno-64-13" name="__codelineno-64-13" href="#__codelineno-64-13"></a><span class="go">  generated  by  any  set  containing transformations that generate the symmetric</span>
-</span><span id="__span-64-14"><a id="__codelineno-64-14" name="__codelineno-64-14" href="#__codelineno-64-14"></a><span class="go">  group on n points and any transformation of rank n - 1.</span>
-</span><span id="__span-64-15"><a id="__codelineno-64-15" name="__codelineno-64-15" href="#__codelineno-64-15"></a>
-</span><span id="__span-64-16"><a id="__codelineno-64-16" name="__codelineno-64-16" href="#__codelineno-64-16"></a><span class="go">  FulTransformationMonoid is a synonym for FullTransformationSemigroup.</span>
-</span><span id="__span-64-17"><a id="__codelineno-64-17" name="__codelineno-64-17" href="#__codelineno-64-17"></a>
-</span><span id="__span-64-18"><a id="__codelineno-64-18" name="__codelineno-64-18" href="#__codelineno-64-18"></a><span class="go">  ──────────────────────────────────  Example  ──────────────────────────────────</span>
-</span><span id="__span-64-19"><a id="__codelineno-64-19" name="__codelineno-64-19" href="#__codelineno-64-19"></a><span class="go">    gap&gt; FullTransformationSemigroup( 1234 );</span>
-</span><span id="__span-64-20"><a id="__codelineno-64-20" name="__codelineno-64-20" href="#__codelineno-64-20"></a><span class="go">    &lt;full transformation monoid of degree 1234&gt;</span>
-</span><span id="__span-64-21"><a id="__codelineno-64-21" name="__codelineno-64-21" href="#__codelineno-64-21"></a><span class="go">  ───────────────────────────────────────────────────────────────────────────────</span>
-</span><span id="__span-64-22"><a id="__codelineno-64-22" name="__codelineno-64-22" href="#__codelineno-64-22"></a><span class="go">  -- &lt;space&gt; page, &lt;n&gt; next line, &lt;b&gt; back, &lt;p&gt; back line, &lt;q&gt; quit --</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="gp">gap&gt; </span>?<span class="nv">FullTransformationSemigroup</span>
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="go">  53.7-3 FullTransformationSemigroup</span>
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a><span class="go">  ‣ FullTransformationSemigroup( n ) ─────────────────────────────────── function</span>
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="go">  ‣ FullTransformationMonoid( n ) ────────────────────────────────────── function</span>
+</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a><span class="go">  Returns:  The full transformation semigroup of degree n.</span>
+</span><span id="__span-72-7"><a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a>
+</span><span id="__span-72-8"><a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a><span class="go">  If n is a positive integer, then FullTransformationSemigroup returns the monoid</span>
+</span><span id="__span-72-9"><a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a><span class="go">  consisting  of  all  transformations  with  degree  at  most n, called the full</span>
+</span><span id="__span-72-10"><a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a><span class="go">  transformation semigroup.</span>
+</span><span id="__span-72-11"><a id="__codelineno-72-11" name="__codelineno-72-11" href="#__codelineno-72-11"></a>
+</span><span id="__span-72-12"><a id="__codelineno-72-12" name="__codelineno-72-12" href="#__codelineno-72-12"></a><span class="go">  The  full  transformation  semigroup  is  regular,  has  n ^ n elements, and is</span>
+</span><span id="__span-72-13"><a id="__codelineno-72-13" name="__codelineno-72-13" href="#__codelineno-72-13"></a><span class="go">  generated  by  any  set  containing transformations that generate the symmetric</span>
+</span><span id="__span-72-14"><a id="__codelineno-72-14" name="__codelineno-72-14" href="#__codelineno-72-14"></a><span class="go">  group on n points and any transformation of rank n - 1.</span>
+</span><span id="__span-72-15"><a id="__codelineno-72-15" name="__codelineno-72-15" href="#__codelineno-72-15"></a>
+</span><span id="__span-72-16"><a id="__codelineno-72-16" name="__codelineno-72-16" href="#__codelineno-72-16"></a><span class="go">  FulTransformationMonoid is a synonym for FullTransformationSemigroup.</span>
+</span><span id="__span-72-17"><a id="__codelineno-72-17" name="__codelineno-72-17" href="#__codelineno-72-17"></a>
+</span><span id="__span-72-18"><a id="__codelineno-72-18" name="__codelineno-72-18" href="#__codelineno-72-18"></a><span class="go">  ──────────────────────────────────  Example  ──────────────────────────────────</span>
+</span><span id="__span-72-19"><a id="__codelineno-72-19" name="__codelineno-72-19" href="#__codelineno-72-19"></a><span class="go">    gap&gt; FullTransformationSemigroup( 1234 );</span>
+</span><span id="__span-72-20"><a id="__codelineno-72-20" name="__codelineno-72-20" href="#__codelineno-72-20"></a><span class="go">    &lt;full transformation monoid of degree 1234&gt;</span>
+</span><span id="__span-72-21"><a id="__codelineno-72-21" name="__codelineno-72-21" href="#__codelineno-72-21"></a><span class="go">  ───────────────────────────────────────────────────────────────────────────────</span>
+</span><span id="__span-72-22"><a id="__codelineno-72-22" name="__codelineno-72-22" href="#__codelineno-72-22"></a><span class="go">  -- &lt;space&gt; page, &lt;n&gt; next line, &lt;b&gt; back, &lt;p&gt; back line, &lt;q&gt; quit --</span>
 </span></code></pre></div>
 <p>This can be especially helpful for understanding the functions we will use
 going forward.</p>
 <p>To display the elements of <code>T</code> we can use the GAP function <code>Elements</code>:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="27:2"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio" /><input id="__tabbed_27_2" name="__tabbed_27" type="radio" /><div class="tabbed-labels"><label for="__tabbed_27_1">GAP REPL</label><label for="__tabbed_27_2">GAP script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="31:2"><input checked="checked" id="__tabbed_31_1" name="__tabbed_31" type="radio" /><input id="__tabbed_31_2" name="__tabbed_31" type="radio" /><div class="tabbed-labels"><label for="__tabbed_31_1">GAP REPL</label><label for="__tabbed_31_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="go">[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 1, 2 ] ), </span>
-</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="go">  Transformation( [ 1, 1 ] ), Transformation( [ 1, 2, 1 ] ), </span>
-</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="go">  Transformation( [ 1, 2, 2 ] ), IdentityTransformation, </span>
-</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a><span class="go">  Transformation( [ 1, 3, 1 ] ), Transformation( [ 1, 3, 2 ] ), </span>
-</span><span id="__span-65-6"><a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a><span class="go">  Transformation( [ 1, 3, 3 ] ), Transformation( [ 2, 1, 1 ] ), </span>
-</span><span id="__span-65-7"><a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a><span class="go">  Transformation( [ 2, 1, 2 ] ), Transformation( [ 2, 1 ] ), </span>
-</span><span id="__span-65-8"><a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a><span class="go">  Transformation( [ 2, 2, 1 ] ), Transformation( [ 2, 2, 2 ] ), </span>
-</span><span id="__span-65-9"><a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a><span class="go">  Transformation( [ 2, 2 ] ), Transformation( [ 2, 3, 1 ] ), </span>
-</span><span id="__span-65-10"><a id="__codelineno-65-10" name="__codelineno-65-10" href="#__codelineno-65-10"></a><span class="go">  Transformation( [ 2, 3, 2 ] ), Transformation( [ 2, 3, 3 ] ), </span>
-</span><span id="__span-65-11"><a id="__codelineno-65-11" name="__codelineno-65-11" href="#__codelineno-65-11"></a><span class="go">  Transformation( [ 3, 1, 1 ] ), Transformation( [ 3, 1, 2 ] ), </span>
-</span><span id="__span-65-12"><a id="__codelineno-65-12" name="__codelineno-65-12" href="#__codelineno-65-12"></a><span class="go">  Transformation( [ 3, 1, 3 ] ), Transformation( [ 3, 2, 1 ] ), </span>
-</span><span id="__span-65-13"><a id="__codelineno-65-13" name="__codelineno-65-13" href="#__codelineno-65-13"></a><span class="go">  Transformation( [ 3, 2, 2 ] ), Transformation( [ 3, 2, 3 ] ), </span>
-</span><span id="__span-65-14"><a id="__codelineno-65-14" name="__codelineno-65-14" href="#__codelineno-65-14"></a><span class="go">  Transformation( [ 3, 3, 1 ] ), Transformation( [ 3, 3, 2 ] ), </span>
-</span><span id="__span-65-15"><a id="__codelineno-65-15" name="__codelineno-65-15" href="#__codelineno-65-15"></a><span class="go">  Transformation( [ 3, 3, 3 ] ) ]</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="gp">gap&gt; </span><span class="nv">Elements</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a><span class="go">[ Transformation( [ 1, 1, 1 ] ), Transformation( [ 1, 1, 2 ] ), </span>
+</span><span id="__span-73-3"><a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a><span class="go">  Transformation( [ 1, 1 ] ), Transformation( [ 1, 2, 1 ] ), </span>
+</span><span id="__span-73-4"><a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a><span class="go">  Transformation( [ 1, 2, 2 ] ), IdentityTransformation, </span>
+</span><span id="__span-73-5"><a id="__codelineno-73-5" name="__codelineno-73-5" href="#__codelineno-73-5"></a><span class="go">  Transformation( [ 1, 3, 1 ] ), Transformation( [ 1, 3, 2 ] ), </span>
+</span><span id="__span-73-6"><a id="__codelineno-73-6" name="__codelineno-73-6" href="#__codelineno-73-6"></a><span class="go">  Transformation( [ 1, 3, 3 ] ), Transformation( [ 2, 1, 1 ] ), </span>
+</span><span id="__span-73-7"><a id="__codelineno-73-7" name="__codelineno-73-7" href="#__codelineno-73-7"></a><span class="go">  Transformation( [ 2, 1, 2 ] ), Transformation( [ 2, 1 ] ), </span>
+</span><span id="__span-73-8"><a id="__codelineno-73-8" name="__codelineno-73-8" href="#__codelineno-73-8"></a><span class="go">  Transformation( [ 2, 2, 1 ] ), Transformation( [ 2, 2, 2 ] ), </span>
+</span><span id="__span-73-9"><a id="__codelineno-73-9" name="__codelineno-73-9" href="#__codelineno-73-9"></a><span class="go">  Transformation( [ 2, 2 ] ), Transformation( [ 2, 3, 1 ] ), </span>
+</span><span id="__span-73-10"><a id="__codelineno-73-10" name="__codelineno-73-10" href="#__codelineno-73-10"></a><span class="go">  Transformation( [ 2, 3, 2 ] ), Transformation( [ 2, 3, 3 ] ), </span>
+</span><span id="__span-73-11"><a id="__codelineno-73-11" name="__codelineno-73-11" href="#__codelineno-73-11"></a><span class="go">  Transformation( [ 3, 1, 1 ] ), Transformation( [ 3, 1, 2 ] ), </span>
+</span><span id="__span-73-12"><a id="__codelineno-73-12" name="__codelineno-73-12" href="#__codelineno-73-12"></a><span class="go">  Transformation( [ 3, 1, 3 ] ), Transformation( [ 3, 2, 1 ] ), </span>
+</span><span id="__span-73-13"><a id="__codelineno-73-13" name="__codelineno-73-13" href="#__codelineno-73-13"></a><span class="go">  Transformation( [ 3, 2, 2 ] ), Transformation( [ 3, 2, 3 ] ), </span>
+</span><span id="__span-73-14"><a id="__codelineno-73-14" name="__codelineno-73-14" href="#__codelineno-73-14"></a><span class="go">  Transformation( [ 3, 3, 1 ] ), Transformation( [ 3, 3, 2 ] ), </span>
+</span><span id="__span-73-15"><a id="__codelineno-73-15" name="__codelineno-73-15" href="#__codelineno-73-15"></a><span class="go">  Transformation( [ 3, 3, 3 ] ) ]</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="nv">Elements</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="nv">Elements</span><span class="p">(</span><span class="nv">T</span><span class="p">)</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2982,36 +3223,36 @@ such that <span class="arithmatex">\(t(1) = 1, t(2) = t(3) = 3\)</span> and <spa
 multiply transformations using the usual multiplication operator <code>*</code>.
 Furthermore, we can obtain the image <span class="arithmatex">\(t(x)\)</span> of a point
 <span class="arithmatex">\(x \in \{1, \ldots, 4\}\)</span> under <span class="arithmatex">\(t\)</span> via the power syntax <code>x ^ t</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="28:2"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio" /><input id="__tabbed_28_2" name="__tabbed_28" type="radio" /><div class="tabbed-labels"><label for="__tabbed_28_1">GAP REPL</label><label for="__tabbed_28_2">GAP script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="32:2"><input checked="checked" id="__tabbed_32_1" name="__tabbed_32" type="radio" /><input id="__tabbed_32_2" name="__tabbed_32" type="radio" /><div class="tabbed-labels"><label for="__tabbed_32_1">GAP REPL</label><label for="__tabbed_32_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-67-2"><a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="go">Transformation( [ 1, 3, 3 ] )</span>
-</span><span id="__span-67-3"><a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a><span class="gp">gap&gt; </span><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-67-4"><a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a><span class="go">Transformation( [ 2, 3, 4, 1 ] )</span>
-</span><span id="__span-67-5"><a id="__codelineno-67-5" name="__codelineno-67-5" href="#__codelineno-67-5"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="o">;</span>
-</span><span id="__span-67-6"><a id="__codelineno-67-6" name="__codelineno-67-6" href="#__codelineno-67-6"></a><span class="go">Transformation( [ 2, 4, 4, 1 ] )</span>
-</span><span id="__span-67-7"><a id="__codelineno-67-7" name="__codelineno-67-7" href="#__codelineno-67-7"></a><span class="gp">gap&gt; </span><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="o">;</span>
-</span><span id="__span-67-8"><a id="__codelineno-67-8" name="__codelineno-67-8" href="#__codelineno-67-8"></a><span class="go">Transformation( [ 3, 3, 4, 1 ] )</span>
-</span><span id="__span-67-9"><a id="__codelineno-67-9" name="__codelineno-67-9" href="#__codelineno-67-9"></a><span class="gp">gap&gt; </span><span class="nv">2</span> <span class="o">^</span> <span class="nv">a</span><span class="o">;</span>
-</span><span id="__span-67-10"><a id="__codelineno-67-10" name="__codelineno-67-10" href="#__codelineno-67-10"></a><span class="go">3</span>
-</span><span id="__span-67-11"><a id="__codelineno-67-11" name="__codelineno-67-11" href="#__codelineno-67-11"></a><span class="gp">gap&gt; </span><span class="nv">3</span> <span class="o">^</span> <span class="nv">b</span><span class="o">;</span>
-</span><span id="__span-67-12"><a id="__codelineno-67-12" name="__codelineno-67-12" href="#__codelineno-67-12"></a><span class="go">4</span>
-</span><span id="__span-67-13"><a id="__codelineno-67-13" name="__codelineno-67-13" href="#__codelineno-67-13"></a><span class="gp">gap&gt; </span><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-67-14"><a id="__codelineno-67-14" name="__codelineno-67-14" href="#__codelineno-67-14"></a><span class="go">4</span>
-</span><span id="__span-67-15"><a id="__codelineno-67-15" name="__codelineno-67-15" href="#__codelineno-67-15"></a><span class="gp">gap&gt; </span><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-67-16"><a id="__codelineno-67-16" name="__codelineno-67-16" href="#__codelineno-67-16"></a><span class="go">3</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a><span class="go">Transformation( [ 1, 3, 3 ] )</span>
+</span><span id="__span-75-3"><a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a><span class="gp">gap&gt; </span><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-75-4"><a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a><span class="go">Transformation( [ 2, 3, 4, 1 ] )</span>
+</span><span id="__span-75-5"><a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="o">;</span>
+</span><span id="__span-75-6"><a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a><span class="go">Transformation( [ 2, 4, 4, 1 ] )</span>
+</span><span id="__span-75-7"><a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a><span class="gp">gap&gt; </span><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="o">;</span>
+</span><span id="__span-75-8"><a id="__codelineno-75-8" name="__codelineno-75-8" href="#__codelineno-75-8"></a><span class="go">Transformation( [ 3, 3, 4, 1 ] )</span>
+</span><span id="__span-75-9"><a id="__codelineno-75-9" name="__codelineno-75-9" href="#__codelineno-75-9"></a><span class="gp">gap&gt; </span><span class="nv">2</span> <span class="o">^</span> <span class="nv">a</span><span class="o">;</span>
+</span><span id="__span-75-10"><a id="__codelineno-75-10" name="__codelineno-75-10" href="#__codelineno-75-10"></a><span class="go">3</span>
+</span><span id="__span-75-11"><a id="__codelineno-75-11" name="__codelineno-75-11" href="#__codelineno-75-11"></a><span class="gp">gap&gt; </span><span class="nv">3</span> <span class="o">^</span> <span class="nv">b</span><span class="o">;</span>
+</span><span id="__span-75-12"><a id="__codelineno-75-12" name="__codelineno-75-12" href="#__codelineno-75-12"></a><span class="go">4</span>
+</span><span id="__span-75-13"><a id="__codelineno-75-13" name="__codelineno-75-13" href="#__codelineno-75-13"></a><span class="gp">gap&gt; </span><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-75-14"><a id="__codelineno-75-14" name="__codelineno-75-14" href="#__codelineno-75-14"></a><span class="go">4</span>
+</span><span id="__span-75-15"><a id="__codelineno-75-15" name="__codelineno-75-15" href="#__codelineno-75-15"></a><span class="gp">gap&gt; </span><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-75-16"><a id="__codelineno-75-16" name="__codelineno-75-16" href="#__codelineno-75-16"></a><span class="go">3</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-68-3"><a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="o">;</span>
-</span><span id="__span-68-4"><a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="o">;</span>
-</span><span id="__span-68-5"><a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a><span class="nv">2</span> <span class="o">^</span> <span class="nv">a</span><span class="o">;</span>
-</span><span id="__span-68-6"><a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a><span class="nv">3</span> <span class="o">^</span> <span class="nv">b</span><span class="o">;</span>
-</span><span id="__span-68-7"><a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-68-8"><a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="p">)</span><span class="o">;</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="o">;</span>
+</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="o">;</span>
+</span><span id="__span-76-5"><a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a><span class="nv">2</span> <span class="o">^</span> <span class="nv">a</span><span class="o">;</span>
+</span><span id="__span-76-6"><a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a><span class="nv">3</span> <span class="o">^</span> <span class="nv">b</span><span class="o">;</span>
+</span><span id="__span-76-7"><a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-76-8"><a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a><span class="nv">2</span> <span class="o">^</span> <span class="p">(</span><span class="nv">b</span> <span class="o">*</span> <span class="nv">a</span><span class="p">)</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -3030,33 +3271,33 @@ valid and returns <code>10</code>.</p>
 </div>
 <p>We can construct a semigroups generated by a set of transformations using the
 <code>Semigroup</code> function:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="29:2"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio" /><input id="__tabbed_29_2" name="__tabbed_29" type="radio" /><div class="tabbed-labels"><label for="__tabbed_29_1">GAP REPL</label><label for="__tabbed_29_2">GAP script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="33:2"><input checked="checked" id="__tabbed_33_1" name="__tabbed_33" type="radio" /><input id="__tabbed_33_2" name="__tabbed_33" type="radio" /><div class="tabbed-labels"><label for="__tabbed_33_1">GAP REPL</label><label for="__tabbed_33_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a><span class="go">Transformation( [ 1, 3, 3 ] )</span>
-</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a><span class="gp">gap&gt; </span><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-69-4"><a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a><span class="go">Transformation( [ 2, 3, 4, 1 ] )</span>
-</span><span id="__span-69-5"><a id="__codelineno-69-5" name="__codelineno-69-5" href="#__codelineno-69-5"></a><span class="gp">gap&gt; </span><span class="nv">c</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-69-6"><a id="__codelineno-69-6" name="__codelineno-69-6" href="#__codelineno-69-6"></a><span class="go">Transformation( [ 1, 1, 2, 2 ] )</span>
-</span><span id="__span-69-7"><a id="__codelineno-69-7" name="__codelineno-69-7" href="#__codelineno-69-7"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">c</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-69-8"><a id="__codelineno-69-8" name="__codelineno-69-8" href="#__codelineno-69-8"></a><span class="go">&lt;transformation semigroup of degree 4 with 3 generators&gt;</span>
-</span><span id="__span-69-9"><a id="__codelineno-69-9" name="__codelineno-69-9" href="#__codelineno-69-9"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span> <span class="c1"># All the usual semigroup functions should work</span>
-</span><span id="__span-69-10"><a id="__codelineno-69-10" name="__codelineno-69-10" href="#__codelineno-69-10"></a><span class="go">128</span>
-</span><span id="__span-69-11"><a id="__codelineno-69-11" name="__codelineno-69-11" href="#__codelineno-69-11"></a><span class="gp">gap&gt; </span><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-69-12"><a id="__codelineno-69-12" name="__codelineno-69-12" href="#__codelineno-69-12"></a><span class="go">true</span>
-</span><span id="__span-69-13"><a id="__codelineno-69-13" name="__codelineno-69-13" href="#__codelineno-69-13"></a><span class="gp">gap&gt; </span><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-69-14"><a id="__codelineno-69-14" name="__codelineno-69-14" href="#__codelineno-69-14"></a><span class="go">false</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="gp">gap&gt; </span><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="go">Transformation( [ 1, 3, 3 ] )</span>
+</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a><span class="gp">gap&gt; </span><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-77-4"><a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a><span class="go">Transformation( [ 2, 3, 4, 1 ] )</span>
+</span><span id="__span-77-5"><a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a><span class="gp">gap&gt; </span><span class="nv">c</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-77-6"><a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a><span class="go">Transformation( [ 1, 1, 2, 2 ] )</span>
+</span><span id="__span-77-7"><a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a><span class="gp">gap&gt; </span><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">c</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-77-8"><a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a><span class="go">&lt;transformation semigroup of degree 4 with 3 generators&gt;</span>
+</span><span id="__span-77-9"><a id="__codelineno-77-9" name="__codelineno-77-9" href="#__codelineno-77-9"></a><span class="gp">gap&gt; </span><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span> <span class="c1"># All the usual semigroup functions should work</span>
+</span><span id="__span-77-10"><a id="__codelineno-77-10" name="__codelineno-77-10" href="#__codelineno-77-10"></a><span class="go">128</span>
+</span><span id="__span-77-11"><a id="__codelineno-77-11" name="__codelineno-77-11" href="#__codelineno-77-11"></a><span class="gp">gap&gt; </span><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-77-12"><a id="__codelineno-77-12" name="__codelineno-77-12" href="#__codelineno-77-12"></a><span class="go">true</span>
+</span><span id="__span-77-13"><a id="__codelineno-77-13" name="__codelineno-77-13" href="#__codelineno-77-13"></a><span class="gp">gap&gt; </span><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-77-14"><a id="__codelineno-77-14" name="__codelineno-77-14" href="#__codelineno-77-14"></a><span class="go">false</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-70-2"><a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-70-3"><a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a><span class="nv">c</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-70-4"><a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">c</span><span class="p">])</span><span class="o">;</span>
-</span><span id="__span-70-5"><a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span> <span class="c1"># All the usual semigroup functions should work</span>
-</span><span id="__span-70-6"><a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
-</span><span id="__span-70-7"><a id="__codelineno-70-7" name="__codelineno-70-7" href="#__codelineno-70-7"></a><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="nv">a</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-78-2"><a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="nv">b</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">2</span><span class="o">,</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">4</span><span class="o">,</span> <span class="nv">1</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-78-3"><a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a><span class="nv">c</span> <span class="o">:=</span> <span class="nv">Transformation</span><span class="p">([</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">2</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-78-4"><a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a><span class="nv">S</span> <span class="o">:=</span> <span class="nv">Semigroup</span><span class="p">([</span><span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">c</span><span class="p">])</span><span class="o">;</span>
+</span><span id="__span-78-5"><a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a><span class="nv">Size</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span> <span class="c1"># All the usual semigroup functions should work</span>
+</span><span id="__span-78-6"><a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a><span class="nv">IsRegularSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-78-7"><a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a><span class="nv">IsCommutativeSemigroup</span><span class="p">(</span><span class="nv">S</span><span class="p">)</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -3068,14 +3309,14 @@ valid and returns <code>10</code>.</p>
 <p>Recall that the <em>egg-box diagram</em> of a semigroup is a visual representation
   of its Green's relations. In GAP we can display them using the <code>Splash</code> and
   <code>DotString</code> functions:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="30:2"><input checked="checked" id="__tabbed_30_1" name="__tabbed_30" type="radio" /><input id="__tabbed_30_2" name="__tabbed_30" type="radio" /><div class="tabbed-labels"><label for="__tabbed_30_1">GAP REPL</label><label for="__tabbed_30_2">GAP script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="34:2"><input checked="checked" id="__tabbed_34_1" name="__tabbed_34" type="radio" /><input id="__tabbed_34_2" name="__tabbed_34" type="radio" /><div class="tabbed-labels"><label for="__tabbed_34_1">GAP REPL</label><label for="__tabbed_34_2">GAP script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="gp">gap&gt; </span><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
+<div class="language-gap-repl highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="gp">gap&gt; </span><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-gap highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
+<div class="language-gap highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="nv">Splash</span><span class="p">(</span><span class="nv">DotString</span><span class="p">(</span><span class="nv">T</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span><span class="nv">maximal</span> <span class="o">:=</span> <span class="no">true</span><span class="p">)))</span><span class="o">;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -3116,7 +3357,7 @@ table that correspond to the generators in <span class="arithmatex">\(A\)</span>
 construct a transformation semigroup <span class="arithmatex">\(S^\prime\)</span> that is isomorphic to
 <span class="arithmatex">\(S\)</span>, and we only need specify <span class="arithmatex">\(|A|\cdot |S|\)</span> many entries.</p>
 </div>
-<h3 id="cayley-graphs">Cayley graphs</h3>
+<h3 id="cayley-graphs_1">Cayley graphs</h3>
 <h3 id="finite-inverse-semigroups">Finite inverse semigroups</h3>
 <h3 id="semigroups-of-bipartitions">Semigroups of bipartitions</h3>
 <p><a href="https://semigroups.github.io/Semigroups/doc/chap3_mj.html">TODO</a></p>
