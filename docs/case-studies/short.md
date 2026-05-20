@@ -2,7 +2,7 @@
 
 On this page we describe the computational claims made in the paper:
 
-* T. Aird, J. D. Mitchell, M. Whyte, Short presentations for
+* T. Aird, J. D. Mitchell, M. T. Whyte, Short presentations for
 transformation monoids,
 [https://doi.org/10.48550/arXiv.2406.19294](https://doi.org/10.48550/arXiv.2406.19294)
 
@@ -17,7 +17,89 @@ transformation from the [paper
 above](https://doi.org/10.48550/arXiv.2406.19294) for the small values of $n$
 not covered by the main theorems in the paper. 
 
+## The symmetric inverse monoid
+
+### $n = 2$
+```
+sym2 = [[0, 0], []]
+s = [
+    [1, 1], [1],
+    [0, 1, 0, 1, 0, 1, 0], [1, 0, 1],
+    ]
+
+I2 = sym2 + s
+
+p = Presentation([0, 1, 2])
+p.rules = I2
+presentation.replace_word(p, [], [2])
+presentation.add_identity_rules(p, 2)
+
+C = Congruence(congruence_kind.twosided)
+C.set_number_of_generators(3)
+for i in range(0, len(p.rules), 2):
+    C.add_pair(p.rules[i], p.rules[i + 1])
+
+C.number_of_classes()
+```
+
+### $n = 3$
+```
+sym3 = [[0, 0], [],
+        [1, 1,], [],
+        [0, 1, 0], [1, 0, 1]]
+
+s = [
+    [2, 2], [2],
+    [0, 1, 0, 2], [2, 0, 1, 0],
+    [0, 2, 0, 2, 0, 2, 0], [2, 0, 2],
+    ]
+
+I3 = sym3 + s
+
+p = Presentation([0, 1, 2, 3])
+p.rules = I3
+presentation.replace_word(p, [], [3])
+presentation.add_identity_rules(p, 3)
+
+C = Congruence(congruence_kind.twosided)
+C.set_number_of_generators(4)
+for i in range(0, len(p.rules), 2):
+    C.add_pair(p.rules[i], p.rules[i + 1])
+
+C.number_of_classes()
+```
+
 ## The full transformation monoid
+
+### $n = 3$
+```
+from libsemigroups_pybind11 import presentation, Presentation, congruence_kind, Congruence
+from libsemigroups_pybind11.fpsemigroup import author, symmetric_group
+sym3 = [[0, 0], [],
+        [1, 1], [],
+        [0, 1, 0], [1, 0, 1]]
+
+s = [
+    [0, 2], [2],
+    [2, 1, 2, 1], [2],
+    [0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0], [2, 0, 1, 0, 2]
+    ]
+
+T3 = sym3 + s
+
+p = Presentation([0, 1, 2, 3])
+p.rules = T3
+presentation.replace_word(p, [], [3])
+presentation.add_identity_rules(p, 3)
+
+C = Congruence(congruence_kind.twosided)
+C.set_number_of_generators(4)
+for i in range(0, len(p.rules), 2):
+    C.add_pair(p.rules[i], p.rules[i + 1])
+
+C.number_of_classes()
+```
+
 
 ### $n = 4$
 
@@ -149,6 +231,118 @@ transformation $\zeta$ is indeed an isomorphism.
     ```
 
 ## Partial transformation monoid
+
+### $n = 2$
+The below is some Python to verify that the presentation
+
+\begin{equation}\label{PT-2}
+  \left\langlea_2, \ve, \vep}{a_2^2 = 1,\quad  a_2\ve = \ve,\quad  \ve a_2 \vep a_2
+  = \ve,\quad  \vep a_2 \ve a_2 = \vep,\quad a_2 \vep a_2 \vep a_2 = \ve \vep\right\rangle
+\end{equation}
+
+defines $PT_2$.
+1 is epsilon_{1, 2} i.e. ZETA
+2 is epsilon_{(1)} i.e. ETA
+
+
+```
+sym2 = [[0, 0], []]
+
+s = [
+    [1, 0, 2, 0], [1],
+    [2, 0, 1, 0], [2],
+    [0, 2, 0, 2, 0], [1, 2],
+    [0, 1], [1],
+    ]
+
+PT2 = sym2 + s
+
+p = Presentation([0, 1, 2, 3])
+p.rules = PT2
+presentation.replace_word(p, [], [3])
+presentation.add_identity_rules(p, 3)
+
+C = Congruence(congruence_kind.twosided)
+C.set_number_of_generators(4)
+for i in range(0, len(p.rules), 2):
+    C.add_pair(p.rules[i], p.rules[i + 1])
+
+C.number_of_classes()
+```
+
+### $n = 3$
+
+```
+sym3 = [[0, 0], [],
+        [1, 1,], [],
+        [0, 1, 0], [1, 0, 1]]
+
+2 is epsilon_{1, 2}
+3 is epsilon_{(1)}
+
+s = [
+    [2, 0, 3, 0], [2],
+    [3, 0, 2, 0], [3],
+    [0, 2], [2],
+    [0, 1, 0, 3], [3, 0, 1, 0],
+    [0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0], [2, 0, 1, 0, 2], # Tn rank n - 2
+    [0, 3, 0, 3, 0, 3, 0], [2, 3], # In rank n - 2
+    [2, 1, 3, 1], [1, 3, 1, 2] # mixed rank n - 2
+    ]
+
+PT3 = sym3 + s
+
+p = Presentation([0, 1, 2, 3, 4])
+p.rules = PT3
+presentation.replace_word(p, [], [4])
+presentation.add_identity_rules(p, 4)
+
+C = Congruence(congruence_kind.twosided)
+C.set_number_of_generators(5)
+for i in range(0, len(p.rules), 2):
+    C.add_pair(p.rules[i], p.rules[i + 1])
+
+C.number_of_classes()
+```
+
+
+### $n = 4$
+
+```
+s = [
+    [3, 0, 4, 0], [0, 3],
+    [4, 0, 3, 0], [0, 1, 0, 4, 0, 1, 0],
+    
+    [0, 1, 2, 1, 3], [3, 1, 2, 1],
+    
+    [0, 1, 2, 0, 4], [4, 0, 1, 2, 0],
+    
+    [0, 1, 0, 3, 0, 1, 0, 3, 0, 1, 0, 3, 0, 1, 0], [3, 0, 1, 0, 3], # Tn rank n - 2
+    [3, 0, 1, 0, 2, 3, 0, 1, 0, 2], [0, 1, 0, 2, 3, 0, 1, 0, 2, 3],
+    [0, 4, 0, 4, 0], [3, 4], # In rank n - 2
+    [3, 1, 4, 1], [1, 4, 1, 3] # mixed rank n - 2
+    ]
+
+sym4 = []
+for pair in symmetric_group(4):
+    sym4.append(pair[0])
+    sym4.append(pair[1])
+
+
+PT4 = sym4 + s
+
+p = Presentation([0, 1, 2, 3, 4, 5])
+p.rules = PT4
+presentation.replace_word(p, [], [5])
+presentation.add_identity_rules(p, 5)
+
+C = Congruence(congruence_kind.twosided)
+C.set_number_of_generators(6)
+for i in range(0, len(p.rules), 2):
+    C.add_pair(p.rules[i], p.rules[i + 1])
+
+C.number_of_classes()
+```
 
 
 [GAP]: https://gap-system.org
