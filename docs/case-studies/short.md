@@ -13,7 +13,7 @@ and how they can be verified using
 
 Below we give the commands that permit the computation of the presentations for
 the symmetric inverse monoid, full transformation monoid, and partial
-transformation from the [paper
+transformation monoid from the [paper
 above](https://doi.org/10.48550/arXiv.2406.19294) for the small values of $n$
 not covered by the main theorems in the paper. 
 
@@ -27,7 +27,7 @@ symmetric inverse monoid of degree $n\geq 3$ from Theorem
 === "Python"
 
     ```python
-    from libsemigroups_pybind11 import Presentation, presentation
+    from libsemigroups_pybind11 import Presentation, presentation, to
     from libsemigroups_pybind11.presentation import examples
 
     def theorem_1_4_symm_inv(n: int) -> Presentation:
@@ -200,7 +200,7 @@ presentation
 \end{aligned}
 \end{equation}
 defines the full transformation monoid of degree $4$. By Theorem 1.5 in [the
-paper]() this presentation has the smallest number of non-$S_n$
+paper](https://doi.org/10.48550/arXiv.2406.19294) this presentation has the smallest number of non-$S_n$
 relations, i.e. relations containing the letter $\zeta$ which represents the
 rank $n-1$ idempotent:
 \begin{pmatrix}
@@ -223,9 +223,9 @@ transformation $\zeta$ is indeed an isomorphism.
 === "Python"
 
     ```python
+    from libsemigroups_pybind11 import Presentation, ToddCoxeter, congruence_kind, to
     from libsemigroups_pybind11.presentation import examples
     from libsemigroups_pybind11.words import parse_relations as parse
-    from libsemigroups_pybind11 import to
     p = examples.symmetric_group_Car56(4)
     p = to(p, rtype=(Presentation, str))
     p.alphabet("abcz")
@@ -273,7 +273,7 @@ transformation $\zeta$ is indeed an isomorphism.
 
 ### $n = 5$
 
-As stated in [the paper](TODO), the presentation from Theorem 1.5 defines $T_n$
+As stated in [the paper](https://doi.org/10.48550/arXiv.2406.19294), the presentation from Theorem 1.5 defines $T_n$
 when $n = 5$. 
 
 ```python
@@ -316,9 +316,7 @@ def theorem_1_5_full_transf(n: int) -> Presentation:
 === "Python"
 
     ```python
-    from libsemigroups_pybind11.presentation import examples
-    from libsemigroups_pybind11.words import parse_relations as parse
-    from libsemigroups_pybind11 import to
+    from libsemigroups_pybind11 import ToddCoxeter, congruence_kind
     p = theorem_1_5_full_transf(5)
     tc = ToddCoxeter(congruence_kind.twosided, p)
     tc.number_of_classes()  # returns 3125
@@ -393,7 +391,7 @@ def theorem_1_5_full_transf(n: int) -> Presentation:
     tc.perform_lookahead()
     tc.perform_lookahead()
     tc.perform_lookahead()
-    tc.number_of_classes()  #returns 46656
+    tc.number_of_classes()  # returns 46656
     ```
 
 === "GAP"
@@ -480,8 +478,6 @@ defines $PT_2$.
     ```
 
 ### $n = 3$
-
-<!-- TODO double check this is the same as in the paper -->
 
 === "Python"
 
