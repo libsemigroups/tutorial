@@ -46,7 +46,7 @@ symmetric inverse monoid of degree $n\geq 3$ from Theorem
 The output of `theorem_1_4_symm_inv` can be converted to [GAP][] input by doing
 
 ```python
-presentation.to_gap_string(theorem_1_4_symm_inv(3))
+presentation.to_gap_string(theorem_1_4_symm_inv(3), "S")
 ```
 
 ### $n = 2$
@@ -350,6 +350,7 @@ def theorem_1_5_full_transf(n: int) -> Presentation:
           [b * d * c * b * z * b * c * d * b, a * z * b * z * b]
         ];
     S := F / R;
+    Size(S);  # returns 3125
     ```
 
 ### $n = 6$
@@ -397,7 +398,7 @@ def theorem_1_5_full_transf(n: int) -> Presentation:
 === "GAP"
 
     ```gap
-    F := FreeMonoid("a", "b", "c", "d", "e", "f");
+    F := FreeMonoid("a", "b", "c", "d", "e", "z");
     AssignGeneratorVariables(F);;
     R := [
           [a * a, One(F)],
@@ -425,10 +426,10 @@ def theorem_1_5_full_transf(n: int) -> Presentation:
           [e * a * e * b * e * a * e * b, One(F)],
           [e * a * e * c * e * a * e * c, One(F)],
           [e * a * e * d * e * a * e * d, One(F)],
-          [f * e * a * b * a * f * e * a * b * a, e * a * b * a * f * e * a * b * a * f],
-          [a * b * a * f * a * b * a * f * a * b * a * f * a * b * a, f * a * b * a * f],
-          [b * c * b * f * b * c * b, f * b * f * b],
-          [b * e * d * c * b * f * b * c * d * e * b, a * f]
+          [z * e * a * b * a * z * e * a * b * a, e * a * b * a * z * e * a * b * a * z],
+          [a * b * a * z * a * b * a * z * a * b * a * z * a * b * a, z * a * b * a * z],
+          [b * c * b * z * b * c * b, z * b * z * b],
+          [b * e * d * c * b * z * b * c * d * e * b, a * z]
         ];
     S := F / R;
     Size(S);  # returns 46656
