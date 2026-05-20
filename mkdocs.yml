@@ -16,6 +16,9 @@ nav:
       - "Python: Semigroups defined by generators": py/generated.md
       - "Python: Finitely presented semigroups": py/fp.md
       - "Python: Worksheet": py/worksheet.md
+  - Case studies:
+      - case-studies/index.md
+      - case-studies/short.md
 
 theme:
   name: material
@@ -81,4 +84,5 @@ extra:
       link: https://www.github.com/libsemigroups/libsemigroups_pybind11
 
 extra_javascript:
+  - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

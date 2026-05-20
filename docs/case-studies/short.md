@@ -1,0 +1,156 @@
+# Short presentations for transformation monoids
+
+On this page we describe the computational claims made in the paper:
+
+* T. Aird, J. D. Mitchell, M. Whyte, Short presentations for
+transformation monoids,
+[https://doi.org/10.48550/arXiv.2406.19294](https://doi.org/10.48550/arXiv.2406.19294)
+
+and how they can be verified using
+[libsemigroups_pybind11][] and the [Semigroups package for GAP][].
+
+[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html
+
+Below we give the commands that permit the computation of the presentations for
+the symmetric inverse monoid, full transformation monoid, and partial
+transformation from the [paper
+above](https://doi.org/10.48550/arXiv.2406.19294) for the small values of $n$
+not covered by the main theorems in the paper. 
+
+## The full transformation monoid
+
+### $n = 4$
+
+Here we give the [GAP][] and [Python][] code for verifying that the
+presentation
+\begin{equation}\label{eq-t-4}
+\begin{aligned}
+\langle a_2, a_3, a_4, z \mid &\ 
+      a_2^2=\varepsilon,
+      a_3^2=\varepsilon,
+      a_4^2=\varepsilon,
+      (a_2a_3)^3=\varepsilon,
+      (a_3a_4)^3=\varepsilon,
+      (a_4a_2)^3=\varepsilon,\\\\
+      &\ (a_2a_3a_2a_4)^2=\varepsilon,
+      (a_3a_4a_3a_2)^2=\varepsilon,
+      (a_4a_2a_4a_3)^2=\varepsilon, \\\\
+&\ (a_4a_2a_3a_2z)^2=(za_4a_2a_3a_2)^2, \\\\
+&\      (a_2a_3a_2z)^3a_2a_3a_2=za_2a_3a_2z,\\\\
+&\      a_3a_4a_3za_3a_4a_3=(za_3)^2, \\\\
+&\ a_2z= z(za_3)^2
+\rangle
+\end{aligned}
+\end{equation}
+defines the full transformation monoid of degree $4$. By Theorem 1.5 in [the
+paper]() this presentation has the smallest number of non-$S_n$
+relations, i.e. relations containing the letter $\zeta$ which represents the
+rank $n-1$ idempotent:
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\\\
+1 & 1 & 3 & 4
+\end{pmatrix}
+
+Note that the presentation with generators $a_2, a_3, a_4$ and the relations in
+the presentation in \eqref{eq-t-4} not containing $z$ defines the symmetric
+group of degree $4$ (this is Carmichael's presentation from TODO). 
+
+In the [GAP][] code below we show that the presentation defines a
+monoid of the same size as $\mathcal{T}_4$ and that the function mapping
+$a_2, a_3, a_4, z$ to the permutations $(1, 2), (1, 3), (1, 4)$ and the
+transformation $\zeta$ is indeed an isomorphism.
+
+=== "GAP REPL"
+    ```gap-repl
+
+      gap> F := FreeMonoid(4);
+      <free monoid on the generators [ m1, m2, m3, m4 ]>
+      gap> a2 := F.1; a3 := F.2; a4 := F.3; z := F.4;
+      m1
+      m2
+      m3
+      m4
+      gap> R :=  [[a2^2, One(F)],
+      >           [a3^2, One(F)],
+      >           [a4^2, One(F)],
+      >           [(a2*a3)^3, One(F)],
+      >           [(a3*a4)^3, One(F)],
+      >           [(a4*a2)^3, One(F)],
+      >           [(a2*a3*a2*a4)^2, One(F)],
+      >           [(a3*a4*a3*a2)^2, One(F)],
+      >           [(a4*a2*a4*a3)^2, One(F)],
+      >           [(a4*a2*a3*a2*z)^2,(z*a4*a2*a3*a2)^2],
+      >           [(a2*a3*a2*z)^3*a2*a3*a2,z*a2*a3*a2*z],
+      >           [a3*a4*a3*z*a3*a4*a3, z*a3*z*a3], [a2*z, z*z*a3*z*a3]];
+      [ [ m1^2, <identity ...> ], [ m2^2, <identity ...> ], [ m3^2, <identity ...> ],
+      [ (m1*m2)^3, <identity ...> ], [ (m2*m3)^3, <identity ...> ],
+      [ (m3*m1)^3, <identity ...> ], [ (m1*m2*m1*m3)^2, <identity ...> ],
+      [ (m2*m3*m2*m1)^2, <identity ...> ], [ (m3*m1*m3*m2)^2, <identity ...> ],
+      [ (m3*m1*m2*m1*m4)^2, (m4*m3*m1*m2*m1)^2 ],
+      [ (m1*m2*m1*m4)^3*m1*m2*m1, m4*m1*m2*m1*m4 ], [ m2*m3*m2*m4*m2*m3*m2, (m4*m2)^2 ],
+      [ m1*m4, m4*(m4*m2)^2 ] ]
+      gap> M := F / R;
+      <fp monoid with 4 generators and 13 relations of length 110>
+      gap> Size(M);
+      256
+      gap> SemigroupIsomorphismByImages(M,
+      > FullTransformationMonoid(4),
+      > GeneratorsOfMonoid(M),
+      > [AsTransformation((1, 2)),
+      >  AsTransformation((1, 3)),
+      >  AsTransformation((1, 4)),
+      >  Transformation([1, 1, 3, 4])]);
+      <fp monoid with 4 generators and 13 relations of length 110> ->
+      <full transformation monoid of degree 4>
+    ```
+=== "GAP script"
+
+    ```gap-repl
+    F := FreeMonoid(4);
+    a2 := F.1; a3 := F.2; a4 := F.3; z := F.4;
+    R := [[a2^2, One(F)],
+          [a3^2, One(F)],
+          [a4^2, One(F)],
+          [(a2*a3)^3, One(F)],
+          [(a3*a4)^3, One(F)],
+          [(a4*a2)^3, One(F)],
+          [(a2*a3*a2*a4)^2, One(F)],
+          [(a3*a4*a3*a2)^2, One(F)],
+          [(a4*a2*a4*a3)^2, One(F)],
+          [(a4*a2*a3*a2*z)^2,(z*a4*a2*a3*a2)^2],
+          [(a2*a3*a2*z)^3*a2*a3*a2,z*a2*a3*a2*z],
+          [a3*a4*a3*z*a3*a4*a3, z*a3*z*a3], [a2*z, z*z*a3*z*a3]];
+    M := F / R;
+    Size(M);
+    SemigroupIsomorphismByImages(M, 
+     FullTransformationMonoid(4), 
+     GeneratorsOfMonoid(M),
+     [AsTransformation((1, 2)), 
+      AsTransformation((1, 3)), 
+      AsTransformation((1, 4)),
+      Transformation([1, 1, 3, 4])]);
+    ```
+
+=== "Python REPL"
+
+=== "Python script"
+
+    ```python
+    from libsemigroups_pybind11.presentation import examples
+    from libsemigroups_pybind11.words import parse_relations as parse
+    p = examples.symmetric_group_Car56(4)
+    p = to(p, rtype=(Presentation, str))
+    p.alphabet("abcz")
+    p.rules = p.rules + [parse("(cabaz)^2"), parse("(zcaba)^2"),
+           parse("(abaz)^3aba"), "zabaz",
+           "bcbzbcb", "zbzb", "az", "zzbzb"]
+    tc = ToddCoxeter(congruence_kind.twosided, p)
+    tc.number_of_classes() # returns 256
+    ```
+
+## Partial transformation monoid
+
+
+[GAP]: https://gap-system.org
+[Semigroups package for GAP]: https://semigroups.github.io/Semigroups/
+[Python]: https://www.python.org
