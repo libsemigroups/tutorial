@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../fp/">
-      
-      
-        <link rel="next" href="../../case-studies/">
       
       
         
@@ -23,7 +19,7 @@
     
     
       
-        <title>Python: Worksheet - Semigroups - Zero to ε</title>
+        <title>Trans rep - Semigroups - Zero to ε</title>
       
     
     
@@ -73,11 +69,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#worksheet" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -107,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Python: Worksheet
+              Trans rep
             
           </span>
         </div>
@@ -245,13 +236,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../py/" class="md-tabs__link">
           
   
   
@@ -273,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../case-studies/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -574,8 +563,6 @@
       
   
   
-    
-  
   
   
     
@@ -599,21 +586,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../py/" class="md-nav__link ">
               
   
   
@@ -631,13 +615,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -657,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
+      <a href="../../py/install/" class="md-nav__link">
         
   
   
@@ -685,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../first-steps/" class="md-nav__link">
+      <a href="../../py/first-steps/" class="md-nav__link">
         
   
   
@@ -713,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../generated/" class="md-nav__link">
+      <a href="../../py/generated/" class="md-nav__link">
         
   
   
@@ -741,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fp/" class="md-nav__link">
+      <a href="../../py/fp/" class="md-nav__link">
         
   
   
@@ -766,19 +750,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../py/worksheet/" class="md-nav__link">
         
   
   
@@ -794,7 +769,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -837,7 +811,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../case-studies/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -881,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../case-studies/short/" class="md-nav__link">
+      <a href="../short/" class="md-nav__link">
         
   
   
@@ -927,46 +901,6 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
-    <ol class="md-path__list">
-      
-        
-  
-  
-    <li class="md-path__item">
-      <a href="../.." class="md-path__link">
-        
-  <span class="md-ellipsis">
-    Home
-  </span>
-
-      </a>
-    </li>
-  
-
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Semigroups in Python
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -974,142 +908,9 @@
 
 
 
-<h1 id="worksheet">Worksheet</h1>
-<p>This page contains some exercises for computing some things using <code>libsemigroups_pybind11</code>.</p>
-<ol>
-<li>
-<p>Recall that the commuting graph of a semigroup  <span class="arithmatex">\(S\)</span> is the graph with nodes
-   the elements of <span class="arithmatex">\(S\)</span> and an edge <span class="arithmatex">\((x, y)\)</span> if <span class="arithmatex">\(xy = yx\)</span> holds. Let
-   <span class="arithmatex">\(\mathcal{T}_n\)</span> be the full transformation monoid on <span class="arithmatex">\(n \leq 5\)</span> points. Show
-   that the clique numbers of the commuting graph of <span class="arithmatex">\(\mathcal{T}_n\)</span> are <span class="arithmatex">\(2 ^ {n - 1}\)</span>.</p>
-<details class="hint">
-<summary>Hint</summary>
-<p>You can define <span class="arithmatex">\(\mathcal{T}_n\)</span> as a finitely presented monoid in
-<code>libsemigroups_pybind11</code> by doing:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11.presentation</span><span class="w"> </span><span class="kn">import</span> <span class="n">examples</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">examples</span><span class="o">.</span><span class="n">full_transformation_monoid</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</span></code></pre></div>
-<p>You can also define the generating set and the corresponding monoid with:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transf</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">full_transf_monoid_generators</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Transf</span><span class="p">]:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">Transf</span><span class="p">([</span><span class="mi">0</span><span class="p">])]</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">Transf</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])]</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">return</span> <span class="p">[</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="n">Transf</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="n">Transf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">))),</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">Transf</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="p">]</span>
-</span></code></pre></div>
-</details>
-<details class="hint">
-<summary>Hint</summary>
-<p>You might want to use a python package for graphs to compute the clique
-numbers; see for example <a href="https://python.igraph.org/en/stable/">igraph</a>.</p>
-</details>
-</li>
-<li>
-<p>Let <span class="arithmatex">\(S\)</span> be the semigroup defined by the presentation
-    $$
-      \langle a, b, c, d, e, f, g \mid abcd = a^3ea^2, ef= dg\rangle.
-    $$</p>
-<ol>
-<li>
-<p>Show that <span class="arithmatex">\(S\)</span> is infinite.</p>
-</li>
-<li>
-<p>Partition the first <span class="arithmatex">\(1000\)</span> elements of the free semigroup <span class="arithmatex">\(\{a, b, c, d,
-   e, f, g\}^+\)</span> so that words belong to the same part if and only if they
-   represent the same element of <span class="arithmatex">\(S\)</span>.</p>
-</li>
-</ol>
-<details class="hint">
-<summary>Hint</summary>
-<p>See <a href="https://libsemigroups.github.io/libsemigroups_pybind11/data-structures/words/string-range.html">StringRange</a> and <a href="https://libsemigroups.github.io/libsemigroups_pybind11/main-algorithms/congruence/helpers.html#libsemigroups_pybind11.congruence.partition">congruence.partition</a></p>
-</details>
-</li>
-<li>
-<p>Is the monoid defined by the presentation
-    $$
-      \langle x_2, \ldots, x_n\mid x_i^2 = (x_ix_j) ^3 =
-      (x_ix_jx_k)^4 = 1\quad i, j, k \text{ distinct}\rangle
-    $$
-    the symmetric group for <span class="arithmatex">\(n\geq 2\)</span>?</p>
-<details class="hint">
-<summary>Hint</summary>
-<p><a href="../fp/#non-isomorphism">Non-isomorphism</a></p>
-</details>
-</li>
-<li>
-<p>Determine which of the relations in the presentation are redundant and which
-  are not:
-    $$
-      \langle a, b \mid a^4=1,  b^2= b, ba^3ba= a^2(ab)^2,  (ba^2)^2= (a^2b)^2 ,  (ba)^2a^2= aba^3b, a(ab)^4= (ab)^4 \rangle.
-    $$
-   What is the minimal set of the relations in this presentation that
-   define the same monoid?</p>
-</li>
-<li>
-<p>Let <span class="arithmatex">\(S\)</span> be the Catalan monoid of degree <span class="arithmatex">\(3\)</span>.
-   <!-- TODO check which parts of this are actually doable-->
-</p>
-<ol>
-<li>Draw the left and right Cayley graphs of <span class="arithmatex">\(S\)</span>.</li>
-<li>Show that <span class="arithmatex">\(S\)</span> has two non-trivial non-universal non-Rees congruences.</li>
-<li>Show that the lattice of left and right congruences of <span class="arithmatex">\(S\)</span> are isomorphic.</li>
-</ol>
-</li>
-<li>
-<p>Let <span class="arithmatex">\(J_n\)</span> denote the Jones monoid of degree <span class="arithmatex">\(n\)</span>, and</p>
-<p><img alt="An element of the Jones monoid" src="../../images/bipartition.png" /></p>
-<p>be a bipartition of degree 14.</p>
-<ol>
-<li>How many elements does <span class="arithmatex">\(J_{14}\)</span> contain?</li>
-<li>How many idempotent elements does <span class="arithmatex">\(J_{14}\)</span> contain?</li>
-<li>How many idempotent elements does the Green's
-   <span class="arithmatex">\(\mathscr{D}\)</span>-class of <span class="arithmatex">\(x\)</span> in <span class="arithmatex">\(J_{14}\)</span> contain?</li>
-<li>How many idempotent elements <span class="arithmatex">\(e\)</span> such that <span class="arithmatex">\(7\)</span> is in the same part as 
-   a negative integer does the Green's <span class="arithmatex">\(\mathscr{D}\)</span>-class of <span class="arithmatex">\(x\)</span> in <span class="arithmatex">\(J_{14}\)</span> contain?</li>
-</ol>
-<details class="hint">
-<summary>Hint</summary>
-<p>You can define <span class="arithmatex">\(J_{14}\)</span> as a finitely presented monoid in <code>libsemigroups_pybind11</code> by doing:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11.presentation</span><span class="w"> </span><span class="kn">import</span> <span class="n">examples</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">examples</span><span class="o">.</span><span class="n">temperley_lieb_monoid</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
-</span></code></pre></div>
-<p>You could answer parts (a), and (b) using this presentation. </p>
-<p>You can also define the generating set and the corresponding monoid with:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">libsemigroups_pybind11</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bipartition</span><span class="p">,</span> <span class="n">FroidurePin</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">jones_identity</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the argument (an int) is not &gt;= 0&quot;</span><span class="p">)</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">return</span> <span class="n">Bipartition</span><span class="p">([[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">jones_generators</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the argument (an int) is not &gt;= 0&quot;</span><span class="p">)</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">gens</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        <span class="n">part</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="n">part</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">part</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">gens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Bipartition</span><span class="p">(</span><span class="n">part</span><span class="p">))</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="k">return</span> <span class="n">gens</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">jones_monoid</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="k">return</span> <span class="n">FroidurePin</span><span class="p">([</span><span class="n">jones_identity</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">+</span> <span class="n">jones_generators</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-</span></code></pre></div>
-</details>
-</li>
-</ol>
+  <h1>Trans rep</h1>
+
+
 
 
 
@@ -1140,44 +941,6 @@ numbers; see for example <a href="https://python.igraph.org/en/stable/">igraph</
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../fp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python: Finitely presented semigroups">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Python: Finitely presented semigroups
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../case-studies/" class="md-footer__link md-footer__link--next" aria-label="Next: Case studies">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Case studies
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
