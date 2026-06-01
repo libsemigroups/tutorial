@@ -1,0 +1,47 @@
+/* .atlas-summary {
+  text-align: center;
+} */
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.atlas-summary table:not([class]) {
+  th:not([align]),
+  td:not([align]) {
+    text-align: center; /* Reset alignment for table cells */
+  }
+}
+
+.atlas-summary a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.correct-size {
+  background-color: #4dac26;
+}
+
+.correct-index {
+  background-color: #b8e186;
+}
+
+.incorrect-size {
+  background-color: #f1b6da;
+}
+
+.could-not-verify {
+  background-color: #cccccc;
+}
+
+.no-presentation {
+  background-color: grey;
+}

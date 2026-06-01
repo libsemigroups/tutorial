@@ -16,9 +16,40 @@ nav:
       - "Python: Semigroups defined by generators": py/generated.md
       - "Python: Finitely presented semigroups": py/fp.md
       - "Python: Worksheet": py/worksheet.md
-  - Case studies:
-      - case-studies/index.md
-      - case-studies/short.md
+  - Examples:
+      - examples/index.md
+      - examples/short.md
+      - "Verifying presentations in the ATLAS of Finite Groups":
+          - examples/atlas/index.md
+          - "Mathieu groups":
+              - examples/atlas/mathieu/m11.md
+              - examples/atlas/mathieu/m12.md
+              - examples/atlas/mathieu/m22.md
+              - "Mathieu group M23":
+                  - examples/atlas/mathieu/m23/index.md
+              - "Mathieu group M24":
+                  - examples/atlas/mathieu/m24/index.md
+          - "Leech lattice groups":
+              - examples/atlas/leech-lattice/hs.md
+              - examples/atlas/leech-lattice/j2.md
+              - "Conway group Co2":
+                  - examples/atlas/leech-lattice/co2/index.md
+              - "McLaughlin group McL":
+                  - examples/atlas/leech-lattice/mcl/index.md
+          - "Monster sections":
+              - "Held group He":
+                  - examples/atlas/monster-sections/he/index.md
+              - "Fischer group Fi22":
+                  - examples/atlas/monster-sections/fi22/index.md
+          - "Pariahs":
+              - examples/atlas/pariahs/j1.md
+              - examples/atlas/pariahs/j3.md
+              - "Rudvalis group Ru":
+                  - examples/atlas/pariahs/ru/index.md
+              - "Janko group J4":
+                  - examples/atlas/pariahs/j4/index.md
+          - "Miscellaneous":
+              - examples/atlas/misc/t.md
 
 theme:
   name: material
@@ -71,6 +102,10 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tilde
 
 copyright: Copyright &copy; 2026 Reinis Cirpons, Joe Edwards and James Mitchell
 
@@ -82,6 +117,9 @@ extra:
     - name: The libsemigroups_pybind11 project
       icon: fontawesome/brands/github
       link: https://www.github.com/libsemigroups/libsemigroups_pybind11
+
+extra_css:
+  - stylesheets/extra.css
 
 extra_javascript:
   - javascripts/mathjax.js
