@@ -4,13 +4,25 @@
 
 > Presentation: TODO
 
-On this page, we verify that the above claimed presentation of the Higman-Sims
-group HS defines a group of order $44,352,000$.
+On this page, we verify that the above claimed presentation of the Higman-Sims group HS
+defines a group of order $44,352,000$.
 
 ## The code
 
-Coming soon!
+=== "Python"
+
+    Coming soon!
+
+=== "ACE"
+
+    Coming soon!
 
 ## The output
 
-Coming soon!
+=== "Python"
+
+    Coming soon!
+
+=== "ACE"
+
+    Coming soon!

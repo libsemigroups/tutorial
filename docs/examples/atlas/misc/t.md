@@ -9,8 +9,20 @@ defines a group of order $17,971,200$.
 
 ## The code
 
-Coming soon!
+=== "Python"
+
+    Coming soon!
+
+=== "ACE"
+
+    Coming soon!
 
 ## The output
 
-Coming soon!
+=== "Python"
+
+    Coming soon!
+
+=== "ACE"
+
+    Coming soon!
