@@ -1,4 +1,4 @@
-name: Check documentation builds with no warnings
+name: Tests
 on:
   pull_request:
   push:
@@ -7,10 +7,11 @@ on:
 
 jobs:
   doc-warnings:
+    name: Check doc builds without warnings
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Check for warnings
+      - name: Build in strict mode
         # The strict flag treats warnings as errors
         run: pipx run --with mkdocs-material mkdocs build --clean --strict
 
