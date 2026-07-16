@@ -2,11 +2,9 @@
 
 > Order: $898,128,000$
 
-> Presentation: TODO
+> Presentation:
+> $\langle a, b \mid a^2 = b^5 = (ab)^{11} = (ab^2)^{12} = [a, b]^5 = [a, b^2]^6 = (abab^{−2})^7 = [a, b^{−2}ab^2ab^{−1}ab(ab^2)^2abab^{−1}] = [a, b^2ab(ab^2)^2]^2 = abab^2ab^{−2}abab^{−1}ab^2(ab^{−2}ab)^2(ab^2ab^{−2}ab^2)^2 = [a, b^2ab^2ab^{−1}ab^2]^2 = [a, b^2ab]^4 = ^1 \rangle$
 
-On this page, we provide links to verifications that the maximal subgroups of
-the McLaughlin group McL define groups of the correct order.
+!!! info "Work in Progress"
 
-## Maximal subgroups
-
-The following are maximal subgroups that have been verified:
+    This page is a work in progress.

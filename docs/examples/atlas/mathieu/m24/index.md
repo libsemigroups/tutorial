@@ -1,12 +1,161 @@
 # Mathieu group M~24~
 
-> Order: $244,823,040$
+The claims on this page come from
+[https://brauer.maths.qmul.ac.uk/Atlas/spor/M24/mag/M24G1-P1.M](https://brauer.maths.qmul.ac.uk/Atlas/spor/M24/mag/M24G1-P1.M).
+This is a link to a Magma file that contains a presentation (amongst other
+things). This presentation differs from the presentation provided in plain-text
+on the ATLAS webpage due to the inclusion of an additional relation. The
+comments in the Magma file claim that this additional relation is redundant, and
+we do not verify this claim.
 
-> Presentation: TODO
+## Claim
 
-On this page, we provide links to verifications that the maximal subgroups of
-the Mathieu group M~24~ define groups of the correct order.
+$$
+    \mathrm{M}_{24} = \langle a, b \mid a^2 = b^3 = (ab)^{23} = [a, b]^{12} = [a, bab]^5 = (ababab^{−1})^3(abab^{−1}ab^{−1})^3 = [a,b^{-1}abab]^5 = (ab(abab^{−1})^3)^4 = 1 \rangle
+$$
 
-## Maximal subgroups
+with
 
-The following are maximal subgroups that have been verified:
+$$
+    [\mathrm{M}_{23} : \langle ab \rangle] = 10,644,480.
+$$
+
+## The code
+
+In [libsemigroups_pybind11][], the following script constructs the presentation
+for M~24~, adds the generating pairs that define the subgroup
+$\langle ab \rangle$, and runs the Todd-Coxeter algorithm.
+
+```python
+from libsemigroups_pybind11 import (
+    Presentation,
+    ToddCoxeter,
+    congruence_kind,
+    presentation,
+)
+from libsemigroups_pybind11.words import parse_relations
+
+# Setup the presentation object with the empty word and inverses, so it can represent a group
+p = Presentation("abAB")
+p.contains_empty_word(True)
+presentation.add_inverse_rules(p, "ABab")
+
+# Add the defining relations
+presentation.add_rule(p, parse_relations("a^2"), "")
+presentation.add_rule(p, parse_relations("b^3"), "")
+presentation.add_rule(p, parse_relations("(ab)^23"), "")
+presentation.add_rule(p, parse_relations("(a,b)^12"), "")
+presentation.add_rule(p, parse_relations("(a,bab)^5"), "")
+presentation.add_rule(p, parse_relations("(ababaB)^3(abaBaB)^3"), "")
+presentation.add_rule(p, parse_relations("(a,Babab)^5"), "")  # the claimed redundant relation
+presentation.add_rule(p, parse_relations("(ab(abaB)^3)^4"), "")
+
+# Make the presentation a bit shorter
+presentation.replace_word_with_new_generator(p, presentation.longest_subword_reducing_length(p))
+presentation.replace_word_with_new_generator(p, presentation.longest_subword_reducing_length(p))
+presentation.sort_each_rule(p)
+presentation.sort_rules(p)
+
+# Add generating pairs for the subgroup
+tc = ToddCoxeter(congruence_kind.onesided, p)
+tc.add_generating_pair("ab", "")
+
+# Run the Todd-Coxeter algorithm
+tc.strategy(tc.options.strategy.felsch)
+tc.def_version(tc.options.def_version.two)
+tc.def_policy(tc.options.def_policy.discard_all_if_no_space)
+tc.use_relations_in_extra(True)
+tc.def_max(10000)
+tc.run()
+
+print(f"The index of the subgroup is {tc.number_of_classes()}")
+```
+
+## The output
+
+The truncated output of the enumeration is below:
+
+??? info "Truncated output from the Python script"
+
+    ```
+    ++++++++++++++++++++++++++++++++
+    #0: ToddCoxeter: RUN 0 START (strategy() = felsch)
+    #0: ToddCoxeter: |A| = 6, |R| = 14, |u| + |v| ∈ [2, 45], ∑(|u| + |v|) = 178
+    ++++++++++++++++++++++++++++++++
+    #0: ToddCoxeter: FELSCH 0.0 START
+    #0: ToddCoxeter: FELSCH 0.0.0     |        active |           killed |         defined
+    #0: ToddCoxeter: nodes            |           101 |               35 |             136
+    #0: ToddCoxeter:                  |        active |          missing |      % complete
+    #0: ToddCoxeter: edges            |           157 |              449 |           25.9%
+    #0: ToddCoxeter: time             | run 0 = 180µs | all runs = 180µs | elapsed = 344µs
+    ++++++++++++++++++++++++++++++++
+    #1: ToddCoxeter: FELSCH 0.0.1       |         active |            killed |          defined
+    #1: ToddCoxeter: nodes              |      1,415,661 |           175,779 |        1,591,465
+    #1: ToddCoxeter: diff 0.0.0         |     +1,415,560 |          +175,744 |       +1,591,329
+    #1: ToddCoxeter:                    |         active |           missing |       % complete
+    #1: ToddCoxeter: edges              |      5,654,857 |         2,839,109 |            66.6%
+    #1: ToddCoxeter: diff 0.0.0         |     +5,654,700 |        +2,838,660 |           +40.7%
+    #1: ToddCoxeter: phase 0.0 = 1.000s | run 0 = 1.000s | all runs = 1.000s | elapsed = 1.000s
+    ++++++++++++++++++++++++++++++++
+    #1: ToddCoxeter: FELSCH 0.0.2       |         active |            killed |          defined
+    #1: ToddCoxeter: nodes              |      2,802,886 |           379,414 |        3,182,324
+    #1: ToddCoxeter: diff 0.0.1         |     +1,387,225 |          +203,635 |       +1,590,859
+    #1: ToddCoxeter: diff 0.0.0         |     +2,802,785 |          +379,379 |       +3,182,188
+    #1: ToddCoxeter:                    |         active |           missing |       % complete
+    #1: ToddCoxeter: edges              |     11,202,682 |         5,614,634 |            66.6%
+    #1: ToddCoxeter: diff 0.0.1         |     +5,547,825 |        +2,775,525 |            +0.0%
+    #1: ToddCoxeter: diff 0.0.0         |    +11,202,525 |        +5,614,185 |           +40.7%
+    #1: ToddCoxeter: phase 0.0 = 2.000s | run 0 = 2.000s | all runs = 2.000s | elapsed = 2.001s
+    ++++++++++++++++++++++++++++++++
+    #1: ToddCoxeter: FELSCH 0.0.3       |         active |            killed |          defined
+    #1: ToddCoxeter: nodes              |      4,194,304 |           561,668 |        4,755,972
+    #1: ToddCoxeter: diff 0.0.2         |     +1,391,418 |          +182,254 |       +1,573,648
+    #1: ToddCoxeter: diff 0.0.0         |     +4,194,203 |          +561,633 |       +4,755,836
+    #1: ToddCoxeter:                    |         active |           missing |       % complete
+    #1: ToddCoxeter: edges              |     16,763,867 |         8,401,957 |            66.6%
+    #1: ToddCoxeter: diff 0.0.2         |     +5,561,185 |        +2,787,323 |            -0.0%
+    #1: ToddCoxeter: diff 0.0.0         |    +16,763,710 |        +8,401,508 |           +40.7%
+    #1: ToddCoxeter: phase 0.0 = 3.000s | run 0 = 3.001s | all runs = 3.001s | elapsed = 3.001s
+    ++++++++++++++++++++++++++++++++
+    [... lines omitted ...]
+    ++++++++++++++++++++++++++++++++
+    #0: ToddCoxeter: LOOKAHEAD 0.1 STOP
+    #0: ToddCoxeter: LOOKAHEAD 0.1.65   |          active |             killed |           defined
+    #0: ToddCoxeter: nodes              |      10,644,480 |         52,857,227 |        63,501,707
+    #0: ToddCoxeter: diff 0.1.64        |              +0 |                 +0 |                +0
+    #0: ToddCoxeter: diff 0.1.0         |              +0 |                 +0 |                +0
+    #0: ToddCoxeter:                    |          active |            missing |        % complete
+    #0: ToddCoxeter: edges              |      63,866,880 |                  0 |            100.0%
+    #0: ToddCoxeter: diff 0.1.64        |              +0 |                 +0 |             +0.0%
+    #0: ToddCoxeter: diff 0.1.0         |              +0 |                 +0 |             +0.0%
+    #0: ToddCoxeter: phase 0.1 = 1min4s | run 0 = 3min37s | all runs = 3min37s | elapsed = 3min37s
+    #0: ToddCoxeter: lookahead_next() is now max(f x a = 21,288,960, m = 10,000) (+16,288,960)
+    #0: ToddCoxeter: because a > n
+    #0: ToddCoxeter: where:  a = number_of_nodes_active()     = 10,644,480
+    #0: ToddCoxeter:         f = lookahead_growth_factor()    = 2
+    #0: ToddCoxeter:         m = lookahead_min()              = 10,000
+    #0: ToddCoxeter:         n = lookahead_next()             = 5,000,000
+    ++++++++++++++++++++++++++++++++
+    #0: ToddCoxeter: FELSCH 0.2.66      |          active |             killed |           defined
+    #0: ToddCoxeter: nodes              |      10,644,480 |         52,857,227 |        63,501,707
+    #0: ToddCoxeter: diff 0.2.65        |              +0 |                 +0 |                +0
+    #0: ToddCoxeter: diff 0.2.0         |              +0 |                 +0 |                +0
+    #0: ToddCoxeter:                    |          active |            missing |        % complete
+    #0: ToddCoxeter: edges              |      63,866,880 |                  0 |            100.0%
+    #0: ToddCoxeter: diff 0.2.65        |              +0 |                 +0 |             +0.0%
+    #0: ToddCoxeter: diff 0.2.0         |              +0 |                 +0 |             +0.0%
+    #0: ToddCoxeter: phase 0.2 = 1min4s | run 0 = 3min37s | all runs = 3min37s | elapsed = 3min37s
+    ++++++++++++++++++++++++++++++++
+    #0: ToddCoxeter: RUN 0 STOP (finished)
+    #0: ToddCoxeter: run 0                |       lookahead |         lookbehind |               hlt |        felsch
+    #0: ToddCoxeter: num. phases          |               1 |                  0 |                 0 |             1
+    #0: ToddCoxeter: time spent in phases |    1min4s (29%) |             - (0%) |            - (0%) | 2min33s (70%)
+    #0: ToddCoxeter: phase 0.2 = 1min4s   | run 0 = 3min37s | all runs = 3min37s | elapsed = 3min38s
+    The index of the subgroup is 10644480
+    ```
+
+:material-checkbox-marked-circle-outline: The computed index is the same as the
+claimed index: $10,644,480$.
+
+[libsemigroups_pybind11]:
+  https://libsemigroups.github.io/libsemigroups_pybind11/index.html

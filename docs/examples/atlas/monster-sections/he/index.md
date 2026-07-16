@@ -2,11 +2,9 @@
 
 > Order: $4,030,387,200$
 
-> Presentation: TODO
+> Presentation:
+> $\langle a, b \mid a^2 = b^7 = (ab)^{17} = [a, b]^6 = [a, b^3]^5 = [a, babab^{−1}abab] = (ab)^4ab^2ab^{−3}ababab^{−1}ab^3ab^{−2}ab^2 = 1 \rangle$
 
-On this page, we provide links to verifications that the maximal subgroups of
-the Held group He define groups of the correct order.
+!!! info "Work in Progress"
 
-## Maximal subgroups
-
-The following are maximal subgroups that have been verified:
+    This page is a work in progress.

@@ -19,7 +19,7 @@ nav:
   - Examples:
       - examples/index.md
       - examples/short.md
-      - "Verifying presentations in the ATLAS of Finite Groups":
+      - "Verifying presentations for sporadic simple groups":
           - examples/atlas/index.md
           - "Mathieu groups":
               - examples/atlas/mathieu/m11.md
@@ -31,7 +31,10 @@ nav:
                   - examples/atlas/mathieu/m24/index.md
           - "Leech lattice groups":
               - examples/atlas/leech-lattice/hs.md
-              - examples/atlas/leech-lattice/j2.md
+              - "Janko group J2, Hall–Janko group HJ":
+                  - examples/atlas/leech-lattice/j2/index.md
+                  - "P1": examples/atlas/leech-lattice/j2/j2-p1.md
+                  - "P2": examples/atlas/leech-lattice/j2/j2-p2.md
               - "Conway group Co2":
                   - examples/atlas/leech-lattice/co2/index.md
               - "McLaughlin group McL":
@@ -108,7 +111,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tilde
 
-copyright: Copyright &copy; 2026 Reinis Cirpons, Joe Edwards and James Mitchell
+copyright: Copyright &copy; 2026 Reinis Cirpons, Joseph Edwards and James Mitchell
 
 extra:
   social:

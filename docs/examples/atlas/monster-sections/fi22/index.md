@@ -2,11 +2,9 @@
 
 > Order: $64,561,751,654,400$
 
-> Presentation: TODO
+> Presentation:
+> $\langle a, b \mid a^2 = b^{13} = (ab)^{11} = (ab^2)^{21} = [a, b]^3 = [a, b^2]^3 = [a, b^3]^3 = [a, b^4]^2 = [a, b^5]^3 = [a, bab^2]^3 = [a, b^{−1}ab{−2}]^2 = [a, bab^5]^2 = [a, b^2ab^5]^2 = 1 \rangle$
 
-On this page, we provide links to verifications that the maximal subgroups of
-the Fischer group Fi~22~ define groups of the correct order.
+!!! info "Work in Progress"
 
-## Maximal subgroups
-
-The following are maximal subgroups that have been verified:
+    This page is a work in progress.
