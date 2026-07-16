@@ -1,17 +1,29 @@
-# Verifying presentations in the ATLAS of Finite Groups
+# Verifying presentations for sporadic simple groups
 
 In this example, we will verify the validity of the presentations of the
-sporadic groups as given in [this ATLAS][atlas].
-In particular, where possible, we will use the Todd-Coxeter algorithm to check
-that the size of group defined by the presentations is equal to the claimed
-size. Where the claimed size of the group is very large, we will instead
-calculate the size of small-index subgroups.
+sporadic groups as given in
+[this ATLAS](https://brauer.maths.qmul.ac.uk/Atlas/v3/) we will use the
+Todd-Coxeter algorithm to check that the size of group defined by the
+presentations is equal to the claimed size. Where the claimed size of the group
+is very large, we will instead calculate the index of some low-index subgroups.
+This is a work-in-progress, so some of the pages may contain incomplete
+information. When this is the case, the pages will be clearly marked as such.
+
+!!! warning "Disclaimer"
+
+    The purpose of the following pages is not to mathematically prove the
+    validity of the presentations of the sporadic groups; checking that a
+    presentation defines a group of the correct size or index is a necessary
+    condition that the presentation is valid, but not sufficient. Instead, the
+    purpose of these pages is to highlight some of the ways you might use
+    `libsemigroups_pybind11` and its implementation of the Todd-Coxeter
+    algorithm to perform difficult enumerations.
 
 ??? info "libsemigroups_pybind11 version"
 
     All examples provided on the subsequent subpages were run using
-    libsemigroups_pybind11 version 1.4.4 on a laptop with a 13th Gen Intel(R)
-    Core(TM) i7-13700H processor and 64 GB RAM.
+    libsemigroups_pybind11 version 1.4.4 on a either laptop with a 13th Gen Intel(R)
+    Core(TM) i7-13700H processor and 64 GB RAM or a 2024 MacBook Pro M4 with 48GB of RAM.
 
 ??? info "Defining groups with monoid presentations"
 
@@ -36,7 +48,7 @@ calculate the size of small-index subgroups.
     In the subsequent subpages, we will use lowercase letters for the
     generators that are given in the presentations in the ATLAS, and their
     uppercase counterparts to represent their inverses. Therefore, many of our
-    examples will in a similar way to:
+    examples will begin in a similar way to:
 
     ```py
     from libsemigroups_pybind11 import presentation, Presentation
@@ -48,8 +60,8 @@ calculate the size of small-index subgroups.
     The algorithms in [libsemigroups_pybind11][] were written for semigroups and
     monoids. This means that there are no group-specific optimisations.
 
-The following tables summarise the results of this project. Click on a group
-to see more information.
+The following tables summarise the results of this project. Click on a group to
+see more information.
 
 <div class="row">
   <div class="column">
@@ -68,10 +80,10 @@ to see more information.
           <td class="correct-size">
             <a href="mathieu/m22">M<sub>22</sub></a>
           </td>
-          <td class="correct-index">
+          <td class="some-correct-index">
             <a href="mathieu/m23">M<sub>23</sub></a>
           </td>
-          <td class="correct-index">
+          <td class="correct-size">
             <a href="mathieu/m24">M<sub>24</sub></a>
           </td>
         </tr>
@@ -83,16 +95,16 @@ to see more information.
           <th colspan="7">Leech lattice groups</th>
         </tr>
         <tr>
-          <td class="could-not-verify"><a href="leech-lattice/hs">HS</a></td>
-          <td>
+          <td class="correct-size"><a href="leech-lattice/hs">HS</a></td>
+          <td class="correct-size">
             <a href="leech-lattice/j2">J<sub>2</sub></a>
           </td>
           <td class="no-presentation">Co<sub>1</sub></td>
-          <td>
+          <td class="work-in-progress">
             <a href="leech-lattice/co2">Co<sub>2</sub></a>
           </td>
           <td class="no-presentation">Co<sub>3</sub></td>
-          <td><a href="leech-lattice/mcl">McL</a></td>
+          <td class="work-in-progress"><a href="leech-lattice/mcl">McL</a></td>
           <td class="no-presentation">Suz</td>
         </tr>
       </table>
@@ -103,10 +115,10 @@ to see more information.
           <th colspan="8">Monster sections</th>
         </tr>
         <tr>
-          <td><a href="monster-sections/he">He</a></td>
+          <td class="work-in-progress"><a href="monster-sections/he">He</a></td>
           <td class="no-presentation">HN</td>
           <td class="no-presentation">Th</td>
-          <td>
+          <td class="work-in-progress">
             <a href="monster-sections/fi22">Fi<sub>22</sub></a>
           </td>
           <td class="no-presentation">Fi<sub>23</sub></td>
@@ -122,15 +134,15 @@ to see more information.
           <th colspan="6">Pariahs</th>
         </tr>
         <tr>
-          <td>
+          <td class="correct-size">
             <a href="pariahs/j1">J<sub>1</sub></a>
           </td>
           <td class="no-presentation">O'N</td>
-          <td>
+          <td class="correct-size">
             <a href="pariahs/j3">J<sub>3</sub></a>
           </td>
-          <td><a href="pariahs/ru">Ru</a></td>
-          <td>
+          <td class="correct-index-alt"><a href="pariahs/ru">Ru</a></td>
+          <td class="work-in-progress">
             <a href="pariahs/j4">J<sub>4</sub></a>
           </td>
           <td class="no-presentation">Ly</td>
@@ -143,7 +155,7 @@ to see more information.
           <th>Miscellaneous</th>
         </tr>
         <tr>
-          <td><a href="misc/t">T</a></td>
+          <td class="correct-size"><a href="misc/t">T</a></td>
         </tr>
       </table>
     </div>
@@ -157,24 +169,37 @@ to see more information.
         </tr>
         <tr>
           <td class="correct-size">
-            The presentation defines a group of the correct size
+            The presentation defines a group of the correct size.
           </td>
         </tr>
         <tr>
           <td class="correct-index">
-            The presentation has a subgroup of the correct size
+            The presentation has at least 1 subgroup of the correct index.
           </td>
         </tr>
         <tr>
+          <td class="correct-index-alt">
+            The source of the presentation is not the ATLAS and the
+            presentation has at least 1 subgroup of the correct index.
+          </td>
+        </tr>
+        </tr>
+        <tr>
+          <td class="some-correct-index">
+            The presentation has at least 1 subgroup of the correct index, and
+            at least 1 subgroup whose index could not be verified.
+          </td>
+        </tr>
+        <!-- <tr>
           <td class="incorrect-size">
             The presentation defines a group of the incorrect size
           </td>
+        </tr> -->
+        <tr>
+          <td class="work-in-progress">Work in progress.</td>
         </tr>
         <tr>
-          <td class="could-not-verify">Todd-Coxeter did not terminate</td>
-        </tr>
-        <tr>
-          <td class="no-presentation">No presentation is provided</td>
+          <td class="no-presentation">No presentation is provided.</td>
         </tr>
       </table>
     </div>
@@ -182,4 +207,5 @@ to see more information.
 </div>
 
 [atlas]: https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html
+[libsemigroups_pybind11]:
+  https://libsemigroups.github.io/libsemigroups_pybind11/index.html

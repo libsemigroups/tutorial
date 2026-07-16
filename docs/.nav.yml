@@ -1,0 +1,55 @@
+nav:
+  - Home: index.md
+  - Semigroups in GAP:
+      - gap/index.md
+      - "GAP: Installation": gap/install.md
+      - "GAP: First steps": gap/first-steps.md
+      - "GAP: Semigroups defined by generators": gap/generated.md
+      - "GAP: Finitely presented semigroups": gap/fp.md
+      - "GAP: Worksheet": gap/worksheet.md
+  - Semigroups in Python:
+      - py/index.md
+      - "Python: Installation": py/install.md
+      - "Python: First steps": py/first-steps.md
+      - "Python: Semigroups defined by generators": py/generated.md
+      - "Python: Finitely presented semigroups": py/fp.md
+      - "Python: Worksheet": py/worksheet.md
+  - Examples:
+      - examples/index.md
+      - examples/short.md
+      - "Verifying presentations for sporadic simple groups":
+          - examples/atlas/index.md
+          - "Mathieu groups":
+              - "Mathieu group M11": examples/atlas/mathieu/m11.md
+              - "Mathieu group M12": examples/atlas/mathieu/m12.md
+              - "Mathieu group M22": examples/atlas/mathieu/m22.md
+              - "Mathieu group M23":
+                  - examples/atlas/mathieu/m23/index.md
+                  - "Mathieu group M11": examples/atlas/mathieu/m23/m11.md
+                  - "Mathieu group M22": examples/atlas/mathieu/m23/m22.md
+              - "Mathieu group M24":
+                  - examples/atlas/mathieu/m24/index.md
+          - "Leech lattice groups":
+              - examples/atlas/leech-lattice/hs.md
+              - "Janko group J2, Hall-Janko group HJ":
+                  - examples/atlas/leech-lattice/j2/index.md
+                  - "P1": examples/atlas/leech-lattice/j2/j2-p1.md
+                  - "P2": examples/atlas/leech-lattice/j2/j2-p2.md
+              - "Conway group Co2":
+                  - examples/atlas/leech-lattice/co2/index.md
+              - "McLaughlin group McL":
+                  - examples/atlas/leech-lattice/mcl/index.md
+          - "Monster sections":
+              - "Held group He":
+                  - examples/atlas/monster-sections/he/index.md
+              - "Fischer group Fi22":
+                  - examples/atlas/monster-sections/fi22/index.md
+          - "Pariahs":
+              - examples/atlas/pariahs/*
+              - "Rudvalis group Ru":
+                  - examples/atlas/pariahs/ru/index.md
+              - "Janko group J4":
+                  - examples/atlas/pariahs/j4/index.md
+          - "Miscellaneous":
+              - examples/atlas/misc/t.md
+      - "Finding complete rewriting systems for 1-relation monoids": examples/1-relation
