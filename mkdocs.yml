@@ -53,6 +53,8 @@ nav:
                   - examples/atlas/pariahs/j4/index.md
           - "Miscellaneous":
               - examples/atlas/misc/t.md
+      - "1-relation monoids":
+          - examples/1-relation/index.md
 
 theme:
   name: material

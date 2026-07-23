@@ -1,13 +1,15 @@
 # Examples
 
-This page contains various links that explain how the
-[Semigroups package for GAP][] and/or [libsemigroups_pybind11][] have been used
-to conduct mathematical research.
+This page contains various links that explain how the [Semigroups package for
+GAP][] and/or [libsemigroups_pybind11][] have been used to conduct mathematical
+research.
 
 Please use the menu at the left or the links below:
 
 - [Short presentations for transformation monoids](short.md)
-- [Verifying presentations in the ATLAS of Finite Groups](atlas/index.md)
+- [Verifying presentations for sporadic simple groups](atlas/index.md)
+- [Finding complete rewriting systems for 1-relation monoids](1-relation/index.md)
 
 [Semigroups package for GAP]: https://semigroups.github.io/Semigroups/
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html
+[libsemigroups_pybind11]:
+  https://libsemigroups.github.io/libsemigroups_pybind11/index.html
