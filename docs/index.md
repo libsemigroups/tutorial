@@ -24,3 +24,9 @@ The QR code for this page is:
 <figure markdown="span" width=50%>
 	![a qr code](images/qr.png)
 </figure>
+
+## Acknowledgments
+
+The authors of this website would like to thank the University of St Andrews for
+funding Joseph Edwards, through the Impact and Innovation Fund,to work on this
+website.
