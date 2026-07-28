@@ -1,3 +1,7 @@
+---
+hide:
+  - navigation
+---
 # `Semigroups` - Zero to ε
 
 The GAP package `Semgroups` and Python package `libsemigroups_pybind11`
