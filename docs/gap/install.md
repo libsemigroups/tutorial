@@ -1,6 +1,6 @@
-# Installing GAP and the `Semigroups` package
+# Installing [GAP][] and the [Semigroups][] package
 
-In this section we detail the installation of GAP and `Semigroups` on various platforms.
+In this section we detail the installation of [GAP][] and [Semigroups][] on various platforms.
 We present two options for doing so:
 
 - [Option 1: Standard install](#option-1-standard-install): The standard install path. It is slightly more involved
@@ -14,12 +14,12 @@ but we recommend the [Unix shell](https://swcarpentry.github.io/shell-novice/) s
 lesson to those interested in learning more.
 
 !!! warning
-    Please do not install GAP using your systems package manager
-    e.g. do **not** install it via `#!bash apt-get install gap` or `#!bash brew install gap`. The version of GAP packaged by
+    Please do not install [GAP][] using your systems package manager
+    e.g. do **not** install it via `#!bash apt-get install gap` or `#!bash brew install gap`. The version of [GAP][] packaged by
     your operating system and installed by these tools can be several years out of date and will likely
     cause issues further down the line.
 
-    You can remove a system installed version of GAP on an Ubuntu distribution of Linux by running
+    You can remove a system installed version of [GAP][] on an Ubuntu distribution of Linux by running
     ```bash
     sudo apt-get remove gap
     ```
@@ -30,11 +30,11 @@ lesson to those interested in learning more.
 
 ## Option 1: Standard install
 
-This section outlines the standard installation process for GAP and `Semigroups`. It is split into two parts:
+This section outlines the standard installation process for [GAP][] and [Semigroups][]. It is split into two parts:
 the [System based prerequisites](#system-based-prerequisites) section where we outline steps required to set up
-your operating system for installing GAP and `Semigroups`, and
+your operating system for installing [GAP][] and [Semigroups][], and
 [Common installation steps](#common-installation-steps) where we outline a method
-for installing GAP and `Semigroups` that should work on all systems, provided the prerequisites are installed.
+for installing [GAP][] and [Semigroups][] that should work on all systems, provided the prerequisites are installed.
 
 ### System based prerequisites
 
@@ -42,7 +42,7 @@ Please select the appropriate tab for your operating system below and follow the
 
 === "Windows"
 
-    GAP is primarily developed for Linux-based operating systems. In order to make
+    [GAP][] is primarily developed for Linux-based operating systems. In order to make
     it run on Windows, it is generally easier to install a Linux subsystem which
     provides a Linux shell than to try and make it run on Windows directly.
     Windows provides such a feature via the Windows subsystem for Linux (WSL).
@@ -77,7 +77,7 @@ Please select the appropriate tab for your operating system below and follow the
        ```
 
     If all went well, you now have an Ubuntu Linux subsystem available via the
-    `#!powershell ubuntu` command. To install GAP and `Semigroups`, execute the `#!powershell ubuntu`
+    `#!powershell ubuntu` command. To install [GAP][] and [Semigroups][], execute the `#!powershell ubuntu`
     command in your terminal and then proceed as described in the
     [Common installation steps](#common-installation-steps) section, following the instructions for a Linux system.
 
@@ -142,16 +142,16 @@ Please select the appropriate tab for your operating system below and follow the
 Before proceeding with the install instructions in this section, please make sure you have completed the steps outlined
 in the [System based prerequisites](#system-based-prerequisites) section for your operating system above.
 
-In order to install GAP we follow the
+In order to install [GAP][] we follow the
 [installation instructions](https://www.gap-system.org/install/linux/) from the
-GAP website.
-We will install GAP in the "home" directory. You are free to use any other
+[GAP][] website.
+We will install [GAP][] in the "home" directory. You are free to use any other
 directory, if you do so, substitute the `~` in the following commands with
 whatever base directory you are using.
 
 1. Type `#!bash cd ~`++enter++ in your terminal. This will ensure you are in the home
    directory, where the rest of the install will occur.
-2. Download the current GAP distribution, at time of writing it is 4.15.1. If this has changed, then
+2. Download the current [GAP][] distribution, at time of writing it is 4.15.1. If this has changed, then
    substitute the appropriate version number in the `#!bash export` command below:
    ```bash
    export GAP_VERSION=4.15.1
@@ -181,7 +181,7 @@ whatever base directory you are using.
    ```
    replacing the 8 in the `-j8` by the number of cores you want to use.
    If all goes well, make should finish with without errors and running
-   `#!bash ./gap`++enter++ gives the GAP prompt (you can quit from the GAP prompt by
+   `#!bash ./gap`++enter++ gives the [GAP][] prompt (you can quit from the [GAP][] prompt by
    typing `#!gap quit;`++enter++).
 5. We are not quite done yet, since some of the optional packages need to be
    compiled before they can be used. In order to do so run
@@ -189,8 +189,8 @@ whatever base directory you are using.
    cd pkg
    ../bin/BuildPackages.sh
    ```
-6. To test the package compilation, type `#!bash ../gap`++enter++ to open a GAP
-   prompt and within the GAP prompt write
+6. To test the package compilation, type `#!bash ../gap`++enter++ to open a [GAP][]
+   prompt and within the [GAP][] prompt write
    ```gap
    SetInfoLevel(InfoPackageLoading, 4);
    LoadPackage("Semigroups");
@@ -207,8 +207,8 @@ whatever base directory you are using.
    #I  Semigroups: return from LoadPackage, package is not available
    fail
    ```
-   If this is the case then type `#!gap quit;`++enter++ in the GAP session and perform the following steps to
-   compile the `Semigroups` package manually:
+   If this is the case then type `#!gap quit;`++enter++ in the [GAP][] session and perform the following steps to
+   compile the [Semigroups][] package manually:
    ```bash
    cd semigroups
    ./configure
@@ -217,7 +217,7 @@ whatever base directory you are using.
    compilation of the semigroups package is quite memory intensive, and may get killed
    if the computer runs out of memory. If so try compiling again setting a lower 
    number of threads when running make, e.g. `#!bash make -j2` or even just `#!bash make`.
-8. To run GAP from an arbitrary folder on your computer you currently need to write
+8. To run [GAP][] from an arbitrary folder on your computer you currently need to write
    `#!bash ~/gap-$GAP_VERSION/gap`++enter++. To avoid having to do this execute the following:
    ```bash
    mkdir -p ~/.local/bin
@@ -234,10 +234,10 @@ whatever base directory you are using.
    echo 'if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]] then PATH="$HOME/.local/bin:$PATH"; fi' >> ~/.zshrc
    source ~/.zshrc
    ```
-   Test this works by typing `#!bash gap`++enter++ in the terminal, if all went well it should open a GAP prompt.
+   Test this works by typing `#!bash gap`++enter++ in the terminal, if all went well it should open a [GAP][] prompt.
 
-If all went well you should now be able to type `#!bash gap`++enter++ in your terminal, which should give you a GAP prompt,
-and running `#!gap LoadPackage("Semigroups");` in the GAP prompt should successfully load the `Semigroups` package.
+If all went well you should now be able to type `#!bash gap`++enter++ in your terminal, which should give you a [GAP][] prompt,
+and running `#!gap LoadPackage("Semigroups");` in the [GAP][] prompt should successfully load the [Semigroups][] package.
 
 ## Option 2: Experimental install using Julia
 
@@ -245,12 +245,12 @@ and running `#!gap LoadPackage("Semigroups");` in the GAP prompt should successf
     The content in this section is experimental and may not work on all systems. In this case we advise
     proceeding with the steps of the [Option 1: Standard install](#option-1-standard-install) section instead.
 
-It has recently become possible to install GAP using the
+It has recently become possible to install [GAP][] using the
 [Julia](https://julialang.org/) programming language. This installation path is
 currently experimental but can be much quicker than the method detailed in
 the [Option 1: Standard install](#option-1-standard-install) section.
 
-If you already installed GAP and `Semigroups` using the instructions from
+If you already installed [GAP][] and [Semigroups][] using the instructions from
 the section [Option 1: Standard install](#option-1-standard-install), then skip this
 section.
 
@@ -296,13 +296,13 @@ We follow the Julia install instructions from
    ```julia
    using GAP; GAP.prompt();`
    ```
-   This should start a GAP prompt. In the GAP prompt type
+   This should start a [GAP][] prompt. In the [GAP][] prompt type
    ```gap
    SetInfoLevel(InfoPackageLoading, 4);
    LoadPackage("Semigroups");
    ```
-   To check that the `Semigroups` package is available.
-   Exit the GAP prompt by typing `#!gap quit;`++enter++, which should 
+   To check that the [Semigroups][] package is available.
+   Exit the [GAP][] prompt by typing `#!gap quit;`++enter++, which should 
    return you to the Julia prompt.
    Exit the Julia prompt too via `#!julia exit()`++enter++.
 3. We will now create a script which will allow us to start the gap prompt by
@@ -324,5 +324,5 @@ We follow the Julia install instructions from
    ```julia
    using GAP; GAP.Setup.create_gap_sh("~/.local/bin/", "gap");
    ```
-   Then `#!julia exit()` the Julia prompt. You should now be able to start a GAP
+   Then `#!julia exit()` the Julia prompt. You should now be able to start a [GAP][]
    session by typing `#!bahs gap`++enter++ in your terminal.

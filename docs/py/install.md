@@ -1,7 +1,7 @@
 # Installation in Python
 
-The `libsemigroups_pybind11` Python package can be installed using `pip` or any
-package manager that is able to access conda-forge (such as
+The [libsemigroups_pybind11][] Python package can be installed using `pip` or
+any package manager that is able to access conda-forge (such as
 [conda](https://docs.conda.io/projects/conda/en/stable/),
 [Mamba](https://mamba.readthedocs.io/en/latest/#) or
 [Pixi](https://pixi.prefix.dev/latest/)). The package can be installed for
@@ -9,7 +9,7 @@ Python 3.9+.
 
 ## Installing with pip
 
-It's possible to install `libsemigroups_pybind11` using `pip` by doing one of
+It's possible to install [libsemigroups_pybind11][] using `pip` by doing one of
 the following (depending on your system and setup):
 
 ```console
@@ -32,7 +32,7 @@ See the [getting started](http://bit.ly/33B0Vfs) and
 [conda](https://conda.io/) website.
 
 It might be a good idea to create and activate a conda/mamba environment to
-contain the installation of the `libsemigroups_pybind11`:
+contain the installation of the [libsemigroups_pybind11][]:
 
 ```console
 $ mamba create --name myenv_name libsemigroups_pybind11
@@ -64,7 +64,7 @@ Save the file and then in the terminal:
 mamba env create -f environment.yml --name libsemigroups_pybind11
 ```
 
-Every time you want to use `libsemigroups_pybind11` make sure type the following
+Every time you want to use [libsemigroups_pybind11][] make sure type the following
 into the terminal:
 
 ```bash

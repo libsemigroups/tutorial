@@ -1,6 +1,6 @@
-# First steps --- libsemigroups_pybind11
+# First steps --- [libsemigroups_pybind11][]
 
-Now that you've successfully installed `libsemigroups_pybind11`, this page
+Now that you've successfully installed [libsemigroups_pybind11][], this page
 explains a few ways to start using it; see [Installation](install.md).
 
 If you are familiar with [Jupyter](https://jupyter.org/) notebooks and/or are
@@ -17,7 +17,7 @@ terminal application depends on your operating system:
 - on macOS, open **Terminal**;
 - on Linux, open the terminal application provided by your desktop environment.
 
-If you installed `libsemigroups_pybind11` in a conda or mamba environment, first
+If you installed [libsemigroups_pybind11][] in a conda or mamba environment, first
 activate that environment:
 
 ```console
@@ -34,7 +34,7 @@ $ ipython
 ```
 
 You should now see a prompt beginning with `In [1]:`. Import
-`libsemigroups_pybind11` as follows:
+[libsemigroups_pybind11][] as follows:
 
 ```python
 import libsemigroups_pybind11
@@ -69,7 +69,7 @@ A [Jupyter](https://jupyter.org/) notebook is often more convenient than a
 terminal session because you can keep code, output, notes, and plots together in
 one place.
 
-If you installed `libsemigroups_pybind11` in a conda or mamba environment,
+If you installed [libsemigroups_pybind11][] in a conda or mamba environment,
 activate it first:
 
 ```console
@@ -90,7 +90,7 @@ import libsemigroups_pybind11
 ```
 
 Run the cell. If it finishes without an error, then the notebook can see your
-installation of `libsemigroups_pybind11`.
+installation of [libsemigroups_pybind11][].
 
 You can use the same imports as in [IPython](https://ipython.org/):
 
@@ -117,8 +117,8 @@ share a notebook with someone else. Examples include
 The details differ from service to service, but the general idea is:
 
 1. Create a new Python notebook.
-2. Install `libsemigroups_pybind11` in the notebook.
-3. Import `libsemigroups_pybind11` in a later cell.
+2. Install [libsemigroups_pybind11][] in the notebook.
+3. Import [libsemigroups_pybind11][] in a later cell.
 
 For services that allow `pip` installs from a notebook cell, the first cell can
 usually be:
@@ -158,4 +158,4 @@ import libsemigroups_pybind11
 dir(libsemigroups_pybind11)
 ```
 
-This should print a list of names provided by `libsemigroups_pybind11`.
+This should print a list of names provided by [libsemigroups_pybind11][].
