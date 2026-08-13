@@ -8,7 +8,7 @@ in learning more about GAP itself, see also the
 
 ## The GAP prompt
 
-After installing GAP and the `Semigroups` package as described in the
+After installing GAP and the [Semigroups][] package as described in the
 [Installation](install.md) section, you should be able to start GAP
 from your terminal simply by typing `gap`++enter++[^1]. If GAP has been installed correctly,
 you should see the GAP banner followed by the _GAP prompt_ `gap> ` similar to
@@ -101,7 +101,7 @@ GAP reference manual for more details about the break loop and the main loop.
 
 ### The help system
 
-GAP and the `Semigroups` package implement many different functions. What a function does may not
+GAP and the [Semigroups][] package implement many different functions. What a function does may not
 always be clear from its name, and it may be necessary to read the _documentation_ describing its
 functionality. This can be done directly from the GAP REPL via the _help system_.
 To learn more about a function, simply prepend a question mark `?` to its name.
@@ -856,7 +856,7 @@ fi;
 Note that with the `#!gap break;` statements, only a single counterexample is printed, hence
 the search was stopped early.
 
-The `Semigroups` package offers a simpler way of checking if a multiplication table
+The [Semigroups][] package offers a simpler way of checking if a multiplication table
 defines a semigroup, which we will cover in
 [the next section](generated.md#multiplication-tables).
 

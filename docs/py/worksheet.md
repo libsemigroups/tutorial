@@ -1,6 +1,6 @@
 # Worksheet
 
-This page contains some exercises for computing some things using `libsemigroups_pybind11`.
+This page contains some exercises for computing some things using [libsemigroups_pybind11][].
 
 
 2. Recall that the commuting graph of a semigroup  $S$ is the graph with nodes
@@ -11,7 +11,7 @@ This page contains some exercises for computing some things using `libsemigroups
     ??? hint
 
         You can define $\mathcal{T}_n$ as a finitely presented monoid in
-        `libsemigroups_pybind11` by doing:
+        [libsemigroups_pybind11][] by doing:
 
         ```python
         from libsemigroups_pybind11.presentation import examples
@@ -96,7 +96,7 @@ This page contains some exercises for computing some things using `libsemigroups
 
     ??? hint
 
-        You can define $J_{14}$ as a finitely presented monoid in `libsemigroups_pybind11` by doing:
+        You can define $J_{14}$ as a finitely presented monoid in [libsemigroups_pybind11][] by doing:
 
         ```python
         from libsemigroups_pybind11.presentation import examples

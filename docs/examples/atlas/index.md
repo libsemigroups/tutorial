@@ -11,18 +11,16 @@ information. When this is the case, the pages will be clearly marked as such.
 
 !!! warning "Disclaimer"
 
-    The purpose of the following pages is not to mathematically prove the
-    validity of the presentations of the sporadic groups; checking that a
-    presentation defines a group of the correct size or index is a necessary
-    condition that the presentation is valid, but not sufficient. Instead, the
-    purpose of these pages is to highlight some of the ways you might use
-    `libsemigroups_pybind11` and its implementation of the Todd-Coxeter
-    algorithm to perform difficult enumerations.
+    The purpose of the following pages is not to prove the validity of the
+    presentations of the sporadic groups; there are better approaches than those
+    taken here. Instead, the purpose of these pages is to highlight some of the
+    ways you might use [libsemigroups_pybind11][] and its implementation of the
+    Todd-Coxeter algorithm to perform difficult enumerations.
 
-??? info "libsemigroups_pybind11 version"
+??? info "[libsemigroups_pybind11][] version"
 
     All examples provided on the subsequent subpages were run using
-    libsemigroups_pybind11 version 1.4.4 on a either laptop with a 13th Gen Intel(R)
+    [libsemigroups_pybind11][] version 1.4.4 on a either laptop with a 13th Gen Intel(R)
     Core(TM) i7-13700H processor and 64 GB RAM or a 2024 MacBook Pro M4 with 48GB of RAM.
 
 ??? info "Defining groups with monoid presentations"

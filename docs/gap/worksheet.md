@@ -55,9 +55,7 @@ session of [NBSAN 40](https://manchester-semigroups.github.io/NBSAN/next.html).
         [`Digraphs` package for GAP](https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html).
         The [`Digraphs` package for GAP](https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html)
         is required by the
-        [`Semigroups` package for GAP](https://semigroups.github.io/Semigroups/doc/chap0_mj.html)
-        so you don't have to install
-        anything new to do this.
+        [Semigroups package for GAP][] so you don't have to install anything new to do this.
 
 3.  Let $S$ be the monoid defined by the presentation
     $\langle a, b, c, d, e, f, g \mid abcd = a^3ea^2, ef= dg\rangle$.

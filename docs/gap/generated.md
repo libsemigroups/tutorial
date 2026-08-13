@@ -1,12 +1,12 @@
 # Semigroups and monoids defined by generators
 
-This section provides information about how to use the `Semigroups` package for
+This section provides information about how to use the [Semigroups][] package for
 GAP to compute with a semigroup or monoid defined by a collection of
 generators. We assume some basic familiarity with the GAP programming language,
 see the [GAP: First Steps](first-steps.md) section for a basic overview if you do
 not yet feel comfortable with GAP.
 
-All code examples in this section assume that the `Semigroups` package
+All code examples in this section assume that the [Semigroups][] package
 is loaded. To do so, simply add
 ```gap
 LoadPackage("Semigroups");
@@ -15,8 +15,8 @@ at the start of your gap script, or execute this command at the start of your
 GAP session.
 
 !!! failure "If Semigroups fails to load"
-    If you encounter an error when loading the `Semigroups` package,
-    it may be due to the kernel module (the `C++` component powering `Semigroups`)
+    If you encounter an error when loading the [Semigroups][] package,
+    it may be due to the kernel module (the `C++` component powering [Semigroups][])
     not being compiled. Execute the command
     `#!gap SetInfoLevel(InfoPackageLoading, 4);` and attempt to load the package
     again. If you see an error similar to the following:
@@ -42,7 +42,7 @@ Any GAP object equipped with an associative multiplication can in principle
 be used to construct a semigroup in GAP. However, there are certain kinds of
 semigroups for which there exist the algorithms that are several orders
 of magnitude faster than those applicable in the general case.
-In particular, the `Semigroups` package implements efficient algorithms for
+In particular, the [Semigroups][] package implements efficient algorithms for
 the so called
 [_acting semigroups_](https://semigroups.github.io/Semigroups/doc/chap6_mj.html#X7A3AC74C7FF85825)[^1]
 and has an efficient implementation of the
@@ -50,9 +50,9 @@ and has an efficient implementation of the
 which can be applied to subsemigroups of certain semigroups.
 
 In this section we give a brief description of the main types of
-elements which can be efficiently computed with via the `Semigroups` package.
+elements which can be efficiently computed with via the [Semigroups][] package.
 See [Chapter 6](https://semigroups.github.io/Semigroups/doc/chap6_mj.html)
-of the `Semigroups` package documentation for more details.
+of the [Semigroups][] package documentation for more details.
 
 ### Transformations
 
@@ -205,7 +205,7 @@ functions respectively.
     i.e. partial functions with domain and codomain in $\{1, \ldots, n\}$.
     However, for any fixed $n$, the semigroup of all partial transformations
     of degree $n$ is isomorphic to the semigroup of all total transformations
-    of degree $n+1$, which is what the `Semigroups` package utilizes.
+    of degree $n+1$, which is what the [Semigroups][] package utilizes.
     See the documentation of the
     [`PartialTransformationMonoid`](https://semigroups.github.io/Semigroups/doc/chap7_mj.html#X808A27F87E5AC598)
     for more details.
@@ -354,7 +354,7 @@ Bipartitions in GAP can be specified using the
 function by specifying the blocks of the bipartition.
 Bipartitions can be multiplied using the `*` operator
 (see [Chapter 3](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7C18DB427C9C0917)
-of the `Semigroups` manual for a definition of bipartition multiplication).
+of the [Semigroups][] manual for a definition of bipartition multiplication).
 Furthermore, bipartitions admit an involution
 [`Star`](https://semigroups.github.io/Semigroups/doc/chap3_mj.html#X7CE00E0C79F62745),
 which swaps all the points $i$ with $-i$ in the partition.
@@ -474,13 +474,13 @@ functions respectively.
     bipartitions of distinct degrees _cannot_ be multiplied
     together, and attempting to do so at the moment will cause
     erroneous output.
-    This issue will be resolved in a future release of the `Semigroups`
+    This issue will be resolved in a future release of the [Semigroups][]
     package, a fix was implemented in
     [Pull request #1185](https://github.com/semigroups/Semigroups/pull/1185).
 
 !!! info
     See [Chapter 3](https://semigroups.github.io/Semigroups/doc/chap3_mj.html)
-    of the `Semigroups` manual for more details about bipartitions.
+    of the [Semigroups][] manual for more details about bipartitions.
 
 ### Matrices over semirings
 
@@ -902,7 +902,7 @@ The entries `false` and `true` get mapped to `0` and `1` respectively.
 
 A boolean matrix $A$ of dimension $n$ can equivalently be viewed as a binary
 relation $R$ of the set $\{1, \ldots, n\}$, where $(i, j) \in R$ if and only
-if $A_{i, j} = 1$. The `Semigroups` package implements
+if $A_{i, j} = 1$. The [Semigroups][] package implements
 functions for checking if a boolean matrix, when viewed as a binary relation
 in this manner, is reflexive, symmetric, antisymmetric or transitive via the
 functions
@@ -1089,7 +1089,7 @@ functions, though not all semirings support all of these functions.
 
 !!! info
     See [Chapter 5](https://semigroups.github.io/Semigroups/doc/chap5_mj.html)
-    of the `Semigroups` manual for more details about matrices over semirings,
+    of the [Semigroups][] manual for more details about matrices over semirings,
     as well as [Chapter 24](https://docs.gap-system.org/doc/ref/chap24_mj.html#X812CCAB278643A59)
     of the GAP reference manual for more details about general methods for
     matrices. Note, however that not all methods may be implemented for
@@ -1098,7 +1098,7 @@ functions, though not all semirings support all of these functions.
 ## Constructing semigroups
 
 In this section we briefly outline different methods for constructing
-semigroups using GAP and the `Semigroups` package. We will occasionally
+semigroups using GAP and the [Semigroups][] package. We will occasionally
 use some functions to showcase properties of these semigroups, such as
 `Size`, `Elements`, `IsRegularSemigroup` and so on. These functions will
 be explained in more detail in the [Analyzing semigroups](#analyzing-semigroups)
@@ -1106,7 +1106,7 @@ section later on.
 
 ### Built-in semigroups and monoids
 
-GAP and the `Semigroups` package provide a range of built-in standard semigroups,
+GAP and the [Semigroups][] package provide a range of built-in standard semigroups,
 such as the
 
 * _full transformation semigroup_ $\mathcal{T}_n$ consisting of all degree $n$
@@ -1188,8 +1188,8 @@ whether or not the semigroup is regular:
 
 !!! info
     See [Chapter 7](https://semigroups.github.io/Semigroups/doc/chap7_mj.html)
-    of the `Semigroups` manual for a list of **many** more standard semigroups
-    and monoids implemented by the `Semigroups` package.
+    of the [Semigroups][] manual for a list of **many** more standard semigroups
+    and monoids implemented by the [Semigroups][] package.
     
 ### Finitely generated subsemigroups and submonoids
 
@@ -1265,7 +1265,7 @@ section, in theory any collection of elements with associative multiplication
 can be used to construct a finitely generated semigroup using the `Semigroup`
 function. However, using the kinds of elements described in the
 [Kinds of elements](#kinds-of-elements) section is guaranteed to utilize
-the fast algorithms implemented in `Semigroups`. For an extreme example
+the fast algorithms implemented in [Semigroups][]. For an extreme example
 consider:
 
 === "GAP REPL"
@@ -1302,13 +1302,13 @@ consider:
 
 We are able to enumerate a semigroup of 3 million elements in 4.5 seconds. Of
 course the runtime will depend on the machine and so on, but the point is that
-this computation takes seconds instead of days with `Semigroups`.
-Trying to run the computation without the `Semigroups` package loaded
+this computation takes seconds instead of days with [Semigroups][].
+Trying to run the computation without the [Semigroups][] package loaded
 will cause the `Size` computation to run significantly longer (we have not
-been able to run it to completion without the `Semigroups` package loaded).
+been able to run it to completion without the [Semigroups][] package loaded).
 
 In certain cases, we may even be able to determine that a semigroup is
-infinite using the `Semigroups` package:
+infinite using the [Semigroups][] package:
 
 === "GAP REPL"
     ```gap-repl
@@ -1479,7 +1479,7 @@ we can use the [`Monoid`](https://docs.gap-system.org/doc/ref/chap51_mj.html#X7F
 
 !!! info
     See [Chapter 6](https://semigroups.github.io/Semigroups/doc/chap6_mj.html)
-    of the `Semigroups` manual for more info on how the `Semigroups` package
+    of the [Semigroups][] manual for more info on how the [Semigroups][] package
     handles finitely generated subsemigroups as well as
     [Section 51.1](https://docs.gap-system.org/doc/ref/chap51_mj.html#X80AF5F307DBDC2B4)
     and
@@ -1608,7 +1608,7 @@ The [`Smallsemi`](https://gap-packages.github.io/smallsemi/doc/chap0_mj.html)
 package contains a database of all semigroups of order up to $8$ up to
 isomorphism and anti-isomorphism.
 To use the `Smallsemi` package we need to load it first, just as 
-we did with the `Semigroups` package.
+we did with the [Semigroups][] package.
 We can get the $n$-th semigroup of order $m$ using the
 [`SmallSemigroup`](https://gap-packages.github.io/smallsemi/doc/chap4_mj.html#X8538248D78185960)
 function with arguments `m` and `n`.
@@ -1763,7 +1763,7 @@ object.
     ```
 
 There are two ways of visualizing these graphs using the
-`Semigroups` package:
+[Semigroups][] package:
 
 1. We can visualize these graphs without the edge coloring using the
    [`DotRightCayleyDigraph`](https://semigroups.github.io/Semigroups/doc/chap16_mj.html#X7E38369D7E8BEA4C) and
@@ -1860,7 +1860,7 @@ There are two ways of visualizing these graphs using the
 
 !!! info
     See [Chapter 16](https://semigroups.github.io/Semigroups/doc/chap16_mj.html)
-    of the `Semigroups` manual for more information about visualizing semigroups
+    of the [Semigroups][] manual for more information about visualizing semigroups
     and their Cayley graphs, as well as
     [Chapter 9](https://docs.gap-system.org/pkg/digraphs/doc/chap9_mj.html)
     of the `Digraphs` package manual.
@@ -1990,8 +1990,8 @@ We can
 
 !!! info
     See [Chapter 12](https://semigroups.github.io/Semigroups/doc/chap12_mj.html)
-    of the `Semigroups` manual for a comprehensive list of semigroup
-    properties that can be checked by the `Semigroups` package, as well as
+    of the [Semigroups][] manual for a comprehensive list of semigroup
+    properties that can be checked by the [Semigroups][] package, as well as
     [Section 51.4](https://docs.gap-system.org/doc/ref/chap51_mj.html#X78274024827F306D)
     of the GAP reference manual. 
 
@@ -2096,7 +2096,7 @@ The egg-box diagram of $\mathcal{T}_3$.
 
 !!! info
     See [Chapter 10](https://semigroups.github.io/Semigroups/doc/chap10_mj.html)
-    of the `Semigroups` manual for a deeper look at Green's relation related
+    of the [Semigroups][] manual for a deeper look at Green's relation related
     functionality.
 
 ### Isomorphisms
@@ -2139,7 +2139,7 @@ and return `fail` if the semigroups are not isomorphic.
 
 !!! info
     See [Chapter 14](https://semigroups.github.io/Semigroups/doc/chap14_mj.html)
-    of the `Semigroups` manual for more information about
+    of the [Semigroups][] manual for more information about
     semigroup isomorphisms and homomorphisms.
 
 ### Lattices of congruences
@@ -2221,7 +2221,7 @@ Result of `#!gap Splash(DotString(latt));`.
 
 !!! info
     See [Chapter 13](https://semigroups.github.io/Semigroups/doc/chap13_mj.html)
-    of the `Semigroups` manual for more information about
+    of the [Semigroups][] manual for more information about
     semigroup congruences.
 
 
