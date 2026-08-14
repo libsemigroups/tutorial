@@ -16,10 +16,49 @@ those 501 presentations. The complete rewriting systems described here were
 found using the Knuth-Bendix procedure implemented in
 [`libsemigroups`](https://libsemigroups.github.io/libsemigroups/), using the
 morphocompletion technique as described in
-[Pedersen (2005)](https://doi.org/10.1007/3-540-51081-8_141) and as used by
-Pestov in [Slava's Monoid Zoo](https://monoids.net/).
+[Pedersen (2005)](https://doi.org/10.1007/3-540-51081-8_141) and by Pestov in
+[Slava's Monoid Zoo](https://monoids.net/).
 
-## 000–049
+## Hall of fame
+
+The following information may be of particular interest.
+
+### The presentations whose complete rewriting systems contains the most rules (128)
+
+- [#309 baaaaababa=abbaa](309.md) (128 rules)
+- [#394 baaaababa=abbaa](394.md) (87 rules)
+- [#010 baaaaabbba=abaa](010.md) (87 rules)
+- [#477 abbabbbaba=baabba](477.md) (87 rules)
+- [#214 ababbaaaba=baaababa](214.md) (85 rules)
+- [#332 abababaaaa=baaba](332.md) (82 rules)
+
+### The presentations whose complete rewriting systems contains the fewest rules
+
+- [#064 aaaabababa=babaaaaa](064.md) (3 rules)
+- [#273 aaabababa=babaaaa](273.md) (3 rules)
+- [#374 abaabababa=babaabaa](374.md) (3 rules)
+- [#419 aababababa=babaaa](419.md) (3 rules)
+- [#424 aababababa=bababaaa](424.md) (3 rules)
+- [#462 abbaaababa=baabbaaa](462.md) (3 rules)
+
+### The most common rules
+
+Across all of the complete rewriting systems, there are $7,781$ rules in total,
+and $6,572$ unique rules. There are $6,148$ rules that appear exactly once. The
+following are the most common rules:
+
+|    Rule     | Occurrences |
+| :---------: | :---------: |
+| $ba \to c$  |     131     |
+| $c \to aa$  |     55      |
+| $c \to ba$  |     29      |
+| $bc \to cb$ |     26      |
+| $abb \to d$ |     25      |
+| $bb \to c$  |     25      |
+
+## All presentations
+
+### 000–049
 
 |                                    |                                    |                                    |
 | :--------------------------------- | :--------------------------------- | :--------------------------------- |
@@ -37,7 +76,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#042 baabababba=a](042.md)        | [#043 baaabbabba=aa](043.md)       | [#045 baabbaabaa=aabbaa](045.md)   |
 | [#047 ababbababa=babababa](047.md) | [#048 abbababbba=baba](048.md)     | [#049 baabaabba=a](049.md)         |
 
-## 050–099
+### 050–099
 
 |                                    |                                    |                                    |
 | :--------------------------------- | :--------------------------------- | :--------------------------------- |
@@ -56,7 +95,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#094 baaaabba=aa](094.md)         | [#095 babbabbbba=abba](095.md)     | [#096 baabaabbaa=abababa](096.md)  |
 | [#097 baababbbaa=aaba](097.md)     | [#098 baaaabba=aaa](098.md)        |                                    |
 
-## 100–149
+### 100–149
 
 |                                    |                                    |                                   |
 | :--------------------------------- | :--------------------------------- | :-------------------------------- |
@@ -76,7 +115,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#144 baaaaababa=abaaa](144.md)    | [#145 baababaaba=a](145.md)        | [#147 baaaaabbaa=aaaa](147.md)    |
 | [#148 ababaabbba=baba](148.md)     | [#149 abaababaa=baabaa](149.md)    |                                   |
 
-## 150–199
+### 150–199
 
 |                                    |                                    |                                    |
 | :--------------------------------- | :--------------------------------- | :--------------------------------- |
@@ -94,7 +133,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#192 baaabbbbaa=aaa](192.md)      | [#194 baaabbaaba=aabbbaa](194.md)  | [#195 baabbababa=abbaba](195.md)   |
 | [#196 babbababba=abbabba](196.md)  | [#198 baaaaabbaa=abaaaa](198.md)   | [#199 ababbababa=baaba](199.md)    |
 
-## 200–249
+### 200–249
 
 |                                    |                                    |                                    |
 | :--------------------------------- | :--------------------------------- | :--------------------------------- |
@@ -113,7 +152,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#244 baaaabba=aaaa](244.md)       | [#245 abaabaaba=babaa](245.md)     | [#247 abaaabbaaa=baaaaba](247.md)  |
 | [#248 baaaaabbaa=a](248.md)        | [#249 baaaabaaaa=aaaaaba](249.md)  |                                    |
 
-## 250–299
+### 250–299
 
 |                                    |                                    |                                    |
 | :--------------------------------- | :--------------------------------- | :--------------------------------- |
@@ -132,7 +171,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#293 babaaaabba=ababa](293.md)    | [#294 babbaaba=abba](294.md)       | [#296 ababbbabba=babbaba](296.md)  |
 | [#297 baabaabba=aa](297.md)        | [#299 babaababba=ababbaba](299.md) |                                    |
 
-## 300–349
+### 300–349
 
 |                                    |                                   |                                    |
 | :--------------------------------- | :-------------------------------- | :--------------------------------- |
@@ -151,7 +190,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#344 babbbabba=abbba](344.md)     | [#346 baababbaa=abaaba](346.md)   | [#347 ababbbabba=baba](347.md)     |
 | [#348 baaaabbaba=abaa](348.md)     |                                   |                                    |
 
-## 350–399
+### 350–399
 
 |                                    |                                   |                                    |
 | :--------------------------------- | :-------------------------------- | :--------------------------------- |
@@ -171,7 +210,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#394 baaaababa=abbaa](394.md)     | [#395 baaababba=aa](395.md)       | [#396 abaaaababa=babaa](396.md)    |
 | [#397 abbabbbbaa=bbaabba](397.md)  | [#399 ababaaabba=babaaa](399.md)  |                                    |
 
-## 400–449
+### 400–449
 
 |                                    |                                    |                                    |
 | :--------------------------------- | :--------------------------------- | :--------------------------------- |
@@ -190,7 +229,7 @@ Pestov in [Slava's Monoid Zoo](https://monoids.net/).
 | [#445 abaaaababa=baabaaa](445.md)  | [#446 baaaaabba=aaaa](446.md)      | [#447 baaababa=a](447.md)          |
 | [#448 baabaaabba=abaabaa](448.md)  |                                    |                                    |
 
-## 450–501
+### 450–501
 
 |                                    |                                    |                                    |
 | :--------------------------------- | :--------------------------------- | :--------------------------------- |
