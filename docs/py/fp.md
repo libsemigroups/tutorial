@@ -390,5 +390,3 @@ This says that the symmetric inverse monoid has 18 right congruences with up to
 5 classes, but the monoid defined by the presentation with the first relation
 removed `p.rules[2:]` has 26 such congruences. So, these monoids are not
 isomorphic, and so the first relation in `p` is not redundant.
-
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html

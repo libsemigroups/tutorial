@@ -9,8 +9,6 @@ transformation monoids,
 and how they can be verified using
 [libsemigroups_pybind11][] and the [Semigroups package for GAP][].
 
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/index.html
-
 Below we give the commands that permit the computation of the presentations for
 the symmetric inverse monoid, full transformation monoid, and partial
 transformation monoid from the [paper
@@ -700,7 +698,3 @@ def partial_transf_monoid_456(n: int) -> Presentation:
     S := F / R;
     Size(S);
     ```
-
-[GAP]: https://gap-system.org
-[Semigroups package for GAP]: https://semigroups.github.io/Semigroups/
-[Python]: https://www.python.org

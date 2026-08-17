@@ -611,8 +611,6 @@ This says that the symmetric inverse monoid has 18 right congruences with up to
 removed has 26 such congruences. So, these monoids are not isomorphic, and so
 the relation $a^2=1$ is not redundant.
 
-[libsemigroups]: https://libsemigroups.github.io/libsemigroups/
-[GAP]: https://gap-system.org
 [Semigroups]: https://semigroups.github.io/Semigroups/
 [ACE]: https://gap-packages.github.io/ace/
 [KBMAG]: https://gap-packages.github.io/kbmag/

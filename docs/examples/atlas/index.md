@@ -207,5 +207,3 @@ see more information.
 </div>
 
 [atlas]: https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/
-[libsemigroups_pybind11]:
-  https://libsemigroups.github.io/libsemigroups_pybind11/index.html
