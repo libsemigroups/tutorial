@@ -28,5 +28,5 @@ The QR code for this page is:
 ## Acknowledgments
 
 The authors of this website would like to thank the University of St Andrews for
-funding Joseph Edwards, through the Impact and Innovation Fund,to work on this
+funding Joseph Edwards, through the Impact and Innovation Fund, to work on this
 website.

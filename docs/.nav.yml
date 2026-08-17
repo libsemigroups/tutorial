@@ -25,8 +25,10 @@ nav:
               - "Mathieu group M22": examples/atlas/mathieu/m22.md
               - "Mathieu group M23":
                   - examples/atlas/mathieu/m23/index.md
-                  - "Mathieu group M11": examples/atlas/mathieu/m23/m11.md
-                  - "Mathieu group M22": examples/atlas/mathieu/m23/m22.md
+                  - "M11, P1": examples/atlas/mathieu/m23/p1_m11.md
+                  - "M22, P1": examples/atlas/mathieu/m23/p1_m22.md
+                  - "M11, P2": examples/atlas/mathieu/m23/p2_m11.md
+                  - "M22, P2": examples/atlas/mathieu/m23/p2_m22.md
               - "Mathieu group M24":
                   - examples/atlas/mathieu/m24/index.md
           - "Leech lattice groups":
@@ -46,8 +48,6 @@ nav:
                   - examples/atlas/monster-sections/fi22/index.md
           - "Pariahs":
               - examples/atlas/pariahs/*
-              - "Rudvalis group Ru":
-                  - examples/atlas/pariahs/ru/index.md
               - "Janko group J4":
                   - examples/atlas/pariahs/j4/index.md
           - "Miscellaneous":

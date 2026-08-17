@@ -71,10 +71,10 @@ into the terminal:
 mamba activate libsemigroups_pybind11
 ```
 
-## Adding libsemigroups as a dependency to your project using uv
+## Adding `libsemigroups` as a dependency to your project using uv
 
 If you manage a Python project with [uv](https://docs.astral.sh/uv), you can add
-libsemigroups as a dependency as follows:
+`libsemigroups` as a dependency as follows:
 
 ```console
 $ uv add libsemigroups_pybind11
