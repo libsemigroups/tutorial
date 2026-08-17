@@ -10,7 +10,7 @@ means that [libsemigroups_pybind11][] does not provide any higher-level
 constructs (like semigroups, homomorphisms, and so on), but gives fine-grained
 control of the specific algorithms from [libsemigroups][]. For an overview of the
 algorithms available in [libsemigroups][] and/or [libsemigroups_pybind11][], see the
-[libsemigroups documentation][] or the
+[`libsemigroups` documentation](https://libsemigroups.github.io/libsemigroups/) or the
 [libsemigroups_pybind11 documentation][].
 
 The higher-level constructs in the Semigroups package for [GAP][] make some choices
@@ -33,5 +33,4 @@ This part of this tutorial consists of:
 [libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/
 [Semigroups package for GAP]: https://semigroups.github.io/Semigroups/
 [GAP]: https://www.gap-system.org/
-[libsemigroups documentation]: https://libsemigroups.github.io/libsemigroups/
 [libsemigroups_pybind11 documentation]: https://libsemigroups.github.io/libsemigroups_pybind11/
