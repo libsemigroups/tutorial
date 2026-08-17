@@ -13,6 +13,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: Build in strict mode
         # The strict flag treats warnings as errors
-        run: pipx run --with mkdocs-material mkdocs build --clean --strict
+        run:
+          pipx run --with mkdocs-material --with mkdocs-awesome-nav mkdocs build
+          --clean --strict
 
 # TODO: test the code snippets
