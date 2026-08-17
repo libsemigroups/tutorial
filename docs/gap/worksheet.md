@@ -1,8 +1,9 @@
 # Worksheet
 
 This worksheet contains some exercises to be completed in [GAP][] with the use
-of the [Semigroups package for GAP][] package as part of the [GAP][] workshop
-session of [NBSAN 40](https://manchester-semigroups.github.io/NBSAN/next.html).
+of the [Semigroups package for GAP][Semigroups] package as part of the [GAP][]
+workshop session of
+[NBSAN 40](https://manchester-semigroups.github.io/NBSAN/next.html).
 
 1.  Let $J_n$ denote the Jones monoid of degree $n$, and
     ![An element of the Jones monoid](../images/bipartition.png)
@@ -55,7 +56,7 @@ session of [NBSAN 40](https://manchester-semigroups.github.io/NBSAN/next.html).
         [`Digraphs` package for GAP](https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html).
         The [`Digraphs` package for GAP](https://docs.gap-system.org/pkg/digraphs/doc/chap0_mj.html)
         is required by the
-        [Semigroups package for GAP][] so you don't have to install anything new to do this.
+        [Semigroups package for GAP][Semigroups] so you don't have to install anything new to do this.
 
 3.  Let $S$ be the monoid defined by the presentation
     $\langle a, b, c, d, e, f, g \mid abcd = a^3ea^2, ef= dg\rangle$.
@@ -162,4 +163,4 @@ session of [NBSAN 40](https://manchester-semigroups.github.io/NBSAN/next.html).
 
         You might want to look at:
         [Chapter 18](https://semigroups.github.io/Semigroups/doc/chap18_mj.html)
-        of the [Semigroups package for GAP][] manual.
+        of the [Semigroups package for GAP][Semigroups] manual.
