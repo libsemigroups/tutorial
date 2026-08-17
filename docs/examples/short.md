@@ -2,25 +2,24 @@
 
 On this page we describe the computational claims made in the paper:
 
-* T. Aird, J. D. Mitchell, M. T. Whyte, Short presentations for
-transformation monoids,
-[https://doi.org/10.48550/arXiv.2406.19294](https://doi.org/10.48550/arXiv.2406.19294)
+- T. Aird, J. D. Mitchell, M. T. Whyte, Short presentations for transformation
+  monoids,
+  [https://doi.org/10.48550/arXiv.2406.19294](https://doi.org/10.48550/arXiv.2406.19294)
 
-and how they can be verified using
-[libsemigroups_pybind11][] and the [Semigroups package for GAP][].
+and how they can be verified using [libsemigroups_pybind11][] and the
+[Semigroups package for GAP][Semigroups].
 
 Below we give the commands that permit the computation of the presentations for
 the symmetric inverse monoid, full transformation monoid, and partial
-transformation monoid from the [paper
-above](https://doi.org/10.48550/arXiv.2406.19294) for the small values of $n$
-not covered by the main theorems in the paper. 
+transformation monoid from the
+[paper above](https://doi.org/10.48550/arXiv.2406.19294) for the small values of
+$n$ not covered by the main theorems in the paper.
 
 ## The symmetric inverse monoid
 
 First we include [Python][] code that implements the presentation for the
-symmetric inverse monoid of degree $n\geq 3$ from Theorem
-1.4 of [the paper](https://doi.org/10.48550/arXiv.2406.19294).
-
+symmetric inverse monoid of degree $n\geq 3$ from Theorem 1.4 of
+[the paper](https://doi.org/10.48550/arXiv.2406.19294).
 
 === "Python"
 
@@ -34,7 +33,7 @@ symmetric inverse monoid of degree $n\geq 3$ from Theorem
       p = to(examples.symmetric_group_Car56(n), rtype=(Presentation, str))
       alpha = p.alphabet()[-1] + p.alphabet()
       p.alphabet(p.alphabet() + "z")
-      
+
       presentation.add_rule(p, "abaz", "zaba")
       presentation.add_rule(p, alpha + "z", "zz" + alpha)
       presentation.add_rule(p, "azazaza", "zaz")
@@ -176,47 +175,31 @@ presentation.to_gap_string(theorem_1_4_symm_inv(3), "S")
 
 ### $n = 4$
 
-Here we give the [GAP][] and [Python][] code for verifying that the
-presentation
-\begin{equation}\label{eq-t-4}
-\begin{aligned}
-\langle a_2, a_3, a_4, z \mid &\ 
-      a_2^2=\varepsilon,
-      a_3^2=\varepsilon,
-      a_4^2=\varepsilon,
-      (a_2a_3)^3=\varepsilon,
-      (a_3a_4)^3=\varepsilon,
-      (a_4a_2)^3=\varepsilon,\\\\
-      &\ (a_2a_3a_2a_4)^2=\varepsilon,
-      (a_3a_4a_3a_2)^2=\varepsilon,
-      (a_4a_2a_4a_3)^2=\varepsilon, \\\\
-&\ (a_4a_2a_3a_2z)^2=(za_4a_2a_3a_2)^2, \\\\
-&\      (a_2a_3a_2z)^3a_2a_3a_2=za_2a_3a_2z,\\\\
-&\      a_3a_4a_3za_3a_4a_3=(za_3)^2, \\\\
-&\ a_2z= z(za_3)^2
-\rangle
-\end{aligned}
-\end{equation}
-defines the full transformation monoid of degree $4$. By Theorem 1.5 in [the
-paper](https://doi.org/10.48550/arXiv.2406.19294) this presentation has the smallest number of non-$S_n$
-relations, i.e. relations containing the letter $\zeta$ which represents the
-rank $n-1$ idempotent:
-\begin{pmatrix}
-1 & 2 & 3 & 4 \\\\
-1 & 1 & 3 & 4
-\end{pmatrix}
+Here we give the [GAP][] and [Python][] code for verifying that the presentation
+\begin{equation}\label{eq-t-4} \begin{aligned} \langle a_2, a_3, a_4, z \mid &\
+a_2^2=\varepsilon, a_3^2=\varepsilon, a_4^2=\varepsilon, (a_2a_3)^3=\varepsilon,
+(a_3a_4)^3=\varepsilon, (a_4a_2)^3=\varepsilon,\\\\ &\
+(a_2a_3a_2a_4)^2=\varepsilon, (a_3a_4a_3a_2)^2=\varepsilon,
+(a_4a_2a_4a_3)^2=\varepsilon, \\\\ &\ (a_4a_2a_3a_2z)^2=(za_4a_2a_3a_2)^2, \\\\
+&\ (a_2a_3a_2z)^3a_2a_3a_2=za_2a_3a_2z,\\\\ &\ a_3a_4a_3za_3a_4a_3=(za_3)^2,
+\\\\ &\ a_2z= z(za_3)^2 \rangle \end{aligned} \end{equation} defines the full
+transformation monoid of degree $4$. By Theorem 1.5 in
+[the paper](https://doi.org/10.48550/arXiv.2406.19294) this presentation has the
+smallest number of non-$S_n$ relations, i.e. relations containing the letter
+$\zeta$ which represents the rank $n-1$ idempotent: \begin{pmatrix} 1 & 2 & 3 &
+4 \\\\ 1 & 1 & 3 & 4 \end{pmatrix}
 
 Note that the presentation with generators $a_2, a_3, a_4$ and the relations in
 the presentation in \eqref{eq-t-4} not containing $z$ defines the symmetric
 group of degree $4$ (this is Carmichael's presentation from:
 
-* Carmichael, Robert D. *Introduction to the Theory of Groups of Finite Order*.
-  New York: Dover Publications, 1956). 
+- Carmichael, Robert D. _Introduction to the Theory of Groups of Finite Order_.
+  New York: Dover Publications, 1956).
 
-In the [GAP][] code below we show that the presentation defines a
-monoid of the same size as $\mathcal{T}_4$ and that the function mapping
-$a_2, a_3, a_4, z$ to the permutations $(1, 2), (1, 3), (1, 4)$ and the
-transformation $\zeta$ is indeed an isomorphism.
+In the [GAP][] code below we show that the presentation defines a monoid of the
+same size as $\mathcal{T}_4$ and that the function mapping $a_2, a_3, a_4, z$ to
+the permutations $(1, 2), (1, 3), (1, 4)$ and the transformation $\zeta$ is
+indeed an isomorphism.
 
 === "Python"
 
@@ -260,19 +243,19 @@ transformation $\zeta$ is indeed an isomorphism.
           [b*c*b*z*b*c*b, z*b*z*b], [a*z, z*z*b*z*b]];
     M := F / R;
     Size(M);
-    SemigroupIsomorphismByImages(M, 
-     FullTransformationMonoid(4), 
+    SemigroupIsomorphismByImages(M,
+     FullTransformationMonoid(4),
      GeneratorsOfMonoid(M),
-     [AsTransformation((1, 2)), 
-      AsTransformation((1, 3)), 
+     [AsTransformation((1, 2)),
+      AsTransformation((1, 3)),
       AsTransformation((1, 4)),
       Transformation([1, 1, 3, 4])]);
     ```
 
 ### $n = 5$
 
-As stated in [the paper](https://doi.org/10.48550/arXiv.2406.19294), the presentation from Theorem 1.5 defines $T_n$
-when $n = 5$. 
+As stated in [the paper](https://doi.org/10.48550/arXiv.2406.19294), the
+presentation from Theorem 1.5 defines $T_n$ when $n = 5$.
 
 ```python
 from libsemigroups_pybind11 import Presentation, presentation, to
@@ -360,7 +343,7 @@ def theorem_1_5_full_transf(n: int) -> Presentation:
         Presentation,
         presentation,
         congruence_kind,
-        ToddCoxeter, 
+        ToddCoxeter,
         to
     )
     from libsemigroups_pybind11.presentation import examples
@@ -438,11 +421,10 @@ def theorem_1_5_full_transf(n: int) -> Presentation:
 ### $n = 2$
 
 The below is some [Python][] to verify that the presentation
-\begin{equation}\label{PT-2}
-  \langle a_2, \zeta, \eta \mid a_2^2 = 1,\quad  a_2\zeta = \zeta,\quad  \zeta a_2 \eta a_2
-  = \zeta,\quad  \eta a_2 \zeta a_2 = \eta,\quad a_2 \eta a_2 \eta a_2 = \zeta \eta \rangle
-\end{equation}
-defines $PT_2$.
+\begin{equation}\label{PT-2} \langle a_2, \zeta, \eta \mid a_2^2 = 1,\quad
+a_2\zeta = \zeta,\quad \zeta a_2 \eta a_2 = \zeta,\quad \eta a_2 \zeta a_2 =
+\eta,\quad a_2 \eta a_2 \eta a_2 = \zeta \eta \rangle \end{equation} defines
+$PT_2$.
 
 === "Python"
 
@@ -455,7 +437,7 @@ defines $PT_2$.
 
     p = Presentation("azn").contains_empty_word(True)
     p.rules = ["aa", "", "az", "z", "zana", "z", "naza", "n", "anana", "zn"]
-    
+
     tc = ToddCoxeter(congruence_kind.twosided, p)
     tc.number_of_classes()  # returns 9
     ```
@@ -550,9 +532,9 @@ def partial_transf_monoid_456(n: int) -> Presentation:
     "n" + A + A[0], A + A[0] + "n",
     A[-1] + A[0] + A[1] + A[0] + "z" + A[-1] + A[0] + A[1] + A[0] + "z",
     "z" + A[-1] + A[0] + A[1] + A[0] + "z" + A[-1] + A[0] + A[1] + A[0],
-    (A[0] + A[1] + A[0] + "z") * 3 + A[0] + A[1] + A[0], 
+    (A[0] + A[1] + A[0] + "z") * 3 + A[0] + A[1] + A[0],
     "z" + A[0] + A[1] + A[0] + "z",
-    A[1] + A[2:] + A[1] + A[0] + "z", 
+    A[1] + A[2:] + A[1] + A[0] + "z",
     "z" + A[1] + A[2:] + A[1],
     "zbnb", "bnbz",
     "zn", "anana",
