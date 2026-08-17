@@ -134,6 +134,3 @@ The truncated output of the enumeration is below:
 
 :material-checkbox-marked-circle-outline: The computed size of the group matches
 the size of the group provided on the ATLAS: $17,971,200$.
-
-[libsemigroups_pybind11]:
-  https://libsemigroups.github.io/libsemigroups_pybind11/index.html

@@ -20,5 +20,3 @@ tutorial, or select from one of the options below:
 * [Semigroups and monoids defined by generators](generated.md)
 * [Finitely presented semigroups and monoids](fp.md)
 * [Worksheet](worksheet.md)
-
-[GAP]: https://www.gap-system.org/

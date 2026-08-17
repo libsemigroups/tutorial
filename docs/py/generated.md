@@ -500,5 +500,3 @@ finitely generated semigroups.
 
 On the next page, you will learn about computing with finitely presented
 semigroups.
-
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/

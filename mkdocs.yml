@@ -1,6 +1,9 @@
 site_name: Semigroups - Zero to ε
 site_url: https://libsemigroups.github.io/tutorial/
 
+watch:
+  - includes
+
 theme:
   name: material
   logo: images/logo.svg
@@ -49,7 +52,10 @@ markdown_extensions:
       use_pygments: true
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - includes/links.md
+      check_paths: true
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true

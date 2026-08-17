@@ -28,9 +28,3 @@ This part of this tutorial consists of:
 - [Semigroups and monoids defined by generators](generated.md)
 - [Finitely presented semigroups and monoids](fp.md)
 - [Worksheet](worksheet.md)
-
-[libsemigroups]: https://libsemigroups.github.io/libsemigroups/
-[libsemigroups_pybind11]: https://libsemigroups.github.io/libsemigroups_pybind11/
-[Semigroups package for GAP]: https://semigroups.github.io/Semigroups/
-[GAP]: https://www.gap-system.org/
-[libsemigroups_pybind11 documentation]: https://libsemigroups.github.io/libsemigroups_pybind11/

@@ -156,6 +156,3 @@ The truncated output of the enumeration is below:
 
 :material-checkbox-marked-circle-outline: The computed index is the same as the
 claimed index: $10,644,480$.
-
-[libsemigroups_pybind11]:
-  https://libsemigroups.github.io/libsemigroups_pybind11/index.html

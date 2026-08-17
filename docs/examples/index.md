@@ -9,7 +9,3 @@ Please use the menu at the left or the links below:
 - [Short presentations for transformation monoids](short.md)
 - [Verifying presentations for sporadic simple groups](atlas/index.md)
 - [Finding complete rewriting systems for 1-relation monoids](1-relation/index.md)
-
-[Semigroups package for GAP]: https://semigroups.github.io/Semigroups/
-[libsemigroups_pybind11]:
-  https://libsemigroups.github.io/libsemigroups_pybind11/index.html
