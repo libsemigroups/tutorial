@@ -25,6 +25,8 @@ nav:
               - "Mathieu group M22": examples/atlas/mathieu/m22.md
               - "Mathieu group M23":
                   - examples/atlas/mathieu/m23/index.md
+                  - "Presentation 1": examples/atlas/mathieu/m23/p1.md
+                  - "Presentation 2": examples/atlas/mathieu/m23/p2.md
                   - "M11, P1": examples/atlas/mathieu/m23/p1_m11.md
                   - "M22, P1": examples/atlas/mathieu/m23/p1_m22.md
                   - "M11, P2": examples/atlas/mathieu/m23/p2_m11.md

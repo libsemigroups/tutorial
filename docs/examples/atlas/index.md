@@ -78,7 +78,7 @@ see more information.
           <td class="correct-size">
             <a href="mathieu/m22">M<sub>22</sub></a>
           </td>
-          <td class="some-correct-index">
+          <td class="correct-size">
             <a href="mathieu/m23">M<sub>23</sub></a>
           </td>
           <td class="correct-size">
