@@ -59,6 +59,10 @@
   background-color: #dddddd;
 }
 
-.no-presentation {
+.no-presentation-in-atlas {
   background-color: grey;
+}
+
+.no-presentation-known {
+  background-color: #F28C28;
 }
