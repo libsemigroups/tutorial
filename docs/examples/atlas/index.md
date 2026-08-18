@@ -113,7 +113,7 @@ see more information.
           <th colspan="8">Monster sections</th>
         </tr>
         <tr>
-          <td class="work-in-progress"><a href="monster-sections/he">He</a></td>
+          <td class="correct-index"><a href="monster-sections/he">He</a></td>
           <td class="no-presentation">HN</td>
           <td class="no-presentation">Th</td>
           <td class="work-in-progress">

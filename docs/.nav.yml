@@ -44,6 +44,17 @@ nav:
           - "Monster sections":
               - "Held group He":
                   - examples/atlas/monster-sections/he/index.md
+                  - "S4(4):2": examples/atlas/monster-sections/he/2058.md
+                  - "2^2.L3(4).S3": examples/atlas/monster-sections/he/8330.md
+                  - "2^6:3.S6 (I)": examples/atlas/monster-sections/he/29155-i.md
+                  - "2^6:3.S6 (II)": examples/atlas/monster-sections/he/29155-ii.md
+                  - "2^(1+6).L3(2)": examples/atlas/monster-sections/he/187425.md
+                  - "7^2:2.L2(7)": examples/atlas/monster-sections/he/244800.md
+                  - "3.S7": examples/atlas/monster-sections/he/266560.md
+                  - "7^(1+2):(3 x S3)": examples/atlas/monster-sections/he/652800.md
+                  - "S4 x L3(2)": examples/atlas/monster-sections/he/999600.md
+                  - "7:3 x L3(2)": examples/atlas/monster-sections/he/1142400.md
+                  - "5^2:4A4": examples/atlas/monster-sections/he/3358656.md
               - "Fischer group Fi22":
                   - examples/atlas/monster-sections/fi22/index.md
           - "Pariahs":
