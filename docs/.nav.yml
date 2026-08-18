@@ -25,10 +25,9 @@ nav:
               - "Mathieu group M22": examples/atlas/mathieu/m22.md
               - "Mathieu group M23":
                   - examples/atlas/mathieu/m23/index.md
-                  - "M11, P1": examples/atlas/mathieu/m23/p1_m11.md
-                  - "M22, P1": examples/atlas/mathieu/m23/p1_m22.md
-                  - "M11, P2": examples/atlas/mathieu/m23/p2_m11.md
-                  - "M22, P2": examples/atlas/mathieu/m23/p2_m22.md
+                  - "M11":
+                      - "Presentation 1": examples/atlas/mathieu/m23/p1_m11.md
+                      - "Presentation 2": examples/atlas/mathieu/m23/p2_m11.md
               - "Mathieu group M24":
                   - examples/atlas/mathieu/m24/index.md
           - "Leech lattice groups":
