@@ -29,8 +29,7 @@ nav:
                   - "M22, P1": examples/atlas/mathieu/m23/p1_m22.md
                   - "M11, P2": examples/atlas/mathieu/m23/p2_m11.md
                   - "M22, P2": examples/atlas/mathieu/m23/p2_m22.md
-              - "Mathieu group M24":
-                  - examples/atlas/mathieu/m24/index.md
+              - "Mathieu group M24": examples/atlas/mathieu/m24.md
           - "Leech lattice groups":
               - examples/atlas/leech-lattice/hs.md
               - "Janko group J2, Hall-Janko group HJ":
