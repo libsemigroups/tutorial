@@ -40,6 +40,7 @@ nav:
                   - "P2": examples/atlas/leech-lattice/j2/j2-p2.md
               - "Conway group Co2":
                   - examples/atlas/leech-lattice/co2/index.md
+                  - "U6(2):2": examples/atlas/leech-lattice/co2/2300.md
               - "McLaughlin group McL":
                   - examples/atlas/leech-lattice/mcl/index.md
           - "Monster sections":

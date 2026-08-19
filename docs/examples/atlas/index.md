@@ -98,7 +98,7 @@ see more information.
             <a href="leech-lattice/j2">J<sub>2</sub></a>
           </td>
           <td class="no-presentation-known">Co<sub>1</sub></td>
-          <td class="work-in-progress">
+          <td class="correct-index">
             <a href="leech-lattice/co2">Co<sub>2</sub></a>
           </td>
           <td class="no-presentation-in-atlas">Co<sub>3</sub></td>
