@@ -78,7 +78,7 @@ see more information.
           <td class="correct-size">
             <a href="mathieu/m22">M<sub>22</sub></a>
           </td>
-          <td class="some-correct-index">
+          <td class="correct-size">
             <a href="mathieu/m23">M<sub>23</sub></a>
           </td>
           <td class="correct-size">
@@ -97,13 +97,13 @@ see more information.
           <td class="correct-size">
             <a href="leech-lattice/j2">J<sub>2</sub></a>
           </td>
-          <td class="no-presentation">Co<sub>1</sub></td>
-          <td class="work-in-progress">
+          <td class="no-presentation-known">Co<sub>1</sub></td>
+          <td class="correct-index">
             <a href="leech-lattice/co2">Co<sub>2</sub></a>
           </td>
-          <td class="no-presentation">Co<sub>3</sub></td>
+          <td class="no-presentation-in-atlas">Co<sub>3</sub></td>
           <td class="work-in-progress"><a href="leech-lattice/mcl">McL</a></td>
-          <td class="no-presentation">Suz</td>
+          <td class="no-presentation-in-atlas">Suz</td>
         </tr>
       </table>
     </div>
@@ -113,16 +113,16 @@ see more information.
           <th colspan="8">Monster sections</th>
         </tr>
         <tr>
-          <td class="work-in-progress"><a href="monster-sections/he">He</a></td>
-          <td class="no-presentation">HN</td>
-          <td class="no-presentation">Th</td>
+          <td class="correct-index"><a href="monster-sections/he">He</a></td>
+          <td class="no-presentation-in-atlas">HN</td>
+          <td class="no-presentation-in-atlas">Th</td>
           <td class="work-in-progress">
             <a href="monster-sections/fi22">Fi<sub>22</sub></a>
           </td>
-          <td class="no-presentation">Fi<sub>23</sub></td>
-          <td class="no-presentation">Fi<sub>24</sub>'</td>
-          <td class="no-presentation">B</td>
-          <td class="no-presentation">M</td>
+          <td class="no-presentation-in-atlas">Fi<sub>23</sub></td>
+          <td class="no-presentation-in-atlas">Fi<sub>24</sub>'</td>
+          <td class="no-presentation-in-atlas">B</td>
+          <td class="no-presentation-in-atlas">M</td>
         </tr>
       </table>
     </div>
@@ -135,7 +135,7 @@ see more information.
           <td class="correct-size">
             <a href="pariahs/j1">J<sub>1</sub></a>
           </td>
-          <td class="no-presentation">O'N</td>
+          <td class="no-presentation-in-atlas">O'N</td>
           <td class="correct-size">
             <a href="pariahs/j3">J<sub>3</sub></a>
           </td>
@@ -143,7 +143,7 @@ see more information.
           <td class="work-in-progress">
             <a href="pariahs/j4">J<sub>4</sub></a>
           </td>
-          <td class="no-presentation">Ly</td>
+          <td class="no-presentation-in-atlas">Ly</td>
         </tr>
       </table>
     </div>
@@ -181,13 +181,14 @@ see more information.
             presentation has at least 1 subgroup of the correct index.
           </td>
         </tr>
-        </tr>
+        <!--
         <tr>
           <td class="some-correct-index">
             The presentation has at least 1 subgroup of the correct index, and
             at least 1 subgroup whose index could not be verified.
           </td>
         </tr>
+        -->
         <!-- <tr>
           <td class="incorrect-size">
             The presentation defines a group of the incorrect size
@@ -197,7 +198,10 @@ see more information.
           <td class="work-in-progress">Work in progress.</td>
         </tr>
         <tr>
-          <td class="no-presentation">No presentation is provided.</td>
+          <td class="no-presentation-in-atlas">No presentation in ATLAS.</td>
+        </tr>
+        <tr>
+          <td class="no-presentation-known">No presentation known.</td>
         </tr>
       </table>
     </div>

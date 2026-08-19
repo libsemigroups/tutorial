@@ -26,6 +26,15 @@
   text-decoration: none;
 }
 
+.center-table {
+  text-align: center;
+}
+
+.center-table th:not(:last-child),
+.center-table td:not(:last-child) {
+  border-right: 0.05rem solid var(--md-typeset-table-color);
+}
+
 .correct-size {
   background-color: #4dac26;
 }
@@ -50,6 +59,10 @@
   background-color: #dddddd;
 }
 
-.no-presentation {
+.no-presentation-in-atlas {
   background-color: grey;
+}
+
+.no-presentation-known {
+  background-color: #F28C28;
 }

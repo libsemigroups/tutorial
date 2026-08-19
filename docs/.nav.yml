@@ -25,12 +25,13 @@ nav:
               - "Mathieu group M22": examples/atlas/mathieu/m22.md
               - "Mathieu group M23":
                   - examples/atlas/mathieu/m23/index.md
+                  - "Presentation 1": examples/atlas/mathieu/m23/p1.md
+                  - "Presentation 2": examples/atlas/mathieu/m23/p2.md
                   - "M11, P1": examples/atlas/mathieu/m23/p1_m11.md
                   - "M22, P1": examples/atlas/mathieu/m23/p1_m22.md
                   - "M11, P2": examples/atlas/mathieu/m23/p2_m11.md
                   - "M22, P2": examples/atlas/mathieu/m23/p2_m22.md
-              - "Mathieu group M24":
-                  - examples/atlas/mathieu/m24/index.md
+              - "Mathieu group M24": examples/atlas/mathieu/m24.md
           - "Leech lattice groups":
               - examples/atlas/leech-lattice/hs.md
               - "Janko group J2, Hall-Janko group HJ":
@@ -39,11 +40,23 @@ nav:
                   - "P2": examples/atlas/leech-lattice/j2/j2-p2.md
               - "Conway group Co2":
                   - examples/atlas/leech-lattice/co2/index.md
+                  - "U6(2):2": examples/atlas/leech-lattice/co2/2300.md
               - "McLaughlin group McL":
                   - examples/atlas/leech-lattice/mcl/index.md
           - "Monster sections":
               - "Held group He":
                   - examples/atlas/monster-sections/he/index.md
+                  - "S4(4):2": examples/atlas/monster-sections/he/2058.md
+                  - "2^2.L3(4).S3": examples/atlas/monster-sections/he/8330.md
+                  - "2^6:3.S6 (I)": examples/atlas/monster-sections/he/29155-i.md
+                  - "2^6:3.S6 (II)": examples/atlas/monster-sections/he/29155-ii.md
+                  - "2^(1+6).L3(2)": examples/atlas/monster-sections/he/187425.md
+                  - "7^2:2.L2(7)": examples/atlas/monster-sections/he/244800.md
+                  - "3.S7": examples/atlas/monster-sections/he/266560.md
+                  - "7^(1+2):(3 x S3)": examples/atlas/monster-sections/he/652800.md
+                  - "S4 x L3(2)": examples/atlas/monster-sections/he/999600.md
+                  - "7:3 x L3(2)": examples/atlas/monster-sections/he/1142400.md
+                  - "5^2:4A4": examples/atlas/monster-sections/he/3358656.md
               - "Fischer group Fi22":
                   - examples/atlas/monster-sections/fi22/index.md
           - "Pariahs":

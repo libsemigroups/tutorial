@@ -1,8 +1,15 @@
 # Mathieu group M~23~
 
-On this page, we provide links to verifications that the maximal subgroups of
-the Mathieu group M~23~ define groups of the correct index. Two presentations
-are given for M~23~, and two maximal subgroups have generating pairs specified.
+On this page, we provide links to verifications of two presentations of the
+Mathieu group M~23~, and to attempts to verify the indices of two of its maximal
+subgroups.
+
+## Presentations
+
+- [Presentation 1](p1.md)
+  :material-checkbox-marked-circle-outline:{ style="color: #00c853" }
+- [Presentation 2](p2.md)
+  :material-checkbox-marked-circle-outline:{ style="color: #00c853" }
 
 ## Maximal subgroups
 
