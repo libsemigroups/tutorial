@@ -43,6 +43,15 @@ nav:
                   - "U6(2):2": examples/atlas/leech-lattice/co2/2300.md
               - "McLaughlin group McL":
                   - examples/atlas/leech-lattice/mcl/index.md
+                  - "Trivial": examples/atlas/leech-lattice/mcl/898128000.md
+                  - "M22": examples/atlas/leech-lattice/mcl/2025.md
+                  - "M21 = L3(4)": examples/atlas/leech-lattice/mcl/44550.md
+                  - "S6": examples/atlas/leech-lattice/mcl/1247400.md
+                  - "2^4:S4": examples/atlas/leech-lattice/mcl/2338875.md
+                  - "3^2:D8": examples/atlas/leech-lattice/mcl/12474000.md
+                  - "(D8 * D8):2": examples/atlas/leech-lattice/mcl/14033250.md
+                  - "2 x S4": examples/atlas/leech-lattice/mcl/18711000.md
+                  - "S4": examples/atlas/leech-lattice/mcl/37422000.md
           - "Monster sections":
               - "Held group He":
                   - examples/atlas/monster-sections/he/index.md

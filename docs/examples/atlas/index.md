@@ -102,7 +102,7 @@ see more information.
             <a href="leech-lattice/co2">Co<sub>2</sub></a>
           </td>
           <td class="no-presentation-in-atlas">Co<sub>3</sub></td>
-          <td class="work-in-progress"><a href="leech-lattice/mcl">McL</a></td>
+          <td class="correct-size-alt"><a href="leech-lattice/mcl">McL</a></td>
           <td class="no-presentation-in-atlas">Suz</td>
         </tr>
       </table>
@@ -168,6 +168,12 @@ see more information.
         <tr>
           <td class="correct-size">
             The presentation defines a group of the correct size.
+          </td>
+        </tr>
+        <tr>
+          <td class="correct-size-alt">
+            The source of the presentation is not the ATLAS and the
+            presentation defines a group of the correct size.
           </td>
         </tr>
         <tr>

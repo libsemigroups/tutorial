@@ -39,6 +39,10 @@
   background-color: #4dac26;
 }
 
+.correct-size-alt {
+  background: linear-gradient(135deg, #4dac26 50%, #ffed4b 50%);
+}
+
 .correct-index {
   background-color: #b8e186;
 }
