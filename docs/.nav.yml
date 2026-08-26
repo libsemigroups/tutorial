@@ -41,6 +41,14 @@ nav:
               - "Conway group Co2":
                   - examples/atlas/leech-lattice/co2/index.md
                   - "U6(2):2": examples/atlas/leech-lattice/co2/2300.md
+              - "Conway group Co3":
+                  - examples/atlas/leech-lattice/co3/index.md
+                  - "McL:2": examples/atlas/leech-lattice/co3/276.md
+                  - "U4(3):2": examples/atlas/leech-lattice/co3/75900.md
+                  - "2.S6(2)": examples/atlas/leech-lattice/co3/170775.md
+                  - "U4(2):2 = S4(3):2": examples/atlas/leech-lattice/co3/9563400.md
+                  - "U3(3):2": examples/atlas/leech-lattice/co3/40986000.md
+                  - "3^3:(2 x S4)": examples/atlas/leech-lattice/co3/382536000.md
               - "McLaughlin group McL":
                   - examples/atlas/leech-lattice/mcl/index.md
                   - "Trivial": examples/atlas/leech-lattice/mcl/898128000.md

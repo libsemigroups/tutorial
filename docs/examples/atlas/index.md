@@ -101,7 +101,9 @@ see more information.
           <td class="correct-index">
             <a href="leech-lattice/co2">Co<sub>2</sub></a>
           </td>
-          <td class="no-presentation-in-atlas">Co<sub>3</sub></td>
+          <td class="correct-index-alt">
+            <a href="leech-lattice/co3">Co<sub>3</sub></a>
+          </td>
           <td class="correct-size-alt"><a href="leech-lattice/mcl">McL</a></td>
           <td class="no-presentation-in-atlas">Suz</td>
         </tr>
