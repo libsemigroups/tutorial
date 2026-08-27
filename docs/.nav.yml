@@ -60,6 +60,10 @@ nav:
                   - "(D8 * D8):2": examples/atlas/leech-lattice/mcl/14033250.md
                   - "2 x S4": examples/atlas/leech-lattice/mcl/18711000.md
                   - "S4": examples/atlas/leech-lattice/mcl/37422000.md
+              - "Suzuki sporadic group Suz":
+                  - examples/atlas/leech-lattice/suz/index.md
+                  - "G2(4)": examples/atlas/leech-lattice/suz/1782.md
+                  - "3.U4(3):2": examples/atlas/leech-lattice/suz/22880.md
           - "Monster sections":
               - "Held group He":
                   - examples/atlas/monster-sections/he/index.md

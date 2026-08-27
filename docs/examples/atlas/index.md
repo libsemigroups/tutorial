@@ -97,7 +97,7 @@ see more information.
           <td class="correct-size">
             <a href="leech-lattice/j2">J<sub>2</sub></a>
           </td>
-          <td class="no-presentation-known">Co<sub>1</sub></td>
+          <td class="work-in-progress">Co<sub>1</sub></td>
           <td class="correct-index">
             <a href="leech-lattice/co2">Co<sub>2</sub></a>
           </td>
@@ -105,7 +105,9 @@ see more information.
             <a href="leech-lattice/co3">Co<sub>3</sub></a>
           </td>
           <td class="correct-size-alt"><a href="leech-lattice/mcl">McL</a></td>
-          <td class="no-presentation-in-atlas">Suz</td>
+          <td class="correct-index-alt">
+            <a href="leech-lattice/suz">Suz</a>
+          </td>
         </tr>
       </table>
     </div>
@@ -207,9 +209,6 @@ see more information.
         </tr>
         <tr>
           <td class="no-presentation-in-atlas">No presentation in ATLAS.</td>
-        </tr>
-        <tr>
-          <td class="no-presentation-known">No presentation known.</td>
         </tr>
       </table>
     </div>
