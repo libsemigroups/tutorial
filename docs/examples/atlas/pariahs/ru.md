@@ -30,6 +30,9 @@ In [libsemigroups_pybind11][], the following script constructs the presentation
 for M~23~, adds the generating pairs that define the subgroup M~11~, and runs
 the Todd-Coxeter algorithm.
 
+<details markdown>
+<summary>Code</summary>
+
 ```python
 from libsemigroups_pybind11 import (
     Presentation,
@@ -69,6 +72,8 @@ tc.run()
 
 print(f"The index of the subgroup is {tc.number_of_classes()}")
 ```
+
+</details>
 
 ## The output
 

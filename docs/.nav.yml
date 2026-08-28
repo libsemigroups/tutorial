@@ -38,6 +38,12 @@ nav:
                   - examples/atlas/leech-lattice/j2/index.md
                   - "P1": examples/atlas/leech-lattice/j2/j2-p1.md
                   - "P2": examples/atlas/leech-lattice/j2/j2-p2.md
+              - "Conway group Co1":
+                  - examples/atlas/leech-lattice/co1/index.md
+                  - "Co2": examples/atlas/leech-lattice/co1/98280.md
+                  - "3.Suz:2": examples/atlas/leech-lattice/co1/1545600.md
+                  - "2^11:M24": examples/atlas/leech-lattice/co1/8292375.md
+                  - "Co3": examples/atlas/leech-lattice/co1/8386560.md
               - "Conway group Co2":
                   - examples/atlas/leech-lattice/co2/index.md
                   - "U6(2):2": examples/atlas/leech-lattice/co2/2300.md

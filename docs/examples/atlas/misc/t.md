@@ -23,6 +23,9 @@ T~3~ defines a group of order $17,971,200$.
 In [libsemigroups_pybind11][], the following script constructs the presentation
 for T and runs the Todd-Coxeter algorithm.
 
+<details markdown>
+<summary>Code</summary>
+
 ```python
 from libsemigroups_pybind11 import (
     Presentation,
@@ -55,6 +58,8 @@ tc.strategy(ToddCoxeter.options.strategy.felsch)
 
 print(f"The size of the group is {tc.number_of_classes()}")
 ```
+
+</details>
 
 ## The output
 

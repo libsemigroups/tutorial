@@ -28,6 +28,9 @@ techniques such as `lookahead` and `lookbehind`.
 The code below took about 1 hour 20 minutes to run on a 2024 MacBook Pro M4 with
 48GB of RAM:
 
+<details markdown>
+<summary>Code</summary>
+
 ```python
 from datetime import timedelta
 
@@ -105,6 +108,8 @@ while not tc.finished():
 print(f"The size of the group is {tc.number_of_classes()}")
 ```
 
+</details>
+
 ## The output
 
 The truncated output of the enumeration is below:
@@ -179,4 +184,3 @@ Below is a visualisation of the computation as it progressed:
     Progress of the Todd–Coxeter computation.
   </figcaption>
 </figure>
-
