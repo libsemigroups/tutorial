@@ -66,12 +66,22 @@
 /* Keep the yellow half of diagonal status cells below the header separator in
    the compact group tables. */
 .atlas-group-tables table:not([class]) td.correct-size-alt {
-  background: linear-gradient(142deg, #4dac26 50%, #ffed4b 50%);
+  background: linear-gradient(148deg, #4dac26 50%, #ffed4b 50%);
   border-top-color: #4dac26;
 }
 
 .atlas-group-tables table:not([class]) td.correct-index-alt {
-  background: linear-gradient(142deg, #b8e186 50%, #ffed4b 50%);
+  background: linear-gradient(148deg, #b8e186 50%, #ffed4b 50%);
+  border-top-color: #b8e186;
+}
+
+.atlas-group-tables table:not([class]) td.some-correct-index {
+  background: linear-gradient(148deg, #b8e186 50%, #f1b6da 50%);
+  border-top-color: #b8e186;
+}
+
+.atlas-legend table:not([class]) td.some-correct-index {
+  background: linear-gradient(174deg, #b8e186 50%, #f1b6da 50%);
   border-top-color: #b8e186;
 }
 

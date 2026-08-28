@@ -141,7 +141,9 @@ see more information.
           <td class="correct-size">
             <a href="pariahs/j1">J<sub>1</sub></a>
           </td>
-          <td class="no-presentation-in-atlas">O'N</td>
+          <td class="some-correct-index">
+            <a href="pariahs/on">O'N</a>
+          </td>
           <td class="correct-size">
             <a href="pariahs/j3">J<sub>3</sub></a>
           </td>
@@ -193,14 +195,12 @@ see more information.
             presentation has at least 1 subgroup of the correct index.
           </td>
         </tr>
-        <!--
         <tr>
           <td class="some-correct-index">
             The presentation has at least 1 subgroup of the correct index, and
             at least 1 subgroup whose index could not be verified.
           </td>
         </tr>
-        -->
         <!-- <tr>
           <td class="incorrect-size">
             The presentation defines a group of the incorrect size

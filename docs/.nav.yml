@@ -88,6 +88,11 @@ nav:
                   - examples/atlas/monster-sections/fi22/index.md
           - "Pariahs":
               - examples/atlas/pariahs/*
+              - "O'Nan group O'N":
+                  - examples/atlas/pariahs/on/index.md
+                  - "L3(7):2": examples/atlas/pariahs/on/122760.md
+                  - "4.L3(4):2": examples/atlas/pariahs/on/2857239.md
+                  - "(3^2:4 x A6).2": examples/atlas/pariahs/on/17778376.md
               - "Janko group J4":
                   - examples/atlas/pariahs/j4/index.md
           - "Miscellaneous":

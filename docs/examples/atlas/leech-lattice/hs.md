@@ -3,6 +3,23 @@
 The claims on this page come from
 [https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/HS/](https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/HS/).
 
+## The computation
+
+The following animation visualises the computation as it progressed:
+
+<figure style="margin-top: 0;">
+  <div style="overflow: hidden;">
+    <video autoplay loop muted playsinline
+           style="display: block; width: 100%;
+                  margin-top: -10%; margin-bottom: -5%;">
+      <source src="../hs.mp4" type="video/mp4">
+    </video>
+  </div>
+  <figcaption style="margin-top: 0;">
+    Progress of the Todd–Coxeter computation.
+  </figcaption>
+</figure>
+
 ## Claim
 
 $$
@@ -169,18 +186,3 @@ The truncated output of the enumeration is below:
 
 :material-checkbox-marked-circle-outline: The computed size of the group matches
 the size of the group provided on the ATLAS: $44,352,000$
-
-Below is a visualisation of the computation as it progressed:
-
-<figure style="margin-top: 0;">
-  <div style="overflow: hidden;">
-    <video autoplay loop muted playsinline
-           style="display: block; width: 100%;
-                  margin-top: -10%; margin-bottom: -5%;">
-      <source src="../hs.mp4" type="video/mp4">
-    </video>
-  </div>
-  <figcaption style="margin-top: 0;">
-    Progress of the Todd–Coxeter computation.
-  </figcaption>
-</figure>
