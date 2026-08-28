@@ -62,7 +62,7 @@ The following tables summarise the results of this project. Click on a group to
 see more information.
 
 <div class="row">
-  <div class="column">
+  <div class="column atlas-group-tables">
     <div class="atlas-summary">
       <table>
         <tr>
@@ -166,7 +166,7 @@ see more information.
   </div>
 
   <div class="column">
-    <div class="atlas-summary">
+    <div class="atlas-summary atlas-legend">
       <table>
         <tr>
           <th>Legend</th>

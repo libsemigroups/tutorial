@@ -51,6 +51,30 @@
   background: linear-gradient(135deg, #b8e186 50%, #ffed4b 50%);
 }
 
+/* Prevent the alternate-row gradient from showing through the translucent
+   separator above it in the atlas legend. */
+.atlas-legend table:not([class]) td.correct-size-alt {
+  background: linear-gradient(174deg, #4dac26 50%, #ffed4b 50%);
+  border-top-color: #4dac26;
+}
+
+.atlas-legend table:not([class]) td.correct-index-alt {
+  background: linear-gradient(174deg, #b8e186 50%, #ffed4b 50%);
+  border-top-color: #b8e186;
+}
+
+/* Keep the yellow half of diagonal status cells below the header separator in
+   the compact group tables. */
+.atlas-group-tables table:not([class]) td.correct-size-alt {
+  background: linear-gradient(142deg, #4dac26 50%, #ffed4b 50%);
+  border-top-color: #4dac26;
+}
+
+.atlas-group-tables table:not([class]) td.correct-index-alt {
+  background: linear-gradient(142deg, #b8e186 50%, #ffed4b 50%);
+  border-top-color: #b8e186;
+}
+
 .some-correct-index {
   background: linear-gradient(135deg, #b8e186 50%, #f1b6da 50%);
 }
