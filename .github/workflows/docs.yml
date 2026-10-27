@@ -38,6 +38,8 @@ jobs:
       - run:
           pipx run --with mkdocs-material --with mkdocs-awesome-nav mkdocs build
           --clean
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: site

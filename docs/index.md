@@ -20,6 +20,8 @@ tutorial, or select from one of the options below:
 Some examples of more advanced usage of [libsemigroups][] can be found here on
 the [examples](examples/index.md) page.
 
+See the [changelog](changelog.md) for the tutorial's release notes.
+
 The QR code for this page is:
 
 <figure markdown="span" width=50%>

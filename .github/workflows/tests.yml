@@ -11,10 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - name: Test changelog generation
+        run: |
+          python -m pip install mkdocs
+          python -m unittest discover -s tests
       - name: Build in strict mode
         # The strict flag treats warnings as errors
         run:
           pipx run --with mkdocs-material --with mkdocs-awesome-nav mkdocs build
           --clean --strict
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
 # TODO: test the code snippets

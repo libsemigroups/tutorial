@@ -42,6 +42,7 @@ plugins:
 
 hooks:
   - hooks/release_version.py
+  - hooks/changelog.py
 
 markdown_extensions:
   - attr_list

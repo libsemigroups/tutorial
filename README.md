@@ -10,7 +10,7 @@ The online worksheets are made using the [`mkdocs`](https://www.mkdocs.org/) too
 Install them using:
 
 ```bash
-python3 -m pip install mkdocs mkdocs-material
+python3 -m pip install mkdocs mkdocs-material mkdocs-awesome-nav
 ```
 
 The webpage can then be compiled and served by running the following command in the root directory of the repository
@@ -25,6 +25,25 @@ To preview a release badge locally, set `TUTORIAL_VERSION` and
 
 ```bash
 TUTORIAL_VERSION=v0.2.0 TUTORIAL_RELEASE_TAG=v0.2.0 mkdocs serve
+```
+
+The Changelog page is populated from the published releases of
+[`libsemigroups/tutorial`](https://github.com/libsemigroups/tutorial/releases)
+each time the site builds. Edit release descriptions on GitHub; no local copy of
+the release notes needs to be maintained. Publishing a release rebuilds and
+deploys the site automatically. To refresh the site after editing an existing
+release description, run the Documentation workflow manually.
+
+Building the changelog requires access to the GitHub API. Local builds work
+without authentication, but you can set `GITHUB_TOKEN` to avoid the lower
+unauthenticated rate limit. The build fails if release notes cannot be fetched,
+so an incomplete changelog is never deployed. Both workflows provide their
+built-in GitHub token automatically.
+
+To run the changelog tests locally:
+
+```bash
+python3 -m unittest discover -s tests
 ```
 
 ## Adding content
