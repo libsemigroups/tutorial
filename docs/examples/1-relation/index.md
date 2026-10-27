@@ -9,7 +9,7 @@ produce the corresponding decision procedure. In particular, the techniques
 described in this paper were applied to a large number of 1-relation monoids to
 determine their decidability. Of these, 501 required a modified version of the
 Knuth-Bendix procedure along with the termination solver `Matchbox` to find a
-complete reqriting system, thus proving decidability.
+complete rewriting system, thus proving decidability.
 
 On the following pages, you will find complete rewriting systems for 412 of
 those 501 presentations. The complete rewriting systems described here were
