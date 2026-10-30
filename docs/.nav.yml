@@ -42,7 +42,17 @@ nav:
                   - "2^(1+4):S3": examples/atlas/mathieu/m12/495-i.md
                   - "4^2:D12": examples/atlas/mathieu/m12/495-ii.md
                   - "A4 x S3": examples/atlas/mathieu/m12/1320.md
-              - "Mathieu group M22": examples/atlas/mathieu/m22.md
+              - "Mathieu group M22":
+                  - examples/atlas/mathieu/m22/index.md
+                  - "Trivial": examples/atlas/mathieu/m22/443520.md
+                  - "L3(4)": examples/atlas/mathieu/m22/22.md
+                  - "2^4:A6": examples/atlas/mathieu/m22/77.md
+                  - "A7 (I)": examples/atlas/mathieu/m22/176-i.md
+                  - "A7 (II)": examples/atlas/mathieu/m22/176-ii.md
+                  - "2^4:S5": examples/atlas/mathieu/m22/231.md
+                  - "2^3:L3(2)": examples/atlas/mathieu/m22/330.md
+                  - "M10 = A6.2_3": examples/atlas/mathieu/m22/616.md
+                  - "L2(11)": examples/atlas/mathieu/m22/672.md
               - "Mathieu group M23":
                   - examples/atlas/mathieu/m23/index.md
                   - "Presentation 1": examples/atlas/mathieu/m23/p1.md
