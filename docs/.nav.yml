@@ -20,7 +20,14 @@ nav:
       - "Verifying presentations for sporadic simple groups":
           - examples/atlas/index.md
           - "Mathieu groups":
-              - "Mathieu group M11": examples/atlas/mathieu/m11.md
+              - "Mathieu group M11":
+                  - examples/atlas/mathieu/m11/index.md
+                  - "Trivial": examples/atlas/mathieu/m11/7920.md
+                  - "M10 = A6.2_3": examples/atlas/mathieu/m11/11.md
+                  - "L2(11)": examples/atlas/mathieu/m11/12.md
+                  - "M9:2": examples/atlas/mathieu/m11/55.md
+                  - "S5": examples/atlas/mathieu/m11/66.md
+                  - "2S4": examples/atlas/mathieu/m11/165.md
               - "Mathieu group M12": examples/atlas/mathieu/m12.md
               - "Mathieu group M22": examples/atlas/mathieu/m22.md
               - "Mathieu group M23":
