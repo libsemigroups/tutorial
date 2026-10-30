@@ -28,7 +28,20 @@ nav:
                   - "M9:2": examples/atlas/mathieu/m11/55.md
                   - "S5": examples/atlas/mathieu/m11/66.md
                   - "2S4": examples/atlas/mathieu/m11/165.md
-              - "Mathieu group M12": examples/atlas/mathieu/m12.md
+              - "Mathieu group M12":
+                  - examples/atlas/mathieu/m12/index.md
+                  - "Trivial": examples/atlas/mathieu/m12/95040.md
+                  - "M11 (I)": examples/atlas/mathieu/m12/12-i.md
+                  - "M11 (II)": examples/atlas/mathieu/m12/12-ii.md
+                  - "A6.2^2 (I)": examples/atlas/mathieu/m12/66-i.md
+                  - "A6.2^2 (II)": examples/atlas/mathieu/m12/66-ii.md
+                  - "L2(11)": examples/atlas/mathieu/m12/144.md
+                  - "3^2:2S4 (I)": examples/atlas/mathieu/m12/220-i.md
+                  - "3^2:2S4 (II)": examples/atlas/mathieu/m12/220-ii.md
+                  - "2 x S5": examples/atlas/mathieu/m12/396.md
+                  - "2^(1+4):S3": examples/atlas/mathieu/m12/495-i.md
+                  - "4^2:D12": examples/atlas/mathieu/m12/495-ii.md
+                  - "A4 x S3": examples/atlas/mathieu/m12/1320.md
               - "Mathieu group M22": examples/atlas/mathieu/m22.md
               - "Mathieu group M23":
                   - examples/atlas/mathieu/m23/index.md
