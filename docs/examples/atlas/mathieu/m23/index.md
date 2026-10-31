@@ -26,13 +26,13 @@ The Presentation 2 subgroup links retain the earlier recorded computations.
 | Subgroup | Subgroup order | Index in $\mathrm{M}_{23}$ | Verification P1 | Verification P2 |
 | :------- | -------------: | ------------------------: | :-------------: | :-------------: |
 | Trivial | $1$ | $10,200,960$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p1.md) | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p2.md) |
-| [$\mathrm{M}_{22}$](p1_m22.md) | $443,520$ | $23$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p1_m22.md) | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p2_m22.md) |
+| [$23:11$](40320.md) | $253$ | $40,320$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](40320.md) | :material-help-circle-outline: |
+| [$2^4:(3 \times A_5):2$](1771.md) | $5,760$ | $1,771$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](1771.md) | :material-help-circle-outline: |
+| [$\mathrm{M}_{11}$](p1_m11.md) | $7,920$ | $1,288$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p1_m11.md) | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p2_m11.md) |
+| [$A_8$](506.md) | $20,160$ | $506$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](506.md) | :material-help-circle-outline: |
 | [$L_3(4):2_2$](253-i.md) | $40,320$ | $253$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](253-i.md) | :material-help-circle-outline: |
 | [$2^4:A_7$](253-ii.md) | $40,320$ | $253$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](253-ii.md) | :material-help-circle-outline: |
-| [$A_8$](506.md) | $20,160$ | $506$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](506.md) | :material-help-circle-outline: |
-| [$\mathrm{M}_{11}$](p1_m11.md) | $7,920$ | $1,288$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p1_m11.md) | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p2_m11.md) |
-| [$2^4:(3 \times A_5):2$](1771.md) | $5,760$ | $1,771$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](1771.md) | :material-help-circle-outline: |
-| [$23:11$](40320.md) | $253$ | $40,320$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](40320.md) | :material-help-circle-outline: |
+| [$\mathrm{M}_{22}$](p1_m22.md) | $443,520$ | $23$ | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p1_m22.md) | [:material-checkbox-marked-circle-outline:{ style="color: #00c853" }](p2_m22.md) |
 
 **Key**
 

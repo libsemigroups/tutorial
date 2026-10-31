@@ -25,11 +25,11 @@ computation.
 | Subgroup | Subgroup order | Index in $\mathrm{M}_{11}$ | Verification |
 | :------- | -------------: | ------------------------: | :----------: |
 | [Trivial](7920.md) | $1$ | $7,920$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
-| [$\mathrm{M}_{10} = A_6.2_3$](11.md) | $720$ | $11$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
-| [$L_2(11)$](12.md) | $660$ | $12$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
-| [$\mathrm{M}_9:2$](55.md) | $144$ | $55$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
-| [$S_5$](66.md) | $120$ | $66$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
 | [$2S_4$](165.md) | $48$ | $165$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
+| [$S_5$](66.md) | $120$ | $66$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
+| [$\mathrm{M}_9:2$](55.md) | $144$ | $55$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
+| [$L_2(11)$](12.md) | $660$ | $12$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
+| [$\mathrm{M}_{10} = A_6.2_3$](11.md) | $720$ | $11$ | :material-checkbox-marked-circle-outline:{ style="color: #00c853" } |
 
 **Key**
 

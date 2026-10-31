@@ -67,7 +67,19 @@ nav:
                   - "Earlier P2 subgroup runs":
                       - "M22 (P2)": examples/atlas/mathieu/m23/p2_m22.md
                       - "M11 (P2)": examples/atlas/mathieu/m23/p2_m11.md
-              - "Mathieu group M24": examples/atlas/mathieu/m24.md
+              - "Mathieu group M24":
+                  - examples/atlas/mathieu/m24/index.md
+                  - "Trivial": examples/atlas/mathieu/m24/244823040.md
+                  - "Cyclic (order 23)": examples/atlas/mathieu/m24/10644480.md
+                  - "M23": examples/atlas/mathieu/m24/24.md
+                  - "M22:2": examples/atlas/mathieu/m24/276.md
+                  - "2^4:A8": examples/atlas/mathieu/m24/759.md
+                  - "M12:2": examples/atlas/mathieu/m24/1288.md
+                  - "2^6:3.S6": examples/atlas/mathieu/m24/1771.md
+                  - "L3(4):S3": examples/atlas/mathieu/m24/2024.md
+                  - "2^6:(L3(2) x S3)": examples/atlas/mathieu/m24/3795.md
+                  - "L2(23)": examples/atlas/mathieu/m24/40320.md
+                  - "L2(7)": examples/atlas/mathieu/m24/1457280.md
           - "Leech lattice groups":
               - examples/atlas/leech-lattice/hs.md
               - "Janko group J2, Hall-Janko group HJ":
