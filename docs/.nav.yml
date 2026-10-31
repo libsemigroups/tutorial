@@ -55,12 +55,18 @@ nav:
                   - "L2(11)": examples/atlas/mathieu/m22/672.md
               - "Mathieu group M23":
                   - examples/atlas/mathieu/m23/index.md
-                  - "Presentation 1": examples/atlas/mathieu/m23/p1.md
-                  - "Presentation 2": examples/atlas/mathieu/m23/p2.md
-                  - "M11, P1": examples/atlas/mathieu/m23/p1_m11.md
-                  - "M22, P1": examples/atlas/mathieu/m23/p1_m22.md
-                  - "M11, P2": examples/atlas/mathieu/m23/p2_m11.md
-                  - "M22, P2": examples/atlas/mathieu/m23/p2_m22.md
+                  - "Trivial (P1)": examples/atlas/mathieu/m23/p1.md
+                  - "Trivial (P2)": examples/atlas/mathieu/m23/p2.md
+                  - "M22 (P1)": examples/atlas/mathieu/m23/p1_m22.md
+                  - "L3(4):2_2 (P1)": examples/atlas/mathieu/m23/253-i.md
+                  - "2^4:A7 (P1)": examples/atlas/mathieu/m23/253-ii.md
+                  - "A8 (P1)": examples/atlas/mathieu/m23/506.md
+                  - "M11 (P1)": examples/atlas/mathieu/m23/p1_m11.md
+                  - "2^4:(3 x A5):2 (P1)": examples/atlas/mathieu/m23/1771.md
+                  - "23:11 (P1)": examples/atlas/mathieu/m23/40320.md
+                  - "Earlier P2 subgroup runs":
+                      - "M22 (P2)": examples/atlas/mathieu/m23/p2_m22.md
+                      - "M11 (P2)": examples/atlas/mathieu/m23/p2_m11.md
               - "Mathieu group M24": examples/atlas/mathieu/m24.md
           - "Leech lattice groups":
               - examples/atlas/leech-lattice/hs.md
